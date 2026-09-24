@@ -31,7 +31,7 @@ It stays current in three ways:
 - **Nightly**: the running server syncs automatically at 12:00 AM (`SYNC_TIMEZONE`, default
   `Asia/Manila`). Set `KAPILYA_NIGHTLY_SYNC=off` to disable.
 - **Settings → Run Sync Now**: starts the same sync on demand and shows its progress.
-  (Settings is only linked in the menu in development builds; the page itself is at `/settings`.)
+  (The Settings link only appears in the menu when the app is opened on localhost; the page itself is at `/settings`.)
 - **CLI**: `npm run sync:directory` (add `--dry-run` to preview, `--only=slug1,slug2` for a few locales).
 
 A full sync fetches every locale page (about 8,800) at a gentle rate and takes roughly 30 minutes.

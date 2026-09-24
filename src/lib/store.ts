@@ -6,6 +6,7 @@ import {
   Locale,
   DataSnapshot,
   DirectoryTotals,
+  LocaleKind,
   NextServiceStatus,
   WorldArea,
 } from './types';
@@ -17,7 +18,7 @@ import {
   type StoreData,
   type SyncSummary,
   SNAPSHOTS_DIR,
-  ensureDataDirs,
+  READ_ONLY_DEPLOYMENT,
   readStoreFile,
   storeFileMtime,
   writeSnapshot,
@@ -35,8 +36,6 @@ class KapilyaStore {
     if (this.data && mtime === this.loadedMtime) {
       return this.data;
     }
-
-    ensureDataDirs();
 
     if (mtime !== null) {
       try {
@@ -65,9 +64,10 @@ class KapilyaStore {
 
   public save() {
     if (!this.data) return;
+    this.cachedTotals = null;
+    if (READ_ONLY_DEPLOYMENT) return; // e.g. Vercel: the bundled store.json can't be written
     writeStoreFile(this.data);
     this.loadedMtime = storeFileMtime();
-    this.cachedTotals = null;
   }
 
   // --- Regions ---
@@ -90,6 +90,15 @@ class KapilyaStore {
       philippines: 'Philippines Regions',
     };
 
+    // Locale counts per district and kind, in one pass.
+    const emptyCounts = (): Record<LocaleKind, number> => ({ local_congregation: 0, extension: 0, group_worship_service: 0 });
+    const countsByDistrict = new Map<string, Record<LocaleKind, number>>();
+    for (const l of data.locales) {
+      let c = countsByDistrict.get(l.district_id);
+      if (!c) countsByDistrict.set(l.district_id, (c = emptyCounts()));
+      c[l.kind]++;
+    }
+
     return areaOrder.map((areaKey) => {
       const regionsInArea = data.regions
         .filter((r) => r.world_area === areaKey)
@@ -98,10 +107,14 @@ class KapilyaStore {
       const items = regionsInArea.map((reg) => {
         const regDistricts = districts
           .filter((d) => d.region_id === reg.id)
-          .map((d) => ({
-            ...d,
-            locale_count: data.locales.filter((l) => l.district_id === d.id).length,
-          }))
+          .map((d) => {
+            const kind_counts = countsByDistrict.get(d.id) ?? emptyCounts();
+            return {
+              ...d,
+              locale_count: kind_counts.local_congregation + kind_counts.extension + kind_counts.group_worship_service,
+              kind_counts,
+            };
+          })
           .sort((a, b) => a.name.localeCompare(b.name));
 
         return {
@@ -254,6 +267,47 @@ class KapilyaStore {
     return results;
   }
 
+  /**
+   * Name-first text search across all locales worldwide (Districts page instant search).
+   * Ranks exact name > name prefix > word prefix > name contains > address/district contains.
+   */
+  public searchLocales(params: { query: string; kind?: string; limit?: number }): { total: number; locales: Locale[] } {
+    const data = this.load();
+    const q = params.query.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (!q) return { total: 0, locales: [] };
+    const districtById = new Map(data.districts.map((d) => [d.id, d]));
+
+    const scored: { locale: Locale; score: number }[] = [];
+    for (const locale of data.locales) {
+      if (params.kind && params.kind !== 'all' && locale.kind !== params.kind) continue;
+      const name = locale.name.toLowerCase();
+      const district = districtById.get(locale.district_id);
+      let score = 0;
+      if (name === q) score = 100;
+      else if (name.startsWith(q)) score = 80;
+      else if (name.split(/[\s,.()-]+/).some((w) => w.startsWith(q))) score = 60;
+      else if (name.includes(q)) score = 40;
+      else if (district?.name.toLowerCase().includes(q)) score = 20;
+      else if (locale.address.toLowerCase().includes(q)) score = 10;
+      if (score > 0) scored.push({ locale, score });
+    }
+
+    scored.sort((a, b) => b.score - a.score || a.locale.name.localeCompare(b.locale.name));
+    const limit = params.limit && params.limit > 0 ? params.limit : 50;
+    return {
+      total: scored.length,
+      locales: scored.slice(0, limit).map(({ locale }) => {
+        const district = districtById.get(locale.district_id);
+        return {
+          ...locale,
+          district_name: district?.name,
+          district_slug: district?.slug,
+          timezone: district?.timezone || 'Asia/Manila',
+        };
+      }),
+    };
+  }
+
   // --- Next Service Status ---
   public getNextService(userLat?: number, userLng?: number): NextServiceStatus | null {
     const data = this.load();
@@ -362,6 +416,7 @@ class KapilyaStore {
   }
 
   public restoreSnapshot(snapshotId: string): boolean {
+    if (READ_ONLY_DEPLOYMENT) return false;
     const data = this.load();
     const snapshot = data.snapshots.find((s) => s.id === snapshotId);
     if (!snapshot) return false;

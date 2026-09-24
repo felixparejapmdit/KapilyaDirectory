@@ -27,6 +27,7 @@ import { useUserLocation, POPULAR_CITIES } from '@/components/LocationProvider';
 
 interface SyncStatus {
   state: 'idle' | 'running';
+  read_only?: boolean;
   phase: 'districts' | 'locales' | 'applying' | null;
   done: number;
   total: number;
@@ -323,7 +324,7 @@ export default function SettingsPage() {
             </button>
             <button
               onClick={handleRunSync}
-              disabled={syncing}
+              disabled={syncing || !!sync?.read_only}
               className="btn-amber text-xs px-3 py-2 flex items-center gap-1.5 whitespace-nowrap disabled:opacity-50"
             >
               <RefreshCw size={14} className={syncing ? 'animate-spin' : ''} />
@@ -331,6 +332,14 @@ export default function SettingsPage() {
             </button>
           </div>
         </div>
+
+        {sync?.read_only && (
+          <div className="p-3 rounded-xl border border-[#3A6EA5]/35 bg-[#3A6EA5]/15 text-xs text-[#A9B4C2]">
+            This deployment is read-only, so syncing and snapshots are turned off here. To update the
+            data, run the app locally, press Run Sync Now (or <code>npm run sync:directory</code>), then
+            commit and push <code>data/store.json</code>; the site redeploys with the new data.
+          </div>
+        )}
 
         {syncing && sync && (
           <div className="p-3 rounded-xl bg-[#3A6EA5]/15 border border-[#3A6EA5]/35 space-y-2" aria-live="polite">

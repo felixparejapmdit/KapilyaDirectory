@@ -845,3 +845,35 @@ html[data-transparency='reduced'] .kd-map-card {
 html[data-transparency='reduced'] body.light-theme .kd-map-card {
   background: #FFFFFF;
 }
+
+/* ============================================================
+   STICKY HEADER MASK
+   The header strip paints the page's own background (fixed to the viewport, so it lines up
+   seamlessly with <body>), hiding content that scrolls underneath. The glass nav pill inside
+   it then only ever shows the page gradient, never page content.
+   ============================================================ */
+.site-header {
+  background-color: #0B1426;
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(58, 110, 165, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(232, 163, 61, 0.08) 0%, transparent 40%),
+    linear-gradient(175deg, #0B1426 0%, #16233E 50%, #1F2A36 100%);
+  background-attachment: fixed;
+}
+
+body.light-theme .site-header {
+  background-color: #F8FAFC !important;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(58, 110, 165, 0.09) 0%, transparent 45%),
+    radial-gradient(circle at 88% 75%, rgba(232, 163, 61, 0.07) 0%, transparent 40%),
+    linear-gradient(175deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%) !important;
+  background-attachment: fixed;
+}
+
+/* Browsers that ignore fixed attachment (iOS Safari) get a solid strip instead of scrolled content. */
+@supports (-webkit-touch-callout: none) {
+  .site-header {
+    background-attachment: scroll;
+    background-image: none;
+  }
+}

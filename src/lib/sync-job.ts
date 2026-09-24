@@ -4,12 +4,14 @@
  */
 import { kapilyaStore } from './store';
 import { syncFromSource, type SyncPhase } from './sync';
-import type { SyncSummary } from './store-files';
+import { READ_ONLY_DEPLOYMENT, type SyncSummary } from './store-files';
 
 export const SYNC_TIMEZONE = process.env.SYNC_TIMEZONE || 'Asia/Manila';
 
 export interface SyncJobStatus {
   state: 'idle' | 'running';
+  /** True on serverless hosts (Vercel): data is updated by syncing locally and redeploying. */
+  read_only: boolean;
   trigger: SyncSummary['trigger'] | null;
   phase: SyncPhase | null;
   done: number;
@@ -76,6 +78,7 @@ export function nextMidnight(tz = SYNC_TIMEZONE, now = new Date()): Date {
 export function getSyncStatus(): SyncJobStatus {
   return {
     state: job.running ? 'running' : 'idle',
+    read_only: READ_ONLY_DEPLOYMENT,
     trigger: job.trigger,
     phase: job.phase,
     done: job.done,
@@ -89,7 +92,7 @@ export function getSyncStatus(): SyncJobStatus {
 
 /** Starts a full sync in the background. Returns false if one is already running. */
 export function startSync(trigger: SyncSummary['trigger']): boolean {
-  if (job.running) return false;
+  if (job.running || READ_ONLY_DEPLOYMENT) return false;
   Object.assign(job, { running: true, trigger, phase: 'districts', done: 0, total: 0, startedAt: Date.now() });
 
   void (async () => {
@@ -146,7 +149,7 @@ export function startSync(trigger: SyncSummary['trigger']): boolean {
 
 /** Checks every 30 s and starts a sync once per day at 12:00 AM in SYNC_TIMEZONE. */
 export function startNightlyScheduler() {
-  if (job.schedulerStarted || process.env.KAPILYA_NIGHTLY_SYNC === 'off') return;
+  if (job.schedulerStarted || process.env.KAPILYA_NIGHTLY_SYNC === 'off' || READ_ONLY_DEPLOYMENT) return;
   job.schedulerStarted = true;
   const timer = setInterval(() => {
     const z = zonedNow(SYNC_TIMEZONE);

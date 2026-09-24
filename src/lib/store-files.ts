@@ -33,6 +33,12 @@ export const STORE_FILE = path.join(DATA_DIR, 'store.json');
 export const SNAPSHOTS_DIR = path.join(DATA_DIR, 'snapshots');
 export const MAX_SNAPSHOTS = 30;
 
+/**
+ * Serverless hosts (Vercel) run from a read-only bundle: the store is served as deployed and
+ * updated by syncing locally and redeploying. Writes, snapshots, and the in-app sync are disabled.
+ */
+export const READ_ONLY_DEPLOYMENT = !!process.env.VERCEL || process.env.KAPILYA_READ_ONLY === '1';
+
 export function ensureDataDirs() {
   fs.mkdirSync(SNAPSHOTS_DIR, { recursive: true });
 }
@@ -62,6 +68,9 @@ export function writeStoreFile(data: StoreData) {
  * `data.snapshots`. Snapshot files that fall off the end of the list are deleted.
  */
 export function writeSnapshot(data: StoreData, description: string): DataSnapshot {
+  if (READ_ONLY_DEPLOYMENT) {
+    throw new Error('Snapshots are unavailable on this read-only deployment. Run the app locally to manage data.');
+  }
   ensureDataDirs();
   const snapshotId = `snap-${Date.now()}`;
   const fileName = `snapshot-${snapshotId}.json`;

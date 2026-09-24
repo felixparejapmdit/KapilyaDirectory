@@ -17,21 +17,21 @@ import {
 import { AskDrawer } from './AskDrawer';
 import { useTheme } from './ThemeProvider';
 import { KapilyaLogo } from './KapilyaLogo';
-
-// Settings (data sync, snapshots) is an admin tool: its nav button only shows in development.
-const SHOW_SETTINGS = process.env.NODE_ENV === 'development';
+import { useIsLocalhost } from '@/lib/use-is-localhost';
 
 export function Navigation() {
   const pathname = usePathname();
   const [askOpen, setAskOpen] = useState(false);
   const { resolved: theme, toggleTheme } = useTheme();
+  // Settings (data sync, snapshots) is an admin tool: its nav button only shows on localhost.
+  const showSettings = useIsLocalhost();
 
   const navLinks = [
     { label: 'Dashboard', href: '/', icon: Compass },
     { label: 'Near me', href: '/near-me', icon: MapPin },
     { label: 'Districts', href: '/districts', icon: Globe2 },
     { label: 'Favorites', href: '/saved', icon: Bookmark },
-    ...(SHOW_SETTINGS ? [{ label: 'Settings', href: '/settings', icon: Settings }] : []),
+    ...(showSettings ? [{ label: 'Settings', href: '/settings', icon: Settings }] : []),
   ];
 
   const isActive = (href: string) => {
@@ -43,7 +43,7 @@ export function Navigation() {
   return (
     <>
       {/* --- DESKTOP TOP NAV (>= 820px) --- */}
-      <header className="hidden md:block sticky top-0 z-40 px-6 py-3">
+      <header className="site-header hidden md:block sticky top-0 z-40 px-6 py-3">
         <div className="max-w-7xl mx-auto glass-panel px-6 py-3 flex items-center justify-between">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3 group">
@@ -134,7 +134,7 @@ export function Navigation() {
       </header>
 
       {/* --- MOBILE SLIM TOP APP BAR (< 820px) --- */}
-      <header className="md:hidden sticky top-0 z-40 px-3 py-2 bg-[#0B1426]/90 backdrop-blur-md border-b border-white/10 flex items-center justify-between mobile-header gap-2">
+      <header className="site-header md:hidden sticky top-0 z-40 px-3 py-2 border-b border-white/10 flex items-center justify-between mobile-header gap-2">
         <div className="flex items-center gap-2 shrink-0">
           <Link href="/" className="flex items-center gap-1.5">
             <div className="w-8 h-8 rounded-lg bg-[#E8A33D] text-[#0B1426] flex items-center justify-center p-1 font-bold shadow-md">

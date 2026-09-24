@@ -21,6 +21,7 @@ import { DirectoryTotals, NextServiceStatus, Locale } from '@/lib/types';
 import { formatTime12Hour } from '@/lib/time';
 import { useUserLocation } from '@/components/LocationProvider';
 import { useSplash } from '@/components/SplashScreen';
+import { useIsLocalhost } from '@/lib/use-is-localhost';
 import { formatDistance } from '@/lib/geo';
 import { findNextService } from '@/lib/next-service';
 
@@ -33,6 +34,7 @@ export default function DashboardPage() {
   // Use global location context (driven by My Location picker in nav bar)
   const { location, ready: locationReady } = useUserLocation();
   const { completeStep } = useSplash();
+  const isLocalhost = useIsLocalhost();
   const [statsLoaded, setStatsLoaded] = useState(false);
 
   const loadLocationData = useCallback(async (lat: number, lng: number) => {
@@ -400,7 +402,7 @@ export default function DashboardPage() {
             </p>
             <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px]">
               <span>Active Snapshot: {totals?.last_snapshot_id || 'snap-seed-v1'}</span>
-              {process.env.NODE_ENV === 'development' && (
+              {isLocalhost && (
                 <Link href="/settings" className="text-[#E8A33D] hover:underline font-semibold">
                   Manage &rarr;
                 </Link>
