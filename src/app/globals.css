@@ -1,0 +1,847 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-midnight: #0B1426;
+    --bg-navy: #16233E;
+    --bg-gunmetal: #1F2A36;
+    --color-steel: #3A6EA5;
+    --color-link: #5AA9FF;
+    --color-amber: #E8A33D;
+    --color-green: #3F8F5F;
+    --color-slate: #A9B4C2;
+    --color-slate-light: #5B6472;
+    --bg-paper: #FAFAF8;
+
+    --font-ui: var(--font-public-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: var(--font-plex-mono), "IBM Plex Mono", "SF Mono", Monaco, "Cascadia Code", "Courier New", monospace;
+  }
+}
+
+/* ============================================================
+   GLOBAL BACKGROUND & BASE (Dark Default)
+   ============================================================ */
+body {
+  background-color: #0B1426;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(58, 110, 165, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(232, 163, 61, 0.08) 0%, transparent 40%),
+    linear-gradient(175deg, #0B1426 0%, #16233E 50%, #1F2A36 100%);
+  background-attachment: fixed;
+  color: #F3F4F6;
+  font-family: var(--font-ui);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   LIGHT MODE SYSTEM (Comprehensive & Tailored Across All Pages)
+   ============================================================ */
+body.light-theme {
+  background-color: #F8FAFC !important;
+  background-image: 
+    radial-gradient(circle at 12% 15%, rgba(58, 110, 165, 0.09) 0%, transparent 45%),
+    radial-gradient(circle at 88% 75%, rgba(232, 163, 61, 0.07) 0%, transparent 40%),
+    linear-gradient(175deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%) !important;
+  color: #0F172A !important;
+}
+
+/* Headings in Light Mode */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6 {
+  color: #0F172A !important;
+}
+
+/* General white text replacement, with exception for elements explicitly marked keep-white */
+body.light-theme .text-white:not(.keep-white) {
+  color: #0F172A !important;
+}
+
+/* Muted / Secondary Text in Light Mode */
+body.light-theme .text-\[\#A9B4C2\],
+body.light-theme .text-gray-400,
+body.light-theme .text-gray-300,
+body.light-theme .text-slate-400 {
+  color: #475569 !important;
+}
+
+/* Glass Panels in Light Mode */
+body.light-theme .glass-panel {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(18px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+  border: 1px solid rgba(203, 213, 225, 0.85) !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Glass Cards in Light Mode */
+body.light-theme .glass-card {
+  background: #FFFFFF !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(226, 232, 240, 0.95) !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
+  color: #0F172A !important;
+}
+
+body.light-theme .glass-card:hover {
+  background: #FFFFFF !important;
+  border-color: rgba(58, 110, 165, 0.45) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Gradient Hero Banners in Light Mode (Dashboard & District detail) */
+body.light-theme .glass-panel.bg-gradient-to-r,
+body.light-theme .bg-gradient-to-r {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%) !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Form Inputs, Search, and Select in Light Mode */
+body.light-theme input[type="text"],
+body.light-theme input[type="search"],
+body.light-theme select {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+body.light-theme input::placeholder {
+  color: #64748B !important;
+}
+
+body.light-theme select option {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* Secondary Button in Light Mode */
+body.light-theme .btn-glass {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+}
+
+body.light-theme .btn-glass:hover {
+  background: #F1F5F9 !important;
+  border-color: #94A3B8 !important;
+}
+
+/* Desktop & Mobile Navigation in Light Mode */
+body.light-theme header .glass-panel {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #E2E8F0 !important;
+}
+
+body.light-theme .mobile-header,
+body.light-theme header.md\:hidden {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #E2E8F0 !important;
+}
+
+body.light-theme .nav-capsule,
+body.light-theme .bg-black\/20 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+body.light-theme .inactive-nav {
+  color: #475569 !important;
+}
+
+body.light-theme .inactive-nav:hover {
+  color: #0F172A !important;
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme nav.fixed {
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  border-color: #E2E8F0 !important;
+}
+
+body.light-theme nav.fixed a span {
+  color: #64748B;
+}
+
+body.light-theme nav.fixed a:hover span {
+  color: #0F172A;
+}
+
+/* Selected List Row State in Light Mode */
+body.light-theme .glass-row-selected {
+  background: rgba(232, 163, 61, 0.12) !important;
+  border-left: 4px solid #E8A33D !important;
+  border-color: rgba(232, 163, 61, 0.6) !important;
+}
+
+/* Tag / Badge Pills in Light Mode */
+body.light-theme .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  color: #334155 !important;
+}
+
+body.light-theme .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+  color: #334155 !important;
+}
+
+body.light-theme .border-white\/10,
+body.light-theme .border-white\/15,
+body.light-theme .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+body.light-theme .bg-black\/30 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Dark Background elements adaptation */
+body.light-theme .bg-\[\#0B1426\]:not(.departure-chip):not(.keep-dark) {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Ask Assistant Drawer in Light Mode */
+body.light-theme .glass-panel.max-w-md,
+body.light-theme [aria-label="Close Ask Drawer"] ~ div {
+  background: #FFFFFF !important;
+}
+
+body.light-theme .glass-panel.max-w-md .bg-white\/10 {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+/* Telegram Simulator in Light Mode */
+body.light-theme .bg-\[\#16233E\] {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06) !important;
+}
+
+body.light-theme .bg-\[\#16233E\] p,
+body.light-theme .bg-\[\#16233E\] span {
+  color: #0F172A !important;
+}
+
+body.light-theme .bg-\[\#16233E\] button {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+body.light-theme .bg-\[\#16233E\] button:hover {
+  background-color: #E2E8F0 !important;
+}
+
+/* ============================================================
+   DEPARTURE BOARD & SCHEDULE CHIPS
+   ============================================================ */
+.font-departure {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+  letter-spacing: -0.02em;
+}
+
+/* Iconic Transit Departure Chip (Dark LED Style, High Contrast in Both Modes) */
+.departure-chip {
+  font-family: var(--font-mono);
+  background: #0B1426;
+  color: #F9FAFB;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .departure-chip {
+  background: #0F172A !important;
+  color: #FFFFFF !important;
+  border: 1px solid #1E293B !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15) !important;
+}
+
+body.light-theme .departure-chip span,
+body.light-theme .departure-chip span.font-departure {
+  color: #FFFFFF !important;
+}
+
+body.light-theme .departure-chip .text-\[\#5AA9FF\] {
+  color: #60A5FA !important;
+}
+
+body.light-theme .departure-chip .text-emerald-400 {
+  color: #34D399 !important;
+}
+
+/* Schedule chips inside lists (e.g. Near-Me & District Locales) */
+body.light-theme span.font-departure.bg-\[\#0B1426\] {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* ============================================================
+   SERVICE STATUS BADGES & CTA BUTTONS
+   ============================================================ */
+.badge-service-active {
+  background: rgba(63, 143, 95, 0.22);
+  color: #4ADE80;
+  border: 1px solid rgba(63, 143, 95, 0.45);
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+body.light-theme .badge-service-active {
+  background: rgba(34, 197, 94, 0.12) !important;
+  color: #15803D !important;
+  border-color: rgba(34, 197, 94, 0.35) !important;
+}
+
+.badge-cws {
+  background: rgba(249, 115, 22, 0.2);
+  color: #FB923C;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+body.light-theme .badge-cws {
+  background: rgba(249, 115, 22, 0.12) !important;
+  color: #C2410C !important;
+  border-color: rgba(249, 115, 22, 0.3) !important;
+}
+
+/* Action CTA Button (Signal Amber) - Always dark bold text for pristine contrast */
+.btn-amber {
+  background: #E8A33D;
+  color: #0B1426 !important;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-amber:hover {
+  background: #F3B353;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(232, 163, 61, 0.35);
+}
+
+.btn-amber:active {
+  transform: translateY(0);
+}
+
+body.light-theme .btn-amber {
+  box-shadow: 0 2px 8px rgba(232, 163, 61, 0.3);
+}
+
+/* Secondary Button (Glass Default) */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F3F4F6;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Selected List Row State (Signal Amber left accent bar) */
+.glass-row-selected {
+  background: rgba(232, 163, 61, 0.12) !important;
+  border-left: 4px solid #E8A33D !important;
+  border-color: rgba(232, 163, 61, 0.4) !important;
+}
+
+/* Glassmorphism Classes (Dark Default) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  border-radius: 1rem;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 20, 38, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+body.light-theme ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+body.light-theme ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+/* Leaflet Map overrides */
+.leaflet-container {
+  background: #0B1426 !important;
+  font-family: inherit !important;
+}
+
+body.light-theme .leaflet-container {
+  background: #E2E8F0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #16233E !important;
+  color: #F9FAFB !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.light-theme .leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12) !important;
+}
+
+.leaflet-popup-tip {
+  background: #16233E !important;
+}
+
+body.light-theme .leaflet-popup-tip {
+  background: #FFFFFF !important;
+}
+
+/* Map tiles: OpenStreetMap, re-toned for the dark theme (same treatment as the reference design). */
+html[data-theme='dark'] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.86) contrast(0.9) saturate(0.6);
+}
+
+.leaflet-control-attribution {
+  background: rgba(11, 20, 38, 0.72) !important;
+  color: #A9B4C2 !important;
+  font-size: 10px;
+}
+
+.leaflet-control-attribution a {
+  color: #5AA9FF !important;
+}
+
+body.light-theme .leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #475569 !important;
+}
+
+.leaflet-bar a {
+  background: rgba(22, 35, 62, 0.92) !important;
+  color: #F3F4F6 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.light-theme .leaflet-bar a {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+.kd-pin {
+  background: transparent;
+  border: 0;
+}
+
+/* ============================================================
+   REDUCED TRANSPARENCY (Settings toggle or OS preference)
+   Solid surfaces instead of frosted glass.
+   ============================================================ */
+html[data-transparency='reduced'] .glass-panel,
+html[data-transparency='reduced'] .glass-card,
+html[data-transparency='reduced'] .kd-splash-card {
+  background: #16233E !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-transparency='reduced'] body.light-theme .glass-panel,
+html[data-transparency='reduced'] body.light-theme .glass-card,
+html[data-transparency='reduced'] body.light-theme .kd-splash-card {
+  background: #FFFFFF !important;
+}
+
+html[data-transparency='reduced'] [class*='backdrop-blur'] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-transparency='reduced'] header.md\:hidden,
+html[data-transparency='reduced'] nav.fixed {
+  background-color: #0B1426 !important;
+}
+
+html[data-transparency='reduced'] body.light-theme header.md\:hidden,
+html[data-transparency='reduced'] body.light-theme nav.fixed {
+  background-color: #FFFFFF !important;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-panel,
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* ============================================================
+   WELCOME SPLASH (initial Dashboard load only; see SplashScreen.tsx)
+   ============================================================ */
+.kd-splash {
+  --splash-base: #0B1426;
+  --splash-fg: #F3F4F6;
+  --splash-muted: #A9B4C2;
+  --splash-card: rgba(255, 255, 255, 0.07);
+  --splash-border: rgba(255, 255, 255, 0.15);
+  --splash-track: rgba(255, 255, 255, 0.1);
+  --splash-blob-opacity: 0.55;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  background: var(--splash-base);
+  color: var(--splash-fg);
+  font-family: var(--font-ui);
+  transition: opacity 650ms ease;
+}
+
+html[data-theme='light'] .kd-splash {
+  --splash-base: #F8FAFC;
+  --splash-fg: #0F172A;
+  --splash-muted: #475569;
+  --splash-card: rgba(255, 255, 255, 0.62);
+  --splash-border: rgba(203, 213, 225, 0.85);
+  --splash-track: rgba(15, 23, 42, 0.08);
+  --splash-blob-opacity: 0.32;
+}
+
+html[data-splash='on'] .kd-splash,
+html[data-splash='leaving'] .kd-splash {
+  display: grid;
+}
+
+html[data-splash='leaving'] .kd-splash {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Crossfade: the app shell fades in as the splash fades out. */
+.kd-app {
+  transition: opacity 650ms ease;
+}
+
+html[data-splash='on'] .kd-app {
+  opacity: 0;
+}
+
+/* Animated version of the app's background gradient: slow drifting, breathing color blobs. */
+.kd-splash-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(175deg, #0B1426 0%, #16233E 50%, #1F2A36 100%);
+}
+
+html[data-theme='light'] .kd-splash-bg {
+  background: linear-gradient(175deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
+}
+
+.kd-splash-blob {
+  position: absolute;
+  width: 62vmax;
+  height: 62vmax;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: var(--splash-blob-opacity);
+  will-change: transform;
+}
+
+.kd-splash-blob--steel {
+  top: -24vmax;
+  left: -20vmax;
+  background: radial-gradient(circle, #3A6EA5 0%, transparent 68%);
+  animation: kd-drift-a 26s ease-in-out infinite alternate;
+}
+
+.kd-splash-blob--amber {
+  right: -22vmax;
+  bottom: -26vmax;
+  background: radial-gradient(circle, rgba(232, 163, 61, 0.75) 0%, transparent 66%);
+  animation: kd-drift-b 30s ease-in-out infinite alternate;
+}
+
+.kd-splash-blob--green {
+  left: 18vmax;
+  bottom: -34vmax;
+  width: 48vmax;
+  height: 48vmax;
+  background: radial-gradient(circle, rgba(63, 143, 95, 0.55) 0%, transparent 66%);
+  animation: kd-drift-c 34s ease-in-out infinite alternate;
+}
+
+.kd-splash-blob--navy {
+  top: -18vmax;
+  right: -10vmax;
+  width: 52vmax;
+  height: 52vmax;
+  background: radial-gradient(circle, rgba(90, 169, 255, 0.35) 0%, transparent 64%);
+  animation: kd-drift-d 28s ease-in-out infinite alternate;
+}
+
+@keyframes kd-drift-a {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6vmax, 4vmax, 0) scale(1.08); }
+  100% { transform: translate3d(2vmax, 9vmax, 0) scale(0.96); }
+}
+
+@keyframes kd-drift-b {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-7vmax, -3vmax, 0) scale(1.1); }
+  100% { transform: translate3d(-3vmax, -8vmax, 0) scale(0.95); }
+}
+
+@keyframes kd-drift-c {
+  0% { transform: translate3d(0, 0, 0) scale(0.95); }
+  100% { transform: translate3d(8vmax, -6vmax, 0) scale(1.08); }
+}
+
+@keyframes kd-drift-d {
+  0% { transform: translate3d(0, 0, 0) scale(1.05); }
+  100% { transform: translate3d(-9vmax, 5vmax, 0) scale(0.94); }
+}
+
+.kd-splash-card {
+  position: relative;
+  width: min(100%, 23rem);
+  padding: 2.25rem 1.75rem 1.75rem;
+  border-radius: 1.75rem;
+  text-align: center;
+  background: var(--splash-card);
+  border: 1px solid var(--splash-border);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+}
+
+html[data-theme='light'] .kd-splash-card {
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+}
+
+.kd-splash-logo {
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 auto 1.25rem;
+  padding: 3px;
+  border-radius: 1.6rem;
+  background: linear-gradient(135deg, #3A6EA5, #E8A33D);
+  box-shadow: 0 12px 34px rgba(232, 163, 61, 0.28);
+}
+
+.kd-splash-logo-inner {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(1.6rem - 3px);
+  background: #0B1426;
+}
+
+.kd-splash-title {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--splash-fg);
+}
+
+.kd-splash-title span {
+  color: #E8A33D;
+  font-weight: 500;
+}
+
+.kd-splash-tagline {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: var(--splash-muted);
+}
+
+.kd-splash-status {
+  margin-top: 1.75rem;
+}
+
+.kd-splash-status-text {
+  margin: 0 0 0.65rem;
+  min-height: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  color: var(--splash-muted);
+}
+
+.kd-splash-track {
+  position: relative;
+  height: 4px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: var(--splash-track);
+}
+
+.kd-splash-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #3A6EA5, #E8A33D);
+  transition: width 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Indeterminate sheen while a step is still in flight. */
+.kd-splash-shimmer {
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: kd-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes kd-shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(260%); }
+}
+
+/* Staggered entrance: logo, then name, tagline, status (delays set inline). */
+.kd-splash-in {
+  opacity: 0;
+  animation: kd-rise 620ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.kd-splash-logo.kd-splash-in {
+  animation-name: kd-pop;
+}
+
+@keyframes kd-pop {
+  from { opacity: 0; transform: scale(0.82); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes kd-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kd-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Reduced motion: simple opacity fades only; no drift, no scale or slide, no sheen. */
+@media (prefers-reduced-motion: reduce) {
+  .kd-splash-blob,
+  .kd-splash-shimmer {
+    animation: none;
+  }
+
+  .kd-splash-in,
+  .kd-splash-logo.kd-splash-in {
+    animation-name: kd-fade;
+    animation-timing-function: ease;
+  }
+
+  .kd-splash-bar {
+    transition: width 300ms linear;
+  }
+}
+
+/* Near Me: info box floating over the map (strong glass so map labels do not bleed through). */
+.kd-map-card {
+  background: rgba(22, 35, 62, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+body.light-theme .kd-map-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: #CBD5E1;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+}
+
+html[data-transparency='reduced'] .kd-map-card {
+  background: #16233E;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html[data-transparency='reduced'] body.light-theme .kd-map-card {
+  background: #FFFFFF;
+}

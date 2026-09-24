@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="#0B1426"/>
+  <defs>
+    <linearGradient id="pinBodyGrad" x1="208" y1="64" x2="304" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F5C060"/>
+      <stop offset="55%" stop-color="#E8A33D"/>
+      <stop offset="100%" stop-color="#B87A20"/>
+    </linearGradient>
+    <radialGradient id="dotGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E8E8F0"/>
+    </radialGradient>
+  </defs>
+  <!-- Pin teardrop body -->
+  <path
+    d="M256 80C176.47 80 112 144.47 112 224C112 312 232 440 248.7 457.4C252.7 461.7 259.3 461.7 263.3 457.4C280 440 400 312 400 224C400 144.47 335.53 80 256 80Z"
+    fill="url(#pinBodyGrad)"
+  />
+  <!-- Dark inner ring -->
+  <circle cx="256" cy="224" r="72" fill="#0B1426"/>
+  <!-- White center glow -->
+  <circle cx="256" cy="224" r="44" fill="url(#dotGlow)"/>
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "Kapilya Directory — Worldwide INC Finder",
+  "short_name": "Kapilya",
+  "description": "Near-me finder for Iglesia Ni Cristo local congregations, extensions, and group worship services with departure-board worship schedules and GPS directions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1426",
+  "theme_color": "#0B1426",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
