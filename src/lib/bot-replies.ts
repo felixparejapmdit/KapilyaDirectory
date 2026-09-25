@@ -40,7 +40,7 @@ const KIND_LABEL: Record<LocaleKind, string> = {
   group_worship_service: 'GWS',
 };
 const KIND_SECTION: Record<LocaleKind, string> = {
-  local_congregation: '⛪ <b>Local congregations</b>',
+  local_congregation: '🏢 <b>Local congregations</b>',
   extension: '➕ <b>Extensions</b>',
   group_worship_service: '👥 <b>Group worship services (GWS)</b>',
 };
@@ -211,7 +211,7 @@ export function searchReply(data: BotData, rawText: string): BotReply | null {
     : 'No schedule posted. Please contact the district office.';
 
   let html =
-    `⛪ ${nameLink(top)} · ${KIND_LABEL[top.kind]}\n` +
+    `🏢 ${nameLink(top)} · ${KIND_LABEL[top.kind]}\n` +
     `🏛️ District of ${esc(top.district_name ?? '')}\n` +
     `📍 ${esc(top.address)}\n` +
     (top.phone ? `📞 ${esc(top.phone)}\n` : '') +
