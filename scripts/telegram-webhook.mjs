@@ -16,9 +16,10 @@ const SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;
 const WEBHOOK_URL = process.env.TELEGRAM_WEBHOOK_URL || 'https://kapilya-directory.vercel.app/api/telegram/webhook';
 const action = process.argv[2] || 'on';
 
+class Stop extends Error {}
+/** Stops with a message (thrown rather than process.exit, so open connections close cleanly on Windows). */
 function fail(message) {
-  console.error(`\n✖ ${message}\n`);
-  process.exit(1);
+  throw new Stop(message);
 }
 
 async function tg(method, body = {}) {
@@ -45,14 +46,7 @@ async function status() {
   }
 }
 
-if (!TOKEN) fail('TELEGRAM_BOT_TOKEN is missing from .env.local.');
-
-if (action === 'status') {
-  await status();
-} else if (action === 'off') {
-  await tg('deleteWebhook', { drop_pending_updates: false });
-  console.log('Webhook removed. Run `npm run bot` on this PC to answer messages again.');
-} else {
+async function connect() {
   if (!SECRET) fail('TELEGRAM_WEBHOOK_SECRET is missing from .env.local.');
 
   // 1. The deployment has both settings.
@@ -93,4 +87,17 @@ if (action === 'status') {
   });
   console.log('✔ The bot now runs on Vercel, around the clock. `npm run bot` on this PC is no longer needed.\n');
   await status();
+}
+
+try {
+  if (!TOKEN) fail('TELEGRAM_BOT_TOKEN is missing from .env.local.');
+  if (action === 'status') await status();
+  else if (action === 'off') {
+    await tg('deleteWebhook', { drop_pending_updates: false });
+    console.log('Webhook removed. Run `npm run bot` on this PC to answer messages again.');
+  } else await connect();
+} catch (err) {
+  if (!(err instanceof Stop)) throw err;
+  console.error(`\n✖ ${err.message}\n`);
+  process.exitCode = 1;
 }
