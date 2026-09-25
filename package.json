@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "bot": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --env-file-if-exists=.env.local src/bot/telegram-bot.mjs",
+    "bot:webhook": "node --env-file-if-exists=.env.local scripts/telegram-webhook.mjs",
     "sync:directory": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/sync-directory.ts"
   },
   "dependencies": {

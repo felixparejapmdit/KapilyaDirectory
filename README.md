@@ -17,7 +17,8 @@ Production:
 ```bash
 npm run build
 npm run start -- -p 3000
-npm run bot                  # optional: Telegram bot (long polling), reads .env.local
+npm run bot                  # optional: Telegram bot on this PC (long polling), reads .env.local
+npm run bot:webhook          # run the Telegram bot on Vercel instead (always on), see "Telegram bot"
 ```
 
 No database server, account, or migration is needed: the app runs from the data file in the repo.
@@ -103,6 +104,7 @@ real values**; this repository is public.
 | Variable | Needed for | Required? | Default |
 | --- | --- | --- | --- |
 | `TELEGRAM_BOT_TOKEN` | Telegram bot (`npm run bot`) and `/api/telegram/webhook` | Only for the bot | none (the bot exits without it) |
+| `TELEGRAM_WEBHOOK_SECRET` | The always-on bot on Vercel: only requests carrying this secret (sent by Telegram) are accepted | Only for the webhook | none (the webhook rejects everything) |
 | `GOOGLE_MAPS_API_KEY` | Road distances from Google instead of OSRM, so they match Google Maps exactly | No | not set (uses OSRM) |
 | `SYNC_TIMEZONE` | Time zone of the 6-hourly sync (12 AM, 6 AM, 12 PM, 6 PM) | No | `Asia/Manila` |
 | `KAPILYA_AUTO_SYNC` | Set to `off` to stop a running server from syncing on its own | No | on |
@@ -134,12 +136,24 @@ you host a writable server on the public internet, put `/settings`, `/api/ingest
 
 ## Telegram bot
 
-`npm run bot` (long polling) and `/api/telegram/webhook` share the same replies
-(`src/lib/bot-replies.ts`), read from the current data on every message: `/nearme`,
-`/district <name> [gws|ext]`, or any chapel name. Congregation names link to directions.
+The bot answers `/nearme`, `/district <name> [gws|ext]`, or any chapel name, with names linking to
+directions. It can run in two places, with the same replies (`src/lib/bot-replies.ts`):
 
-Run only one of them per token: Telegram doesn't deliver updates by long polling while a webhook is
-set for the bot.
+- **On Vercel (recommended, always on).** Telegram delivers each message to
+  `/api/telegram/webhook`, so the bot works even when your PC is off.
+  1. In `.env.local`, set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_WEBHOOK_SECRET` (any 20–60 random
+     letters, digits, `-` or `_`).
+  2. In Vercel: **Project → Settings → Environment Variables**, add both with the same values for
+     **Production**, then **Deployments → ⋯ → Redeploy**.
+  3. Run `npm run bot:webhook`. It checks that the deployment has both values and the same secret,
+     then connects Telegram to it. `npm run bot:webhook -- status` shows where messages go.
+- **On this PC** with `npm run bot` (long polling): only answers while the PC is on and online.
+  Telegram delivers to one place at a time, so while the webhook is connected `npm run bot` just
+  says so and exits; run `npm run bot:webhook -- off` first to switch back.
+
+The webhook only accepts requests carrying `TELEGRAM_WEBHOOK_SECRET`, so nobody else can make the bot
+send messages. Replies on Vercel use the data from the latest deployment, which the 6-hourly sync
+keeps current.
 
 ## Distances
 

@@ -110,15 +110,11 @@ export function AskDrawer({ isOpen, onClose }: AskDrawerProps) {
     [location, router]
   );
 
-  /** One spoken exchange: (greeting) → listen with live transcript → act → answer out loud. */
+  /** One spoken exchange: listen with live transcript → act → answer out loud. */
   const runVoiceSession = useCallback(
-    async (greet: boolean) => {
+    async () => {
       const session = ++sessionRef.current;
       const alive = () => sessionRef.current === session;
-      if (greet) {
-        if (voice.hearsWhileSpeaking) await voice.speak(GREETING, 'greeting');
-        if (!alive()) return;
-      }
       const heard = await voice.listen((live) => alive() && setInput(live));
       if (!alive()) return;
       // "Hey Assistant, …" here just means the question that follows.
@@ -154,7 +150,7 @@ export function AskDrawer({ isOpen, onClose }: AskDrawerProps) {
       return;
     }
     voice.unlockSpeech();
-    void runVoiceSession(false);
+    void runVoiceSession();
   };
 
   const close = () => {

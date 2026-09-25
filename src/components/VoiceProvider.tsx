@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, useSyncExternalStore } from 'react';
 import { VoiceController, type VoiceState } from '@/lib/voice/controller';
 
-const OFF: VoiceState = { enabled: false, phase: 'off', interim: '', level: 0, error: null };
+const OFF: VoiceState = { enabled: false, phase: 'off', interim: '', level: 0, error: null, needsTap: false };
 /** Set to "off" when the user turns the assistant off with the menu-bar mic button. */
 export const VOICE_PREF_KEY = 'kapilya_voice';
 

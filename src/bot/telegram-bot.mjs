@@ -74,6 +74,12 @@ async function pollUpdates() {
       allowed_updates: ['message', 'callback_query'],
     });
 
+    if (res && !res.ok && res.error_code === 409) {
+      // A webhook was connected (the bot now runs on Vercel): this PC is no longer needed.
+      console.log('The bot now runs on Vercel (webhook connected). Stopping polling on this PC.');
+      process.exit(0);
+    }
+    if (res && !res.ok) await new Promise((r) => setTimeout(r, 3000));
     if (res && res.ok && Array.isArray(res.result)) {
       for (const update of res.result) {
         offset = update.update_id + 1;
@@ -89,6 +95,14 @@ async function pollUpdates() {
 
   // Continue polling
   setImmediate(pollUpdates);
+}
+
+// When the bot runs on Vercel (webhook), Telegram doesn't deliver by polling: nothing to do here.
+const webhook = await tgApi('getWebhookInfo', {});
+if (webhook?.ok && webhook.result.url) {
+  console.log(`The bot already runs on Vercel, always on (${webhook.result.url}). No need to run it on this PC.`);
+  console.log('To answer from this PC instead, run `npm run bot:webhook -- off` first.');
+  process.exit(0);
 }
 
 console.log('Starting Kapilya Directory Telegram Bot (@KapilyaDirectory_bot)...');

@@ -78,15 +78,11 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
     [voice]
   );
 
-  /** Greets on screen at once. Spoken only where the user can talk over it (not iPhone), so they never wait. */
-  const showGreeting = useCallback(
-    async (alive: () => boolean) => {
-      if (voice.hearsWhileSpeaking) return say(GREETING, 'greeting', alive);
-      setAssistantText(GREETING);
-      setRevealed(GREETING.length);
-    },
-    [say, voice]
-  );
+  /** Greets on screen only (like Siri), so the user can start talking at once. */
+  const showGreeting = useCallback(() => {
+    setAssistantText(GREETING);
+    setRevealed(GREETING.length);
+  }, []);
 
   const dismiss = useCallback(() => {
     const session = ++sessionRef.current;
@@ -133,6 +129,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
       if (fresh) reset();
       else {
         setUserText('');
+        setAssistantText('');
         setCards([]);
         setSchedule([]);
         scrollToTop();
@@ -140,13 +137,19 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
       if (firstText) {
         if (!(await handle(firstText, alive))) return alive() && dismiss();
       } else if (fresh) {
-        await showGreeting(alive);
-        if (!alive()) return;
+        showGreeting();
       }
       for (let turn = firstText ? 1 : 0; turn < MAX_TURNS && alive(); turn++) {
-        const heard = await voice.listen((live) => alive() && setUserText(live), turn === 0 ? 9000 : 7000);
+        const heard = await voice.listen((live) => alive() && setUserText(live), turn === 0 ? 9000 : 7000, { stopAtWake: true });
         if (!alive()) return;
         if (!heard) {
+          if (voice.getState().needsTap) {
+            // iPhone Safari won't listen again without a tap: stay open and ask for one.
+            setAssistantText('Tap the orb to keep talking.');
+            setRevealed(99);
+            voice.setPhase('armed');
+            return;
+          }
           if (turn === 0 && !firstText) await say("I didn't catch that. Tap the orb and try again.", 'speaking', alive);
           break;
         }
@@ -156,8 +159,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
           const rest = heard.slice(wake.index + wake[0].length).replace(/^[\s,.!?]+/, '').trim();
           reset();
           if (!rest) {
-            await showGreeting(alive);
-            if (!alive()) return;
+            showGreeting();
             turn = -1;
             continue;
           }
