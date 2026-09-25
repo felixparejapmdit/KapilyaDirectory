@@ -7,7 +7,7 @@ import { Search, Filter, Navigation as NavIcon, ChevronRight, MapPin } from 'luc
 import { Locale } from '@/lib/types';
 import { LeafletMap } from '@/components/LeafletMap';
 import { formatTime12Hour } from '@/lib/time';
-import { directionsUrl, formatTravel } from '@/lib/geo';
+import { NEARBY_POOL, NEARBY_RADIUS_KM, directionsUrl, formatTravel } from '@/lib/geo';
 import { useRoadDistances } from '@/lib/use-road-distances';
 import { findNextService, formatCountdown } from '@/lib/next-service';
 import { useUserLocation } from '@/components/LocationProvider';
@@ -68,7 +68,7 @@ export default function NearMePage() {
     lng: location.lng,
   });
   const [addressInput, setAddressInput] = useState('');
-  const [radiusKm, setRadiusKm] = useState<number>(25);
+  const [radiusKm, setRadiusKm] = useState<number>(NEARBY_RADIUS_KM);
   const [selectedDay, setSelectedDay] = useState<string>('all');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('all');
   const [selectedKind, setSelectedKind] = useState<string>('all');
@@ -93,7 +93,7 @@ export default function NearMePage() {
         if (selectedLanguage !== 'all') params.set('language', selectedLanguage);
         if (selectedKind !== 'all') params.set('kind', selectedKind);
         if (addressInput.trim()) params.set('q', addressInput.trim());
-        params.set('limit', '60');
+        params.set('limit', String(NEARBY_POOL));
 
         const res = await fetch(`/api/locales/nearby?${params.toString()}`);
         const data = await res.json();

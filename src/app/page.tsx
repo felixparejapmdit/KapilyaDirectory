@@ -20,7 +20,7 @@ import type { LucideIcon } from 'lucide-react';
 import { formatTime12Hour } from '@/lib/time';
 import { useUserLocation } from '@/components/LocationProvider';
 import { useSplash } from '@/components/SplashScreen';
-import { formatTravel } from '@/lib/geo';
+import { NEARBY_POOL, NEARBY_RADIUS_KM, formatTravel } from '@/lib/geo';
 import { useRoadDistances } from '@/lib/use-road-distances';
 import { findNextService } from '@/lib/next-service';
 
@@ -61,12 +61,12 @@ export default function DashboardPage() {
     try {
       const [nextRes, nearbyRes] = await Promise.all([
         fetch(`/api/status/next-service?lat=${lat}&lng=${lng}`).then((r) => r.json()),
-        fetch(`/api/locales/nearby?lat=${lat}&lng=${lng}&radius=25&limit=8`).then((r) => r.json()),
+        fetch(`/api/locales/nearby?lat=${lat}&lng=${lng}&radius=${NEARBY_RADIUS_KM}&limit=${NEARBY_POOL}`).then((r) => r.json()),
       ]);
 
       setNextService(nextRes.nextService);
-      // A few extra candidates: the nearest by road can differ from the nearest in a straight line.
-      setNearbyLocales(nearbyRes.locales?.slice(0, 8) || []);
+      // Same candidate pool as Near Me: the nearest by road can differ from the nearest in a straight line.
+      setNearbyLocales(nearbyRes.locales || []);
     } catch (err) {
       console.error('Error loading location data:', err);
     } finally {

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { kapilyaStore } from '@/lib/store';
 import { formatTime12Hour } from '@/lib/time';
-import { directionsUrl, formatDistance, formatMinutes, haversineKm } from '@/lib/geo';
+import { NEARBY_POOL, NEARBY_RADIUS_KM, directionsUrl, formatTravel, haversineKm } from '@/lib/geo';
 import { roadDistances, type RoadDistance } from '@/lib/road-distance';
 import { findNextService } from '@/lib/next-service';
 import type { Locale, LocaleKind, WorshipScheduleItem } from '@/lib/types';
@@ -95,7 +95,7 @@ function isKapilyaQuery(query: string): boolean {
   return KAPILYA_KEYWORDS.some((kw) => lc.includes(kw));
 }
 
-const SEARCH_RADIUS_KM = 30;
+const SEARCH_RADIUS_KM = NEARBY_RADIUS_KM;
 
 export async function POST(request: NextRequest) {
   try {
@@ -131,13 +131,11 @@ export async function POST(request: NextRequest) {
     };
     const straightKm = (l: Locale) => haversineKm(userLat, userLng, l.latitude, l.longitude);
     const roadKm = (l: Locale) => roadMap.get(l.id)?.km ?? straightKm(l);
-    const distanceText = (l: Locale) => {
-      const road = roadMap.get(l.id);
-      if (road && road.km < 0.03) return 'right where you are';
-      return road
-        ? `${formatDistance(road.km)} by road (~${formatMinutes(road.minutes)} drive)`
-        : `about ${formatDistance(straightKm(l))} away (straight line)`;
-    };
+    // Exactly what the web page shows: "2.4 km · 4 min", "Here", or "≈1.5 km" without a route.
+    const distanceText = (l: Locale) => formatTravel(roadMap.get(l.id), straightKm(l));
+    /** Distance in a sentence: "is 2.4 km · 4 min from you" / "is right where you are". */
+    const distanceSentence = (l: Locale) =>
+      (roadMap.get(l.id)?.km ?? 1) < 0.03 ? 'right where you are' : `${distanceText(l)} from you`;
     const language = mentionedLanguage(lower) ?? context.language;
     const contextLocale = context.localeId ? kapilyaStore.getLocaleById(context.localeId) : null;
 
@@ -153,7 +151,7 @@ export async function POST(request: NextRequest) {
             !opts.language ||
             l.schedule?.some((s) => matchesLanguage(s, opts.language!) && (opts.day === undefined || s.day_of_week === opts.day))
         )
-        .slice(0, Math.min(Math.max(opts.limit * 2, 6), 20));
+        .slice(0, NEARBY_POOL);
       await measure(candidates);
       return candidates.sort((a, b) => roadKm(a) - roadKm(b)).slice(0, opts.limit);
     };
@@ -236,7 +234,7 @@ export async function POST(request: NextRequest) {
       if (target) {
         await measure([target]);
         return NextResponse.json({
-          reply: `${link(target)}${kindTag(target)}${language ? ` (holds ${language} services)` : ''} is ${distanceText(target)}${roadMap.get(target.id)?.km === 0 ? '' : ' from you'}.\n\n📍 ${target.address}\n\nOpen turn-by-turn directions:\n${directionsUrl(target.latitude, target.longitude, target.name, origin)}\n\nNext ${language ? `${language} ` : ''}service: ${getNextScheduleText(target, language)}.`,
+          reply: `${link(target)}${kindTag(target)}${language ? ` (holds ${language} services)` : ''} is ${distanceSentence(target)}.\n\n📍 ${target.address}\n\nOpen turn-by-turn directions:\n${directionsUrl(target.latitude, target.longitude, target.name, origin)}\n\nNext ${language ? `${language} ` : ''}service: ${getNextScheduleText(target, language)}.`,
           locale: target,
           context: { localeId: target.id, language },
         });
@@ -292,7 +290,7 @@ export async function POST(request: NextRequest) {
         if (services.length > 0) {
           await measure([contextLocale]);
           return NextResponse.json({
-            reply: `On ${dayCapitalized}, ${link(contextLocale)} holds${language ? ` ${language}` : ''} worship service${services.length > 1 ? 's' : ''} at:\n\n${services.map((s) => `• ${serviceLabel(s)}`).join('\n')}\n\nIt's ${distanceText(contextLocale)}${roadMap.get(contextLocale.id)?.km === 0 ? '' : ' from you'}.`,
+            reply: `On ${dayCapitalized}, ${link(contextLocale)} holds${language ? ` ${language}` : ''} worship service${services.length > 1 ? 's' : ''} at:\n\n${services.map((s) => `• ${serviceLabel(s)}`).join('\n')}\n\nIt's ${distanceSentence(contextLocale)}.`,
             locale: contextLocale,
             context: { localeId: contextLocale.id, language },
           });

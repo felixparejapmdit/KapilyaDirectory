@@ -5,6 +5,14 @@
 
 const R_KM = 6371; // Earth radius in km
 
+/**
+ * "Nearest" everywhere (Near Me page, dashboard, Ask, Telegram bot) means: the NEARBY_POOL closest
+ * locales within NEARBY_RADIUS_KM in a straight line, re-ranked by driving distance. One shared
+ * definition keeps the lists and distances identical across all of them.
+ */
+export const NEARBY_RADIUS_KM = 25;
+export const NEARBY_POOL = 60;
+
 /** Great-circle distance in kilometres. */
 export function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const dLat = toRad(lat2 - lat1);

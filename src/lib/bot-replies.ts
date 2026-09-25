@@ -9,7 +9,7 @@
 import type { District, Locale, LocaleKind } from './types.ts';
 import { findNextService } from './next-service.ts';
 import { formatTime12Hour } from './time.ts';
-import { formatDistance, formatMinutes, haversineKm } from './geo.ts';
+import { NEARBY_POOL, NEARBY_RADIUS_KM, formatTravel, haversineKm } from './geo.ts';
 import { googleDirectionsUrl, roadDistances, type LatLng } from './road-distance.ts';
 
 export interface BotData {
@@ -113,12 +113,14 @@ export function welcomeReply(): BotReply {
 
 export async function nearbyReply(data: BotData, lat: number, lng: number): Promise<BotReply> {
   const origin = { lat, lng };
-  // Straight-line candidates, re-ranked by driving distance (what the directions link will show).
-  const candidates = withTimezones(data)
+  // Same pool as the web page: the closest within NEARBY_RADIUS_KM, re-ranked by driving distance.
+  // Far from any chapel, fall back to the 10 closest anywhere.
+  const byStraight = withTimezones(data)
     .filter((l) => l.latitude || l.longitude)
     .map((l) => ({ l, km: haversineKm(lat, lng, l.latitude, l.longitude) }))
-    .sort((a, b) => a.km - b.km)
-    .slice(0, 10);
+    .sort((a, b) => a.km - b.km);
+  const inRadius = byStraight.filter((c) => c.km <= NEARBY_RADIUS_KM);
+  const candidates = inRadius.length ? inRadius.slice(0, NEARBY_POOL) : byStraight.slice(0, 10);
   const roads = await roadDistances(origin, candidates.map(({ l }) => ({ lat: l.latitude, lng: l.longitude })));
   const ranked = candidates
     .map((c, i) => ({ ...c, road: roads[i] }))
@@ -129,7 +131,7 @@ export async function nearbyReply(data: BotData, lat: number, lng: number): Prom
 
   const lines = ranked.map(
     ({ l, km, road }, i) =>
-      `<b>${i + 1}.</b> ${nameLink(l, origin)} · ${road ? (road.km < 0.03 ? 'you are here' : `${formatDistance(road.km)} by road · ${formatMinutes(road.minutes)}`) : `≈${formatDistance(km)}`}${l.kind !== 'local_congregation' ? ` · ${KIND_LABEL[l.kind]}` : ''}\n` +
+      `<b>${i + 1}.</b> ${nameLink(l, origin)} · ${esc(formatTravel(road, km))}${l.kind !== 'local_congregation' ? ` · ${KIND_LABEL[l.kind]}` : ''}\n` +
       `   🕒 Next: ${esc(nextServiceText(l))}\n` +
       `   📍 ${esc(l.address)}`
   );
