@@ -94,4 +94,8 @@ export interface NextServiceStatus {
   startsInMinutes: number;
   statusText: string;
   isImminent: boolean;
+  /** Minutes until the user should leave to arrive on time (travel-aware soonest service). */
+  leaveInMinutes?: number;
+  /** Road distance and drive time, e.g. "3.2 km · 7 min". */
+  travelText?: string;
 }

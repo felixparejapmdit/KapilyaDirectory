@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useUserLocation } from '@/components/LocationProvider';
 import { useVoice } from '@/components/VoiceProvider';
 import { GREETING } from '@/lib/voice/controller';
-import { parseVoiceIntent, replyForSpeech, type VoiceVocabulary } from '@/lib/voice/intents';
+import { askAssistant, executeVoiceCommand } from '@/lib/voice/commands';
 
 interface Message {
   id: string;
@@ -19,8 +19,6 @@ interface Message {
 interface AskDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  /** Increments each time the wake word is heard: greet, then listen. */
-  voiceWake?: number;
 }
 
 const PHASE_LABEL: Record<string, string> = {
@@ -31,25 +29,7 @@ const PHASE_LABEL: Record<string, string> = {
   armed: 'Say “Hey Assistant” or tap the mic',
 };
 
-// Region/district names for voice commands, fetched once per page load.
-let vocabPromise: Promise<VoiceVocabulary> | null = null;
-function loadVocabulary(): Promise<VoiceVocabulary> {
-  vocabPromise ??= Promise.all([
-    fetch('/api/regions').then((r) => r.json()),
-    fetch('/api/districts').then((r) => r.json()),
-  ])
-    .then(([r, d]) => ({
-      regions: (r.regions ?? []).map((x: { name: string }) => x.name),
-      districts: (d.districts ?? []).map((x: { name: string; slug: string }) => ({ name: x.name, slug: x.slug })),
-    }))
-    .catch(() => {
-      vocabPromise = null;
-      return { regions: [], districts: [] };
-    });
-  return vocabPromise;
-}
-
-export function AskDrawer({ isOpen, onClose, voiceWake = 0 }: AskDrawerProps) {
+export function AskDrawer({ isOpen, onClose }: AskDrawerProps) {
   const router = useRouter();
   const { location } = useUserLocation();
   const { voice, state: voiceState } = useVoice();
@@ -86,36 +66,20 @@ export function AskDrawer({ isOpen, onClose, voiceWake = 0 }: AskDrawerProps) {
   const addMessage = (m: Omit<Message, 'id'>) =>
     setMessages((prev) => [...prev, { ...m, id: `${m.sender}-${prev.length}-${m.text.length}` }]);
 
-  /** Sends a question to the Ask assistant and returns its reply text. */
+  /** Sends a question to the Ask assistant, shows the reply, and returns it. */
   const ask = useCallback(
     async (query: string): Promise<string> => {
       setLoading(true);
       try {
-        const res = await fetch('/api/ask', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: query,
-            lat: location.lat,
-            lng: location.lng,
-            locationName: location.name,
-            context: contextRef.current,
-          }),
-        });
-        const data = await res.json();
-        if (data.context) setContext(data.context);
-        const reply = data.reply || "I couldn't process that query. Please try asking about a specific chapel or district.";
-        addMessage({ sender: 'assistant', text: reply, isOffTopic: data.isOffTopic });
-        return reply;
-      } catch {
-        const reply = 'Unable to reach the assistant server. Please check your connection.';
-        addMessage({ sender: 'assistant', text: reply });
-        return reply;
+        const a = await askAssistant(query, { location, context: contextRef.current });
+        if (a.context) setContext(a.context);
+        addMessage({ sender: 'assistant', text: a.reply, isOffTopic: a.isOffTopic });
+        return a.reply;
       } finally {
         setLoading(false);
       }
     },
-    [location.lat, location.lng, location.name]
+    [location]
   );
 
   const handleSend = async (textToSend?: string) => {
@@ -126,55 +90,24 @@ export function AskDrawer({ isOpen, onClose, voiceWake = 0 }: AskDrawerProps) {
     await ask(query);
   };
 
-  /**
-   * Voice commands: navigation intents drive the app directly (filtered Districts page, Near Me map);
-   * questions go to the Ask assistant. Returns what the assistant says out loud.
-   */
+  /** Voice commands (drawer mic): same behaviour as the voice overlay, answers shown in the chat. */
   const runVoiceCommand = useCallback(
     async (text: string): Promise<{ say: string; close?: boolean }> => {
-      const intent = parseVoiceIntent(text, await loadVocabulary());
-      const kindParam = intent.kind ? `kind=${intent.kind.kind}` : '';
-      const kindText = intent.kind ? `, ${intent.kind.label.toLowerCase()} only` : '';
-      // Filter commands change the page behind the drawer: close it after speaking so it's visible.
-      const note = (say: string) => {
-        addMessage({ sender: 'assistant', text: say });
-        return { say, close: true };
-      };
-
-      switch (intent.type) {
-        case 'STOP':
-          return { say: 'Okay.', close: true };
-
-        case 'FILTER_REGION':
-          router.push(`/districts?q=${encodeURIComponent(intent.region!)}${kindParam ? `&${kindParam}` : ''}`);
-          return note(`Showing the ${intent.region} region on the Districts page${kindText}.`);
-
-        case 'FILTER_DISTRICT':
-          router.push(
-            intent.kind
-              ? `/districts?q=${encodeURIComponent(intent.district!.name)}&${kindParam}`
-              : `/districts/${intent.district!.slug}`
-          );
-          return note(`Opening the ${intent.district!.name} district${kindText}.`);
-
-        case 'FILTER_KIND':
-          router.push(`/districts?${kindParam}`);
-          return note(`Showing ${intent.kind!.label.toLowerCase()} on the Districts page.`);
-
-        case 'FIND_NEAREST': {
-          // Show them on the map too, then answer with the nearest ones (road distance).
-          router.push(`/near-me${kindParam ? `?${kindParam}` : ''}`);
-          return { say: replyForSpeech(await ask(text)) };
-        }
-
-        case 'GET_DIRECTIONS':
-        case 'CHECK_SCHEDULE':
-        case 'ASK':
-        default:
-          return { say: replyForSpeech(await ask(text)) };
+      setLoading(true);
+      try {
+        const r = await executeVoiceCommand(text, {
+          location,
+          context: contextRef.current,
+          navigate: (href) => router.push(href),
+        });
+        if (r.context) setContext(r.context);
+        addMessage({ sender: 'assistant', text: r.reply, isOffTopic: r.isOffTopic });
+        return { say: r.say, close: r.close };
+      } finally {
+        setLoading(false);
       }
     },
-    [ask, router]
+    [location, router]
   );
 
   /** One spoken exchange: (greeting) → listen with live transcript → act → answer out loud. */
@@ -205,14 +138,6 @@ export function AskDrawer({ isOpen, onClose, voiceWake = 0 }: AskDrawerProps) {
     },
     [voice, runVoiceCommand, onClose]
   );
-
-  // "Hey Assistant": greet, then listen.
-  const lastWake = useRef(voiceWake);
-  useEffect(() => {
-    if (voiceWake === lastWake.current) return;
-    lastWake.current = voiceWake;
-    void runVoiceSession(true);
-  }, [voiceWake, runVoiceSession]);
 
   const voiceBusy = ['greeting', 'listening', 'thinking', 'speaking'].includes(voiceState.phase);
 

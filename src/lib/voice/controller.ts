@@ -45,6 +45,9 @@ export class VoiceController {
   private raf = 0;
   /** Called when the wake word is heard. */
   private onWake: (() => void) | null = null;
+  /** Started automatically (not from the mic button): stay quiet about errors, retry after a tap. */
+  private auto = false;
+  private waitingForTap = false;
   setWakeHandler(fn: (() => void) | null) {
     this.onWake = fn;
   }
@@ -74,8 +77,9 @@ export class VoiceController {
       this.set({ error: reason });
       return false;
     }
+    this.auto = false;
     this.unlockSpeech();
-    if (!isIOS() && navigator.mediaDevices?.getUserMedia) {
+    if (!this.stream && !isIOS() && navigator.mediaDevices?.getUserMedia) {
       try {
         this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
         this.startMeter(this.stream);
@@ -92,6 +96,47 @@ export class VoiceController {
     this.set({ enabled: true, error: null });
     this.arm();
     return true;
+  }
+
+  /**
+   * Turns voice on when the app opens (no tap needed where the browser allows it). Browsers that
+   * only start the microphone or speech after a user gesture (iPhone Safari) arm on the first tap
+   * anywhere. Errors are silent here; the menu-bar mic button reports them.
+   */
+  async autoStart(): Promise<void> {
+    if (this.state.enabled || VoiceController.unsupportedReason()) return;
+    this.auto = true;
+    this.unlockOnFirstInteraction();
+    if (!isIOS() && navigator.mediaDevices?.getUserMedia) {
+      try {
+        this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+        this.startMeter(this.stream);
+      } catch {
+        // Permission denied or no microphone: stay off until the user turns voice on.
+        this.auto = false;
+        return;
+      }
+    }
+    this.set({ enabled: true, error: null });
+    this.arm();
+  }
+
+  /** Speech output (and, on iOS, listening) may need a user gesture: re-arm on the first one. */
+  private unlockOnFirstInteraction() {
+    if (typeof document === 'undefined') return;
+    const onFirst = () => {
+      document.removeEventListener('pointerdown', onFirst, true);
+      document.removeEventListener('keydown', onFirst, true);
+      this.unlockSpeech();
+      if (this.waitingForTap && this.state.enabled) {
+        this.waitingForTap = false;
+        this.wakeFailures = 0;
+        this.wakeActive = false;
+        if (this.state.phase === 'armed') this.arm();
+      }
+    };
+    document.addEventListener('pointerdown', onFirst, true);
+    document.addEventListener('keydown', onFirst, true);
   }
 
   disable() {
@@ -174,7 +219,13 @@ export class VoiceController {
     rec.onerror = (e: { error: string }) => {
       if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
         this.wakeActive = false;
-        this.set({ error: 'Microphone or speech access is blocked. Allow it in your browser’s site settings.' });
+        if (this.auto) {
+          // Likely needs a tap first (iOS) or permission was dismissed: wait for an interaction.
+          this.waitingForTap = true;
+          this.unlockOnFirstInteraction();
+        } else {
+          this.set({ error: 'Microphone or speech access is blocked. Allow it in your browser’s site settings.' });
+        }
       } else if (e.error !== 'no-speech' && e.error !== 'aborted') {
         this.wakeFailures++;
       }
@@ -188,6 +239,11 @@ export class VoiceController {
       rec.start();
     } catch {
       this.wakeFailures++;
+      if (this.auto && this.wakeFailures > 2) {
+        this.wakeActive = false;
+        this.waitingForTap = true;
+        this.unlockOnFirstInteraction();
+      }
     }
   }
 
@@ -205,7 +261,7 @@ export class VoiceController {
   // ---------------- Speech out ----------------
 
   /** Speaks and resolves when done (safety timeout: some browsers never fire onend). */
-  speak(text: string, phase: VoicePhase = 'speaking'): Promise<void> {
+  speak(text: string, phase: VoicePhase = 'speaking', onProgress?: (charIndex: number) => void): Promise<void> {
     this.set({ phase });
     return new Promise((resolve) => {
       if (typeof speechSynthesis === 'undefined' || !text) return resolve();
@@ -226,8 +282,15 @@ export class VoiceController {
         resolve();
       };
       const guard = setTimeout(finish, 2500 + text.length * 85);
-      u.onend = finish;
-      u.onerror = finish;
+      u.onend = () => {
+        onProgress?.(text.length);
+        finish();
+      };
+      u.onerror = () => {
+        onProgress?.(text.length);
+        finish();
+      };
+      if (onProgress) u.onboundary = (e) => onProgress(e.charIndex);
       speechSynthesis.speak(u);
     });
   }

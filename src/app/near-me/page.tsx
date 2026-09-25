@@ -9,7 +9,14 @@ import { LeafletMap } from '@/components/LeafletMap';
 import { formatTime12Hour } from '@/lib/time';
 import { NEARBY_POOL, NEARBY_RADIUS_KM, directionsUrl, formatTravel } from '@/lib/geo';
 import { useRoadDistances } from '@/lib/use-road-distances';
-import { findNextService, formatCountdown } from '@/lib/next-service';
+import {
+  estimateTravelMinutes,
+  findNextService,
+  findReachableService,
+  formatCountdown,
+  formatLeaveIn,
+  type ReachableService,
+} from '@/lib/next-service';
 import { useUserLocation } from '@/components/LocationProvider';
 
 const RADII_KM = [5, 10, 25, 50, 100];
@@ -158,14 +165,29 @@ function NearMeView() {
 
   // Driving distance/time from the search point (matches the route "Get directions" opens).
   const { roads, pending: roadsPending } = useRoadDistances(coords, locales);
+  // "Soonest": the earliest service you can still make, leaving now and driving there.
+  const [sortMode, setSortMode] = useState<'nearest' | 'soonest'>('nearest');
+  const reachable = useMemo(() => {
+    const out: Record<string, ReachableService | null> = {};
+    for (const l of locales) {
+      const travel = roads[l.id]?.minutes ?? estimateTravelMinutes(l.distance_km ?? 0);
+      out[l.id] = findReachableService(l.schedule, l.timezone, travel, now);
+    }
+    return out;
+  }, [locales, roads, now]);
   const ordered = useMemo(() => {
     if (roadsPending) return locales;
+    if (sortMode === 'soonest') {
+      const starts = (l: Locale) => reachable[l.id]?.startsInMinutes ?? Infinity;
+      return [...locales].sort((a, b) => starts(a) - starts(b));
+    }
     const km = (l: Locale) => roads[l.id]?.km ?? l.distance_km ?? Infinity;
     return [...locales].sort((a, b) => km(a) - km(b));
-  }, [locales, roads, roadsPending]);
+  }, [locales, roads, roadsPending, sortMode, reachable]);
 
   const selected = useMemo(() => locales.find((l) => l.id === selectedId) ?? null, [locales, selectedId]);
   const selectedNext = selected ? findNextService(selected.schedule, selected.timezone, now) : null;
+  const selectedReach = selected ? reachable[selected.id] : null;
 
   const infoCard = selected ? (
     <div className="kd-map-card pointer-events-auto rounded-2xl p-4">
@@ -197,6 +219,19 @@ function NearMeView() {
           </span>
         )}
       </div>
+
+      {selectedReach && roads[selected.id] !== undefined && (
+        <p className="mt-1.5 text-xs text-[#A9B4C2]">
+          To make{' '}
+          <span className="font-departure font-semibold text-white">
+            {selectedReach.item.day_name.slice(0, 3)} {clock(selectedReach.item.start_time)}
+          </span>
+          {', '}
+          <span className={`font-departure font-semibold ${selectedReach.leaveInMinutes <= 30 ? 'text-[#E8A33D]' : 'text-white'}`}>
+            {formatLeaveIn(selectedReach.leaveInMinutes)}
+          </span>
+        </p>
+      )}
 
       {selectedNext && (
         <p className="font-departure mt-2 truncate text-xs text-[#A9B4C2]">
@@ -354,7 +389,7 @@ function NearMeView() {
       </div>
 
       {/* 2. MAP + INFO BOX */}
-      <div className="relative h-[52dvh] min-h-[380px] lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-start lg:sticky lg:top-28 lg:h-[calc(100dvh-9rem)] lg:min-h-[520px] rounded-[1.5rem] overflow-hidden border border-white/15 shadow-2xl">
+      <div className="sticky top-[3.4rem] z-20 h-[42dvh] min-h-[300px] md:top-24 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-start lg:top-28 lg:h-[calc(100dvh-9rem)] lg:min-h-[520px] rounded-[1.5rem] overflow-hidden border border-white/15 shadow-2xl">
         {map}
         {infoCard && (
           <div className="pointer-events-none absolute inset-x-3 bottom-3 lg:inset-x-4 lg:bottom-4 z-[500] mx-auto max-w-md">
@@ -369,7 +404,22 @@ function NearMeView() {
           <span className="text-xs font-bold text-[#A9B4C2] uppercase tracking-wider" aria-live="polite">
             {loading ? 'Searching...' : `${locales.length} Locales Found`}
           </span>
-          <span className="text-xs text-[#A9B4C2]">Nearest by road · within {radiusKm} km</span>
+          <div role="group" aria-label="Sort results" className="flex items-center rounded-lg border border-white/15 bg-white/5 p-0.5 text-xs font-semibold">
+            {(['nearest', 'soonest'] as const).map((m) => (
+              <button
+                key={m}
+                type="button"
+                aria-pressed={sortMode === m}
+                onClick={() => setSortMode(m)}
+                title={m === 'nearest' ? 'Closest by road first' : 'Earliest service you can still make first (travel time included)'}
+                className={`rounded-md px-2.5 py-1 transition-colors ${
+                  sortMode === m ? 'bg-[#E8A33D] text-[#0B1426]' : 'text-[#A9B4C2] hover:text-white'
+                }`}
+              >
+                {m === 'nearest' ? 'Nearest' : 'Soonest'}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-2 lg:max-h-[calc(100dvh-19rem)] lg:overflow-y-auto pr-1">
@@ -377,6 +427,7 @@ function NearMeView() {
             ordered.map((locale) => {
               const isSelected = selectedId === locale.id;
               const next = findNextService(locale.schedule, locale.timezone, now);
+              const reach = reachable[locale.id];
               return (
                 <button
                   key={locale.id}
@@ -387,7 +438,7 @@ function NearMeView() {
                   }}
                   onClick={() => handleRowClick(locale)}
                   aria-pressed={isSelected}
-                  className={`glass-card w-full text-left px-4 py-3 border transition-all cursor-pointer group flex items-center gap-3 ${
+                  className={`glass-card w-full text-left px-4 py-3 border transition-all cursor-pointer group flex items-center gap-3 scroll-mt-[calc(42dvh+5rem)] lg:scroll-mt-4 ${
                     isSelected ? 'glass-row-selected shadow-lg' : 'border-white/10 hover:border-white/20'
                   }`}
                 >
@@ -402,23 +453,39 @@ function NearMeView() {
                         </span>
                       )}
                     </div>
-                    <p className="truncate text-xs text-[#A9B4C2]">{locale.district_name ?? locale.address}</p>
+                    <p className="truncate text-xs text-[#A9B4C2]">
+                      {locale.district_name ?? locale.address}
+                      {sortMode === 'soonest' && reach && ` · ${formatTravel(roads[locale.id], locale.distance_km)}`}
+                    </p>
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-0.5">
-                    <span className="font-departure text-sm font-bold text-[#E8A33D]">
-                      {roads[locale.id] === undefined ? (
-                        <span className="inline-block h-3.5 w-16 rounded bg-white/10 animate-pulse align-middle" aria-label="Calculating road distance" />
-                      ) : (
-                        formatTravel(roads[locale.id], locale.distance_km)
-                      )}
-                    </span>
-                    <span className="font-departure text-[11px] text-[#A9B4C2]">
-                      {next
-                        ? next.startsInMinutes <= 0
-                          ? 'In progress'
-                          : `${next.item.day_name.slice(0, 3)} ${clock(next.item.start_time)}`
-                        : 'No schedule'}
-                    </span>
+                    {sortMode === 'soonest' && reach ? (
+                      <>
+                        <span className="font-departure text-sm font-bold text-[#E8A33D]">
+                          {reach.item.day_name.slice(0, 3)} {clock(reach.item.start_time)}
+                        </span>
+                        <span className="font-departure text-[11px] text-[#A9B4C2]">
+                          {formatLeaveIn(reach.leaveInMinutes)}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="font-departure text-sm font-bold text-[#E8A33D]">
+                          {roads[locale.id] === undefined ? (
+                            <span className="inline-block h-3.5 w-16 rounded bg-white/10 animate-pulse align-middle" aria-label="Calculating road distance" />
+                          ) : (
+                            formatTravel(roads[locale.id], locale.distance_km)
+                          )}
+                        </span>
+                        <span className="font-departure text-[11px] text-[#A9B4C2]">
+                          {next
+                            ? next.startsInMinutes <= 0
+                              ? 'In progress'
+                              : `${next.item.day_name.slice(0, 3)} ${clock(next.item.start_time)}`
+                            : 'No schedule'}
+                        </span>
+                      </>
+                    )}
                   </div>
                   {isSelected && <ChevronRight size={16} className="shrink-0 text-[#E8A33D]" />}
                 </button>

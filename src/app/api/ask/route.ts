@@ -3,7 +3,8 @@ import { kapilyaStore } from '@/lib/store';
 import { formatTime12Hour } from '@/lib/time';
 import { NEARBY_POOL, NEARBY_RADIUS_KM, directionsUrl, formatTravel, haversineKm } from '@/lib/geo';
 import { roadDistances, type RoadDistance } from '@/lib/road-distance';
-import { findNextService } from '@/lib/next-service';
+import { estimateTravelMinutes, findNextService, findReachableService, formatLeaveIn } from '@/lib/next-service';
+import { matchDistricts, matchLocales } from '@/lib/entity-search';
 import type { Locale, LocaleKind, WorshipScheduleItem } from '@/lib/types';
 
 /** Conversation memory the drawer sends back each turn, so follow-ups like "What about Sunday?" resolve. */
@@ -97,6 +98,20 @@ function isKapilyaQuery(query: string): boolean {
 
 const SEARCH_RADIUS_KM = NEARBY_RADIUS_KM;
 
+/** Structured result for the voice overlay / UI cards (the reply text stays the source of truth). */
+interface ResultCard {
+  id: string;
+  name: string;
+  kind: LocaleKind;
+  district?: string;
+  distance: string;
+  next: string;
+  leave?: string;
+  directions: string;
+}
+
+const SOONEST_PATTERN = /\b(soonest|earliest|next (worship )?service|next worship|starting soon|start(s|ing)? soon|can i (still )?(make|catch|attend)|right now|pinakamaagang|susunod na pagsamba)\b/;
+
 export async function POST(request: NextRequest) {
   try {
     const { message, lat, lng, locationName, context: rawContext } = await request.json();
@@ -109,8 +124,36 @@ export async function POST(request: NextRequest) {
     const trimmed = message.trim();
     const lower = trimmed.toLowerCase();
 
-    // 1. Off-topic guard
-    if (!isKapilyaQuery(lower)) {
+    const userLat = lat ? parseFloat(String(lat)) : 14.6644;
+    const userLng = lng ? parseFloat(String(lng)) : 121.0544;
+    const origin = { lat: userLat, lng: userLng };
+
+    // Names anywhere in the question, tolerant of typos and speech errors ("Bonifacio the vibe" ->
+    // Bonifacio Drive). Near-ties go to the congregation closest to the user.
+    const nameIndex = kapilyaStore.getNameIndex();
+    const nameMatches = matchLocales(nameIndex, trimmed, origin, 0.6);
+    // A clear request about a place ("... schedule", "directions to ...") accepts a looser match,
+    // since speech often garbles part of the name.
+    const asksAboutPlace = /\b(schedules?|iskedyul|worship|services?|pagsamba|times?|oras|directions?|where|address|located|phone|contact)\b/.test(lower);
+    const topName = nameMatches[0];
+    const districtByName = matchDistricts(nameIndex, trimmed, 0.9)[0] ?? null;
+    const namedLocale =
+      topName &&
+      topName.score >= (asksAboutPlace ? 0.62 : 0.75) &&
+      // "Services in Quezon City": a district name that matches at least as well wins.
+      !(districtByName && districtByName.score >= topName.score)
+        ? kapilyaStore.getLocaleById(topName.item.id)
+        : null;
+    const sameNameElsewhere = namedLocale
+      ? nameMatches
+          .slice(1, 6)
+          .filter((m) => m.score >= nameMatches[0].score - 0.01 && m.item.district_id !== namedLocale.district_id)
+          .map((m) => kapilyaStore.getLocaleById(m.item.id)!)
+          .slice(0, 3)
+      : [];
+
+    // 1. Off-topic guard (a recognised congregation or district name is always on topic)
+    if (!isKapilyaQuery(lower) && !namedLocale && !districtByName) {
       return NextResponse.json({
         reply:
           "I'm your Kapilya Near Me assistant — I can only help with questions about Iglesia ni Cristo chapels, worship schedules, directions, or districts.\n\nFor example, try:\n• \"Is there an English service nearby?\"\n• \"Show services in the CENTRAL district\"\n• \"What about Sunday?\"",
@@ -118,10 +161,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const userLat = lat ? parseFloat(String(lat)) : 14.6644;
-    const userLng = lng ? parseFloat(String(lng)) : 121.0544;
     // Distances are driving distances (what "Get directions" shows), straight-line only as a fallback.
-    const origin = { lat: userLat, lng: userLng };
     const roadMap = new Map<string, RoadDistance | null>();
     const measure = async (list: Locale[]) => {
       const todo = list.filter((l) => !roadMap.has(l.id));
@@ -156,14 +196,39 @@ export async function POST(request: NextRequest) {
       return candidates.sort((a, b) => roadKm(a) - roadKm(b)).slice(0, opts.limit);
     };
 
+    const travelMinutes = (l: Locale) => roadMap.get(l.id)?.minutes ?? estimateTravelMinutes(straightKm(l));
+    const cardFor = (l: Locale, extra: Partial<ResultCard> = {}): ResultCard => ({
+      id: l.id,
+      name: l.name,
+      kind: l.kind,
+      district: l.district_name,
+      distance: distanceText(l),
+      next: getNextScheduleText(l),
+      directions: directionsUrl(l.latitude, l.longitude, l.name, origin),
+      ...extra,
+    });
+    const days: Record<string, number> = {
+      sunday: 0, monday: 1, tuesday: 2, wednesday: 3,
+      thursday: 4, friday: 5, saturday: 6,
+    };
+    const dayNow = new Date().getDay();
+    const mentionedDay = /\btoday\b|\bngayon\b/.test(lower)
+      ? Object.keys(days)[dayNow]
+      : /\btomorrow\b|\bbukas\b/.test(lower)
+        ? Object.keys(days)[(dayNow + 1) % 7]
+        : Object.keys(days).find((d) => lower.includes(d));
+    const asksNearest = /\b(nearest|closest|near me|nearby|pinakamalapit|malapit)\b/.test(lower);
+
     // --- INTENT 1: District congregation query (e.g. "congregations in CENTRAL district") ---
     const districtMatch =
       lower.match(/\bin\s+(?:the\s+)?([a-z\s\-]+?)\s+district/i) ||
       lower.match(/([a-z\s\-]+?)\s+district\b/i) ||
       lower.match(/district\s+(?:of\s+)?([a-z\s\-]+)/i);
+    // A district named without the word "district" ("services in Quezon City").
+    const districtOnlyByName = !districtMatch && !namedLocale && districtByName && !asksNearest && !SOONEST_PATTERN.test(lower);
 
-    if (districtMatch) {
-      const rawName = districtMatch[1].trim();
+    if (districtMatch || districtOnlyByName) {
+      const rawName = districtMatch ? districtMatch[1].trim() : districtByName!.item.name.toLowerCase();
       const allDistricts = kapilyaStore.getDistricts();
 
       // Find best matching district — prioritize exact name > starts-with > contains
@@ -182,7 +247,7 @@ export async function POST(request: NextRequest) {
         .filter((x) => x.score > 0)
         .sort((a, b) => b.score - a.score);
 
-      const matched = scoredDistricts.length > 0 ? scoredDistricts[0].d : null;
+      const matched = scoredDistricts.length > 0 ? scoredDistricts[0].d : (matchDistricts(nameIndex, rawName)[0]?.item ?? null);
 
       if (matched) {
         const districtData = kapilyaStore.getDistrictBySlug(matched.slug);
@@ -205,6 +270,7 @@ export async function POST(request: NextRequest) {
           return NextResponse.json({
             reply: `Here are the ${kind ? KIND_LABELS[kind] : 'congregations'} in the ${districtData.name} district nearest to you:\n\n${lines.join('\n')}\n\nThe district has ${districtData.locales.length} locales in total — browse the Districts Directory in the app for the full list.`,
             district: matched,
+            cards: top.map((l) => cardFor(l)),
             context: { localeId: top[0]?.id },
           });
         }
@@ -218,16 +284,9 @@ export async function POST(request: NextRequest) {
 
     // --- INTENT 2: Directions ("Directions to the nearest one", "how do I get to Cubao") ---
     if (/\bdirections?\b|how (?:do i|to) get|get to\b|navigate/.test(lower)) {
-      const named = lower
-        .replace(/.*?(?:directions?|get)\s+to\s+/, '')
-        .replace(/[?.!]/g, '')
-        .replace(/\bthe\b|\bnearest\b|\bone\b|\bchapel\b|\bkapilya\b|\blokal\b/g, '')
-        .trim();
       const target =
-        (named.length > 2 &&
-          kapilyaStore
-            .searchNearby({ lat: userLat, lng: userLng, radiusKm: 25000, query: named, limit: 1 })[0]) ||
-        (/\bnearest\b|\bclosest\b/.test(lower) ? (await nearestWith({ language, limit: 1 }))[0] : null) ||
+        namedLocale ||
+        (asksNearest ? (await nearestWith({ language, limit: 1 }))[0] : null) ||
         contextLocale ||
         (await nearestWith({ language, limit: 1 }))[0];
 
@@ -236,47 +295,71 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({
           reply: `${link(target)}${kindTag(target)}${language ? ` (holds ${language} services)` : ''} is ${distanceSentence(target)}.\n\n📍 ${target.address}\n\nOpen turn-by-turn directions:\n${directionsUrl(target.latitude, target.longitude, target.name, origin)}\n\nNext ${language ? `${language} ` : ''}service: ${getNextScheduleText(target, language)}.`,
           locale: target,
+          cards: [cardFor(target)],
           context: { localeId: target.id, language },
         });
       }
     }
 
-    // --- INTENT 3: Specific locale lookup by name ---
-    const nameKeywords = ['where is', 'find', 'locate', 'schedule of', 'schedule for', 'address of'];
-    const isNameSearch = nameKeywords.some((kw) => lower.includes(kw));
+    // --- INTENT 3: A named congregation (schedule, that day's services, address, distance) ---
+    if (namedLocale && !asksNearest) {
+      await measure([namedLocale]);
+      const sched = namedLocale.schedule ?? [];
+      const dayNum = mentionedDay !== undefined ? days[mentionedDay] : undefined;
+      const shown = dayNum === undefined ? sched : sched.filter((s) => s.day_of_week === dayNum);
+      const dayName = mentionedDay ? mentionedDay.charAt(0).toUpperCase() + mentionedDay.slice(1) : '';
+      const schedLines = shown.length
+        ? [1, 2, 3, 4, 5, 6, 0]
+            .map((d) => shown.filter((s) => s.day_of_week === d))
+            .filter((g) => g.length)
+            .map((g) => `• ${g[0].day_name}: ${g.map(serviceLabel).join(', ')}`)
+            .join('\n')
+        : dayNum === undefined
+          ? 'No schedule is posted in the official directory. Please check with the district office.'
+          : `No worship service on ${dayName}.`;
+      const next = getNextScheduleText(namedLocale);
+      const others = sameNameElsewhere.length
+        ? `\n\nDid you mean another one? ${sameNameElsewhere.map((l) => `${link(l)} (${l.district_name})`).join(', ')}`
+        : '';
 
-    if (isNameSearch || lower.includes('templo') || lower.includes('central temple') || lower.includes('anchorage')) {
-      let searchTerm = lower;
-      nameKeywords.forEach((kw) => { searchTerm = searchTerm.replace(kw, '').trim(); });
-      const cleaned = searchTerm.replace(/chapel|kapilya|lokal|congregation|[?.!]/gi, '').trim();
+      return NextResponse.json({
+        reply: `${link(namedLocale)}${kindTag(namedLocale)} (${namedLocale.district_name}) is ${distanceSentence(namedLocale)}.\n📍 ${namedLocale.address}\n\n${dayName ? `${dayName} worship services` : 'Worship schedule'}:\n${schedLines}\n\nNext service: ${next}.${namedLocale.phone ? `\n\nPhone: ${namedLocale.phone}` : ''}${others}`,
+        locale: namedLocale,
+        cards: [cardFor(namedLocale)],
+        context: { localeId: namedLocale.id, language },
+      });
+    }
 
-      const matchedLocale = kapilyaStore
-        .searchNearby({ lat: userLat, lng: userLng, radiusKm: 25000 })
-        .find((l) => {
-          const lname = l.name.toLowerCase();
-          return (cleaned && lname.includes(cleaned)) || searchTerm.includes(lname);
-        });
-
-      if (matchedLocale) {
-        await measure([matchedLocale]);
-        const schedLines =
-          matchedLocale.schedule?.map((s) => `• ${s.day_name}: ${serviceLabel(s)}`).join('\n') || 'No schedule posted.';
-
+    // --- INTENT 3b: Soonest service you can still make (travel time included) ---
+    if (SOONEST_PATTERN.test(lower)) {
+      const pool = await nearestWith({ language, limit: NEARBY_POOL });
+      const ranked = pool
+        .map((l) => {
+          const schedule = language ? l.schedule?.filter((s) => matchesLanguage(s, language)) : l.schedule;
+          return { l, r: findReachableService(schedule, l.timezone, travelMinutes(l)) };
+        })
+        .filter((x) => x.r)
+        .sort((a, b) => a.r!.startsInMinutes - b.r!.startsInMinutes)
+        .slice(0, 5);
+      if (ranked.length) {
+        const lines = ranked.map(
+          ({ l, r }, i) =>
+            `${i + 1}. ${link(l)}${kindTag(l)} — ${r!.item.day_name} ${formatTime12Hour(r!.item.start_time)} (${r!.item.language}) · ${formatLeaveIn(r!.leaveInMinutes)} · ${distanceText(l)}`
+        );
         return NextResponse.json({
-          reply: `${link(matchedLocale)}${kindTag(matchedLocale)} is located at ${matchedLocale.address}.\n\nDistance from you: ${distanceText(matchedLocale)}\n\nWorship Schedule:\n${schedLines}${matchedLocale.phone ? `\n\nPhone: ${matchedLocale.phone}` : ''}`,
-          locale: matchedLocale,
-          context: { localeId: matchedLocale.id, language },
+          reply: `The soonest ${language ? `${language} ` : ''}worship services you can still make${locationName ? ` from ${locationName}` : ''}, counting travel time:\n\n${lines.join('\n')}`,
+          cards: ranked.map(({ l, r }) =>
+            cardFor(l, {
+              next: `${r!.item.day_name} ${formatTime12Hour(r!.item.start_time)} (${r!.item.language})`,
+              leave: formatLeaveIn(r!.leaveInMinutes),
+            })
+          ),
+          context: { localeId: ranked[0].l.id, language },
         });
       }
     }
 
     // --- INTENT 4: Day-specific schedule query ("What about Sunday?") ---
-    const days: Record<string, number> = {
-      sunday: 0, monday: 1, tuesday: 2, wednesday: 3,
-      thursday: 4, friday: 5, saturday: 6,
-    };
-    const mentionedDay = Object.keys(days).find((d) => lower.includes(d));
-
     if (mentionedDay) {
       const dayNum = days[mentionedDay];
       const dayCapitalized = mentionedDay.charAt(0).toUpperCase() + mentionedDay.slice(1);

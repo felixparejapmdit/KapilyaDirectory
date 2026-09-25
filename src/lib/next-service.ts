@@ -30,7 +30,8 @@ export interface NextServiceInfo {
 export function findNextService(
   schedule: WorshipScheduleItem[] | undefined,
   timeZone: string | undefined,
-  now: Date = new Date()
+  now: Date = new Date(),
+  ongoingWindow: number = ONGOING_WINDOW_MINUTES
 ): NextServiceInfo | null {
   if (!schedule?.length) return null;
   const clock = zonedWallClock(timeZone, now);
@@ -38,11 +39,48 @@ export function findNextService(
   let best: NextServiceInfo | null = null;
   for (const item of schedule) {
     let diff = item.day_of_week * 24 * 60 + timeToMinutes(item.start_time) - nowMinutes;
-    if (diff < -ONGOING_WINDOW_MINUTES) diff += WEEK;
-    if (diff >= WEEK - ONGOING_WINDOW_MINUTES) diff -= WEEK;
+    if (diff < -ongoingWindow) diff += WEEK;
+    if (diff >= WEEK - ongoingWindow) diff -= WEEK;
     if (!best || diff < best.startsInMinutes) best = { item, startsInMinutes: diff };
   }
   return best;
+}
+
+export interface ReachableService extends NextServiceInfo {
+  /** Minutes until you need to leave to arrive on time (0 = leave now). */
+  leaveInMinutes: number;
+  travelMinutes: number;
+}
+
+/**
+ * The soonest service you can still make: leaving now and travelling `travelMinutes`, the first
+ * service that starts after you arrive. ("Soonest" is what matters when choosing where to go now:
+ * a closer chapel whose service already started is a worse choice than one a little farther away.)
+ */
+export function findReachableService(
+  schedule: WorshipScheduleItem[] | undefined,
+  timeZone: string | undefined,
+  travelMinutes: number,
+  now: Date = new Date()
+): ReachableService | null {
+  const arrival = new Date(now.getTime() + Math.max(0, travelMinutes) * 60_000);
+  const next = findNextService(schedule, timeZone, arrival, 0);
+  if (!next) return null;
+  return {
+    item: next.item,
+    startsInMinutes: next.startsInMinutes + travelMinutes,
+    leaveInMinutes: next.startsInMinutes,
+    travelMinutes,
+  };
+}
+
+/** Travel time to use when no road route is known: roughly 30 km/h door to door in towns. */
+export const estimateTravelMinutes = (straightKm: number) => Math.round(straightKm * 2.2);
+
+/** "leave now" / "leave in 25m" / "leave in 1h 10m". */
+export function formatLeaveIn(minutes: number): string {
+  if (minutes <= 2) return 'leave now';
+  return `leave ${formatCountdown(minutes)}`;
 }
 
 /** "in 45m", "in 3h 10m", "in 1d 1h", or "in progress". */

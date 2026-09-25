@@ -3,11 +3,18 @@
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Globe2, Search, ChevronDown, ChevronRight, ListFilter, ArrowLeft, Clock, X } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import { Globe2, Search, ChevronDown, ChevronRight, ListFilter, ArrowLeft, Clock, X, List, Map as MapIcon } from 'lucide-react';
 import { Region, District, WorldArea, Locale, LocaleKind } from '@/lib/types';
 import { findNextService } from '@/lib/next-service';
 import { formatTime12Hour } from '@/lib/time';
 import { useDistrictHoverCard } from '@/components/DistrictHoverCard';
+
+// Leaflet only runs in the browser; load the map view on demand.
+const DirectoryMapView = dynamic(
+  () => import('@/components/districts/DirectoryMapView').then((m) => m.DirectoryMapView),
+  { ssr: false, loading: () => <div className="glass-card h-[55dvh] animate-pulse" /> }
+);
 
 type KindCounts = Record<LocaleKind, number>;
 type KindFilter = 'all' | LocaleKind;
@@ -63,11 +70,14 @@ function DistrictsView() {
 
   // ?q= and ?kind= (e.g. voice commands: "Show GWS in the Central Luzon region") also apply when
   // the URL changes while this page is open.
+  // List or world map (?view=map opens the map directly).
+  const [view, setView] = useState<'list' | 'map'>(() => (searchParams.get('view') === 'map' ? 'map' : 'list'));
   const [appliedParams, setAppliedParams] = useState(searchParams);
   if (searchParams !== appliedParams) {
     setAppliedParams(searchParams);
     setSearchQuery(searchParams.get('q') ?? '');
     setKind(kindFromUrl(searchParams));
+    setView(searchParams.get('view') === 'map' ? 'map' : 'list');
   }
   const { linkProps, card: hoverCard } = useDistrictHoverCard(kind);
   const [results, setResults] = useState<{ query: string; kind: KindFilter; total: number; locales: Locale[] } | null>(null);
@@ -170,7 +180,7 @@ function DistrictsView() {
           </div>
 
           {/* Search districts & congregations */}
-          <div className="relative w-full sm:w-96">
+          <div className={`relative w-full sm:w-96 ${view === 'map' ? 'hidden' : ''}`}>
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A9B4C2]" />
             <input
               type="search"
@@ -192,6 +202,7 @@ function DistrictsView() {
           </div>
         </div>
 
+        <div className="flex flex-wrap items-center justify-between gap-3">
         {/* Kind filter */}
         <div role="group" aria-label="Filter by type" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
           {KIND_OPTIONS.map((o) => {
@@ -216,10 +227,36 @@ function DistrictsView() {
             );
           })}
         </div>
+
+        {/* List | Map */}
+        <div role="group" aria-label="View" className="flex items-center rounded-xl border border-white/15 bg-white/5 p-1 text-sm font-semibold">
+          {(
+            [
+              { id: 'list', label: 'List', Icon: List },
+              { id: 'map', label: 'Map', Icon: MapIcon },
+            ] as const
+          ).map(({ id, label, Icon }) => (
+            <button
+              key={id}
+              type="button"
+              aria-pressed={view === id}
+              onClick={() => setView(id)}
+              className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 transition-colors ${
+                view === id ? 'bg-[#E8A33D] text-[#0B1426]' : 'text-[#A9B4C2] hover:text-white'
+              }`}
+            >
+              <Icon size={15} />
+              {label}
+            </button>
+          ))}
+        </div>
+        </div>
       </div>
 
+      {view === 'map' && <DirectoryMapView kind={kind} />}
+
       {/* Congregation results (instant search) */}
-      {searchingLocales && (
+      {view === 'list' && searchingLocales && (
         <section aria-labelledby="locale-results-h" className="glass-panel p-5 border border-white/15 space-y-3">
           <div className="flex items-baseline justify-between gap-3 border-b border-white/10 pb-3">
             <h2 id="locale-results-h" className="text-lg font-bold text-white tracking-tight">
@@ -275,7 +312,7 @@ function DistrictsView() {
         </section>
       )}
 
-      {loading ? (
+      {view === 'map' ? null : loading ? (
         <div className="glass-card p-12 text-center text-[#A9B4C2]">
           Loading worldwide districts directory...
         </div>

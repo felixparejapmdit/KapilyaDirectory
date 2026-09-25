@@ -14,6 +14,7 @@ import { INITIAL_REGIONS, INITIAL_DISTRICTS, INITIAL_LOCALES, INITIAL_SNAPSHOT }
 import { haversineKm } from './geo';
 import { formatTime12Hour } from './time';
 import { findNextService, formatCountdown } from './next-service';
+import { buildNameIndex, type NameIndex } from './entity-search';
 import {
   type StoreData,
   type SyncSummary,
@@ -29,6 +30,7 @@ class KapilyaStore {
   private data: StoreData | null = null;
   private loadedMtime: number | null = null;
   private cachedTotals: DirectoryTotals | null = null;
+  private nameIndex: NameIndex | null = null;
 
   private load(): StoreData {
     // Reload when store.json changed on disk (CLI sync, or another server bundle wrote it).
@@ -42,6 +44,7 @@ class KapilyaStore {
         this.data = readStoreFile();
         this.loadedMtime = mtime;
         this.cachedTotals = null;
+    this.nameIndex = null;
         return this.data!;
       } catch (err) {
         if (this.data) return this.data;
@@ -65,6 +68,7 @@ class KapilyaStore {
   public save() {
     if (!this.data) return;
     this.cachedTotals = null;
+    this.nameIndex = null;
     if (READ_ONLY_DEPLOYMENT) return; // e.g. Vercel: the bundled store.json can't be written
     writeStoreFile(this.data);
     this.loadedMtime = storeFileMtime();
@@ -306,6 +310,16 @@ class KapilyaStore {
         };
       }),
     };
+  }
+
+  /** Fuzzy name index over all locales and districts (rebuilt when the data changes). */
+  public getNameIndex(): NameIndex {
+    const data = this.load();
+    this.nameIndex ??= buildNameIndex(
+      data.locales,
+      data.districts
+    );
+    return this.nameIndex;
   }
 
   // --- Next Service Status ---

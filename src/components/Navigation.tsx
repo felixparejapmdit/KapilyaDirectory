@@ -22,7 +22,8 @@ import { useTheme } from './ThemeProvider';
 import { KapilyaLogo } from './KapilyaLogo';
 import { useShowSettings } from '@/lib/use-show-settings';
 import { useUserLocation } from './LocationProvider';
-import { useVoice } from './VoiceProvider';
+import { setVoicePreference, useVoice } from './VoiceProvider';
+import { VoiceOverlay } from './VoiceOverlay';
 
 export function Navigation() {
   const pathname = usePathname();
@@ -31,10 +32,13 @@ export function Navigation() {
   const setToast = (text: string | null, icon: 'voice' | 'gps' = 'voice') => setToastState(text ? { text, icon } : null);
   // Voice assistant: "Hey Assistant" opens the Ask drawer and starts a spoken session.
   const { voice, state: voiceState } = useVoice();
+  // "Hey Assistant" opens the Siri-style voice overlay (the Ask drawer has its own mic button).
+  const [voiceOpen, setVoiceOpen] = useState(false);
   const [voiceWake, setVoiceWake] = useState(0);
   useEffect(() => {
     voice.setWakeHandler(() => {
-      setAskOpen(true);
+      setAskOpen(false);
+      setVoiceOpen(true);
       setVoiceWake((n) => n + 1);
     });
     return () => voice.setWakeHandler(null);
@@ -49,10 +53,12 @@ export function Navigation() {
   const toggleVoice = () => {
     if (voiceState.enabled) {
       voice.disable();
+      setVoicePreference(false);
       setToast('Voice assistant off.');
       return;
     }
     // enable() must start inside this tap (it unlocks speech on iPhone).
+    setVoicePreference(true);
     void voice.enable().then((ok) => ok && setToast('Voice assistant on. Say “Hey Assistant”.'));
   };
 
@@ -321,7 +327,8 @@ export function Navigation() {
       </nav>
 
       {/* The Scoped Ask Assistant Drawer */}
-      <AskDrawer isOpen={askOpen} onClose={() => setAskOpen(false)} voiceWake={voiceWake} />
+      <AskDrawer isOpen={askOpen} onClose={() => setAskOpen(false)} />
+      <VoiceOverlay open={voiceOpen} trigger={voiceWake} onClose={() => setVoiceOpen(false)} />
 
       {/* GPS result */}
       {toast && (

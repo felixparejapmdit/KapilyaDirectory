@@ -95,9 +95,32 @@ export function parseVoiceIntent(raw: string, vocab: VoiceVocabulary): VoiceInte
  * Condenses an Ask reply for speaking: link text only, no URLs or emoji, and at most three list
  * items ("…and more on screen").
  */
-export function replyForSpeech(reply: string): string {
-  const lines = reply
+const DAY_LINE = /^(monday|tuesday|wednesday|thursday|friday|saturday|sunday)s?:/i;
+
+/** The per-day schedule lines of an Ask reply ("Sunday: 6:00 AM (Tagalog), …"), for showing on screen. */
+export function scheduleLines(reply: string): { day: string; times: string }[] {
+  return reply
     .split('\n')
+    .map((l) => l.replace(/[*_]/g, '').replace(/^\s*•\s*/u, '').trim())
+    .filter((l) => DAY_LINE.test(l))
+    .map((l) => {
+      const i = l.indexOf(':');
+      return { day: l.slice(0, i), times: l.slice(i + 1).trim() };
+    });
+}
+
+/**
+ * Turns an Ask reply into something short enough to say out loud: the headline, the next service,
+ * and at most three list items. Addresses and full week schedules stay on screen.
+ */
+export function replyForSpeech(reply: string): string {
+  const raw = reply.split('\n');
+  const dayCount = raw.filter((l) => DAY_LINE.test(l.replace(/[*_]/g, '').replace(/^\s*•\s*/u, '').trim())).length;
+  const longSchedule = dayCount > 2;
+  const lines = raw
+    .filter((l) => !/^\s*📍/u.test(l))
+    .map((l) => l.replace(/[*_]/g, '').replace(/^\s*•\s*/u, '').trim())
+    .filter((l) => !(longSchedule && (DAY_LINE.test(l) || /^worship schedule:?$/i.test(l))))
     .map((l) =>
       l
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -122,5 +145,12 @@ export function replyForSpeech(reply: string): string {
     }
   }
   if (items > 3) out.push('More are listed on screen.');
-  return out.join(' ').replace(/\.\./g, '.');
+  if (longSchedule) out.splice(Math.min(out.length, 2), 0, 'The full schedule is on screen.');
+  let spoken = out.join(' ').replace(/\.\./g, '.');
+  // Keep it to a few sentences; long answers are tiring to listen to.
+  if (spoken.length > 360) {
+    const cut = spoken.lastIndexOf('. ', 340);
+    spoken = spoken.slice(0, cut > 120 ? cut + 1 : 340) + ' The rest is on screen.';
+  }
+  return spoken;
 }

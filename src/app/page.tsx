@@ -131,7 +131,7 @@ export default function DashboardPage() {
                       {nextService.statusText}
                     </span>
                     <span className="text-xs text-[#A9B4C2] font-medium hidden sm:inline">
-                      Nearest scheduled service
+                      Soonest service you can make
                     </span>
                   </div>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -140,7 +140,7 @@ export default function DashboardPage() {
                   <p className="text-xs sm:text-sm text-[#A9B4C2] mt-0.5 line-clamp-1">
                     {nextService.scheduleItem.day_name} at {formatTime12Hour(nextService.scheduleItem.start_time)} (
                     {nextService.scheduleItem.language}
-                    {nextService.scheduleItem.is_cws ? ', CWS' : ''}) • {nextService.locale.address}
+                    {nextService.scheduleItem.is_cws ? ', CWS' : ''}) • {nextService.travelText ?? nextService.locale.address}
                   </p>
                 </div>
               </div>

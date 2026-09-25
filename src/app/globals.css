@@ -1255,3 +1255,618 @@ body.light-theme button.kd-hovercard-chip[aria-pressed='true'] {
     transition: none;
   }
 }
+
+/* ============================================================
+   VOICE ASSISTANT OVERLAY (Siri-style, "Hey Assistant")
+   ============================================================ */
+@property --kd-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.kd-voice {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.kd-voice-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  background: radial-gradient(120% 70% at 50% 100%, rgba(11, 20, 38, 0.72), rgba(11, 20, 38, 0.25) 60%, transparent);
+  animation: kd-voice-fade 260ms ease both;
+}
+
+/* Glowing, color-shifting screen edge while the assistant is active. */
+.kd-voice-edge {
+  --level: 0;
+  position: absolute;
+  inset: 0;
+  padding: calc(3px + var(--level) * 5px);
+  border-radius: 0;
+  background: conic-gradient(from var(--kd-angle), #5AA9FF, #A78BFA, #E8A33D, #F472B6, #4ADE80, #5AA9FF);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  filter: blur(10px) saturate(130%);
+  opacity: 0.85;
+  animation: kd-voice-spin 6s linear infinite, kd-voice-fade 400ms ease both;
+  transition: padding 120ms linear;
+}
+
+.kd-voice[data-phase='thinking'] .kd-voice-edge {
+  animation-duration: 1.8s, 400ms;
+}
+
+.kd-voice-panel {
+  position: relative;
+  pointer-events: auto;
+  width: min(100% - 1.5rem, 32rem);
+  margin-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  border-radius: 1.75rem;
+  padding: 1.25rem 1.25rem 1rem;
+  background: rgba(14, 24, 44, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  color: #F3F4F6;
+  animation: kd-voice-pop 420ms cubic-bezier(0.2, 1.3, 0.3, 1) both;
+}
+
+@media (max-width: 767px) {
+  .kd-voice-panel {
+    width: calc(100% - 1rem);
+    margin-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+  }
+}
+
+body.light-theme .kd-voice-panel {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: #E2E8F0;
+  color: #0F172A;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.22);
+}
+
+body.light-theme .kd-voice-scrim {
+  background: radial-gradient(120% 70% at 50% 100%, rgba(15, 23, 42, 0.28), transparent 65%);
+}
+
+.kd-voice.is-closing .kd-voice-panel {
+  animation: kd-voice-drop 260ms ease both;
+}
+
+.kd-voice.is-closing .kd-voice-scrim,
+.kd-voice.is-closing .kd-voice-edge {
+  animation: kd-voice-fade-out 260ms ease both;
+}
+
+.kd-voice-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  color: #A9B4C2;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.kd-voice-close:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.kd-voice-body {
+  max-height: min(52dvh, 26rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 1.75rem;
+}
+
+.kd-voice-hint {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E8A33D;
+}
+
+.kd-voice-user {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  animation: kd-voice-rise 240ms ease both;
+}
+
+.kd-voice-reply {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #E5E7EB;
+}
+
+body.light-theme .kd-voice-reply {
+  color: #1E293B;
+}
+
+.kd-voice-reply-pending {
+  opacity: 0.28;
+  transition: opacity 200ms ease;
+}
+
+.kd-voice-schedule {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.8rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+}
+
+.kd-voice-schedule > div {
+  display: grid;
+  grid-template-columns: 5.6rem 1fr;
+  gap: 0.5rem;
+  animation: kd-map-row-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.kd-voice-schedule dt {
+  font-weight: 700;
+  color: #E8A33D;
+}
+
+.kd-voice-schedule dd {
+  color: #D5DCE6;
+}
+
+body.light-theme .kd-voice-schedule {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+body.light-theme .kd-voice-schedule dd {
+  color: #334155;
+}
+
+.kd-voice-cards {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scroll-snap-type: x mandatory;
+}
+
+.kd-voice-card {
+  flex: 0 0 min(15rem, 78%);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  animation: kd-voice-rise 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+body.light-theme .kd-voice-card {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+.kd-voice-card-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0.8rem 0.55rem;
+  text-align: left;
+}
+
+.kd-voice-card-main:hover .kd-voice-card-name {
+  color: #E8A33D;
+}
+
+.kd-voice-card-name {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: color 150ms ease;
+}
+
+.kd-voice-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0 0.35rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #A9B4C2;
+}
+
+.kd-voice-card-meta,
+.kd-voice-card-next {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #A9B4C2;
+}
+
+.kd-voice-card-next {
+  color: #E8A33D;
+}
+
+.kd-voice-card-dir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.45rem;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0B1426;
+  background: #E8A33D;
+  transition: filter 150ms ease;
+}
+
+.kd-voice-card-dir:hover {
+  filter: brightness(1.08);
+}
+
+.kd-voice-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+
+.kd-voice-chips button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #D5DCE6;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.kd-voice-chips button:hover {
+  color: #FFFFFF;
+  background: rgba(232, 163, 61, 0.18);
+  transform: translateY(-1px);
+}
+
+body.light-theme .kd-voice-chips button {
+  color: #334155;
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+}
+
+.kd-voice-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+
+.kd-voice-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #A9B4C2;
+}
+
+/* The orb: layered colour blobs that swirl, scale with the voice level, and change pace by state. */
+.kd-siri-orb {
+  --level: 0;
+  position: relative;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: #0B1426;
+  box-shadow: 0 0 calc(18px + var(--level) * 30px) rgba(167, 139, 250, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  transform: scale(calc(1 + var(--level) * 0.18));
+  transition: transform 110ms linear, box-shadow 110ms linear;
+}
+
+.kd-siri-blob {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  border-radius: 9999px;
+  filter: blur(7px);
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+
+.kd-siri-blob.b1 { background: #5AA9FF; top: -10%; left: -8%; animation: kd-orb-a 3.2s ease-in-out infinite; }
+.kd-siri-blob.b2 { background: #E8A33D; bottom: -12%; right: -10%; animation: kd-orb-b 3.8s ease-in-out infinite; }
+.kd-siri-blob.b3 { background: #A78BFA; top: 20%; right: -18%; animation: kd-orb-c 4.4s ease-in-out infinite; }
+.kd-siri-blob.b4 { background: #4ADE80; bottom: -20%; left: 10%; width: 55%; height: 55%; animation: kd-orb-d 5s ease-in-out infinite; }
+
+.kd-siri-gloss {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.55), transparent 42%);
+}
+
+.kd-voice[data-phase='listening'] .kd-siri-blob { animation-duration: 1.6s, 1.9s, 2.2s, 2.5s; }
+.kd-voice[data-phase='thinking'] .kd-siri-orb { animation: kd-orb-spin 1.1s linear infinite; }
+.kd-voice[data-phase='speaking'] .kd-siri-orb,
+.kd-voice[data-phase='greeting'] .kd-siri-orb { animation: kd-orb-breathe 1.3s ease-in-out infinite; }
+.kd-voice[data-phase='armed'] .kd-siri-blob,
+.kd-voice[data-phase='off'] .kd-siri-blob { animation-duration: 7s, 8s, 9s, 10s; opacity: 0.7; }
+
+@keyframes kd-orb-a { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(40%, 30%) scale(1.25); } }
+@keyframes kd-orb-b { 0%, 100% { transform: translate(0, 0) scale(1.1); } 50% { transform: translate(-45%, -35%) scale(0.85); } }
+@keyframes kd-orb-c { 0%, 100% { transform: translate(0, 0) scale(0.9); } 50% { transform: translate(-50%, 25%) scale(1.2); } }
+@keyframes kd-orb-d { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(35%, -45%) scale(1.3); } }
+@keyframes kd-orb-spin { to { transform: rotate(360deg); } }
+@keyframes kd-orb-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+@keyframes kd-voice-spin { to { --kd-angle: 360deg; } }
+@keyframes kd-voice-fade { from { opacity: 0; } }
+@keyframes kd-voice-fade-out { to { opacity: 0; } }
+@keyframes kd-voice-pop { from { opacity: 0; transform: translateY(40px) scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes kd-voice-drop { to { opacity: 0; transform: translateY(30px) scale(0.96); } }
+@keyframes kd-voice-rise { from { opacity: 0; transform: translateY(8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .kd-voice-edge,
+  .kd-siri-blob,
+  .kd-siri-orb,
+  .kd-voice-panel,
+  .kd-voice-card,
+  .kd-voice-user {
+    animation-name: kd-voice-fade !important;
+    animation-duration: 200ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .kd-siri-orb {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   DISTRICTS MAP VIEW
+   ============================================================ */
+.kd-map-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  transition: opacity 200ms ease;
+}
+
+.kd-map-stat-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: #A9B4C2;
+}
+
+.kd-map-stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+body.light-theme .kd-map-stat {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+body.light-theme .kd-map-stat-value {
+  color: #0F172A;
+}
+
+.kd-map-bar {
+  display: flex;
+  height: 6px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.kd-map-bar > span {
+  height: 100%;
+  transition: width 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kd-map-crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  color: #5AA9FF;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.kd-map-crumb:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.kd-map-crumb.is-current {
+  color: #E8A33D;
+  cursor: default;
+}
+
+.kd-map-list-heading {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A9B4C2;
+}
+
+.kd-map-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.65rem;
+  border-radius: 0.8rem;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #F3F4F6;
+  transition: background-color 150ms ease, transform 150ms ease;
+  animation: kd-map-row-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.kd-map-row:hover,
+.kd-map-row.is-hover {
+  background: rgba(232, 163, 61, 0.1);
+}
+
+.kd-map-row:active {
+  transform: scale(0.99);
+}
+
+body.light-theme .kd-map-row {
+  color: #0F172A;
+}
+
+.kd-map-open-district {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0B1426;
+  background: #E8A33D;
+  transition: filter 150ms ease;
+}
+
+.kd-map-open-district:hover {
+  filter: brightness(1.08);
+}
+
+.kd-map-legend {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 1.5rem;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.75rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: #D5DCE6;
+  background: rgba(11, 20, 38, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.kd-map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: opacity 200ms ease;
+}
+
+.kd-map-legend i {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+}
+
+.kd-map-legend .kd-map-legend-bubble {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: rgba(232, 163, 61, 0.3);
+  border: 1.5px solid #E8A33D;
+}
+
+body.light-theme .kd-map-legend {
+  color: #334155;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #E2E8F0;
+}
+
+.kd-map-bubble {
+  cursor: pointer;
+  transition: fill-opacity 150ms ease, stroke-width 150ms ease;
+}
+
+.leaflet-tooltip.kd-map-tooltip {
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #16233E;
+  color: #F3F4F6;
+  font-size: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.leaflet-tooltip.kd-map-tooltip::before {
+  border-top-color: #16233E;
+}
+
+.kd-map-tip-counts {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #A9B4C2;
+}
+
+.kd-map-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 11rem;
+  font-size: 12.5px;
+}
+
+.kd-map-popup b {
+  font-size: 13.5px;
+}
+
+.kd-map-popup a {
+  font-weight: 700;
+  color: #E8A33D !important;
+}
+
+@keyframes kd-map-row-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kd-map-row {
+    animation: none;
+  }
+
+  .kd-map-bar > span {
+    transition: none;
+  }
+}
