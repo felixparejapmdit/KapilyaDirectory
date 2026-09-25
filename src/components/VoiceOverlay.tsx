@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Navigation as NavIcon, X } from 'lucide-react';
 import { useVoice } from './VoiceProvider';
 import { useUserLocation } from './LocationProvider';
-import { GREETING } from '@/lib/voice/controller';
+import { GREETING, WAKE_PATTERN } from '@/lib/voice/controller';
 import { executeVoiceCommand, type AskContext, type ResultCard } from '@/lib/voice/commands';
 
 /** Follow-up turns after the first answer before the assistant goes back to sleep. */
@@ -36,6 +36,20 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
   const [closing, setClosing] = useState(false);
   const sessionRef = useRef(0);
   const contextRef = useRef<AskContext>({});
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTop = () => bodyRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+
+  /** Clears the panel back to a fresh start (used on every "Hey Assistant"). */
+  const reset = useCallback(() => {
+    setUserText('');
+    setAssistantText('');
+    setRevealed(0);
+    setSchedule([]);
+    setCards([]);
+    contextRef.current = {};
+    bodyRef.current?.scrollTo({ top: 0 });
+  }, []);
   const locationRef = useRef(location);
   useEffect(() => {
     locationRef.current = location;
@@ -78,6 +92,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
       setCards([]);
       setSchedule([]);
       setAssistantText('');
+      scrollToTop();
       voice.setPhase('thinking');
       const result = await executeVoiceCommand(text, {
         location: locationRef.current,
@@ -99,9 +114,13 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
     async (greet: boolean, firstText?: string) => {
       const session = ++sessionRef.current;
       const alive = () => sessionRef.current === session;
-      setUserText('');
-      setCards([]);
-      setSchedule([]);
+      if (greet) reset();
+      else {
+        setUserText('');
+        setCards([]);
+        setSchedule([]);
+        scrollToTop();
+      }
       if (firstText) {
         if (!(await handle(firstText, alive))) return alive() && dismiss();
       } else if (greet) {
@@ -115,11 +134,24 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
           if (turn === 0 && !firstText) await say("I didn't catch that. Tap the orb and try again.", 'speaking', alive);
           break;
         }
+        // "Hey Assistant" mid-conversation starts over from the top; anything said after it is the new question.
+        if (WAKE_PATTERN.test(heard)) {
+          const rest = heard.replace(WAKE_PATTERN, '').replace(/^[\s,.!?]+/, '').trim();
+          reset();
+          if (!rest) {
+            await say(GREETING, 'greeting', alive);
+            if (!alive()) return;
+            turn = -1;
+            continue;
+          }
+          if (!(await handle(rest, alive))) break;
+          continue;
+        }
         if (!(await handle(heard, alive))) break;
       }
       if (alive()) window.setTimeout(() => alive() && dismiss(), 900);
     },
-    [dismiss, handle, say, voice]
+    [dismiss, handle, reset, say, voice]
   );
 
   // "Hey Assistant" (trigger increments): start a conversation.
@@ -173,7 +205,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
           <X size={18} />
         </button>
 
-        <div className="kd-voice-body" aria-live="polite">
+        <div ref={bodyRef} className="kd-voice-body" aria-live="polite">
           {userText ? (
             <p className="kd-voice-user">{userText}</p>
           ) : (
