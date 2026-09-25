@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Send, ArrowLeft, Bot, MapPin, CheckCircle2, Sparkles, User } from 'lucide-react';
 import type { District, Locale } from '@/lib/types';
 import { useUserLocation } from '@/components/LocationProvider';
-import { directionsUrl, formatDistance } from '@/lib/geo';
+import { directionsUrl, formatTravel, type RoadInfo } from '@/lib/geo';
 import { formatTime12Hour } from '@/lib/time';
 
 interface ChatMessage {
@@ -54,8 +54,21 @@ export default function TelegramPage() {
     const id = `bot-${Date.now()}`;
     try {
       if (cmd.startsWith('/nearme')) {
-        const res = await fetch(`/api/locales/nearby?lat=${location.lat}&lng=${location.lng}&radius=80&limit=3`);
-        const { locales = [] }: { locales: Locale[] } = await res.json();
+        const res = await fetch(`/api/locales/nearby?lat=${location.lat}&lng=${location.lng}&radius=80&limit=8`);
+        const { locales: candidates = [] }: { locales: Locale[] } = await res.json();
+        // Rank by driving distance, like the real bot.
+        const roadRes = await fetch('/api/road-distance', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            origin: { lat: location.lat, lng: location.lng },
+            destinations: candidates.map((l) => ({ id: l.id, lat: l.latitude, lng: l.longitude })),
+          }),
+        }).catch(() => null);
+        const roads: Record<string, RoadInfo | null> = roadRes?.ok ? (await roadRes.json()).results ?? {} : {};
+        const locales = [...candidates]
+          .sort((a, b) => (roads[a.id]?.km ?? a.distance_km ?? 0) - (roads[b.id]?.km ?? b.distance_km ?? 0))
+          .slice(0, 3);
         if (locales.length === 0) {
           return { id, sender: 'bot', text: `❌ No congregations found within 80 km of **${location.name}**.` };
         }
@@ -66,12 +79,12 @@ export default function TelegramPage() {
           text:
             `📍 **Nearby Congregations (${location.name}):**\n\n` +
             locales
-              .map((l, i) => `${i + 1}. **${l.name}** — ${formatDistance(l.distance_km)}\n${scheduleLines(l)}`)
+              .map((l, i) => `${i + 1}. **${l.name}** — ${formatTravel(roads[l.id], l.distance_km)}\n${scheduleLines(l)}`)
               .join('\n\n'),
           buttons: [
             {
               label: `🗺️ Directions to ${top.name}`,
-              action: () => window.open(directionsUrl(top.latitude, top.longitude, top.name), '_blank'),
+              action: () => window.open(directionsUrl(top.latitude, top.longitude, top.name, location), '_blank'),
             },
             {
               label: `🔔 Subscribe to ${top.name}`,

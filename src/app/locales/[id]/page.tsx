@@ -20,7 +20,9 @@ import {
 import { Locale } from '@/lib/types';
 import { DepartureBoard } from '@/components/DepartureBoard';
 import { LeafletMap } from '@/components/LeafletMap';
-import { directionsUrl } from '@/lib/geo';
+import { directionsUrl, formatTravel, haversineKm } from '@/lib/geo';
+import { useUserLocation } from '@/components/LocationProvider';
+import { useRoadDistances } from '@/lib/use-road-distances';
 
 export default function LocaleDetailPage() {
   const params = useParams();
@@ -32,6 +34,9 @@ export default function LocaleDetailPage() {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isVisited, setIsVisited] = useState(false);
   const [reminderScheduled, setReminderScheduled] = useState(false);
+  // Distance from the app's location, by road: the same trip Get Directions opens.
+  const { location } = useUserLocation();
+  const { roads } = useRoadDistances(location, locale ? [locale] : []);
 
   useEffect(() => {
     if (!id) return;
@@ -115,7 +120,9 @@ export default function LocaleDetailPage() {
     );
   }
 
-  const mapsUrl = directionsUrl(locale.latitude, locale.longitude, locale.name);
+  const mapsUrl = directionsUrl(locale.latitude, locale.longitude, locale.name, location);
+  const road = roads[locale.id];
+  const straightKm = haversineKm(location.lat, location.lng, locale.latitude, locale.longitude);
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 space-y-6">
@@ -153,6 +160,9 @@ export default function LocaleDetailPage() {
             <p className="text-xs sm:text-sm text-[#A9B4C2] flex items-center gap-1.5">
               <MapPin size={14} className="shrink-0 text-[#E8A33D]" />
               <span>{locale.address}</span>
+            </p>
+            <p className="text-xs text-[#A9B4C2] font-departure">
+              {road === undefined ? 'Calculating road distance…' : `${formatTravel(road, straightKm)} from ${location.name}`}
             </p>
           </div>
 

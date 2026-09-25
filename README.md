@@ -53,3 +53,11 @@ See [.env.example](.env.example). `.env.local` is gitignored; never commit the b
 
 If you run a local server and also pull the Action's data commits, discard local sync results first
 (`git checkout data/store.json`), or set `KAPILYA_AUTO_SYNC=off` locally.
+
+## Distances
+
+Distances are driving distances and times from the search point (e.g. "2.4 km · 4 min"), and
+"Get directions" opens Google/Apple Maps from that same point in driving mode, so the numbers match
+the route the map shows. Routing uses the public OSRM server (OpenStreetMap roads) by default; set
+`GOOGLE_MAPS_API_KEY` (Distance Matrix API) to use Google's own routing, which matches Google Maps
+exactly. If routing is unavailable, the straight-line distance is shown as "≈1.5 km".

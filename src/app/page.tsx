@@ -22,7 +22,8 @@ import { formatTime12Hour } from '@/lib/time';
 import { useUserLocation } from '@/components/LocationProvider';
 import { useSplash } from '@/components/SplashScreen';
 import { useShowSettings } from '@/lib/use-show-settings';
-import { formatDistance } from '@/lib/geo';
+import { formatTravel } from '@/lib/geo';
+import { useRoadDistances } from '@/lib/use-road-distances';
 import { findNextService } from '@/lib/next-service';
 
 export default function DashboardPage() {
@@ -36,17 +37,23 @@ export default function DashboardPage() {
   const { completeStep } = useSplash();
   const { visible: isLocalhost } = useShowSettings();
   const [statsLoaded, setStatsLoaded] = useState(false);
+  const { roads, pending: roadsPending } = useRoadDistances(locationReady ? location : null, nearbyLocales);
+  const closest = React.useMemo(() => {
+    const km = (l: Locale) => roads[l.id]?.km ?? l.distance_km ?? Infinity;
+    return [...nearbyLocales].sort((a, b) => km(a) - km(b)).slice(0, 3);
+  }, [nearbyLocales, roads]);
 
   const loadLocationData = useCallback(async (lat: number, lng: number) => {
     setLoading(true);
     try {
       const [nextRes, nearbyRes] = await Promise.all([
         fetch(`/api/status/next-service?lat=${lat}&lng=${lng}`).then((r) => r.json()),
-        fetch(`/api/locales/nearby?lat=${lat}&lng=${lng}&radius=25&limit=3`).then((r) => r.json()),
+        fetch(`/api/locales/nearby?lat=${lat}&lng=${lng}&radius=25&limit=8`).then((r) => r.json()),
       ]);
 
       setNextService(nextRes.nextService);
-      setNearbyLocales(nearbyRes.locales?.slice(0, 3) || []);
+      // A few extra candidates: the nearest by road can differ from the nearest in a straight line.
+      setNearbyLocales(nearbyRes.locales?.slice(0, 8) || []);
     } catch (err) {
       console.error('Error loading location data:', err);
     } finally {
@@ -279,7 +286,7 @@ export default function DashboardPage() {
                 </div>
               ))
             ) : nearbyLocales.length > 0 ? (
-              nearbyLocales.map((locale) => (
+              closest.map((locale) => (
                 <Link
                   key={locale.id}
                   href={`/locales/${locale.id}`}
@@ -312,7 +319,7 @@ export default function DashboardPage() {
 
                   <div className="sm:text-right shrink-0">
                     <span className="text-sm font-bold text-white font-departure block">
-                      {formatDistance(locale.distance_km)}
+                      {roadsPending && roads[locale.id] === undefined ? '…' : formatTravel(roads[locale.id], locale.distance_km)}
                     </span>
                     <span className="text-[11px] text-[#5AA9FF] group-hover:underline">
                       View Schedule &rarr;

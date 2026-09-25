@@ -31,9 +31,44 @@ export function formatDistance(km?: number | null): string {
   return `${km < 10 ? km.toFixed(1) : Math.round(km)} km`;
 }
 
-/** Turn-by-turn handoff: Apple Maps on iPhone/iPad, Google Maps elsewhere. */
-export function directionsUrl(lat: number, lng: number, label: string): string {
+/**
+ * Turn-by-turn handoff (Apple Maps on iPhone/iPad, Google Maps elsewhere), driving, starting from
+ * `origin` when given: the same trip the app measured, so the route distance matches.
+ */
+export function directionsUrl(
+  lat: number,
+  lng: number,
+  label: string,
+  origin?: { lat: number; lng: number } | null
+): string {
   const isApple = typeof navigator !== 'undefined' && /iPhone|iPad|iPod/.test(navigator.userAgent);
-  if (isApple) return `https://maps.apple.com/?daddr=${lat},${lng}&q=${encodeURIComponent(label)}`;
-  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+  if (isApple) {
+    const from = origin ? `&saddr=${origin.lat},${origin.lng}` : '';
+    return `https://maps.apple.com/?daddr=${lat},${lng}${from}&dirflg=d&q=${encodeURIComponent(label)}`;
+  }
+  const params = new URLSearchParams({ api: '1', destination: `${lat},${lng}`, travelmode: 'driving' });
+  if (origin) params.set('origin', `${origin.lat},${origin.lng}`);
+  return `https://www.google.com/maps/dir/?${params}`;
+}
+
+export interface RoadInfo {
+  km: number;
+  minutes: number;
+}
+
+/**
+ * Distance to show for a locale: the driving distance and time when known ("2.4 km · 4 min"),
+ * otherwise the straight-line distance marked as approximate ("≈1.5 km").
+ */
+export function formatTravel(road: RoadInfo | null | undefined, straightKm?: number | null): string {
+  if (road) return road.km < 0.03 ? 'Here' : `${formatDistance(road.km)} · ${formatMinutes(road.minutes)}`;
+  const straight = formatDistance(straightKm);
+  return straight ? `≈${straight}` : '';
+}
+
+export function formatMinutes(minutes: number): string {
+  if (minutes < 60) return `${Math.max(1, Math.round(minutes))} min`;
+  const h = Math.floor(minutes / 60);
+  const m = Math.round(minutes % 60);
+  return m ? `${h} hr ${m} min` : `${h} hr`;
 }

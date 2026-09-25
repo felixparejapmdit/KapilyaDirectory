@@ -152,6 +152,8 @@ function DistrictCard({
   onNavigate: () => void;
 }) {
   const [detail, setDetail] = useState<DistrictDetail | null | undefined>(undefined);
+  // Chip filter inside the card; starts from the page's type filter.
+  const [shown, setShown] = useState<KindFilter>(kind);
   const pos = useMemo(() => cardPosition(anchor), [anchor]);
 
   useEffect(() => {
@@ -167,7 +169,7 @@ function DistrictCard({
     LocaleKind,
     number
   >;
-  const sections = SECTIONS.filter((s) => (kind === 'all' || s.kind === kind) && counts[s.kind] > 0);
+  const sections = SECTIONS.filter((s) => (shown === 'all' || s.kind === shown) && counts[s.kind] > 0);
   const now = new Date();
   let row = 0;
 
@@ -202,17 +204,29 @@ function DistrictCard({
           {/* Header */}
           <div className="px-4 pt-4 pb-3 kd-hovercard-divider">
             <p className="text-base font-bold leading-tight kd-hovercard-title">District of {detail.name}</p>
-            <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            <div className="mt-2 flex flex-wrap items-center gap-1.5" role="group" aria-label="Show congregations by type">
+              <button
+                type="button"
+                aria-pressed={shown === 'all'}
+                onClick={() => setShown('all')}
+                className="kd-hovercard-chip"
+              >
+                All <b className="font-departure">{all.length}</b>
+              </button>
               {SECTIONS.map((s) => (
-                <span
+                <button
                   key={s.kind}
-                  className={`kd-hovercard-chip ${kind !== 'all' && kind !== s.kind ? 'opacity-40' : ''}`}
-                  title={s.label}
+                  type="button"
+                  aria-pressed={shown === s.kind}
+                  disabled={counts[s.kind] === 0}
+                  onClick={() => setShown(shown === s.kind ? 'all' : s.kind)}
+                  className="kd-hovercard-chip"
+                  title={`Show ${s.label.toLowerCase()} only`}
                 >
                   <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
                   {s.kind === 'local_congregation' ? 'Local' : s.kind === 'extension' ? 'Ext' : 'GWS'}{' '}
                   <b className="font-departure">{counts[s.kind]}</b>
-                </span>
+                </button>
               ))}
               <span className="ml-auto flex items-center gap-1 text-[11px] kd-hovercard-muted">
                 <Clock size={11} /> {detail.timezone.split('/').pop()?.replace(/_/g, ' ')} time
@@ -221,7 +235,7 @@ function DistrictCard({
           </div>
 
           {/* Congregations, grouped by kind */}
-          <div className="kd-hovercard-list min-h-0 flex-1">
+          <div key={shown} className="kd-hovercard-list min-h-0 flex-1">
             {sections.length === 0 ? (
               <p className="px-4 py-6 text-center text-sm kd-hovercard-muted">No congregations of this type here.</p>
             ) : (

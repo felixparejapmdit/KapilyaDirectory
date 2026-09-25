@@ -9,7 +9,8 @@
 import type { District, Locale, LocaleKind } from './types.ts';
 import { findNextService } from './next-service.ts';
 import { formatTime12Hour } from './time.ts';
-import { formatDistance, haversineKm } from './geo.ts';
+import { formatDistance, formatMinutes, haversineKm } from './geo.ts';
+import { googleDirectionsUrl, roadDistances, type LatLng } from './road-distance.ts';
 
 export interface BotData {
   districts: District[];
@@ -55,12 +56,13 @@ const visibleLength = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&[
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s: string) => esc(s).replace(/"/g, '&quot;');
 
-export function directionsLink(l: Locale): string {
-  return `https://www.google.com/maps/dir/?api=1&destination=${l.latitude},${l.longitude}`;
+/** Driving directions; from `origin` (a shared location) when known, else from the user's GPS. */
+export function directionsLink(l: Locale, origin?: LatLng | null): string {
+  return googleDirectionsUrl({ lat: l.latitude, lng: l.longitude }, origin);
 }
 
 /** Congregation name as a directions link. */
-const nameLink = (l: Locale) => `<a href="${attr(directionsLink(l))}">${esc(l.name)}</a>`;
+const nameLink = (l: Locale, origin?: LatLng | null) => `<a href="${attr(directionsLink(l, origin))}">${esc(l.name)}</a>`;
 
 function withTimezones(data: BotData): Locale[] {
   const tz = new Map(data.districts.map((d) => [d.id, d]));
@@ -109,24 +111,31 @@ export function welcomeReply(): BotReply {
   };
 }
 
-export function nearbyReply(data: BotData, lat: number, lng: number): BotReply {
-  const ranked = withTimezones(data)
+export async function nearbyReply(data: BotData, lat: number, lng: number): Promise<BotReply> {
+  const origin = { lat, lng };
+  // Straight-line candidates, re-ranked by driving distance (what the directions link will show).
+  const candidates = withTimezones(data)
     .filter((l) => l.latitude || l.longitude)
     .map((l) => ({ l, km: haversineKm(lat, lng, l.latitude, l.longitude) }))
     .sort((a, b) => a.km - b.km)
+    .slice(0, 10);
+  const roads = await roadDistances(origin, candidates.map(({ l }) => ({ lat: l.latitude, lng: l.longitude })));
+  const ranked = candidates
+    .map((c, i) => ({ ...c, road: roads[i] }))
+    .sort((a, b) => (a.road?.km ?? a.km) - (b.road?.km ?? b.km))
     .slice(0, 5);
 
   if (!ranked.length) return { html: '❌ No congregations found near you. Try typing a city or chapel name.' };
 
   const lines = ranked.map(
-    ({ l, km }, i) =>
-      `<b>${i + 1}.</b> ${nameLink(l)} · ${formatDistance(km)}${l.kind !== 'local_congregation' ? ` · ${KIND_LABEL[l.kind]}` : ''}\n` +
+    ({ l, km, road }, i) =>
+      `<b>${i + 1}.</b> ${nameLink(l, origin)} · ${road ? (road.km < 0.03 ? 'you are here' : `${formatDistance(road.km)} by road · ${formatMinutes(road.minutes)}`) : `≈${formatDistance(km)}`}${l.kind !== 'local_congregation' ? ` · ${KIND_LABEL[l.kind]}` : ''}\n` +
       `   🕒 Next: ${esc(nextServiceText(l))}\n` +
       `   📍 ${esc(l.address)}`
   );
   return {
     html: `📍 <b>Closest congregations</b> (tap a name for directions)\n\n${lines.join('\n\n')}\n\n<i>Times are each chapel's local time.</i>`,
-    inlineButtons: ranked.slice(0, 3).map(({ l }) => [{ text: `🗺️ Directions: ${l.name}`, url: directionsLink(l) }]),
+    inlineButtons: ranked.slice(0, 3).map(({ l }) => [{ text: `🗺️ Directions: ${l.name}`, url: directionsLink(l, origin) }]),
   };
 }
 
@@ -217,7 +226,10 @@ export function searchReply(data: BotData, rawText: string): BotReply | null {
 }
 
 /** Routes one incoming message (text or shared location) to a reply. */
-export function buildBotReply(data: BotData, msg: { text?: string; location?: { latitude: number; longitude: number } }): BotReply {
+export async function buildBotReply(
+  data: BotData,
+  msg: { text?: string; location?: { latitude: number; longitude: number } }
+): Promise<BotReply> {
   if (msg.location) return nearbyReply(data, msg.location.latitude, msg.location.longitude);
   const text = (msg.text ?? '').trim();
   if (!text || text.startsWith('/start') || text.startsWith('/help')) return welcomeReply();

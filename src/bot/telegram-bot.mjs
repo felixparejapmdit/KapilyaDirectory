@@ -59,7 +59,7 @@ async function setupBotCommands() {
 async function handleMessage(msg) {
   const chatId = msg.chat?.id;
   if (!chatId) return;
-  const reply = buildBotReply(getStoreData(), { text: msg.text, location: msg.location });
+  const reply = await buildBotReply(getStoreData(), { text: msg.text, location: msg.location });
   const res = await tgApi('sendMessage', toSendMessage(chatId, reply));
   if (res && !res.ok) console.error('sendMessage failed:', res.description);
 }

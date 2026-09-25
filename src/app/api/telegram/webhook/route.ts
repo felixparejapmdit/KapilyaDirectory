@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     const chatId = msg?.chat?.id;
     if (!chatId) return NextResponse.json({ ok: true });
 
-    const reply = buildBotReply(kapilyaStore.getRawData(), { text: msg.text, location: msg.location });
+    const reply = await buildBotReply(kapilyaStore.getRawData(), { text: msg.text, location: msg.location });
     await fetch(`${API_BASE}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

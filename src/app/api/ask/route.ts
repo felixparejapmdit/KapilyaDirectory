@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { kapilyaStore } from '@/lib/store';
 import { formatTime12Hour } from '@/lib/time';
-import { directionsUrl, formatDistance, haversineKm } from '@/lib/geo';
+import { directionsUrl, formatDistance, formatMinutes, haversineKm } from '@/lib/geo';
+import { roadDistances, type RoadDistance } from '@/lib/road-distance';
 import { findNextService } from '@/lib/next-service';
 import type { Locale, LocaleKind, WorshipScheduleItem } from '@/lib/types';
 
@@ -119,22 +120,43 @@ export async function POST(request: NextRequest) {
 
     const userLat = lat ? parseFloat(String(lat)) : 14.6644;
     const userLng = lng ? parseFloat(String(lng)) : 121.0544;
-    const distanceText = (l: Locale) => formatDistance(haversineKm(userLat, userLng, l.latitude, l.longitude));
+    // Distances are driving distances (what "Get directions" shows), straight-line only as a fallback.
+    const origin = { lat: userLat, lng: userLng };
+    const roadMap = new Map<string, RoadDistance | null>();
+    const measure = async (list: Locale[]) => {
+      const todo = list.filter((l) => !roadMap.has(l.id));
+      const roads = await roadDistances(origin, todo.map((l) => ({ lat: l.latitude, lng: l.longitude })));
+      todo.forEach((l, i) => roadMap.set(l.id, roads[i]));
+      return list;
+    };
+    const straightKm = (l: Locale) => haversineKm(userLat, userLng, l.latitude, l.longitude);
+    const roadKm = (l: Locale) => roadMap.get(l.id)?.km ?? straightKm(l);
+    const distanceText = (l: Locale) => {
+      const road = roadMap.get(l.id);
+      if (road && road.km < 0.03) return 'right where you are';
+      return road
+        ? `${formatDistance(road.km)} by road (~${formatMinutes(road.minutes)} drive)`
+        : `about ${formatDistance(straightKm(l))} away (straight line)`;
+    };
     const language = mentionedLanguage(lower) ?? context.language;
     const contextLocale = context.localeId ? kapilyaStore.getLocaleById(context.localeId) : null;
 
     /** Nearest locales, optionally only those holding a service in `language` (and on `day`). */
     const kind = mentionedKind(lower);
     const kindText = kind ? KIND_LABELS[kind] : 'chapels';
-    const nearestWith = (opts: { language?: string; day?: number; limit: number }) =>
-      kapilyaStore
+    // Straight-line candidates, re-ranked by road distance (the nearest by road can differ).
+    const nearestWith = async (opts: { language?: string; day?: number; limit: number }) => {
+      const candidates = kapilyaStore
         .searchNearby({ lat: userLat, lng: userLng, radiusKm: SEARCH_RADIUS_KM, day: opts.day, kind, limit: 200 })
         .filter(
           (l) =>
             !opts.language ||
             l.schedule?.some((s) => matchesLanguage(s, opts.language!) && (opts.day === undefined || s.day_of_week === opts.day))
         )
-        .slice(0, opts.limit);
+        .slice(0, Math.min(Math.max(opts.limit * 2, 6), 20));
+      await measure(candidates);
+      return candidates.sort((a, b) => roadKm(a) - roadKm(b)).slice(0, opts.limit);
+    };
 
     // --- INTENT 1: District congregation query (e.g. "congregations in CENTRAL district") ---
     const districtMatch =
@@ -168,16 +190,15 @@ export async function POST(request: NextRequest) {
         const districtData = kapilyaStore.getDistrictBySlug(matched.slug);
         if (districtData && districtData.locales.length > 0) {
           // Sort locales by distance from user
-          const top = districtData.locales
+          const candidates = districtData.locales
             .filter((l) => l.latitude && l.longitude && (!kind || l.kind === kind))
-            .sort(
-              (a, b) =>
-                haversineKm(userLat, userLng, a.latitude, a.longitude) - haversineKm(userLat, userLng, b.latitude, b.longitude)
-            )
-            .slice(0, 8);
+            .sort((a, b) => straightKm(a) - straightKm(b))
+            .slice(0, 14);
+          await measure(candidates);
+          const top = candidates.sort((a, b) => roadKm(a) - roadKm(b)).slice(0, 8);
 
           const lines = top.map(
-            (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away — next service: ${getNextScheduleText(l)}`
+            (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} — next service: ${getNextScheduleText(l)}`
           );
           if (!top.length) {
             return NextResponse.json({ reply: `The ${districtData.name} district has no ${kindText} listed.` });
@@ -208,13 +229,14 @@ export async function POST(request: NextRequest) {
         (named.length > 2 &&
           kapilyaStore
             .searchNearby({ lat: userLat, lng: userLng, radiusKm: 25000, query: named, limit: 1 })[0]) ||
-        (/\bnearest\b|\bclosest\b/.test(lower) ? nearestWith({ language, limit: 1 })[0] : null) ||
+        (/\bnearest\b|\bclosest\b/.test(lower) ? (await nearestWith({ language, limit: 1 }))[0] : null) ||
         contextLocale ||
-        nearestWith({ language, limit: 1 })[0];
+        (await nearestWith({ language, limit: 1 }))[0];
 
       if (target) {
+        await measure([target]);
         return NextResponse.json({
-          reply: `${link(target)}${kindTag(target)}${language ? ` (holds ${language} services)` : ''} is ${distanceText(target)} away.\n\n📍 ${target.address}\n\nOpen turn-by-turn directions:\n${directionsUrl(target.latitude, target.longitude, target.name)}\n\nNext ${language ? `${language} ` : ''}service: ${getNextScheduleText(target, language)}.`,
+          reply: `${link(target)}${kindTag(target)}${language ? ` (holds ${language} services)` : ''} is ${distanceText(target)}${roadMap.get(target.id)?.km === 0 ? '' : ' from you'}.\n\n📍 ${target.address}\n\nOpen turn-by-turn directions:\n${directionsUrl(target.latitude, target.longitude, target.name, origin)}\n\nNext ${language ? `${language} ` : ''}service: ${getNextScheduleText(target, language)}.`,
           locale: target,
           context: { localeId: target.id, language },
         });
@@ -238,6 +260,7 @@ export async function POST(request: NextRequest) {
         });
 
       if (matchedLocale) {
+        await measure([matchedLocale]);
         const schedLines =
           matchedLocale.schedule?.map((s) => `• ${s.day_name}: ${serviceLabel(s)}`).join('\n') || 'No schedule posted.';
 
@@ -267,8 +290,9 @@ export async function POST(request: NextRequest) {
       if (contextLocale) {
         const services = dayServices(contextLocale);
         if (services.length > 0) {
+          await measure([contextLocale]);
           return NextResponse.json({
-            reply: `On ${dayCapitalized}, ${link(contextLocale)} holds${language ? ` ${language}` : ''} worship service${services.length > 1 ? 's' : ''} at:\n\n${services.map((s) => `• ${serviceLabel(s)}`).join('\n')}\n\nIt's ${distanceText(contextLocale)} away.`,
+            reply: `On ${dayCapitalized}, ${link(contextLocale)} holds${language ? ` ${language}` : ''} worship service${services.length > 1 ? 's' : ''} at:\n\n${services.map((s) => `• ${serviceLabel(s)}`).join('\n')}\n\nIt's ${distanceText(contextLocale)}${roadMap.get(contextLocale.id)?.km === 0 ? '' : ' from you'}.`,
             locale: contextLocale,
             context: { localeId: contextLocale.id, language },
           });
@@ -276,10 +300,10 @@ export async function POST(request: NextRequest) {
         intro = `${link(contextLocale)} has no${language ? ` ${language}` : ''} service on ${dayCapitalized}. `;
       }
 
-      const nearby = nearestWith({ language, day: dayNum, limit: 6 }).filter((l) => dayServices(l).length > 0);
+      const nearby = (await nearestWith({ language, day: dayNum, limit: 6 })).filter((l) => dayServices(l).length > 0);
       if (nearby.length > 0) {
         const lines = nearby.map(
-          (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away\n   ${dayCapitalized}: ${dayServices(l).map(serviceLabel).join(', ')}`
+          (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)}\n   ${dayCapitalized}: ${dayServices(l).map(serviceLabel).join(', ')}`
         );
         return NextResponse.json({
           reply: `${intro}Here are ${kindText} near you${locationName ? ` (near ${locationName})` : ''} with ${language ? `${language} ` : ''}${dayCapitalized} worship services:\n\n${lines.join('\n\n')}`,
@@ -295,7 +319,7 @@ export async function POST(request: NextRequest) {
 
     // --- INTENT 5: Language query ("Is there an English service nearby?") ---
     if (language && mentionedLanguage(lower)) {
-      const nearby = nearestWith({ language, limit: 5 });
+      const nearby = await nearestWith({ language, limit: 5 });
       if (nearby.length > 0) {
         const lines = nearby.map((l, i) => {
           const services = (l.schedule ?? []).filter((s) => matchesLanguage(s, language));
@@ -304,7 +328,7 @@ export async function POST(request: NextRequest) {
             .filter((g) => g.length > 0)
             .map((g) => `${g[0].day_name.slice(0, 3)} ${g.map((s) => formatTime12Hour(s.start_time)).join(', ')}`)
             .join(' · ');
-          return `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away\n   ${byDay}`;
+          return `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)}\n   ${byDay}`;
         });
         return NextResponse.json({
           reply: `Yes — here are the nearest ${kindText} with ${language} worship services${locationName ? ` (near ${locationName})` : ''}:\n\n${lines.join('\n\n')}`,
@@ -318,11 +342,11 @@ export async function POST(request: NextRequest) {
     }
 
     // --- INTENT 6: General "near me" / nearby query ---
-    const nearby = nearestWith({ language, limit: 5 });
+    const nearby = await nearestWith({ language, limit: 5 });
 
     if (nearby.length > 0) {
       const lines = nearby.map(
-        (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away — next service: ${getNextScheduleText(l)}`
+        (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} — next service: ${getNextScheduleText(l)}`
       );
 
       const locationLabel = locationName ? ` near ${locationName}` : '';

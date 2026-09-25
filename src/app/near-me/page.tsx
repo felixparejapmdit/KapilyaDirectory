@@ -7,7 +7,8 @@ import { Search, Filter, Navigation as NavIcon, ChevronRight, MapPin } from 'luc
 import { Locale } from '@/lib/types';
 import { LeafletMap } from '@/components/LeafletMap';
 import { formatTime12Hour } from '@/lib/time';
-import { directionsUrl, formatDistance } from '@/lib/geo';
+import { directionsUrl, formatTravel } from '@/lib/geo';
+import { useRoadDistances } from '@/lib/use-road-distances';
 import { findNextService, formatCountdown } from '@/lib/next-service';
 import { useUserLocation } from '@/components/LocationProvider';
 
@@ -135,6 +136,14 @@ export default function NearMePage() {
     else select(locale.id);
   };
 
+  // Driving distance/time from the search point (matches the route "Get directions" opens).
+  const { roads, pending: roadsPending } = useRoadDistances(coords, locales);
+  const ordered = useMemo(() => {
+    if (roadsPending) return locales;
+    const km = (l: Locale) => roads[l.id]?.km ?? l.distance_km ?? Infinity;
+    return [...locales].sort((a, b) => km(a) - km(b));
+  }, [locales, roads, roadsPending]);
+
   const selected = useMemo(() => locales.find((l) => l.id === selectedId) ?? null, [locales, selectedId]);
   const selectedNext = selected ? findNextService(selected.schedule, selected.timezone, now) : null;
 
@@ -142,7 +151,7 @@ export default function NearMePage() {
     <div className="kd-map-card pointer-events-auto rounded-2xl p-4">
       <p className="truncate text-lg font-bold text-white">{selected.name}</p>
       <p className="font-departure text-xs text-[#A9B4C2]">
-        {formatDistance(selected.distance_km)}
+        {roads[selected.id] === undefined ? '…' : formatTravel(roads[selected.id], selected.distance_km)}
         {selected.district_name ? ` · ${selected.district_name}` : ''}
       </p>
 
@@ -181,7 +190,7 @@ export default function NearMePage() {
 
       <div className="mt-3.5 flex gap-2">
         <a
-          href={directionsUrl(selected.latitude, selected.longitude, selected.name)}
+          href={directionsUrl(selected.latitude, selected.longitude, selected.name, coords)}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-amber flex-1 !rounded-xl py-2.5 text-sm"
@@ -340,12 +349,12 @@ export default function NearMePage() {
           <span className="text-xs font-bold text-[#A9B4C2] uppercase tracking-wider" aria-live="polite">
             {loading ? 'Searching...' : `${locales.length} Locales Found`}
           </span>
-          <span className="text-xs text-[#A9B4C2]">Nearest first · within {radiusKm} km</span>
+          <span className="text-xs text-[#A9B4C2]">Nearest by road · within {radiusKm} km</span>
         </div>
 
         <div className="space-y-2 lg:max-h-[calc(100dvh-19rem)] lg:overflow-y-auto pr-1">
           {locales.length > 0 ? (
-            locales.map((locale) => {
+            ordered.map((locale) => {
               const isSelected = selectedId === locale.id;
               const next = findNextService(locale.schedule, locale.timezone, now);
               return (
@@ -377,7 +386,11 @@ export default function NearMePage() {
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-0.5">
                     <span className="font-departure text-sm font-bold text-[#E8A33D]">
-                      {formatDistance(locale.distance_km)}
+                      {roads[locale.id] === undefined ? (
+                        <span className="inline-block h-3.5 w-16 rounded bg-white/10 animate-pulse align-middle" aria-label="Calculating road distance" />
+                      ) : (
+                        formatTravel(roads[locale.id], locale.distance_km)
+                      )}
                     </span>
                     <span className="font-departure text-[11px] text-[#A9B4C2]">
                       {next
