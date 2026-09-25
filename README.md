@@ -33,7 +33,7 @@ It stays current in three ways:
   - the GitHub Action in `.github/workflows/sync-directory.yml` syncs, commits `data/store.json`
     when anything changed, and the push redeploys the site (e.g. Vercel, which is read-only).
 - **Settings → Run Sync Now**: starts the same sync on demand and shows its progress.
-  (The Settings link appears in the menu on localhost; elsewhere press **Ctrl + .** to show or hide it.)
+  (The Settings button appears in the menu on localhost. Anywhere else, open the page with **Ctrl + .** on desktop, or tap the logo **5 times quickly** on mobile.)
 - **CLI**: `npm run sync:directory` (add `--dry-run` to preview, `--only=slug1,slug2` for a few locales).
 
 A full sync fetches every locale page (about 8,800) at a gentle rate and takes 30 to 90 minutes.

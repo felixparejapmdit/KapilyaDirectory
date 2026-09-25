@@ -12,7 +12,8 @@ export interface UserLocation {
 interface LocationContextType {
   location: UserLocation;
   setLocation: (loc: UserLocation) => void;
-  detectGps: () => Promise<UserLocation>;
+  /** Asks the browser for the current position. `quiet` skips the alert on failure (the caller shows its own message). */
+  detectGps: (opts?: { quiet?: boolean }) => Promise<UserLocation>;
   isDetecting: boolean;
   /** True once the initial location is settled (saved, GPS, or the default after a timeout). */
   ready: boolean;
@@ -120,13 +121,14 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const detectGps = (): Promise<UserLocation> => {
+  const detectGps = (opts: { quiet?: boolean } = {}): Promise<UserLocation> => {
     setIsDetecting(true);
     return new Promise((resolve, reject) => {
       if (!('geolocation' in navigator)) {
         setIsDetecting(false);
-        alert('Geolocation is not supported by your browser.');
-        return reject(new Error('Geolocation unsupported'));
+        const err = new Error('Location isn’t supported by this browser.');
+        if (!opts.quiet) alert(err.message);
+        return reject(err);
       }
 
       navigator.geolocation.getCurrentPosition(
@@ -141,9 +143,14 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
           setIsDetecting(false);
           resolve(loc);
         },
-        (err) => {
+        (geoErr) => {
           setIsDetecting(false);
-          alert('Could not detect your GPS location. Please allow location permissions or select your city from the list.');
+          const err = new Error(
+            geoErr.code === geoErr.PERMISSION_DENIED
+              ? 'Location access is blocked. Allow it in your browser’s site settings, then try again.'
+              : 'Couldn’t get your GPS location. Check that location is on, then try again.'
+          );
+          if (!opts.quiet) alert(`${err.message} You can also pick your city in Settings.`);
           reject(err);
         },
         { timeout: 8000, enableHighAccuracy: true }

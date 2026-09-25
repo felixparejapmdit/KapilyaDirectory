@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   Compass,
   MapPin,
@@ -13,32 +13,75 @@ import {
   Send,
   Sun,
   Moon,
+  LocateFixed,
+  Loader2,
 } from 'lucide-react';
 import { AskDrawer } from './AskDrawer';
 import { useTheme } from './ThemeProvider';
 import { KapilyaLogo } from './KapilyaLogo';
-import { toggleSettingsUnlocked, useShowSettings } from '@/lib/use-show-settings';
+import { useShowSettings } from '@/lib/use-show-settings';
+import { useUserLocation } from './LocationProvider';
 
 export function Navigation() {
   const pathname = usePathname();
   const [askOpen, setAskOpen] = useState(false);
   const { resolved: theme, toggleTheme } = useTheme();
-  // Settings (data sync, snapshots) is an admin tool: its nav button shows on localhost, and
-  // elsewhere after Ctrl + . (toggle) unlocks it on this device.
-  const { visible: showSettings, localhost } = useShowSettings();
+  const router = useRouter();
+  const { location, detectGps, isDetecting } = useUserLocation();
+  // Settings (data sync, snapshots) is an admin tool: its menu button only shows on localhost.
+  // Anywhere else it opens with Ctrl + . (desktop) or 5 quick taps on the logo (mobile).
+  const { visible: showSettings } = useShowSettings();
   const [toast, setToast] = useState<string | null>(null);
+  const logoTaps = useRef<number[]>([]);
 
   useEffect(() => {
-    if (localhost) return;
     const onKey = (e: KeyboardEvent) => {
       if (!(e.ctrlKey || e.metaKey) || e.key !== '.') return;
       e.preventDefault();
-      const unlocked = toggleSettingsUnlocked();
-      setToast(unlocked ? 'Settings unlocked. Press Ctrl + . again to hide it.' : 'Settings hidden.');
+      router.push('/settings');
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [localhost]);
+  }, [router]);
+
+  /** 5 taps on the logo within 3 seconds opens Settings (the mobile counterpart of Ctrl + .). */
+  const onLogoClick = (e: React.MouseEvent) => {
+    const now = e.timeStamp;
+    logoTaps.current = [...logoTaps.current.filter((t) => now - t < 3000), now];
+    if (logoTaps.current.length >= 5) {
+      logoTaps.current = [];
+      e.preventDefault();
+      router.push('/settings');
+    }
+  };
+
+  /** Menu-bar GPS button: the browser asks for permission, then the whole app uses the fix. */
+  const useMyLocation = () => {
+    detectGps({ quiet: true })
+      .then(() => setToast('Location set to your current GPS position.'))
+      .catch((err: Error) => setToast(err.message));
+  };
+
+  const gpsButton = (compact: boolean) => (
+    <button
+      onClick={useMyLocation}
+      disabled={isDetecting}
+      className={`relative rounded-lg border border-white/15 transition-all disabled:opacity-70 ${
+        compact ? 'p-1.5 bg-white/5' : 'p-2 hover:bg-white/10'
+      } ${location.isGps ? 'text-[#4ADE80]' : 'text-[#5AA9FF] hover:text-white'}`}
+      title={location.isGps ? 'Using your GPS location (click to update it)' : 'Use my GPS location'}
+      aria-label="Use my GPS location"
+    >
+      {isDetecting ? (
+        <Loader2 size={compact ? 15 : 17} className="animate-spin" />
+      ) : (
+        <LocateFixed size={compact ? 15 : 17} />
+      )}
+      {location.isGps && !isDetecting && (
+        <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#4ADE80] ring-2 ring-[#0B1426]" aria-hidden />
+      )}
+    </button>
+  );
 
   useEffect(() => {
     if (!toast) return;
@@ -66,7 +109,7 @@ export function Navigation() {
       <header className="site-header hidden md:block sticky top-0 z-40 px-6 py-3">
         <div className="max-w-7xl mx-auto glass-panel px-6 py-3 flex items-center justify-between">
           {/* Brand */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" onClick={onLogoClick} className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#3A6EA5] to-[#E8A33D] p-0.5 shadow-lg group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-[#0B1426] rounded-[10px] flex items-center justify-center p-1.5">
                 <KapilyaLogo size={24} />
@@ -118,8 +161,9 @@ export function Navigation() {
             })}
           </nav>
 
-          {/* Actions: Theme Toggle, Ask & Telegram */}
+          {/* Actions: GPS, Theme Toggle, Ask & Telegram */}
           <div className="flex items-center gap-2.5">
+            {gpsButton(false)}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg text-[#A9B4C2] hover:text-white hover:bg-white/10 border border-white/15 transition-all"
@@ -156,7 +200,7 @@ export function Navigation() {
       {/* --- MOBILE SLIM TOP APP BAR (< 820px) --- */}
       <header className="site-header md:hidden sticky top-0 z-40 px-3 py-2 border-b border-white/10 flex items-center justify-between mobile-header gap-2">
         <div className="flex items-center gap-2 shrink-0">
-          <Link href="/" className="flex items-center gap-1.5">
+          <Link href="/" onClick={onLogoClick} className="flex items-center gap-1.5">
             <div className="w-8 h-8 rounded-lg bg-[#E8A33D] text-[#0B1426] flex items-center justify-center p-1 font-bold shadow-md">
               <KapilyaLogo size={20} />
             </div>
@@ -167,6 +211,7 @@ export function Navigation() {
         </div>
 
         <div className="flex items-center gap-1.5">
+          {gpsButton(true)}
           <button
             onClick={toggleTheme}
             className="p-1.5 rounded-lg text-[#A9B4C2] hover:text-white bg-white/5 border border-white/15"
@@ -228,10 +273,10 @@ export function Navigation() {
       {/* The Scoped Ask Assistant Drawer */}
       <AskDrawer isOpen={askOpen} onClose={() => setAskOpen(false)} />
 
-      {/* Ctrl + . confirmation */}
+      {/* GPS result */}
       {toast && (
         <div role="status" className="kd-toast fixed left-1/2 bottom-24 md:bottom-8 z-[60] -translate-x-1/2 glass-panel px-4 py-2.5 text-sm font-semibold text-white flex items-center gap-2 shadow-2xl">
-          <Settings size={15} className="text-[#E8A33D]" />
+          <LocateFixed size={15} className="text-[#E8A33D] shrink-0" />
           {toast}
         </div>
       )}

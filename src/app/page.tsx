@@ -3,28 +3,42 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import {
-  Compass,
   MapPin,
   Globe2,
   Clock,
   ArrowRight,
-  Sparkles,
   ChevronRight,
-  ShieldCheck,
-  Calendar,
-  Layers,
-  Building,
+  Map as MapIcon,
+  Building2,
+  GitBranch,
+  Users,
   Navigation as NavigationIcon,
   Search,
 } from 'lucide-react';
 import { DirectoryTotals, NextServiceStatus, Locale } from '@/lib/types';
+import type { LucideIcon } from 'lucide-react';
 import { formatTime12Hour } from '@/lib/time';
 import { useUserLocation } from '@/components/LocationProvider';
 import { useSplash } from '@/components/SplashScreen';
-import { useShowSettings } from '@/lib/use-show-settings';
 import { formatTravel } from '@/lib/geo';
 import { useRoadDistances } from '@/lib/use-road-distances';
 import { findNextService } from '@/lib/next-service';
+
+const OVERVIEW_CARDS: {
+  label: string;
+  icon: LucideIcon;
+  tone: string;
+  value: (t: DirectoryTotals) => number;
+  fallback: number;
+  href?: string;
+  span?: string;
+}[] = [
+  { label: 'Regions Worldwide', icon: Globe2, tone: 'bg-[#3A6EA5]/20 text-[#5AA9FF] border-[#3A6EA5]/40', value: (t) => t.regions, fallback: 21, href: '/districts' },
+  { label: 'Ecclesiastical Districts', icon: MapIcon, tone: 'bg-[#E8A33D]/15 text-[#E8A33D] border-[#E8A33D]/35', value: (t) => t.districts, fallback: 198, href: '/districts' },
+  { label: 'Local Congregations', icon: Building2, tone: 'bg-sky-500/15 text-sky-300 border-sky-400/30', value: (t) => t.locales, fallback: 0 },
+  { label: 'Extensions', icon: GitBranch, tone: 'bg-orange-500/15 text-orange-300 border-orange-400/30', value: (t) => t.extensions, fallback: 0 },
+  { label: 'Group Worship Services (GWS)', icon: Users, tone: 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30', value: (t) => t.group_worship_services, fallback: 0, span: 'col-span-2 md:col-span-1' },
+];
 
 export default function DashboardPage() {
   const [totals, setTotals] = useState<DirectoryTotals | null>(null);
@@ -35,7 +49,6 @@ export default function DashboardPage() {
   // Use global location context (driven by My Location picker in nav bar)
   const { location, ready: locationReady } = useUserLocation();
   const { completeStep } = useSplash();
-  const { visible: isLocalhost } = useShowSettings();
   const [statsLoaded, setStatsLoaded] = useState(false);
   const { roads, pending: roadsPending } = useRoadDistances(locationReady ? location : null, nearbyLocales);
   const closest = React.useMemo(() => {
@@ -193,72 +206,46 @@ export default function DashboardPage() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3.5">
-          {/* Card 1: Regions Worldwide (Tappable -> Opens Districts By World Region) */}
-          <Link
-            href="/districts"
-            className="glass-card p-4 border border-white/15 hover:border-[#E8A33D]/50 hover:bg-[#E8A33D]/10 transition-all flex flex-col justify-between group cursor-pointer"
-          >
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-[#A9B4C2] group-hover:text-white transition-colors">
-                Regions Worldwide
-              </span>
-              <ChevronRight
-                size={16}
-                className="text-[#E8A33D] group-hover:translate-x-1 transition-transform"
-              />
-            </div>
-            <div className="flex items-baseline justify-between">
-              <span className="text-3xl font-extrabold text-white font-departure tracking-tight">
-                {(totals?.regions ?? 21).toLocaleString()}
-              </span>
-              <span className="text-[11px] text-[#5AA9FF] font-semibold">Browse &rarr;</span>
-            </div>
-          </Link>
-
-          {/* Card 2: Ecclesiastical Districts */}
-          <div className="glass-card p-4 border border-white/10">
-            <span className="block text-xs font-semibold text-[#A9B4C2] mb-2">
-              Ecclesiastical Districts
-            </span>
-            <span className="text-3xl font-extrabold text-white font-departure tracking-tight">
-              {(totals?.districts ?? 198).toLocaleString()}
-            </span>
-          </div>
-
-          {/* Card 3: Local Congregations */}
-          <div className="glass-card p-4 border border-white/10">
-            <span className="block text-xs font-semibold text-[#A9B4C2] mb-2">
-              Local Congregations
-            </span>
-            <span className="text-3xl font-extrabold text-white font-departure tracking-tight">
-              {(totals?.locales ?? 6157).toLocaleString()}
-            </span>
-          </div>
-
-          {/* Card 4: Extensions */}
-          <div className="glass-card p-4 border border-white/10">
-            <span className="block text-xs font-semibold text-[#A9B4C2] mb-2">Extensions</span>
-            <span className="text-3xl font-extrabold text-white font-departure tracking-tight">
-              {(totals?.extensions ?? 1083).toLocaleString()}
-            </span>
-          </div>
-
-          {/* Card 5: Group Worship Services */}
-          <div className="glass-card p-4 border border-white/10 col-span-2 md:col-span-1">
-            <span className="block text-xs font-semibold text-[#A9B4C2] mb-2">
-              Group Worship Services (GWS)
-            </span>
-            <span className="text-3xl font-extrabold text-white font-departure tracking-tight">
-              {(totals?.group_worship_services ?? 1539).toLocaleString()}
-            </span>
-          </div>
+          {OVERVIEW_CARDS.map((card) => {
+            const Icon = card.icon;
+            const body = (
+              <>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center border ${card.tone}`}>
+                    <Icon size={18} />
+                  </div>
+                  {card.href && (
+                    <ChevronRight size={16} className="text-[#E8A33D] group-hover:translate-x-1 transition-transform" />
+                  )}
+                </div>
+                <span className="block text-3xl font-extrabold text-white font-departure tracking-tight">
+                  {(totals ? card.value(totals) : card.fallback).toLocaleString()}
+                </span>
+                <span className="block mt-1 text-xs font-semibold text-[#A9B4C2] group-hover:text-white transition-colors">
+                  {card.label}
+                </span>
+              </>
+            );
+            return card.href ? (
+              <Link
+                key={card.label}
+                href={card.href}
+                className={`glass-card p-4 border border-white/15 hover:border-[#E8A33D]/50 hover:bg-[#E8A33D]/10 transition-all group ${card.span ?? ''}`}
+              >
+                {body}
+              </Link>
+            ) : (
+              <div key={card.label} className={`glass-card p-4 border border-white/10 group ${card.span ?? ''}`}>
+                {body}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* 3. TODAY'S SCHEDULE NEAR YOU + QUICK ACTIONS */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left: Nearby Chapels Quick Board */}
-        <div className="lg:col-span-2 space-y-3">
+      {/* 3. CLOSEST CONGREGATIONS */}
+      <div>
+        <div className="space-y-3">
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
               <MapPin size={18} className="text-[#E8A33D]" />
@@ -277,7 +264,7 @@ export default function DashboardPage() {
             </Link>
           </div>
 
-          <div className="grid gap-3">
+          <div className="grid gap-3 md:grid-cols-3">
             {loading ? (
               [1, 2, 3].map((i) => (
                 <div key={i} className="glass-card p-4 border border-white/10 animate-pulse">
@@ -290,7 +277,7 @@ export default function DashboardPage() {
                 <Link
                   key={locale.id}
                   href={`/locales/${locale.id}`}
-                  className="glass-card p-4 border border-white/10 hover:border-white/25 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
+                  className="glass-card p-4 border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between gap-3 group"
                 >
                   <div>
                     <div className="flex items-center gap-2 mb-1">
@@ -301,8 +288,7 @@ export default function DashboardPage() {
                         {locale.kind.replace(/_/g, ' ')}
                       </span>
                     </div>
-                    <p className="text-xs text-[#A9B4C2] line-clamp-1">{locale.address}</p>
-                    <div className="flex items-center gap-3 mt-2 text-xs text-white/80">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-xs text-white/80">
                       <span className="flex items-center gap-1 font-departure text-[#E8A33D]">
                         <Clock size={12} />
                         {(() => {
@@ -317,8 +303,8 @@ export default function DashboardPage() {
                     </div>
                   </div>
 
-                  <div className="sm:text-right shrink-0">
-                    <span className="text-sm font-bold text-white font-departure block">
+                  <div className="flex items-center justify-between gap-2 pt-2 border-t border-white/10">
+                    <span className="text-sm font-bold text-white font-departure">
                       {roadsPending && roads[locale.id] === undefined ? '…' : formatTravel(roads[locale.id], locale.distance_km)}
                     </span>
                     <span className="text-[11px] text-[#5AA9FF] group-hover:underline">
@@ -328,93 +314,12 @@ export default function DashboardPage() {
                 </Link>
               ))
             ) : (
-              <div className="glass-card p-6 text-center text-sm text-[#A9B4C2]">
+              <div className="glass-card p-6 text-center text-sm text-[#A9B4C2] md:col-span-3">
                 <MapPin size={32} className="mx-auto mb-2 text-[#A9B4C2]/40" />
                 <p>No congregations found within 25 km.</p>
                 <p className="text-xs mt-1">Try changing your location or increasing the search radius.</p>
               </div>
             )}
-          </div>
-        </div>
-
-        {/* Right: Quick Action Cards & System Health */}
-        <div className="space-y-4">
-          <div className="glass-card p-5 border border-white/15 bg-gradient-to-br from-[#16233E] to-[#0B1426] space-y-4">
-            <h4 className="font-bold text-white text-base">Quick Wayfinding</h4>
-            <div className="grid gap-2.5">
-              <Link
-                href="/near-me"
-                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#E8A33D]/20 text-[#E8A33D] flex items-center justify-center font-bold">
-                    <NavigationIcon size={16} />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-white text-sm block">Near Me Search</span>
-                    <span className="text-xs text-[#A9B4C2]">GPS or typed address</span>
-                  </div>
-                </div>
-                <ChevronRight size={16} className="text-gray-400" />
-              </Link>
-
-              <Link
-                href="/districts"
-                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#3A6EA5]/20 text-[#5AA9FF] flex items-center justify-center font-bold">
-                    <Globe2 size={16} />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-white text-sm block">Districts Directory</span>
-                    <span className="text-xs text-[#A9B4C2]">Grouped by World Region</span>
-                  </div>
-                </div>
-                <ChevronRight size={16} className="text-gray-400" />
-              </Link>
-
-              <Link
-                href="/saved"
-                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-                    <Building size={16} />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-white text-sm block">Favorites &amp; Visited</span>
-                    <span className="text-xs text-[#A9B4C2]">Track your home &amp; visits</span>
-                  </div>
-                </div>
-                <ChevronRight size={16} className="text-gray-400" />
-              </Link>
-            </div>
-          </div>
-
-          {/* System & Data Health Card */}
-          <div className="glass-card p-4 border border-white/10 text-xs text-[#A9B4C2] space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-1.5 font-semibold text-white">
-                <ShieldCheck size={14} className="text-[#3F8F5F]" />
-                Data Health: Verified
-              </span>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-[#3F8F5F]/20 text-[#4ADE80] font-bold">
-                AUTO-SYNCED
-              </span>
-            </div>
-            <p className="leading-relaxed">
-              Synced from iglesianicristo.net every 6 hours, with snapshot rollback protection. Schedules are rendered in each
-              chapel&apos;s local timezone.
-            </p>
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px]">
-              <span>Active Snapshot: {totals?.last_snapshot_id || 'snap-seed-v1'}</span>
-              {isLocalhost && (
-                <Link href="/settings" className="text-[#E8A33D] hover:underline font-semibold">
-                  Manage &rarr;
-                </Link>
-              )}
-            </div>
           </div>
         </div>
       </div>
