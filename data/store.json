@@ -86561,10 +86561,9 @@
       "latitude": 6.912274,
       "longitude": 122.072962,
       "languages": [
-        "Tagalog",
-        "English"
+        "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-canelar-4-0530",
@@ -86583,7 +86582,7 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "19:00",
-          "language": "English",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -86613,7 +86612,7 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
-          "language": "English",
+          "language": "Tagalog",
           "is_cws": false
         }
       ],
@@ -176537,7 +176536,7 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-haguimitan-ext-3-1730",
@@ -176561,12 +176560,12 @@
           "is_cws": true
         },
         {
-          "id": "sch-haguimitan-ext-6-1600",
+          "id": "sch-haguimitan-ext-6-1630",
           "locale_id": "loc-haguimitan-ext",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "16:00",
+          "start_time": "16:30",
           "language": "Tagalog",
           "language2": "Cebuano",
           "is_cws": false
@@ -180641,7 +180640,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-new-era-6-3-1830",
@@ -180654,16 +180653,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-new-era-6-6-0600",
-          "locale_id": "loc-new-era-6",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "06:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
           "id": "sch-new-era-6-6-0800",
           "locale_id": "loc-new-era-6",
           "service_type": "CWS",
@@ -180672,6 +180661,16 @@
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
+        },
+        {
+          "id": "sch-new-era-6-6-1800",
+          "locale_id": "loc-new-era-6",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
         }
       ],
       "phone": null,
@@ -320791,12 +320790,12 @@
       "slug": "anahawan-gws",
       "kind": "group_worship_service",
       "address": "Lewing, Anahawan, Southern Leyte, Philippines",
-      "latitude": 10.29259008739716,
-      "longitude": 125.26231780864738,
+      "latitude": 10.293341,
+      "longitude": 125.264891,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-anahawan-gws-3-1830",
@@ -364898,18 +364897,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
-        {
-          "id": "sch-olea-3-1800",
-          "locale_id": "loc-olea",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-olea-4-0545",
           "locale_id": "loc-olea",
@@ -364917,6 +364906,16 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "05:45",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-olea-4-1800",
+          "locale_id": "loc-olea",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -371861,7 +371860,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-sauyo-ext-4-0545",
@@ -371896,12 +371895,12 @@
         {
           "id": "sch-sauyo-ext-6-0900",
           "locale_id": "loc-sauyo-ext",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "09:00",
           "language": "Tagalog",
-          "is_cws": false
+          "is_cws": true
         },
         {
           "id": "sch-sauyo-ext-6-1800",
@@ -384606,7 +384605,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-taguig-4-0545",
@@ -384649,12 +384648,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-taguig-0-1030",
+          "id": "sch-taguig-0-1230",
           "locale_id": "loc-taguig",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:30",
+          "start_time": "12:30",
           "language": "Tagalog",
           "is_cws": true
         }
@@ -429513,9 +429512,10 @@
       "latitude": 13.82104006533462,
       "longitude": 121.06539069325949,
       "languages": [
-        "Tagalog"
+        "Tagalog",
+        "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-balete-3-1900",
@@ -429545,6 +429545,7 @@
           "day_name": "Thursday",
           "start_time": "19:00",
           "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -429585,6 +429586,7 @@
           "day_name": "Sunday",
           "start_time": "10:00",
           "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         }
       ],
@@ -431179,7 +431181,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-ibaan-poblacion-4-0600",
@@ -431202,16 +431204,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-ibaan-poblacion-6-0800",
-          "locale_id": "loc-ibaan-poblacion",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:00",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
           "id": "sch-ibaan-poblacion-0-0600",
           "locale_id": "loc-ibaan-poblacion",
           "service_type": "Worship",
@@ -431220,6 +431212,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-ibaan-poblacion-0-0800",
+          "locale_id": "loc-ibaan-poblacion",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
         },
         {
           "id": "sch-ibaan-poblacion-0-1000",
@@ -431923,7 +431925,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-matala-4-0600",
@@ -431946,16 +431948,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-matala-6-0800",
-          "locale_id": "loc-matala",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:00",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
           "id": "sch-matala-0-0600",
           "locale_id": "loc-matala",
           "service_type": "Worship",
@@ -431964,6 +431956,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-matala-0-0800",
+          "locale_id": "loc-matala",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
         },
         {
           "id": "sch-matala-0-1000",
@@ -455806,16 +455808,16 @@
       "district_id": "dist-cavite-south",
       "district_name": "Dasmarinas City, Cavite",
       "district_slug": "cavite-south",
-      "name": "Pulong Bunga Ext.",
+      "name": "Pulong Bunga",
       "slug": "pulong-bunga-ext",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "98 Pulong Bunga, Silang, Cavite, Philippines",
       "latitude": 14.15249,
       "longitude": 120.972303,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-pulong-bunga-ext-3-1900",
@@ -476144,10 +476146,9 @@
       "longitude": 121.552307,
       "languages": [
         "Tagalog",
-        "Tagalog Sign",
-        "English"
+        "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-lucban-4-0600",
@@ -476187,7 +476188,7 @@
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "15:00",
-          "language": "English",
+          "language": "Tagalog",
           "is_cws": true
         },
         {
@@ -476329,7 +476330,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T10:35:53.492Z",
       "schedule": [
         {
           "id": "sch-malicboy-3-1800",
@@ -476392,12 +476393,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-malicboy-0-1800",
+          "id": "sch-malicboy-0-1000",
           "locale_id": "loc-malicboy",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "18:00",
+          "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -562210,6 +562211,21 @@
   ],
   "snapshots": [
     {
+      "id": "snap-1790332553617",
+      "created_at": "2026-09-25T10:35:55.841Z",
+      "storage_url": "/data/snapshots/snapshot-snap-1790332553617.json",
+      "record_counts": {
+        "regions": 21,
+        "districts": 198,
+        "locales": 6160,
+        "extensions": 1087,
+        "group_worship_services": 1532,
+        "schedules": 37594
+      },
+      "status": "success",
+      "description": "Automatic pre-sync snapshot (scheduled sync)"
+    },
+    {
       "id": "snap-1790285037092",
       "created_at": "2026-09-24T21:23:57.636Z",
       "storage_url": "/data/snapshots/snapshot-snap-1790285037092.json",
@@ -562285,17 +562301,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-09-24T21:23:57.070Z",
+  "last_updated": "2026-09-25T10:35:53.593Z",
   "last_sync": {
-    "finished_at": "2026-09-24T21:23:57.070Z",
-    "trigger": "cli",
+    "finished_at": "2026-09-25T10:35:53.593Z",
+    "trigger": "scheduled",
     "status": "success",
-    "message": "Synced 8,779 locales from the official directory.",
+    "message": "Checked 8,779 locales: 13 updated.",
     "locales_total": 8779,
-    "updated": 8779,
+    "updated": 13,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 6856
+    "duration_ms": 2148703
   }
 }
