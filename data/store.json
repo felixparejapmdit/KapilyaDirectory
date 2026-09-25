@@ -492504,7 +492504,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-25T20:21:20.654Z",
       "schedule": [
         {
           "id": "sch-hillsdale-ext-3-1900",
@@ -492513,6 +492513,16 @@
           "day_of_week": 3,
           "day_name": "Wednesday",
           "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-hillsdale-ext-4-0600",
+          "locale_id": "loc-hillsdale-ext",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562321,17 +562331,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-09-25T15:39:09.572Z",
+  "last_updated": "2026-09-25T20:21:20.727Z",
   "last_sync": {
-    "finished_at": "2026-09-25T15:39:09.572Z",
+    "finished_at": "2026-09-25T20:21:20.727Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,779 locales: 2 changed.",
+    "message": "Checked 8,779 locales: 1 changed.",
     "locales_total": 8779,
-    "updated": 2,
+    "updated": 1,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2424751
+    "duration_ms": 1979859
   }
 }
