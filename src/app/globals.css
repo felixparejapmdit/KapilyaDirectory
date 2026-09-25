@@ -1170,3 +1170,88 @@ body.light-theme button.kd-hovercard-chip[aria-pressed='true'] {
   border-color: #E8A33D;
   color: #B45309;
 }
+
+/* ============================================================
+   VOICE ASSISTANT (Ask drawer)
+   ============================================================ */
+.kd-drawer-in {
+  animation: kd-drawer-in 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes kd-drawer-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.kd-mic-orb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 9999px;
+}
+
+.kd-mic-core {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #3A6EA5, #E8A33D);
+  box-shadow: 0 8px 24px rgba(232, 163, 61, 0.3);
+}
+
+/* Ring follows the live microphone level (--level 0..1) where a meter is available. */
+.kd-mic-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid rgba(232, 163, 61, 0.55);
+  transform: scale(calc(1 + var(--level, 0) * 0.5));
+  transition: transform 90ms linear;
+}
+
+.kd-mic-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(232, 163, 61, 0.35);
+  opacity: 0;
+}
+
+.kd-mic-orb.is-listening .kd-mic-pulse {
+  animation: kd-mic-pulse 1.6s ease-out infinite;
+}
+
+.kd-mic-orb.is-listening .kd-mic-pulse--late {
+  animation-delay: 0.8s;
+}
+
+.kd-mic-orb.is-speaking .kd-mic-core {
+  animation: kd-mic-breathe 1.2s ease-in-out infinite;
+}
+
+@keyframes kd-mic-pulse {
+  from { transform: scale(1); opacity: 0.55; }
+  to { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes kd-mic-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kd-drawer-in,
+  .kd-mic-orb .kd-mic-pulse,
+  .kd-mic-orb .kd-mic-core {
+    animation: none !important;
+  }
+
+  .kd-mic-ring {
+    transition: none;
+  }
+}

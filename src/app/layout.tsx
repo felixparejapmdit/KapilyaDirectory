@@ -6,6 +6,7 @@ import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LocationProvider } from '@/components/LocationProvider';
 import { SplashProvider } from '@/components/SplashScreen';
+import { VoiceProvider } from '@/components/VoiceProvider';
 import { SPLASH_BOOT_SCRIPT, THEME_BODY_SCRIPT, THEME_BOOT_SCRIPT } from '@/lib/boot-scripts';
 
 const publicSans = Public_Sans({ subsets: ['latin'], variable: '--font-public-sans', display: 'swap' });
@@ -60,11 +61,13 @@ export default function RootLayout({
         <ThemeProvider>
           <LocationProvider>
             <SplashProvider>
-              <div className="kd-app min-h-screen flex flex-col">
-                <ServiceWorkerRegister />
-                <Navigation />
-                <main className="flex-1 pb-20 md:pb-10">{children}</main>
-              </div>
+              <VoiceProvider>
+                <div className="kd-app min-h-screen flex flex-col">
+                  <ServiceWorkerRegister />
+                  <Navigation />
+                  <main className="flex-1 pb-20 md:pb-10">{children}</main>
+                </div>
+              </VoiceProvider>
             </SplashProvider>
           </LocationProvider>
         </ThemeProvider>

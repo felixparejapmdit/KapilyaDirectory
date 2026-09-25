@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Globe2, Search, ChevronDown, ChevronRight, ListFilter, ArrowLeft, Clock, X } from 'lucide-react';
 import { Region, District, WorldArea, Locale, LocaleKind } from '@/lib/types';
 import { findNextService } from '@/lib/next-service';
@@ -38,12 +38,37 @@ const KIND_BADGE: Record<LocaleKind, string> = {
 const MIN_LOCALE_QUERY = 2;
 const RESULT_LIMIT = 40;
 
+// useSearchParams needs a Suspense boundary on a statically rendered page.
 export default function DistrictsPage() {
+  return (
+    <Suspense fallback={null}>
+      <DistrictsView />
+    </Suspense>
+  );
+}
+
+const KIND_IDS: KindFilter[] = ['all', 'local_congregation', 'extension', 'group_worship_service'];
+
+function DistrictsView() {
   const router = useRouter();
   const [grouped, setGrouped] = useState<GroupedArea[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [kind, setKind] = useState<KindFilter>('all');
+  const searchParams = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') ?? '');
+  const kindFromUrl = (p: URLSearchParams): KindFilter => {
+    const k = p.get('kind') as KindFilter | null;
+    return k && KIND_IDS.includes(k) ? k : 'all';
+  };
+  const [kind, setKind] = useState<KindFilter>(() => kindFromUrl(searchParams));
+
+  // ?q= and ?kind= (e.g. voice commands: "Show GWS in the Central Luzon region") also apply when
+  // the URL changes while this page is open.
+  const [appliedParams, setAppliedParams] = useState(searchParams);
+  if (searchParams !== appliedParams) {
+    setAppliedParams(searchParams);
+    setSearchQuery(searchParams.get('q') ?? '');
+    setKind(kindFromUrl(searchParams));
+  }
   const { linkProps, card: hoverCard } = useDistrictHoverCard(kind);
   const [results, setResults] = useState<{ query: string; kind: KindFilter; total: number; locales: Locale[] } | null>(null);
   const [expandedRegions, setExpandedRegions] = useState<{ [regId: string]: boolean }>({
@@ -63,7 +88,11 @@ export default function DistrictsPage() {
   }, []);
 
   const q = searchQuery.toLowerCase().trim();
-  const searchingLocales = q.length >= MIN_LOCALE_QUERY;
+  const regionNames = useMemo(
+    () => new Set(grouped.flatMap((g) => g.regions.map((r) => r.region.name.toLowerCase()))),
+    [grouped]
+  );
+  const searchingLocales = q.length >= MIN_LOCALE_QUERY && !regionNames.has(q);
 
   // Instant congregation search (debounced; stale responses are discarded).
   useEffect(() => {
@@ -103,8 +132,10 @@ export default function DistrictsPage() {
     kind === 'all' ? d.locale_count : d.kind_counts[kind];
 
   // A district is listed when its name matches the search and it has locales of the chosen kind.
-  const districtMatches = (d: District & { locale_count: number; kind_counts: KindCounts }) =>
-    (!q || d.name.toLowerCase().includes(q)) && (kind === 'all' || d.kind_counts[kind] > 0);
+  // A search also matches the district's region name ("Central Luzon" lists all its districts).
+  const districtMatches = (d: District & { locale_count: number; kind_counts: KindCounts }, regionName = '') =>
+    (!q || d.name.toLowerCase().includes(q) || regionName.toLowerCase().includes(q)) &&
+    (kind === 'all' || d.kind_counts[kind] > 0);
 
   const toggleRegion = (regId: string) => {
     setExpandedRegions((prev) => ({
@@ -254,7 +285,7 @@ export default function DistrictsPage() {
             // Check if this is Philippines Regions (nested accordions) or International (flat list)
             const isPhilippines = group.area === 'philippines';
 
-            const matchingDistricts = group.regions.flatMap((r) => r.districts).filter(districtMatches);
+            const matchingDistricts = group.regions.flatMap((r) => r.districts.filter((d) => districtMatches(d, r.region.name)));
 
             if (filtering && matchingDistricts.length === 0) {
               return null; // hide areas with nothing matching
@@ -299,7 +330,7 @@ export default function DistrictsPage() {
                   <div className="space-y-3 pt-1">
                     {group.regions.map((regItem) => {
                       const reg = regItem.region;
-                      const distList = regItem.districts.filter(districtMatches);
+                      const distList = regItem.districts.filter((d) => districtMatches(d, reg.name));
 
                       if (filtering && distList.length === 0) return null;
 

@@ -15,23 +15,71 @@ import {
   Moon,
   LocateFixed,
   Loader2,
+  Mic,
 } from 'lucide-react';
 import { AskDrawer } from './AskDrawer';
 import { useTheme } from './ThemeProvider';
 import { KapilyaLogo } from './KapilyaLogo';
 import { useShowSettings } from '@/lib/use-show-settings';
 import { useUserLocation } from './LocationProvider';
+import { useVoice } from './VoiceProvider';
 
 export function Navigation() {
   const pathname = usePathname();
   const [askOpen, setAskOpen] = useState(false);
+  const [toast, setToastState] = useState<{ text: string; icon: 'voice' | 'gps' } | null>(null);
+  const setToast = (text: string | null, icon: 'voice' | 'gps' = 'voice') => setToastState(text ? { text, icon } : null);
+  // Voice assistant: "Hey Assistant" opens the Ask drawer and starts a spoken session.
+  const { voice, state: voiceState } = useVoice();
+  const [voiceWake, setVoiceWake] = useState(0);
+  useEffect(() => {
+    voice.setWakeHandler(() => {
+      setAskOpen(true);
+      setVoiceWake((n) => n + 1);
+    });
+    return () => voice.setWakeHandler(null);
+  }, [voice]);
+  // Surface voice errors (blocked mic, unsupported browser) once each.
+  const [shownVoiceError, setShownVoiceError] = useState<string | null>(null);
+  if (voiceState.error !== shownVoiceError) {
+    setShownVoiceError(voiceState.error);
+    if (voiceState.error) setToast(voiceState.error);
+  }
+
+  const toggleVoice = () => {
+    if (voiceState.enabled) {
+      voice.disable();
+      setToast('Voice assistant off.');
+      return;
+    }
+    // enable() must start inside this tap (it unlocks speech on iPhone).
+    void voice.enable().then((ok) => ok && setToast('Voice assistant on. Say “Hey Assistant”.'));
+  };
+
+  const voiceButton = (compact: boolean) => (
+    <button
+      onClick={toggleVoice}
+      aria-pressed={voiceState.enabled}
+      className={`relative rounded-lg border transition-all ${compact ? 'p-1.5' : 'p-2'} ${
+        voiceState.enabled
+          ? 'border-[#E8A33D]/60 bg-[#E8A33D]/15 text-[#E8A33D]'
+          : `border-white/15 text-[#A9B4C2] hover:text-white ${compact ? 'bg-white/5' : 'hover:bg-white/10'}`
+      }`}
+      title={voiceState.enabled ? 'Voice assistant on: say “Hey Assistant” (click to turn off)' : 'Enable Voice Assistant'}
+      aria-label={voiceState.enabled ? 'Turn off voice assistant' : 'Enable Voice Assistant'}
+    >
+      <Mic size={compact ? 15 : 17} />
+      {voiceState.enabled && (
+        <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#E8A33D] ring-2 ring-[#0B1426] animate-pulse" aria-hidden />
+      )}
+    </button>
+  );
   const { resolved: theme, toggleTheme } = useTheme();
   const router = useRouter();
   const { location, detectGps, isDetecting } = useUserLocation();
   // Settings (data sync, snapshots) is an admin tool: its menu button only shows on localhost.
   // Anywhere else it opens with Ctrl + . (desktop) or 5 quick taps on the logo (mobile).
   const { visible: showSettings } = useShowSettings();
-  const [toast, setToast] = useState<string | null>(null);
   const logoTaps = useRef<number[]>([]);
 
   useEffect(() => {
@@ -58,8 +106,8 @@ export function Navigation() {
   /** Menu-bar GPS button: the browser asks for permission, then the whole app uses the fix. */
   const useMyLocation = () => {
     detectGps({ quiet: true })
-      .then(() => setToast('Location set to your current GPS position.'))
-      .catch((err: Error) => setToast(err.message));
+      .then(() => setToast('Location set to your current GPS position.', 'gps'))
+      .catch((err: Error) => setToast(err.message, 'gps'));
   };
 
   const gpsButton = (compact: boolean) => (
@@ -85,7 +133,7 @@ export function Navigation() {
 
   useEffect(() => {
     if (!toast) return;
-    const t = window.setTimeout(() => setToast(null), 2600);
+    const t = window.setTimeout(() => setToastState(null), 2600);
     return () => window.clearTimeout(t);
   }, [toast]);
 
@@ -163,6 +211,7 @@ export function Navigation() {
 
           {/* Actions: GPS, Theme Toggle, Ask & Telegram */}
           <div className="flex items-center gap-2.5">
+            {voiceButton(false)}
             {gpsButton(false)}
             <button
               onClick={toggleTheme}
@@ -211,6 +260,7 @@ export function Navigation() {
         </div>
 
         <div className="flex items-center gap-1.5">
+          {voiceButton(true)}
           {gpsButton(true)}
           <button
             onClick={toggleTheme}
@@ -271,13 +321,17 @@ export function Navigation() {
       </nav>
 
       {/* The Scoped Ask Assistant Drawer */}
-      <AskDrawer isOpen={askOpen} onClose={() => setAskOpen(false)} />
+      <AskDrawer isOpen={askOpen} onClose={() => setAskOpen(false)} voiceWake={voiceWake} />
 
       {/* GPS result */}
       {toast && (
         <div role="status" className="kd-toast fixed left-1/2 bottom-24 md:bottom-8 z-[60] -translate-x-1/2 glass-panel px-4 py-2.5 text-sm font-semibold text-white flex items-center gap-2 shadow-2xl">
-          <LocateFixed size={15} className="text-[#E8A33D] shrink-0" />
-          {toast}
+          {toast.icon === 'gps' ? (
+            <LocateFixed size={15} className="text-[#E8A33D] shrink-0" />
+          ) : (
+            <Mic size={15} className="text-[#E8A33D] shrink-0" />
+          )}
+          {toast.text}
         </div>
       )}
     </>

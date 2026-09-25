@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kapilya Voice Assistant</title>
+
+  <!--
+    Kapilya Directory: Voice Command Assistant (prototype)
+    ------------------------------------------------------
+    Flow: Enable Voice Assistant -> wake word "Hey Assistant" -> drawer slides open ->
+    spoken guidance (SpeechSynthesis) -> speech-to-text (webkitSpeechRecognition) with a live
+    transcript -> executeIntent() switch -> mock app actions (console) + "kapilya:voice-intent" event.
+
+    Requirements
+    - Serve over https or http://localhost (the microphone needs a secure context).
+    - Speech-to-text: Chrome, Edge, or Safari. Firefox has no SpeechRecognition.
+    - Chrome's SpeechRecognition is NOT offline: audio is sent to Google's speech service.
+      For a truly on-device wake word, configure Porcupine below (WAKE_ENGINES.porcupine).
+
+    Tailwind is loaded from the Play CDN for this standalone prototype; in the app, use the
+    project's compiled Tailwind instead.
+  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#16233E', midnight: '#0B1426', amber: { brand: '#E8A33D' }, steel: '#3A6EA5', link: '#5AA9FF' },
+          fontFamily: { sans: ['"Public Sans"', 'system-ui', 'sans-serif'], mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'] },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!--
+    Optional: Picovoice Porcupine (on-device wake word). "Hey Assistant" is not a built-in
+    keyword: train it (free) at https://console.picovoice.ai/ -> Porcupine -> "Hey Assistant",
+    platform "Web (WASM)", then put the .ppn file and porcupine_params.pv next to this page and
+    fill in PORCUPINE below. Uncomment these two scripts (pin versions for production):
+
+    <script src="https://unpkg.com/@picovoice/web-voice-processor/dist/iife/index.js"></script>
+    <script src="https://unpkg.com/@picovoice/porcupine-web/dist/iife/index.js"></script>
+  -->
+
+  <style>
+    /* Mic orb: the rings scale with the live input level (--level, 0..1) set from JavaScript. */
+    .mic-orb { --level: 0; }
+    .mic-ring {
+      position: absolute; inset: 0; border-radius: 9999px;
+      border: 2px solid rgba(232, 163, 61, 0.55);
+      transform: scale(calc(1 + var(--level) * 0.55));
+      transition: transform 90ms linear, opacity 200ms ease;
+    }
+    .mic-ring.r2 { border-color: rgba(232, 163, 61, 0.3); transform: scale(calc(1.18 + var(--level) * 0.9)); }
+    .is-listening .mic-pulse { animation: mic-pulse 1.6s ease-out infinite; }
+    .is-listening .mic-pulse.p2 { animation-delay: 0.8s; }
+    .mic-pulse { position: absolute; inset: 0; border-radius: 9999px; background: rgba(232, 163, 61, 0.35); opacity: 0; }
+    @keyframes mic-pulse { from { transform: scale(1); opacity: 0.55; } to { transform: scale(1.9); opacity: 0; } }
+    .is-speaking .mic-core { animation: breathe 1.2s ease-in-out infinite; }
+    @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+    .wave span { display: inline-block; width: 4px; margin: 0 2px; border-radius: 2px; background: #E8A33D; animation: wave 1s ease-in-out infinite; }
+    .wave span:nth-child(2) { animation-delay: 0.1s; } .wave span:nth-child(3) { animation-delay: 0.2s; }
+    .wave span:nth-child(4) { animation-delay: 0.3s; } .wave span:nth-child(5) { animation-delay: 0.4s; }
+    @keyframes wave { 0%, 100% { height: 6px; } 50% { height: 22px; } }
+    @media (prefers-reduced-motion: reduce) {
+      .mic-pulse, .is-speaking .mic-core, .wave span { animation: none !important; }
+      .mic-ring { transition: none; }
+      #assistant { transition-duration: 0ms !important; }
+    }
+  </style>
+</head>
+
+<body class="h-full bg-midnight font-sans text-slate-100 antialiased">
+  <div class="min-h-full bg-[radial-gradient(circle_at_15%_15%,rgba(58,110,165,0.2),transparent_45%),radial-gradient(circle_at_85%_75%,rgba(232,163,61,0.1),transparent_40%)]">
+    <!-- ====================== Mock dashboard ====================== -->
+    <header class="sticky top-0 z-30 border-b border-white/10 bg-midnight/85 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-4 py-3">
+        <div class="flex items-center gap-2.5">
+          <div class="grid h-9 w-9 place-items-center rounded-xl bg-amber-brand text-midnight font-extrabold">K</div>
+          <div>
+            <p class="text-base font-bold leading-tight">Kapilya <span class="font-normal text-amber-brand">Directory</span></p>
+            <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Worldwide INC Finder</p>
+          </div>
+        </div>
+
+        <div class="ml-auto flex flex-wrap items-center gap-2">
+          <span id="voice-status" class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-slate-300" aria-live="polite">
+            <span id="voice-status-dot" class="h-2 w-2 rounded-full bg-slate-500"></span>
+            <span id="voice-status-text">Voice off</span>
+          </span>
+          <button id="simulate-wake" type="button" hidden
+            class="rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-brand">
+            Simulate “Hey Assistant”
+          </button>
+          <button id="enable-voice" type="button" aria-pressed="false"
+            class="inline-flex items-center gap-2 rounded-lg bg-amber-brand px-4 py-2 text-sm font-bold text-midnight shadow-lg shadow-amber-500/20 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5"/></svg>
+            <span id="enable-voice-label">Enable Voice Assistant</span>
+          </button>
+        </div>
+      </div>
+      <p id="support-banner" hidden class="border-t border-amber-500/30 bg-amber-500/10 px-4 py-2 text-center text-xs text-amber-200"></p>
+    </header>
+
+    <main class="mx-auto max-w-6xl space-y-5 px-4 py-6">
+      <section class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+        <h1 class="text-xl font-extrabold tracking-tight">Directory dashboard</h1>
+        <p class="mt-1 text-sm text-slate-400">
+          Turn on the voice assistant, then say <b class="text-amber-brand">“Hey Assistant”</b>.
+          Try: “Find the nearest local”, “Get directions to Cubao”, “Check worship schedules for Sunday”,
+          “Show the Central Luzon region”, “Show GWS in Quezon City district”.
+        </p>
+        <div class="mt-4 flex flex-wrap items-center gap-2" aria-label="Active dashboard filters">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Filters</span>
+          <span id="filter-region" class="rounded-full border border-white/15 px-3 py-1 text-xs text-slate-300">Region: All</span>
+          <span id="filter-district" class="rounded-full border border-white/15 px-3 py-1 text-xs text-slate-300">District: All</span>
+          <span id="filter-kind" class="rounded-full border border-white/15 px-3 py-1 text-xs text-slate-300">Type: All</span>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <div class="flex items-center justify-between">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400">Voice action log</h2>
+          <span class="text-[11px] text-slate-500">Also logged to the browser console</span>
+        </div>
+        <ol id="action-log" class="mt-3 space-y-2 font-mono text-xs text-slate-300" aria-live="polite">
+          <li class="text-slate-500">No voice actions yet.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+
+  <!-- ====================== Assistant drawer ====================== -->
+  <div id="assistant-backdrop" class="pointer-events-none fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-300"></div>
+  <aside id="assistant" role="dialog" aria-modal="false" aria-labelledby="assistant-title" aria-hidden="true" inert
+    class="fixed inset-y-0 right-0 z-50 flex w-full max-w-md translate-x-full flex-col border-l border-white/15 bg-[#0e1a31]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 ease-out">
+    <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
+      <div class="flex items-center gap-2.5">
+        <div class="grid h-8 w-8 place-items-center rounded-lg border border-amber-brand/40 bg-amber-brand/15 text-amber-brand">
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/></svg>
+        </div>
+        <div>
+          <h2 id="assistant-title" class="text-base font-bold leading-tight">Kapilya Near Me AI Assistant</h2>
+          <p class="text-xs text-slate-400">Voice: schedules, directions &amp; filters</p>
+        </div>
+      </div>
+      <button id="assistant-close" type="button" aria-label="Close assistant"
+        class="rounded-lg p-2 text-slate-400 hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-brand">
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="flex-1 space-y-5 overflow-y-auto px-5 py-6">
+      <!-- Mic orb -->
+      <div class="flex flex-col items-center gap-3">
+        <button id="mic-orb" type="button" aria-label="Speak a command"
+          class="mic-orb relative grid h-28 w-28 place-items-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-brand">
+          <span class="mic-pulse"></span><span class="mic-pulse p2"></span>
+          <span class="mic-ring"></span><span class="mic-ring r2"></span>
+          <span class="mic-core relative grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-steel to-amber-brand shadow-xl shadow-amber-500/20">
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-9 w-9 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5"/></svg>
+          </span>
+        </button>
+        <p id="assistant-phase" class="flex items-center gap-2 text-sm font-semibold text-amber-brand" aria-live="polite">Ready</p>
+      </div>
+
+      <!-- Spoken guidance, also shown as text -->
+      <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Assistant</p>
+        <p id="assistant-says" class="mt-1 text-sm leading-relaxed text-slate-100"></p>
+      </div>
+
+      <!-- Suggestions (tap as a fallback to speaking) -->
+      <div class="flex flex-wrap gap-2" aria-label="Suggestions">
+        <button type="button" data-say="Find the nearest local" class="suggest rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10">Find the nearest local</button>
+        <button type="button" data-say="Get directions" class="suggest rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10">Get directions</button>
+        <button type="button" data-say="Check worship schedules" class="suggest rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10">Check worship schedules</button>
+      </div>
+
+      <!-- Live transcript -->
+      <div class="rounded-xl border border-amber-brand/30 bg-amber-brand/5 p-4">
+        <p class="text-xs font-semibold uppercase tracking-wider text-amber-brand/90">You said</p>
+        <p id="transcript" class="mt-1 min-h-[1.5rem] text-base font-semibold text-white" aria-live="polite">
+          <span id="transcript-final"></span><span id="transcript-interim" class="text-slate-400"></span>
+        </p>
+      </div>
+
+      <!-- Result of the last command -->
+      <div id="result" hidden class="rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-4 text-sm text-emerald-100" aria-live="polite"></div>
+    </div>
+
+    <p class="border-t border-white/10 px-5 py-3 text-[11px] leading-snug text-slate-500">
+      Tap the microphone to speak again. Say “Hey Assistant” anytime while voice is on.
+      Speech-to-text is processed by your browser’s speech service.
+    </p>
+  </aside>
+
+  <script>
+  (() => {
+    'use strict';
+
+    // ======================= Configuration =======================
+    const CONFIG = {
+      lang: 'en-US',
+      wakePhrase: 'hey assistant',
+      greeting: "I am ready. You can say 'Find the nearest local', 'Get directions', or 'Check worship schedules'.",
+      // Web Speech keyword spotting accepts common mis-hearings of the wake phrase.
+      wakePattern: /\b(hey|hi|hay|ok|okay|a)\s+assist(ant|ance|ence)\b/i,
+      commandTimeoutMs: 9000,
+    };
+
+    // Optional on-device wake word (see the <head> comment). Leave accessKey empty to skip.
+    const PORCUPINE = {
+      accessKey: '', // from https://console.picovoice.ai/ (keep it out of public repos)
+      keywordPath: './hey-assistant_en_wasm_v3_0_0.ppn', // your trained "Hey Assistant" file
+      modelPath: './porcupine_params.pv',
+      sensitivity: 0.6,
+    };
+
+    // Directory vocabulary for entity matching (real names from the Kapilya store).
+    const REGIONS = [
+      'Americas', 'Asia', 'Europe', 'Australia & Oceania', 'Africa', 'Autonomous Region In Muslim Mindanao',
+      'Bicol Region', 'Cagayan Valley', 'Caraga', 'Central Luzon', 'Central Mindanao', 'Central Visayas',
+      'Cordillera Administrative Region', 'Eastern Visayas', 'Ilocos Region', 'National Capital Region',
+      'Northern Mindanao', 'Southern Mindanao', 'Southern Tagalog', 'Western Mindanao', 'Western Visayas',
+    ];
+    const REGION_ALIASES = { ncr: 'National Capital Region', 'metro manila': 'National Capital Region', car: 'Cordillera Administrative Region', armm: 'Autonomous Region In Muslim Mindanao', australia: 'Australia & Oceania', oceania: 'Australia & Oceania' };
+    const DISTRICTS = ['Alaska', 'Central America', 'Hawaii Pacific', 'Tokyo, Japan', 'Britain North', 'Northern Africa', 'Bulacan North', 'Central', 'Makati', 'Metro Manila East', 'Quezon City'];
+    const KINDS = [
+      { kind: 'group_worship_service', label: 'GWS', pattern: /\b(gws|group worship)/i },
+      { kind: 'extension', label: 'Extensions', pattern: /\b(ext|extensions?)\b/i },
+      { kind: 'local_congregation', label: 'Local congregations', pattern: /\blocal (congregations?|chapels?)\b|\blokal\b/i },
+    ];
+    const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+    // ======================= Elements & state =======================
+    const $ = (id) => document.getElementById(id);
+    const el = {
+      enable: $('enable-voice'), enableLabel: $('enable-voice-label'), simulate: $('simulate-wake'),
+      status: $('voice-status-text'), statusDot: $('voice-status-dot'), banner: $('support-banner'),
+      drawer: $('assistant'), backdrop: $('assistant-backdrop'), close: $('assistant-close'),
+      orb: $('mic-orb'), phase: $('assistant-phase'), says: $('assistant-says'),
+      final: $('transcript-final'), interim: $('transcript-interim'), result: $('result'),
+      log: $('action-log'), fRegion: $('filter-region'), fDistrict: $('filter-district'), fKind: $('filter-kind'),
+    };
+
+    const SpeechRecognitionImpl = window.SpeechRecognition || window.webkitSpeechRecognition;
+    /** 'off' | 'armed' (waiting for wake word) | 'greeting' | 'listening' | 'processing' */
+    let phase = 'off';
+    let wakeEngine = null;
+    let commandRecognizer = null;
+    let micStream = null;
+    let audioCtx = null;
+    let levelFrame = 0;
+
+    // ======================= Support checks =======================
+    function supportProblem() {
+      if (!window.isSecureContext) return 'Voice needs a secure page: open this over https or http://localhost.';
+      if (!navigator.mediaDevices?.getUserMedia) return 'This browser cannot access the microphone.';
+      if (!SpeechRecognitionImpl) return 'Speech recognition is not supported in this browser. Use Chrome, Edge, or Safari.';
+      return null;
+    }
+
+    function showBanner(text) {
+      el.banner.textContent = text;
+      el.banner.hidden = !text;
+    }
+
+    // ======================= UI helpers =======================
+    function setStatus(text, tone) {
+      el.status.textContent = text;
+      const tones = { off: 'bg-slate-500', armed: 'bg-emerald-400 animate-pulse', busy: 'bg-amber-brand animate-pulse', error: 'bg-red-400' };
+      el.statusDot.className = `h-2 w-2 rounded-full ${tones[tone] || tones.off}`;
+    }
+
+    function setPhase(next, label) {
+      phase = next;
+      el.orb.classList.toggle('is-listening', next === 'listening' || next === 'armed');
+      el.orb.classList.toggle('is-speaking', next === 'greeting' || next === 'processing');
+      const waves = '<span class="wave inline-flex items-center" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>';
+      el.phase.innerHTML = (next === 'listening' ? waves : '') + `<span>${label}</span>`;
+    }
+
+    function openDrawer() {
+      el.drawer.classList.remove('translate-x-full');
+      el.drawer.removeAttribute('inert');
+      el.drawer.setAttribute('aria-hidden', 'false');
+      el.backdrop.classList.remove('pointer-events-none');
+      el.backdrop.classList.add('opacity-100');
+      el.close.focus({ preventScroll: true });
+    }
+
+    function closeDrawer() {
+      stopCommandRecognition();
+      if (window.speechSynthesis) speechSynthesis.cancel();
+      el.drawer.classList.add('translate-x-full');
+      el.drawer.setAttribute('inert', '');
+      el.drawer.setAttribute('aria-hidden', 'true');
+      el.backdrop.classList.add('pointer-events-none');
+      el.backdrop.classList.remove('opacity-100');
+      if (phase !== 'off') armWakeWord();
+    }
+
+    function logAction(message) {
+      if (el.log.firstElementChild?.classList.contains('text-slate-500')) el.log.innerHTML = '';
+      const li = document.createElement('li');
+      li.className = 'rounded-lg border border-white/10 bg-black/20 px-3 py-2';
+      li.textContent = `${new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' })}  ${message}`;
+      el.log.prepend(li);
+    }
+
+    // ======================= Microphone + live level =======================
+    async function startMicrophone() {
+      micStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 512;
+      audioCtx.createMediaStreamSource(micStream).connect(analyser);
+      const samples = new Uint8Array(analyser.fftSize);
+      const tick = () => {
+        analyser.getByteTimeDomainData(samples);
+        let peak = 0;
+        for (const s of samples) peak = Math.max(peak, Math.abs(s - 128));
+        el.orb.style.setProperty('--level', Math.min(1, peak / 64).toFixed(3));
+        levelFrame = requestAnimationFrame(tick);
+      };
+      tick();
+    }
+
+    function stopMicrophone() {
+      cancelAnimationFrame(levelFrame);
+      micStream?.getTracks().forEach((t) => t.stop());
+      audioCtx?.close();
+      micStream = null;
+      audioCtx = null;
+      el.orb.style.setProperty('--level', 0);
+    }
+
+    // ======================= Wake word engines =======================
+    // Each engine: { name, start(): Promise, stop(): void }. onWake() fires once per detection.
+
+    /** On-device wake word via Picovoice Porcupine (requires AccessKey + trained "Hey Assistant" .ppn). */
+    function createPorcupineEngine(onWake) {
+      const Porcupine = window.PorcupineWeb?.PorcupineWorker;
+      const Processor = window.WebVoiceProcessor?.WebVoiceProcessor;
+      if (!PORCUPINE.accessKey || !Porcupine || !Processor) return null;
+      let worker = null;
+      return {
+        name: 'Porcupine (on-device)',
+        async start() {
+          worker ??= await Porcupine.create(
+            PORCUPINE.accessKey,
+            [{ publicPath: PORCUPINE.keywordPath, label: 'Hey Assistant', sensitivity: PORCUPINE.sensitivity }],
+            () => onWake(),
+            { publicPath: PORCUPINE.modelPath }
+          );
+          await Processor.subscribe(worker);
+        },
+        stop() {
+          if (worker) Processor.unsubscribe(worker);
+        },
+      };
+    }
+
+    /**
+     * Keyword spotting with continuous Web Speech recognition. Works without setup, but it is not
+     * offline (Chrome streams audio to its speech service) and restarts itself when Chrome ends a session.
+     */
+    function createWebSpeechEngine(onWake) {
+      let rec = null;
+      let active = false;
+      let failures = 0;
+      const begin = () => {
+        rec = new SpeechRecognitionImpl();
+        rec.lang = CONFIG.lang;
+        rec.continuous = true;
+        rec.interimResults = true;
+        rec.onresult = (e) => {
+          failures = 0;
+          for (let i = e.resultIndex; i < e.results.length; i++) {
+            if (CONFIG.wakePattern.test(e.results[i][0].transcript)) {
+              active = false;
+              rec.abort();
+              onWake();
+              return;
+            }
+          }
+        };
+        rec.onerror = (e) => {
+          if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+            active = false;
+            showBanner('Microphone or speech service access was blocked. Allow it in the browser’s site settings.');
+            setStatus('Voice blocked', 'error');
+          } else if (e.error !== 'no-speech' && e.error !== 'aborted') {
+            failures++;
+          }
+        };
+        // Chrome ends continuous sessions after silence or ~60 s: restart while armed (with backoff on errors).
+        rec.onend = () => {
+          if (active) setTimeout(() => active && begin(), Math.min(250 * 2 ** failures, 8000));
+        };
+        rec.start();
+      };
+      return {
+        name: 'Web Speech keyword spotting',
+        async start() {
+          if (active) return;
+          active = true;
+          begin();
+        },
+        stop() {
+          active = false;
+          rec?.abort();
+        },
+      };
+    }
+
+    function armWakeWord() {
+      setPhase('armed', 'Say “Hey Assistant”');
+      setStatus('Listening for “Hey Assistant”', 'armed');
+      wakeEngine?.start().catch((err) => {
+        console.error('[Kapilya voice] Wake word engine failed:', err);
+        setStatus('Wake word unavailable', 'error');
+      });
+    }
+
+    // ======================= Text-to-speech =======================
+    /** Speaks `text` and resolves when finished (with a safety timeout: Chrome sometimes never fires onend). */
+    function speak(text) {
+      el.says.textContent = text;
+      return new Promise((resolve) => {
+        if (!window.speechSynthesis) return resolve();
+        speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = CONFIG.lang;
+        u.rate = 1;
+        const voices = speechSynthesis.getVoices();
+        u.voice =
+          voices.find((v) => v.lang === 'en-PH') ||
+          voices.find((v) => v.lang === CONFIG.lang && /natural|google|samantha/i.test(v.name)) ||
+          voices.find((v) => v.lang.startsWith('en')) ||
+          null;
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          clearTimeout(guard);
+          resolve();
+        };
+        const guard = setTimeout(finish, 2500 + text.length * 85);
+        u.onend = finish;
+        u.onerror = finish;
+        speechSynthesis.speak(u);
+      });
+    }
+
+    // ======================= Speech-to-text (commands) =======================
+    function startCommandRecognition() {
+      stopCommandRecognition();
+      el.final.textContent = '';
+      el.interim.textContent = '';
+      setPhase('listening', 'Listening…');
+      setStatus('Listening for your command', 'busy');
+
+      const rec = new SpeechRecognitionImpl();
+      commandRecognizer = rec;
+      rec.lang = CONFIG.lang;
+      rec.continuous = false;
+      rec.interimResults = true;
+      rec.maxAlternatives = 1;
+
+      let finalText = '';
+      const timeout = setTimeout(() => rec.stop(), CONFIG.commandTimeoutMs);
+
+      rec.onresult = (e) => {
+        let interim = '';
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          const piece = e.results[i][0].transcript;
+          if (e.results[i].isFinal) finalText += piece;
+          else interim += piece;
+        }
+        el.final.textContent = finalText;
+        el.interim.textContent = interim ? `${finalText ? ' ' : ''}${interim}` : '';
+      };
+      rec.onerror = (e) => {
+        if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+          showBanner('Microphone or speech service access was blocked. Allow it in the browser’s site settings.');
+        } else if (e.error !== 'no-speech' && e.error !== 'aborted') {
+          console.warn('[Kapilya voice] Speech recognition error:', e.error);
+        }
+      };
+      rec.onend = () => {
+        clearTimeout(timeout);
+        if (commandRecognizer !== rec) return; // replaced or cancelled
+        commandRecognizer = null;
+        const text = finalText.trim() || el.interim.textContent.trim();
+        el.interim.textContent = '';
+        if (text) {
+          el.final.textContent = text;
+          handleCommand(text);
+        } else {
+          speak("I didn't catch that. Tap the microphone and try again.").then(() => phase !== 'off' && armWakeWord());
+        }
+      };
+      rec.start();
+    }
+
+    function stopCommandRecognition() {
+      const rec = commandRecognizer;
+      commandRecognizer = null;
+      rec?.abort();
+    }
+
+    // ======================= Intent parsing =======================
+    const normalize = (s) => s.toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9&' ]+/g, ' ').replace(/\s+/g, ' ').trim();
+
+    /** Longest vocabulary entry found in the text (so "central luzon" beats "central"): { name, key } or null. */
+    function findName(text, names, aliases = {}) {
+      const hits = [
+        ...names.map((n) => ({ name: n, key: normalize(n) })),
+        ...Object.entries(aliases).map(([k, n]) => ({ name: n, key: k })),
+      ].filter(({ key }) => new RegExp(`\\b${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(text));
+      hits.sort((a, b) => b.key.length - a.key.length);
+      return hits[0] ?? null;
+    }
+
+    function findDay(text) {
+      if (/\btoday\b|\bngayon\b/.test(text)) return DAYS[new Date().getDay()];
+      if (/\btomorrow\b|\bbukas\b/.test(text)) return DAYS[(new Date().getDay() + 1) % 7];
+      return DAYS.find((d) => text.includes(d)) ?? null;
+    }
+
+    /** Turns a transcript into { type, entities }. Order matters: the most specific intents first. */
+    function parseIntent(raw) {
+      const text = normalize(raw);
+      const kind = KINDS.find((k) => k.pattern.test(text)) ?? null;
+      const saysRegion = /\bregion\b/.test(text);
+      const saysDistrict = /\bdistri(ct|to)\b/.test(text);
+      const regionHit = findName(text, REGIONS, REGION_ALIASES);
+      const districtHit = findName(text, DISTRICTS);
+      // An explicit "region"/"district" wins; otherwise the longer (more specific) name does.
+      const pickRegion = regionHit && (saysRegion || !districtHit || (!saysDistrict && regionHit.key.length > districtHit.key.length));
+      const region = pickRegion ? regionHit.name : null;
+      const district = !pickRegion && districtHit ? districtHit.name : null;
+      const target = text.match(/(?:directions?|direksyon|navigate|route|get me|take me)\s+(?:to|papunta sa|sa)\s+(?:the\s+)?(.+)$/)?.[1] ?? null;
+
+      if (/\b(stop|cancel|close|never ?mind|that's all)\b/.test(text)) return { type: 'STOP', entities: {} };
+      if (/\b(directions?|direksyon|navigate|route|how do i get|take me)\b/.test(text)) {
+        return { type: 'GET_DIRECTIONS', entities: { target: target && !/\bnearest\b/.test(target) ? target : 'nearest', kind } };
+      }
+      if (/\b(schedules?|iskedyul|worship|service times?|oras ng pagsamba|pagsamba|what time)\b/.test(text)) {
+        return { type: 'CHECK_SCHEDULE', entities: { day: findDay(text), kind } };
+      }
+      if (/\b(nearest|closest|near me|nearby|pinakamalapit|malapit)\b/.test(text)) {
+        return { type: 'FIND_NEAREST', entities: { kind } };
+      }
+      if (region) return { type: 'FILTER_REGION', entities: { region, kind } };
+      if (district) return { type: 'FILTER_DISTRICT', entities: { district, kind } };
+      if (kind) return { type: 'FILTER_KIND', entities: { kind } };
+      return { type: 'UNKNOWN', entities: {} };
+    }
+
+    // ======================= Intent execution hook =======================
+    /**
+     * Runs the app action for an intent. The console logs stand in for the real app calls; each
+     * action is also broadcast as a "kapilya:voice-intent" CustomEvent that the dashboard can handle:
+     *   window.addEventListener('kapilya:voice-intent', (e) => router.push(...e.detail))
+     * Returns the sentence the assistant speaks back.
+     */
+    function executeIntent(intent, transcript) {
+      const { type, entities } = intent;
+      const kindLabel = entities.kind?.label;
+      let reply;
+
+      switch (type) {
+        case 'FIND_NEAREST':
+          console.log('[Kapilya] Running near-me search: nearest %s, ranked by road distance', kindLabel ?? 'local congregation', entities);
+          logAction(`FIND_NEAREST → near-me search${kindLabel ? ` (${kindLabel})` : ''}, ranked by road distance`);
+          reply = `Finding the nearest ${kindLabel ? kindLabel.toLowerCase() : 'local congregation'} for you.`;
+          break;
+
+        case 'GET_DIRECTIONS':
+          console.log('[Kapilya] Triggering exact distance routing map → destination: %s', entities.target, entities);
+          logAction(`GET_DIRECTIONS → routing map to ${entities.target}`);
+          reply = entities.target === 'nearest'
+            ? 'Opening turn-by-turn directions to the nearest local congregation.'
+            : `Opening directions to ${entities.target}.`;
+          break;
+
+        case 'CHECK_SCHEDULE':
+          console.log('[Kapilya] Opening schedule modal in 12-hour format%s', entities.day ? ` → ${entities.day}` : '', entities);
+          logAction(`CHECK_SCHEDULE → schedule modal (12-hour)${entities.day ? `, ${entities.day}` : ''}`);
+          reply = entities.day ? `Here are the worship schedules for ${entities.day}.` : 'Opening the worship schedules.';
+          break;
+
+        case 'FILTER_REGION':
+          console.log('[Kapilya] Filtering dashboard for Region: %s', entities.region, entities);
+          logAction(`FILTER_REGION → Region: ${entities.region}${kindLabel ? `, Type: ${kindLabel}` : ''}`);
+          el.fRegion.textContent = `Region: ${entities.region}`;
+          el.fDistrict.textContent = 'District: All';
+          if (kindLabel) el.fKind.textContent = `Type: ${kindLabel}`;
+          reply = `Showing the ${entities.region} region${kindLabel ? `, ${kindLabel.toLowerCase()} only` : ''}.`;
+          break;
+
+        case 'FILTER_DISTRICT':
+          console.log('[Kapilya] Filtering dashboard for District: %s', entities.district, entities);
+          logAction(`FILTER_DISTRICT → District: ${entities.district}${kindLabel ? `, Type: ${kindLabel}` : ''}`);
+          el.fDistrict.textContent = `District: ${entities.district}`;
+          if (kindLabel) el.fKind.textContent = `Type: ${kindLabel}`;
+          reply = `Showing the ${entities.district} district${kindLabel ? `, ${kindLabel.toLowerCase()} only` : ''}.`;
+          break;
+
+        case 'FILTER_KIND':
+          console.log('[Kapilya] Filtering dashboard for type: %s', kindLabel, entities);
+          logAction(`FILTER_KIND → Type: ${kindLabel}`);
+          el.fKind.textContent = `Type: ${kindLabel}`;
+          reply = `Showing ${kindLabel.toLowerCase()} only.`;
+          break;
+
+        case 'STOP':
+          console.log('[Kapilya] Voice session closed by user');
+          logAction('STOP → assistant closed');
+          reply = 'Okay.';
+          break;
+
+        default:
+          console.log('[Kapilya] No matching intent for: "%s"', transcript);
+          logAction(`UNKNOWN → "${transcript}"`);
+          reply = "Sorry, I didn't understand. You can say 'Find the nearest local', 'Get directions', or 'Check worship schedules'.";
+      }
+
+      window.dispatchEvent(new CustomEvent('kapilya:voice-intent', { detail: { ...intent, transcript } }));
+      return reply;
+    }
+
+    async function handleCommand(transcript) {
+      setPhase('processing', 'Working on it…');
+      const intent = parseIntent(transcript);
+      const reply = executeIntent(intent, transcript);
+      el.result.hidden = false;
+      el.result.textContent = reply;
+      await speak(reply);
+      if (intent.type === 'STOP') closeDrawer();
+      else if (phase !== 'off') armWakeWord(); // drawer stays open with the result; "Hey Assistant" again anytime
+    }
+
+    // ======================= Wake → greet → listen =======================
+    async function onWake() {
+      if (phase !== 'armed') return;
+      wakeEngine?.stop(); // only one recognizer can run at a time; and don't transcribe our own voice
+      console.log('[Kapilya voice] Wake word detected');
+      el.result.hidden = true;
+      el.final.textContent = '';
+      el.interim.textContent = '';
+      openDrawer();
+      setPhase('greeting', 'Speaking…');
+      setStatus('Assistant speaking', 'busy');
+      await speak(CONFIG.greeting);
+      if (phase === 'greeting') startCommandRecognition(); // not closed meanwhile
+    }
+
+    // ======================= Enable / disable =======================
+    async function enableVoice() {
+      const problem = supportProblem();
+      if (problem) {
+        showBanner(problem);
+        setStatus('Voice unavailable', 'error');
+        return;
+      }
+      try {
+        setStatus('Requesting microphone…', 'busy');
+        await startMicrophone(); // shows the browser's permission prompt
+      } catch (err) {
+        showBanner(err?.name === 'NotAllowedError'
+          ? 'Microphone access was blocked. Allow it in the browser’s site settings, then try again.'
+          : 'No microphone was found.');
+        setStatus('Voice off', 'error');
+        return;
+      }
+      // Warm up the voice list (Chrome loads it asynchronously).
+      window.speechSynthesis?.getVoices();
+      wakeEngine = createPorcupineEngine(onWake) || createWebSpeechEngine(onWake);
+      console.log('[Kapilya voice] Wake word engine:', wakeEngine.name);
+      showBanner('');
+      el.enable.setAttribute('aria-pressed', 'true');
+      el.enableLabel.textContent = 'Disable Voice Assistant';
+      el.simulate.hidden = false;
+      armWakeWord();
+    }
+
+    function disableVoice() {
+      wakeEngine?.stop();
+      wakeEngine = null;
+      stopCommandRecognition();
+      window.speechSynthesis?.cancel();
+      stopMicrophone();
+      phase = 'off';
+      closeDrawer();
+      setPhase('off', 'Ready');
+      setStatus('Voice off', 'off');
+      el.enable.setAttribute('aria-pressed', 'false');
+      el.enableLabel.textContent = 'Enable Voice Assistant';
+      el.simulate.hidden = true;
+    }
+
+    // ======================= Wiring =======================
+    el.enable.addEventListener('click', () => (phase === 'off' ? enableVoice() : disableVoice()));
+    el.simulate.addEventListener('click', () => onWake()); // test the flow without saying the wake word
+    el.close.addEventListener('click', closeDrawer);
+    el.backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && el.drawer.getAttribute('aria-hidden') === 'false') closeDrawer();
+    });
+    // Tap the orb to give another command (also works when speech synthesis is muted).
+    el.orb.addEventListener('click', () => {
+      if (phase === 'off') return;
+      wakeEngine?.stop();
+      window.speechSynthesis?.cancel();
+      // Give the stopped wake-word recognizer a moment to release the microphone.
+      setTimeout(startCommandRecognition, 200);
+    });
+    // Suggestion chips run the same pipeline as speech.
+    document.querySelectorAll('.suggest').forEach((b) =>
+      b.addEventListener('click', () => {
+        stopCommandRecognition();
+        wakeEngine?.stop();
+        el.final.textContent = b.dataset.say;
+        handleCommand(b.dataset.say);
+      })
+    );
+    // Chrome stops recognition in background tabs: re-arm when the tab is visible again.
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && phase === 'armed') armWakeWord();
+    });
+
+    const problem = supportProblem();
+    if (problem) showBanner(problem);
+
+    // Expose the pipeline for testing and for wiring into the real dashboard.
+    window.KapilyaVoice = { parseIntent, executeIntent, handleCommand, simulateWake: onWake };
+  })();
+  </script>
+</body>
+</html>

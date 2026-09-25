@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef, Suspense } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Search, Filter, Navigation as NavIcon, ChevronRight, MapPin } from 'lucide-react';
 import { Locale } from '@/lib/types';
 import { LeafletMap } from '@/components/LeafletMap';
@@ -53,7 +53,16 @@ function useNow(intervalMs = 30_000) {
   return now;
 }
 
+// useSearchParams needs a Suspense boundary on a statically rendered page.
 export default function NearMePage() {
+  return (
+    <Suspense fallback={null}>
+      <NearMeView />
+    </Suspense>
+  );
+}
+
+function NearMeView() {
   const router = useRouter();
   const { location, detectGps } = useUserLocation();
   const now = useNow();
@@ -71,7 +80,18 @@ export default function NearMePage() {
   const [radiusKm, setRadiusKm] = useState<number>(NEARBY_RADIUS_KM);
   const [selectedDay, setSelectedDay] = useState<string>('all');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('all');
-  const [selectedKind, setSelectedKind] = useState<string>('all');
+  // ?kind= (e.g. from the voice command "Find the nearest GWS"), also when the URL changes here.
+  const searchParams = useSearchParams();
+  const kindFromUrl = (p: URLSearchParams) => {
+    const k = p.get('kind');
+    return k && ['local_congregation', 'extension', 'group_worship_service'].includes(k) ? k : 'all';
+  };
+  const [selectedKind, setSelectedKind] = useState<string>(() => kindFromUrl(searchParams));
+  const [appliedParams, setAppliedParams] = useState(searchParams);
+  if (searchParams !== appliedParams) {
+    setAppliedParams(searchParams);
+    setSelectedKind(kindFromUrl(searchParams));
+  }
   const [showFilters, setShowFilters] = useState(false);
 
   // Sync coords when global location changes (from My Location picker in nav)
