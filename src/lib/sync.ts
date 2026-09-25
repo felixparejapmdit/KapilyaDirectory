@@ -3,7 +3,7 @@
  *
  * Fetches every district listing and every locale page, then rebuilds each locale's name, kind,
  * address, coordinates, contacts and worship schedule from the source. Shared by the in-app sync
- * job (Settings -> Run Sync Now, nightly schedule) and `scripts/sync-directory.ts`.
+ * job (Settings -> Run Sync Now, 6-hourly schedule) and `scripts/sync-directory.ts`.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -203,11 +203,16 @@ export async function syncFromSource(
     }
     const districtSlug = listing.get(locale.slug) ?? page.district_slug;
     const next = fromSource(locale, page, districtSlug ? districtBySlug.get(districtSlug) : undefined, syncedAt);
-    if (localeSignature(next) === localeSignature(locale)) report.unchanged++;
-    else report.updated++;
     if (page.warnings.length) report.parse_warnings.push({ slug: locale.slug, warnings: page.warnings });
     if (next.schedule!.length === 0) report.empty_schedules.push(locale.slug);
-    locales.push(next);
+    // Unchanged records keep their object (and source_updated_at), so a no-op sync changes nothing.
+    if (localeSignature(next) === localeSignature(locale)) {
+      report.unchanged++;
+      locales.push(locale);
+    } else {
+      report.updated++;
+      locales.push(next);
+    }
   }
 
   for (const slug of newSlugs) {

@@ -7,6 +7,7 @@ import { Globe2, Search, ChevronDown, ChevronRight, ListFilter, ArrowLeft, Clock
 import { Region, District, WorldArea, Locale, LocaleKind } from '@/lib/types';
 import { findNextService } from '@/lib/next-service';
 import { formatTime12Hour } from '@/lib/time';
+import { useDistrictHoverCard } from '@/components/DistrictHoverCard';
 
 type KindCounts = Record<LocaleKind, number>;
 type KindFilter = 'all' | LocaleKind;
@@ -43,6 +44,7 @@ export default function DistrictsPage() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [kind, setKind] = useState<KindFilter>('all');
+  const { linkProps, card: hoverCard } = useDistrictHoverCard(kind);
   const [results, setResults] = useState<{ query: string; kind: KindFilter; total: number; locales: Locale[] } | null>(null);
   const [expandedRegions, setExpandedRegions] = useState<{ [regId: string]: boolean }>({
     'reg-ncr': true, // NCR expanded by default
@@ -132,7 +134,7 @@ export default function DistrictsPage() {
               <span>Districts By World Region</span>
             </h1>
             <p className="text-xs sm:text-sm text-[#A9B4C2] mt-0.5">
-              Browse Iglesia Ni Cristo ecclesiastical districts, or search any congregation worldwide.
+              Browse Iglesia Ni Cristo ecclesiastical districts (hover one to preview its congregations), or search any congregation worldwide.
             </p>
           </div>
 
@@ -278,6 +280,7 @@ export default function DistrictsPage() {
                       <Link
                         key={district.id}
                         href={`/districts/${district.slug}`}
+                        {...linkProps(district.slug)}
                         className="text-sm font-semibold text-[#5AA9FF] hover:text-[#E8A33D] hover:underline transition-colors flex items-center justify-between py-1 group"
                       >
                         <span className="truncate">{district.name}</span>
@@ -339,6 +342,7 @@ export default function DistrictsPage() {
                                 <Link
                                   key={district.id}
                                   href={`/districts/${district.slug}`}
+                                  {...linkProps(district.slug)}
                                   className="text-xs sm:text-sm font-semibold text-[#5AA9FF] hover:text-[#E8A33D] hover:underline transition-colors flex items-center justify-between py-1 group"
                                 >
                                   <span className="truncate">{district.name}</span>
@@ -361,6 +365,8 @@ export default function DistrictsPage() {
           })}
         </div>
       )}
+
+      {hoverCard}
     </div>
   );
 }

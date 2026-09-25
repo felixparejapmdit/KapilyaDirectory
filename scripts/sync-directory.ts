@@ -1,13 +1,15 @@
 /**
  * Syncs data/store.json with the official INC directory (directory.iglesianicristo.net):
  * names, kinds, addresses, coordinates, contacts and worship schedules for every locale.
- * The running app does the same from Settings -> Run Sync Now and nightly at 12:00 AM.
+ * The running app does the same from Settings -> Run Sync Now and every 6 hours; so does CI.
  *
  *   npm run sync:directory -- [--dry-run] [--concurrency=6] [--only=slug1,slug2]
- *                             [--cache-dir=<dir>] [--report=<file>]
+ *                             [--cache-dir=<dir>] [--report=<file>] [--no-snapshot]
  *
  * --cache-dir keeps raw HTML so a rerun only fetches pages that are not cached yet.
- * Unless --dry-run, the current store is snapshotted (restorable from Settings) before writing.
+ * Unless --dry-run, the current store is snapshotted (restorable from Settings) before writing;
+ * --no-snapshot skips that (CI, where git history is the backup). If nothing changed at the
+ * source, store.json is left untouched.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -24,6 +26,7 @@ const DRY_RUN = args.get('dry-run') === 'true';
 const CONCURRENCY = Number(args.get('concurrency') ?? 6);
 const ONLY = args.get('only')?.split(',').filter(Boolean);
 const CACHE_DIR = args.get('cache-dir') ? path.resolve(args.get('cache-dir')!) : null;
+const NO_SNAPSHOT = args.get('no-snapshot') === 'true';
 const REPORT_FILE = args.get('report') ? path.resolve(args.get('report')!) : null;
 
 async function main() {
@@ -70,12 +73,17 @@ async function main() {
     process.exitCode = 1;
     return;
   }
+  const changes = report.updated + report.added.length + report.removed.length;
+  if (changes === 0) {
+    console.log('\nNo changes at the source; store not modified.');
+    return;
+  }
 
   const summary: SyncSummary = {
     finished_at: new Date().toISOString(),
     trigger: 'cli',
     status: failures === 0 ? 'success' : 'partial',
-    message: `Synced ${report.pages_fetched.toLocaleString()} locales from the official directory${failures ? `; ${failures} pages kept their previous data` : ''}.`,
+    message: `Checked ${report.pages_fetched.toLocaleString()} locales: ${changes.toLocaleString()} changed${failures ? `; ${failures} pages kept their previous data` : ''}.`,
     locales_total: locales.length,
     updated: report.updated,
     added: report.added.length,
@@ -83,12 +91,12 @@ async function main() {
     fetch_failures: failures,
     duration_ms: Date.now() - started,
   };
-  const snapshot = writeSnapshot(data, 'Automatic pre-sync snapshot (cli sync)');
+  const snapshot = NO_SNAPSHOT ? null : writeSnapshot(data, 'Automatic pre-sync snapshot (cli sync)');
   data.locales = locales;
   data.last_updated = summary.finished_at;
   data.last_sync = summary;
   writeStoreFile(data);
-  console.log(`\nSaved. Pre-sync snapshot: ${snapshot.id}`);
+  console.log(`\nSaved ${changes} changes.${snapshot ? ` Pre-sync snapshot: ${snapshot.id}` : ''}`);
 }
 
 main().catch((err) => {

@@ -28,16 +28,28 @@ coordinates, contacts, and worship schedule, taken from the official directory a
 
 It stays current in three ways:
 
-- **Nightly**: the running server syncs automatically at 12:00 AM (`SYNC_TIMEZONE`, default
-  `Asia/Manila`). Set `KAPILYA_NIGHTLY_SYNC=off` to disable.
+- **Every 6 hours** (12 AM, 6 AM, 12 PM, 6 PM in `SYNC_TIMEZONE`, default `Asia/Manila`):
+  - a running server syncs itself (set `KAPILYA_AUTO_SYNC=off` to disable);
+  - the GitHub Action in `.github/workflows/sync-directory.yml` syncs, commits `data/store.json`
+    when anything changed, and the push redeploys the site (e.g. Vercel, which is read-only).
 - **Settings → Run Sync Now**: starts the same sync on demand and shows its progress.
-  (The Settings link only appears in the menu when the app is opened on localhost; the page itself is at `/settings`.)
+  (The Settings link appears in the menu on localhost; elsewhere press **Ctrl + .** to show or hide it.)
 - **CLI**: `npm run sync:directory` (add `--dry-run` to preview, `--only=slug1,slug2` for a few locales).
 
-A full sync fetches every locale page (about 8,800) at a gentle rate and takes roughly 30 minutes.
+A full sync fetches every locale page (about 8,800) at a gentle rate and takes 30 to 90 minutes.
+A sync that finds no changes leaves `store.json` untouched.
 Before any change is written, the current store is saved to `data/snapshots/`, and you can restore
 it from Settings. Locales the source can't be reached for keep their previous data.
 
 ## Environment
 
 See [.env.example](.env.example). `.env.local` is gitignored; never commit the bot token.
+
+## Telegram bot
+
+`npm run bot` (long polling) and `/api/telegram/webhook` share the same replies
+(`src/lib/bot-replies.ts`), read from the current data on every message: `/nearme`,
+`/district <name> [gws|ext]`, or any chapel name. Congregation names link to directions.
+
+If you run a local server and also pull the Action's data commits, discard local sync results first
+(`git checkout data/store.json`), or set `KAPILYA_AUTO_SYNC=off` locally.

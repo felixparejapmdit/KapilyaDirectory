@@ -877,3 +877,253 @@ body.light-theme .site-header {
     background-image: none;
   }
 }
+
+/* ============================================================
+   DISTRICT HOVER CARD (Districts page) + TOAST
+   ============================================================ */
+.kd-hovercard {
+  position: fixed;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1.1rem;
+  background: rgba(16, 27, 48, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(232, 163, 61, 0.06);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  color: #F3F4F6;
+  animation: kd-card-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+body.light-theme .kd-hovercard {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: #CBD5E1;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.18);
+  color: #0F172A;
+}
+
+html[data-transparency='reduced'] .kd-hovercard {
+  background: #16233E;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html[data-transparency='reduced'] body.light-theme .kd-hovercard {
+  background: #FFFFFF;
+}
+
+.kd-hovercard-title {
+  color: #FFFFFF;
+}
+
+body.light-theme .kd-hovercard-title {
+  color: #0F172A;
+}
+
+.kd-hovercard-muted {
+  color: #A9B4C2;
+}
+
+body.light-theme .kd-hovercard-muted {
+  color: #64748B;
+}
+
+.kd-hovercard-divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.light-theme .kd-hovercard-divider {
+  border-bottom-color: #E2E8F0;
+}
+
+.kd-hovercard-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.07);
+  color: #D5DCE6;
+  transition: opacity 150ms ease;
+}
+
+body.light-theme .kd-hovercard-chip {
+  background: #F1F5F9;
+  color: #334155;
+}
+
+.kd-hovercard-list {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.25rem 0.4rem 0.5rem;
+}
+
+.kd-hovercard-section {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.6rem 0.3rem;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #A9B4C2;
+  background: rgba(16, 27, 48, 0.97);
+}
+
+body.light-theme .kd-hovercard-section {
+  color: #64748B;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.kd-hovercard-row {
+  animation: kd-row-in 260ms ease both;
+}
+
+.kd-hovercard-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.6rem;
+  font-size: 13px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.kd-hovercard-link:hover,
+.kd-hovercard-link:focus-visible {
+  background: rgba(232, 163, 61, 0.12);
+  color: #F3B353;
+  outline: none;
+}
+
+body.light-theme .kd-hovercard-link:hover,
+body.light-theme .kd-hovercard-link:focus-visible {
+  background: rgba(232, 163, 61, 0.14);
+  color: #B45309;
+}
+
+.kd-hovercard-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4ADE80;
+  background: rgba(63, 143, 95, 0.22);
+}
+
+.kd-hovercard-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: kd-pulse 1.6s ease-in-out infinite;
+}
+
+.kd-hovercard-soon {
+  font-size: 11px;
+  font-weight: 700;
+  color: #E8A33D;
+}
+
+body.light-theme .kd-hovercard-live {
+  color: #15803D;
+  background: rgba(34, 197, 94, 0.14);
+}
+
+body.light-theme .kd-hovercard-soon {
+  color: #B45309;
+}
+
+.kd-hovercard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  font-size: 13px;
+  font-weight: 700;
+  color: #E8A33D;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(232, 163, 61, 0.06);
+  transition: background-color 150ms ease;
+}
+
+.kd-hovercard-footer:hover {
+  background: rgba(232, 163, 61, 0.14);
+}
+
+body.light-theme .kd-hovercard-footer {
+  color: #B45309;
+  border-top-color: #E2E8F0;
+}
+
+.kd-hovercard-skeleton {
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  background-size: 200% 100%;
+  animation: kd-skeleton 1.2s ease-in-out infinite;
+}
+
+body.light-theme .kd-hovercard-skeleton {
+  background: linear-gradient(90deg, #EEF2F7, #E2E8F0, #EEF2F7);
+  background-size: 200% 100%;
+}
+
+/* The district link being previewed stays highlighted. */
+a[data-previewing='true'] {
+  color: #E8A33D !important;
+}
+
+.kd-toast {
+  animation: kd-toast-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes kd-card-in {
+  from { opacity: 0; transform: translateY(4px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes kd-row-in {
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes kd-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@keyframes kd-skeleton {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@keyframes kd-toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kd-hovercard,
+  .kd-hovercard-row,
+  .kd-toast {
+    animation-name: kd-fade;
+    animation-duration: 150ms;
+  }
+
+  .kd-hovercard-live::before,
+  .kd-hovercard-skeleton {
+    animation: none;
+  }
+}

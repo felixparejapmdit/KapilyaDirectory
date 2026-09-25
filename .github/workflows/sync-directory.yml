@@ -1,0 +1,53 @@
+# Keeps the deployed site's data current: every 6 hours, sync data/store.json from the official
+# directory (iglesianicristo.net) and commit it when anything changed. The push redeploys Vercel.
+# Same slots as the app's own scheduler: 12 AM, 6 AM, 12 PM, 6 PM Asia/Manila (UTC+8).
+name: Sync directory data
+
+on:
+  schedule:
+    - cron: '0 4,10,16,22 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-directory
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+
+      # The sync script only uses Node built-ins, so no npm install is needed.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Sync from iglesianicristo.net
+        run: node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/sync-directory.ts --no-snapshot --report=sync-report.json
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- data/store.json; then
+            echo "No changes at the source."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/store.json
+          git commit -m "data: sync directory from iglesianicristo.net"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Upload sync report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-report
+          path: sync-report.json
+          if-no-files-found: ignore
+          retention-days: 7

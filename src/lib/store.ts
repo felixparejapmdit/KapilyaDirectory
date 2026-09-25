@@ -388,6 +388,11 @@ class KapilyaStore {
   /** Snapshots the current state, then replaces all locales with the synced records. */
   public applySync(locales: Locale[], summary: SyncSummary) {
     const data = this.load();
+    if (summary.updated + summary.added + summary.removed === 0) {
+      // Nothing changed at the source: record the check, skip the (large) rollback snapshot.
+      this.recordSync(summary);
+      return;
+    }
     writeSnapshot(data, `Automatic pre-sync snapshot (${summary.trigger} sync)`);
     data.locales = locales;
     data.last_updated = summary.finished_at;

@@ -1,6 +1,6 @@
 /**
  * Background directory-sync job for the running server (Settings -> Run Sync Now, and the
- * nightly schedule). State lives on globalThis so every route bundle shares one job.
+ * 6-hourly schedule). State lives on globalThis so every route bundle shares one job.
  */
 import { kapilyaStore } from './store';
 import { syncFromSource, type SyncPhase } from './sync';
@@ -69,10 +69,14 @@ function zonedNow(tz: string, now = new Date()) {
   };
 }
 
-export function nextMidnight(tz = SYNC_TIMEZONE, now = new Date()): Date {
+/** Automatic syncs run every 6 hours: 12 AM, 6 AM, 12 PM, and 6 PM in SYNC_TIMEZONE. */
+export const SYNC_EVERY_HOURS = 6;
+
+/** Next automatic run (the same slots the GitHub Actions workflow uses for the deployed site). */
+export function nextScheduledRun(tz = SYNC_TIMEZONE, now = new Date()): Date {
   const z = zonedNow(tz, now);
-  const secondsLeft = 24 * 3600 - (z.hour * 3600 + z.minute * 60 + z.second);
-  return new Date(now.getTime() + secondsLeft * 1000);
+  const elapsed = (z.hour % SYNC_EVERY_HOURS) * 3600 + z.minute * 60 + z.second;
+  return new Date(now.getTime() + (SYNC_EVERY_HOURS * 3600 - elapsed) * 1000);
 }
 
 export function getSyncStatus(): SyncJobStatus {
@@ -85,7 +89,8 @@ export function getSyncStatus(): SyncJobStatus {
     total: job.total,
     started_at: job.startedAt ? new Date(job.startedAt).toISOString() : null,
     last_sync: kapilyaStore.getLastSync(),
-    next_scheduled_at: job.schedulerStarted ? nextMidnight().toISOString() : null,
+    // On read-only hosts the GitHub Actions workflow runs the same schedule and redeploys.
+    next_scheduled_at: job.schedulerStarted || READ_ONLY_DEPLOYMENT ? nextScheduledRun().toISOString() : null,
     timezone: SYNC_TIMEZONE,
   };
 }
@@ -111,9 +116,8 @@ export function startSync(trigger: SyncSummary['trigger']): boolean {
         trigger,
         status: failures === 0 ? 'success' : 'partial',
         message:
-          failures === 0
-            ? `Synced ${report.pages_fetched.toLocaleString()} locales from the official directory.`
-            : `Synced ${report.pages_fetched.toLocaleString()} locales; ${failures} pages could not be fetched and kept their previous data.`,
+          `Checked ${report.pages_fetched.toLocaleString()} locales: ${changeSummary(report)}.` +
+          (failures ? ` ${failures} pages could not be fetched and kept their previous data.` : ''),
         locales_total: next.length,
         updated: report.updated,
         added: report.added.length,
@@ -147,17 +151,30 @@ export function startSync(trigger: SyncSummary['trigger']): boolean {
   return true;
 }
 
-/** Checks every 30 s and starts a sync once per day at 12:00 AM in SYNC_TIMEZONE. */
-export function startNightlyScheduler() {
-  if (job.schedulerStarted || process.env.KAPILYA_NIGHTLY_SYNC === 'off' || READ_ONLY_DEPLOYMENT) return;
+function changeSummary(report: { updated: number; added: string[]; removed: string[] }): string {
+  const parts = [
+    report.updated && `${report.updated.toLocaleString()} updated`,
+    report.added.length && `${report.added.length} added`,
+    report.removed.length && `${report.removed.length} removed`,
+  ].filter(Boolean);
+  return parts.length ? parts.join(', ') : 'no changes';
+}
+
+const autoSyncDisabled = () =>
+  process.env.KAPILYA_AUTO_SYNC === 'off' || process.env.KAPILYA_NIGHTLY_SYNC === 'off' || READ_ONLY_DEPLOYMENT;
+
+/** Checks every 30 s and starts a sync at 12 AM, 6 AM, 12 PM, and 6 PM in SYNC_TIMEZONE. */
+export function startAutoSyncScheduler() {
+  if (job.schedulerStarted || autoSyncDisabled()) return;
   job.schedulerStarted = true;
   const timer = setInterval(() => {
     const z = zonedNow(SYNC_TIMEZONE);
-    if (z.hour === 0 && z.minute < 5 && job.lastScheduledDate !== z.date) {
-      job.lastScheduledDate = z.date;
-      startSync('scheduled');
+    const slot = `${z.date}T${z.hour}`;
+    if (z.hour % SYNC_EVERY_HOURS === 0 && z.minute < 5 && job.lastScheduledDate !== slot) {
+      job.lastScheduledDate = slot;
+      startSync('scheduled'); // no-op if a sync is still running
     }
   }, 30_000);
   timer.unref?.();
-  console.log(`[sync] Nightly directory sync scheduled for 12:00 AM ${SYNC_TIMEZONE}`);
+  console.log(`[sync] Directory sync scheduled every ${SYNC_EVERY_HOURS} hours (12 AM, 6 AM, 12 PM, 6 PM ${SYNC_TIMEZONE})`);
 }

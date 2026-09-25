@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -17,14 +17,34 @@ import {
 import { AskDrawer } from './AskDrawer';
 import { useTheme } from './ThemeProvider';
 import { KapilyaLogo } from './KapilyaLogo';
-import { useIsLocalhost } from '@/lib/use-is-localhost';
+import { toggleSettingsUnlocked, useShowSettings } from '@/lib/use-show-settings';
 
 export function Navigation() {
   const pathname = usePathname();
   const [askOpen, setAskOpen] = useState(false);
   const { resolved: theme, toggleTheme } = useTheme();
-  // Settings (data sync, snapshots) is an admin tool: its nav button only shows on localhost.
-  const showSettings = useIsLocalhost();
+  // Settings (data sync, snapshots) is an admin tool: its nav button shows on localhost, and
+  // elsewhere after Ctrl + . (toggle) unlocks it on this device.
+  const { visible: showSettings, localhost } = useShowSettings();
+  const [toast, setToast] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (localhost) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (!(e.ctrlKey || e.metaKey) || e.key !== '.') return;
+      e.preventDefault();
+      const unlocked = toggleSettingsUnlocked();
+      setToast(unlocked ? 'Settings unlocked. Press Ctrl + . again to hide it.' : 'Settings hidden.');
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [localhost]);
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = window.setTimeout(() => setToast(null), 2600);
+    return () => window.clearTimeout(t);
+  }, [toast]);
 
   const navLinks = [
     { label: 'Dashboard', href: '/', icon: Compass },
@@ -207,6 +227,14 @@ export function Navigation() {
 
       {/* The Scoped Ask Assistant Drawer */}
       <AskDrawer isOpen={askOpen} onClose={() => setAskOpen(false)} />
+
+      {/* Ctrl + . confirmation */}
+      {toast && (
+        <div role="status" className="kd-toast fixed left-1/2 bottom-24 md:bottom-8 z-[60] -translate-x-1/2 glass-panel px-4 py-2.5 text-sm font-semibold text-white flex items-center gap-2 shadow-2xl">
+          <Settings size={15} className="text-[#E8A33D]" />
+          {toast}
+        </div>
+      )}
     </>
   );
 }

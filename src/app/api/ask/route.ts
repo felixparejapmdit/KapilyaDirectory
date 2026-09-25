@@ -3,7 +3,7 @@ import { kapilyaStore } from '@/lib/store';
 import { formatTime12Hour } from '@/lib/time';
 import { directionsUrl, formatDistance, haversineKm } from '@/lib/geo';
 import { findNextService } from '@/lib/next-service';
-import type { Locale, WorshipScheduleItem } from '@/lib/types';
+import type { Locale, LocaleKind, WorshipScheduleItem } from '@/lib/types';
 
 /** Conversation memory the drawer sends back each turn, so follow-ups like "What about Sunday?" resolve. */
 interface AskContext {
@@ -16,6 +16,28 @@ function getNextScheduleText(locale: Locale, language?: string): string {
   const next = findNextService(schedule, locale.timezone);
   if (!next) return 'no schedule posted';
   return `${next.item.day_name} at ${formatTime12Hour(next.item.start_time)} (${next.item.language})`;
+}
+
+/** Markdown link the Ask drawer renders as a link to the congregation's details page. */
+function link(l: Pick<Locale, 'id' | 'name'>): string {
+  return `[${l.name.replace(/[\[\]]/g, '')}](/locales/${l.id})`;
+}
+
+const KIND_LABELS: Record<LocaleKind, string> = {
+  local_congregation: 'local congregations',
+  extension: 'extensions',
+  group_worship_service: 'group worship services (GWS)',
+};
+
+function mentionedKind(lower: string): LocaleKind | undefined {
+  if (/\b(gws|group worship)/.test(lower)) return 'group_worship_service';
+  if (/\b(ext|extensions?)\b/.test(lower)) return 'extension';
+  if (/\blocal (congregations?|chapels?)\b|\blokal\b/.test(lower)) return 'local_congregation';
+  return undefined;
+}
+
+function kindTag(l: Locale): string {
+  return l.kind === 'group_worship_service' ? ' (GWS)' : l.kind === 'extension' ? ' (Ext)' : '';
 }
 
 function serviceLabel(s: WorshipScheduleItem): string {
@@ -60,7 +82,7 @@ const KAPILYA_KEYWORDS = [
   'schedule', 'time', 'service', 'worship', 'thursday', 'sunday', 'friday',
   'saturday', 'wednesday', 'tuesday', 'monday', 'cws', 'direction',
   'address', 'where', 'district', 'iglesia', 'inc', 'church',
-  'location', 'find', 'local', 'extension', 'ext', 'gws',
+  'location', 'find', 'local', 'extension', 'ext', 'gws', 'group worship',
   'quezon', 'central', 'manila', 'anchorage', 'makati', 'alaska',
   'california', 'los angeles', 'sydney', 'london', 'distance',
   'tanggapan', 'pagsamba', 'lokal', 'templo', 'temple', 'region',
@@ -102,9 +124,11 @@ export async function POST(request: NextRequest) {
     const contextLocale = context.localeId ? kapilyaStore.getLocaleById(context.localeId) : null;
 
     /** Nearest locales, optionally only those holding a service in `language` (and on `day`). */
+    const kind = mentionedKind(lower);
+    const kindText = kind ? KIND_LABELS[kind] : 'chapels';
     const nearestWith = (opts: { language?: string; day?: number; limit: number }) =>
       kapilyaStore
-        .searchNearby({ lat: userLat, lng: userLng, radiusKm: SEARCH_RADIUS_KM, day: opts.day, limit: 200 })
+        .searchNearby({ lat: userLat, lng: userLng, radiusKm: SEARCH_RADIUS_KM, day: opts.day, kind, limit: 200 })
         .filter(
           (l) =>
             !opts.language ||
@@ -145,7 +169,7 @@ export async function POST(request: NextRequest) {
         if (districtData && districtData.locales.length > 0) {
           // Sort locales by distance from user
           const top = districtData.locales
-            .filter((l) => l.latitude && l.longitude)
+            .filter((l) => l.latitude && l.longitude && (!kind || l.kind === kind))
             .sort(
               (a, b) =>
                 haversineKm(userLat, userLng, a.latitude, a.longitude) - haversineKm(userLat, userLng, b.latitude, b.longitude)
@@ -153,11 +177,14 @@ export async function POST(request: NextRequest) {
             .slice(0, 8);
 
           const lines = top.map(
-            (l, i) => `${i + 1}. ${l.name} — ${distanceText(l)} away — next service: ${getNextScheduleText(l)}`
+            (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away — next service: ${getNextScheduleText(l)}`
           );
+          if (!top.length) {
+            return NextResponse.json({ reply: `The ${districtData.name} district has no ${kindText} listed.` });
+          }
 
           return NextResponse.json({
-            reply: `Here are the congregations in the ${districtData.name} district nearest to you:\n\n${lines.join('\n')}\n\nThe district has ${districtData.locales.length} locales in total — browse the Districts Directory in the app for the full list.`,
+            reply: `Here are the ${kind ? KIND_LABELS[kind] : 'congregations'} in the ${districtData.name} district nearest to you:\n\n${lines.join('\n')}\n\nThe district has ${districtData.locales.length} locales in total — browse the Districts Directory in the app for the full list.`,
             district: matched,
             context: { localeId: top[0]?.id },
           });
@@ -187,7 +214,7 @@ export async function POST(request: NextRequest) {
 
       if (target) {
         return NextResponse.json({
-          reply: `${target.name}${language ? ` (holds ${language} services)` : ''} is ${distanceText(target)} away.\n\n📍 ${target.address}\n\nOpen turn-by-turn directions:\n${directionsUrl(target.latitude, target.longitude, target.name)}\n\nNext ${language ? `${language} ` : ''}service: ${getNextScheduleText(target, language)}.`,
+          reply: `${link(target)}${kindTag(target)}${language ? ` (holds ${language} services)` : ''} is ${distanceText(target)} away.\n\n📍 ${target.address}\n\nOpen turn-by-turn directions:\n${directionsUrl(target.latitude, target.longitude, target.name)}\n\nNext ${language ? `${language} ` : ''}service: ${getNextScheduleText(target, language)}.`,
           locale: target,
           context: { localeId: target.id, language },
         });
@@ -215,7 +242,7 @@ export async function POST(request: NextRequest) {
           matchedLocale.schedule?.map((s) => `• ${s.day_name}: ${serviceLabel(s)}`).join('\n') || 'No schedule posted.';
 
         return NextResponse.json({
-          reply: `${matchedLocale.name} is located at ${matchedLocale.address}.\n\nDistance from you: ${distanceText(matchedLocale)}\n\nWorship Schedule:\n${schedLines}${matchedLocale.phone ? `\n\nPhone: ${matchedLocale.phone}` : ''}`,
+          reply: `${link(matchedLocale)}${kindTag(matchedLocale)} is located at ${matchedLocale.address}.\n\nDistance from you: ${distanceText(matchedLocale)}\n\nWorship Schedule:\n${schedLines}${matchedLocale.phone ? `\n\nPhone: ${matchedLocale.phone}` : ''}`,
           locale: matchedLocale,
           context: { localeId: matchedLocale.id, language },
         });
@@ -241,21 +268,21 @@ export async function POST(request: NextRequest) {
         const services = dayServices(contextLocale);
         if (services.length > 0) {
           return NextResponse.json({
-            reply: `On ${dayCapitalized}, ${contextLocale.name} holds${language ? ` ${language}` : ''} worship service${services.length > 1 ? 's' : ''} at:\n\n${services.map((s) => `• ${serviceLabel(s)}`).join('\n')}\n\nIt's ${distanceText(contextLocale)} away.`,
+            reply: `On ${dayCapitalized}, ${link(contextLocale)} holds${language ? ` ${language}` : ''} worship service${services.length > 1 ? 's' : ''} at:\n\n${services.map((s) => `• ${serviceLabel(s)}`).join('\n')}\n\nIt's ${distanceText(contextLocale)} away.`,
             locale: contextLocale,
             context: { localeId: contextLocale.id, language },
           });
         }
-        intro = `${contextLocale.name} has no${language ? ` ${language}` : ''} service on ${dayCapitalized}. `;
+        intro = `${link(contextLocale)} has no${language ? ` ${language}` : ''} service on ${dayCapitalized}. `;
       }
 
       const nearby = nearestWith({ language, day: dayNum, limit: 6 }).filter((l) => dayServices(l).length > 0);
       if (nearby.length > 0) {
         const lines = nearby.map(
-          (l, i) => `${i + 1}. ${l.name} — ${distanceText(l)} away\n   ${dayCapitalized}: ${dayServices(l).map(serviceLabel).join(', ')}`
+          (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away\n   ${dayCapitalized}: ${dayServices(l).map(serviceLabel).join(', ')}`
         );
         return NextResponse.json({
-          reply: `${intro}Here are chapels near you${locationName ? ` (near ${locationName})` : ''} with ${language ? `${language} ` : ''}${dayCapitalized} worship services:\n\n${lines.join('\n\n')}`,
+          reply: `${intro}Here are ${kindText} near you${locationName ? ` (near ${locationName})` : ''} with ${language ? `${language} ` : ''}${dayCapitalized} worship services:\n\n${lines.join('\n\n')}`,
           context: { localeId: nearby[0].id, language },
         });
       }
@@ -277,10 +304,10 @@ export async function POST(request: NextRequest) {
             .filter((g) => g.length > 0)
             .map((g) => `${g[0].day_name.slice(0, 3)} ${g.map((s) => formatTime12Hour(s.start_time)).join(', ')}`)
             .join(' · ');
-          return `${i + 1}. ${l.name} — ${distanceText(l)} away\n   ${byDay}`;
+          return `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away\n   ${byDay}`;
         });
         return NextResponse.json({
-          reply: `Yes — here are the nearest chapels with ${language} worship services${locationName ? ` (near ${locationName})` : ''}:\n\n${lines.join('\n\n')}`,
+          reply: `Yes — here are the nearest ${kindText} with ${language} worship services${locationName ? ` (near ${locationName})` : ''}:\n\n${lines.join('\n\n')}`,
           context: { localeId: nearby[0].id, language },
         });
       }
@@ -295,13 +322,13 @@ export async function POST(request: NextRequest) {
 
     if (nearby.length > 0) {
       const lines = nearby.map(
-        (l, i) => `${i + 1}. ${l.name} — ${distanceText(l)} away — next service: ${getNextScheduleText(l)}`
+        (l, i) => `${i + 1}. ${link(l)}${kindTag(l)} — ${distanceText(l)} away — next service: ${getNextScheduleText(l)}`
       );
 
       const locationLabel = locationName ? ` near ${locationName}` : '';
 
       return NextResponse.json({
-        reply: `Here are the nearest Kapilya congregations${locationLabel}:\n\n${lines.join('\n')}\n\nYou can tap any row in the Near Me view for full departure-board schedules and GPS directions.`,
+        reply: `Here are the nearest ${kind ? KIND_LABELS[kind] : 'Kapilya congregations'}${locationLabel}:\n\n${lines.join('\n')}\n\nTap a name for its full schedule and directions.`,
         context: { localeId: nearby[0].id, language },
       });
     }

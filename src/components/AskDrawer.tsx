@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Send, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 import { useUserLocation } from '@/components/LocationProvider';
 
 interface Message {
@@ -151,21 +152,38 @@ export function AskDrawer({ isOpen, onClose }: AskDrawerProps) {
                   }`}
                 >
                   <p className="whitespace-pre-line leading-relaxed break-words">
-                    {m.text.split(/(https?:\/\/\S+)/g).map((part, i) =>
-                      /^https?:\/\//.test(part) ? (
-                        <a
-                          key={i}
-                          href={part}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-[#E8A33D] underline underline-offset-2"
-                        >
-                          {part.includes('maps') ? 'Open in Maps ↗' : part}
-                        </a>
-                      ) : (
-                        <React.Fragment key={i}>{part}</React.Fragment>
-                      )
-                    )}
+                    {m.text.split(/(\[[^\]]+\]\(\/[^)\s]+\)|https?:\/\/\S+)/g).map((part, i) => {
+                      // [Name](/locales/id): the congregation's details page.
+                      const internal = part.match(/^\[([^\]]+)\]\((\/[^)\s]+)\)$/);
+                      if (internal) {
+                        return (
+                          <Link
+                            key={i}
+                            href={internal[2]}
+                            onClick={onClose}
+                            className={`font-semibold underline decoration-dotted underline-offset-2 hover:decoration-solid ${
+                              m.sender === 'user' ? '' : 'text-[#E8A33D] hover:text-[#F3B353]'
+                            }`}
+                          >
+                            {internal[1]}
+                          </Link>
+                        );
+                      }
+                      if (/^https?:\/\//.test(part)) {
+                        return (
+                          <a
+                            key={i}
+                            href={part}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold text-[#E8A33D] underline underline-offset-2"
+                          >
+                            {part.includes('maps') ? 'Open in Maps ↗' : part}
+                          </a>
+                        );
+                      }
+                      return <React.Fragment key={i}>{part}</React.Fragment>;
+                    })}
                   </p>
                 </div>
               </div>

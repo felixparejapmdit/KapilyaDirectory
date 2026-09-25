@@ -310,8 +310,8 @@ export default function SettingsPage() {
             </h2>
             <p className="text-xs text-[#A9B4C2] mt-0.5">
               Pulls every congregation&apos;s schedule, address, and map location from iglesianicristo.net.
-              Runs automatically every night at 12:00 AM{sync?.timezone ? ` (${sync.timezone})` : ''}, with a
-              rollback snapshot before each update.
+              Runs automatically every 6 hours (12 AM, 6 AM, 12 PM, 6 PM{sync?.timezone ? ` ${sync.timezone}` : ''}); a
+              rollback snapshot is saved before any change, and updates show up as soon as a sync finishes.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
@@ -335,9 +335,9 @@ export default function SettingsPage() {
 
         {sync?.read_only && (
           <div className="p-3 rounded-xl border border-[#3A6EA5]/35 bg-[#3A6EA5]/15 text-xs text-[#A9B4C2]">
-            This deployment is read-only, so syncing and snapshots are turned off here. To update the
-            data, run the app locally, press Run Sync Now (or <code>npm run sync:directory</code>), then
-            commit and push <code>data/store.json</code>; the site redeploys with the new data.
+            This deployment is read-only, so Run Sync Now and snapshots are turned off here. The data still
+            updates automatically every 6 hours: a scheduled GitHub Action syncs from iglesianicristo.net,
+            commits any changes, and the site redeploys with them.
           </div>
         )}
 
@@ -356,7 +356,7 @@ export default function SettingsPage() {
               />
             </div>
             <p className="text-[11px] text-[#A9B4C2]">
-              A full sync fetches every locale page and takes about 30 minutes. You can leave this page; it keeps running.
+              A full sync fetches every locale page and takes 30 to 90 minutes, depending on the source site. You can leave this page; it keeps running.
             </p>
           </div>
         )}

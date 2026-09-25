@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "bot": "node --env-file-if-exists=.env.local src/bot/telegram-bot.mjs",
+    "bot": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --env-file-if-exists=.env.local src/bot/telegram-bot.mjs",
     "sync:directory": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/sync-directory.ts"
   },
   "dependencies": {
