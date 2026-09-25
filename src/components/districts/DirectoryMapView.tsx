@@ -94,10 +94,10 @@ function KindBar({ counts }: { counts: Counts }) {
  * Worldwide map of every congregation with Local / Extension / GWS counts per region and district.
  * Selecting a region or district (list, breadcrumb, or a district bubble) flies the map there.
  */
-export function DirectoryMapView({ kind }: { kind: KindFilter }) {
+export function DirectoryMapView({ kind, districtId }: { kind: KindFilter; /** Open zoomed into this district. */ districtId?: string }) {
   const [data, setData] = useState<MapData | null>(null);
   const [error, setError] = useState(false);
-  const [scope, setScope] = useState<Scope>({ type: 'world' });
+  const [scope, setScope] = useState<Scope>(() => (districtId ? { type: 'district', id: districtId } : { type: 'world' }));
   const [filter, setFilter] = useState('');
   const [hoverDistrict, setHoverDistrict] = useState<string | null>(null);
 
@@ -337,7 +337,7 @@ export function DirectoryMapView({ kind }: { kind: KindFilter }) {
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(20rem,24rem)_1fr]">
       {/* Map */}
-      <div className="relative h-[55dvh] min-h-[360px] lg:order-last lg:h-[calc(100dvh-14rem)] lg:min-h-[560px] overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl">
+      <div className="relative isolate h-[55dvh] min-h-[360px] lg:order-last lg:h-[calc(100dvh-14rem)] lg:min-h-[560px] overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl">
         <div ref={containerRef} className="h-full w-full" />
         {!data && <div className="absolute inset-0 grid place-items-center bg-[#0B1426]/60 text-sm text-[#A9B4C2]">Loading 8,000+ congregations…</div>}
         <div className="kd-map-legend">
@@ -455,10 +455,12 @@ export function DirectoryMapView({ kind }: { kind: KindFilter }) {
 
           {scope.type === 'district' && district && (
             <>
+              {district.id !== districtId && (
               <Link href={`/districts/${district.slug}`} className="kd-map-open-district">
                 <Layers size={15} /> Open the {district.name} district page
                 <ChevronRight size={15} className="ml-auto" />
               </Link>
+              )}
               {districtPoints.map((p, i) => (
                 <button key={p[5]} type="button" onClick={() => focusPoint(p)} className="kd-map-row" style={{ animationDelay: `${Math.min(i, 16) * 20}ms` }}>
                   <MapPin size={14} style={{ color: KIND_COLORS[p[2]] }} className="shrink-0" />

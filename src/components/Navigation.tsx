@@ -332,7 +332,7 @@ export function Navigation() {
 
       {/* GPS result */}
       {toast && (
-        <div role="status" className="kd-toast fixed left-1/2 bottom-24 md:bottom-8 z-[60] -translate-x-1/2 glass-panel px-4 py-2.5 text-sm font-semibold text-white flex items-center gap-2 shadow-2xl">
+        <div role="status" className="kd-toast fixed left-1/2 bottom-24 md:bottom-8 z-[2200] -translate-x-1/2 glass-panel px-4 py-2.5 text-sm font-semibold text-white flex items-center gap-2 shadow-2xl">
           {toast.icon === 'gps' ? (
             <LocateFixed size={15} className="text-[#E8A33D] shrink-0" />
           ) : (

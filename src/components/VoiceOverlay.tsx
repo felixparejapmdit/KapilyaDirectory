@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { Navigation as NavIcon, X } from 'lucide-react';
 import { useVoice } from './VoiceProvider';
@@ -161,7 +162,8 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
     dismiss();
   };
 
-  return (
+  // Portal to <body> so no page layout (maps, sticky headers, transforms) can cover it.
+  return createPortal(
     <div className={`kd-voice ${closing ? 'is-closing' : ''}`} data-phase={phase}>
       <div className="kd-voice-edge" style={{ '--level': state.level } as React.CSSProperties} aria-hidden />
       <div className="kd-voice-scrim" onClick={dismiss} aria-hidden />
@@ -253,6 +255,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
           <p className="kd-voice-status">{status}</p>
         </div>
       </section>
-    </div>
+    </div>,
+    document.body
   );
 }

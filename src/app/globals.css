@@ -1268,7 +1268,8 @@ body.light-theme button.kd-hovercard-chip[aria-pressed='true'] {
 .kd-voice {
   position: fixed;
   inset: 0;
-  z-index: 80;
+  /* Above everything: Leaflet panes (400) and controls (1000), drawers and toasts. */
+  z-index: 2100;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -1869,4 +1870,10 @@ body.light-theme .kd-map-legend {
   .kd-map-bar > span {
     transition: none;
   }
+}
+
+/* Keep each map's internal z-indexes (panes 400, controls 1000) inside the map,
+   so headers, drawers and the voice assistant always paint above it. */
+.leaflet-container {
+  isolation: isolate;
 }
