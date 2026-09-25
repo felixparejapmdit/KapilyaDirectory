@@ -52,6 +52,35 @@ const isIOS = () =>
   (/iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
 const isMobile = () => isIOS() || (typeof navigator !== 'undefined' && /Android|Mobile/i.test(navigator.userAgent));
 
+// Browsers don't say which voices are male, so go by the names they ship with (Windows/Edge, Chrome,
+// macOS/iOS). Female names are ruled out first ("Female" also contains "male").
+const MALE_VOICE = /\b(male|james|andrew|brian|guy|christopher|eric|roger|steffan|davis|jason|tony|david|mark|daniel|ryan|thomas|william|liam|aaron|arthur|evan|nathan|tom\b|alex\b|gordon|martin|rishi|reed|oliver|lee\b|george|matthew|joey|justin|russell)/i;
+const FEMALE_VOICE = /female|samantha|victoria|karen|moira|tessa|fiona|zira|aria|jenny|michelle|emma|ava\b|libby|sonia|natasha|clara|rosa|susan|hazel|catherine|allison|nicky|serena|kate|alexandra|joanna|salli|kimberly|ivy|kendra|nicole|olivia|amy|siri/i;
+
+/**
+ * The assistant's voice: male, English, preferring Philippine English and natural/neural voices.
+ * `male` is false when the device has no male English voice (the caller lowers the pitch instead).
+ */
+export function pickVoice(voices: SpeechSynthesisVoice[]): { voice: SpeechSynthesisVoice | null; male: boolean } {
+  let best: SpeechSynthesisVoice | null = null;
+  let bestScore = -1;
+  for (const v of voices) {
+    if (!/^en/i.test(v.lang)) continue;
+    const male = !FEMALE_VOICE.test(v.name) && MALE_VOICE.test(v.name);
+    const lang = v.lang.replace('_', '-').toLowerCase();
+    const score =
+      (male ? 100 : 0) +
+      (/natural|neural|online|premium|enhanced/i.test(v.name) ? 20 : 0) +
+      (lang === 'en-ph' ? 15 : lang === 'en-us' ? 10 : lang === 'en-gb' ? 8 : 5) +
+      (/novelty|grandpa|rocko|junior|albert|ralph|bad news|bahh|bells|boing|bubbles|cellos|whisper|zarvox|trinoids|organ|jester|superstar|wobble/i.test(v.name) ? -200 : 0);
+    if (score > bestScore) {
+      best = v;
+      bestScore = score;
+    }
+  }
+  return { voice: best, male: bestScore >= 100 };
+}
+
 const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/g, '');
 const wordCount = (s: string) => s.split(/\s+/).filter(Boolean).length;
 
@@ -178,6 +207,7 @@ export class VoiceController {
   async autoStart(): Promise<void> {
     if (this.state.enabled || VoiceController.unsupportedReason()) return;
     this.auto = true;
+    this.loadVoices();
     this.unlockOnFirstInteraction();
     if (!isMobile() && navigator.mediaDevices?.getUserMedia) {
       try {
@@ -219,6 +249,17 @@ export class VoiceController {
     this.stream = null;
     this.audioCtx = null;
     this.set({ enabled: false, phase: 'off', interim: '', level: 0 });
+  }
+
+  /** Chrome fills the voice list in the background: ask early so the first reply uses the chosen voice. */
+  private loadVoices() {
+    if (typeof speechSynthesis === 'undefined') return;
+    try {
+      speechSynthesis.getVoices();
+      speechSynthesis.addEventListener?.('voiceschanged', () => speechSynthesis.getVoices(), { once: true });
+    } catch {
+      // ignore
+    }
   }
 
   /** iOS only speaks after a user gesture: speak an empty utterance inside the tap. */
@@ -546,13 +587,10 @@ export class VoiceController {
       }
       speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US';
-      const voices = speechSynthesis.getVoices();
-      u.voice =
-        voices.find((v) => v.lang === 'en-PH') ||
-        voices.find((v) => v.lang === 'en-US' && /natural|google|samantha|siri/i.test(v.name)) ||
-        voices.find((v) => v.lang.startsWith('en')) ||
-        null;
+      const { voice, male } = pickVoice(speechSynthesis.getVoices());
+      u.voice = voice;
+      u.lang = voice?.lang ?? 'en-US';
+      u.pitch = male ? 1 : 0.8; // no male voice on this device: deepen the default one
       let done = false;
       const finish = () => {
         if (done) return;
