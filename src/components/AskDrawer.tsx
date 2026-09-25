@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useUserLocation } from '@/components/LocationProvider';
 import { useVoice } from '@/components/VoiceProvider';
-import { GREETING } from '@/lib/voice/controller';
+import { GREETING, WAKE_PATTERN } from '@/lib/voice/controller';
 import { askAssistant, executeVoiceCommand } from '@/lib/voice/commands';
 
 interface Message {
@@ -116,11 +116,14 @@ export function AskDrawer({ isOpen, onClose }: AskDrawerProps) {
       const session = ++sessionRef.current;
       const alive = () => sessionRef.current === session;
       if (greet) {
-        await voice.speak(GREETING, 'greeting');
+        if (voice.hearsWhileSpeaking) await voice.speak(GREETING, 'greeting');
         if (!alive()) return;
       }
-      const text = await voice.listen((live) => alive() && setInput(live));
+      const heard = await voice.listen((live) => alive() && setInput(live));
       if (!alive()) return;
+      // "Hey Assistant, …" here just means the question that follows.
+      const wake = WAKE_PATTERN.exec(heard);
+      const text = wake ? heard.slice(wake.index + wake[0].length).replace(/^[\s,.!?]+/, '').trim() : heard;
       setInput('');
       if (!text) {
         await voice.speak("I didn't catch that. Tap the mic and try again.");

@@ -34,6 +34,8 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
   const [cards, setCards] = useState<ResultCard[]>([]);
   const [schedule, setSchedule] = useState<{ day: string; times: string }[]>([]);
   const [closing, setClosing] = useState(false);
+  /** Bumped on every fresh start: re-mounts the panel so it pops in again, scrolled to the top. */
+  const [round, setRound] = useState(0);
   const sessionRef = useRef(0);
   const contextRef = useRef<AskContext>({});
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -42,6 +44,8 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
 
   /** Clears the panel back to a fresh start (used on every "Hey Assistant"). */
   const reset = useCallback(() => {
+    setRound((r) => r + 1);
+    setClosing(false);
     setUserText('');
     setAssistantText('');
     setRevealed(0);
@@ -74,12 +78,24 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
     [voice]
   );
 
+  /** Greets on screen at once. Spoken only where the user can talk over it (not iPhone), so they never wait. */
+  const showGreeting = useCallback(
+    async (alive: () => boolean) => {
+      if (voice.hearsWhileSpeaking) return say(GREETING, 'greeting', alive);
+      setAssistantText(GREETING);
+      setRevealed(GREETING.length);
+    },
+    [say, voice]
+  );
+
   const dismiss = useCallback(() => {
-    sessionRef.current++;
+    const session = ++sessionRef.current;
     voice.cancel();
     voice.finishSession();
     setClosing(true);
     window.setTimeout(() => {
+      // A new "Hey Assistant" during the closing animation keeps the panel open.
+      if (sessionRef.current !== session) return;
       setClosing(false);
       onClose();
     }, 260);
@@ -111,10 +127,10 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
 
   /** Greet → listen → answer → listen again for a follow-up, until silence, "stop", or MAX_TURNS. */
   const converse = useCallback(
-    async (greet: boolean, firstText?: string) => {
+    async (fresh: boolean, firstText?: string) => {
       const session = ++sessionRef.current;
       const alive = () => sessionRef.current === session;
-      if (greet) reset();
+      if (fresh) reset();
       else {
         setUserText('');
         setCards([]);
@@ -123,8 +139,8 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
       }
       if (firstText) {
         if (!(await handle(firstText, alive))) return alive() && dismiss();
-      } else if (greet) {
-        await say(GREETING, 'greeting', alive);
+      } else if (fresh) {
+        await showGreeting(alive);
         if (!alive()) return;
       }
       for (let turn = firstText ? 1 : 0; turn < MAX_TURNS && alive(); turn++) {
@@ -135,11 +151,12 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
           break;
         }
         // "Hey Assistant" mid-conversation starts over from the top; anything said after it is the new question.
-        if (WAKE_PATTERN.test(heard)) {
-          const rest = heard.replace(WAKE_PATTERN, '').replace(/^[\s,.!?]+/, '').trim();
+        const wake = WAKE_PATTERN.exec(heard);
+        if (wake) {
+          const rest = heard.slice(wake.index + wake[0].length).replace(/^[\s,.!?]+/, '').trim();
           reset();
           if (!rest) {
-            await say(GREETING, 'greeting', alive);
+            await showGreeting(alive);
             if (!alive()) return;
             turn = -1;
             continue;
@@ -151,7 +168,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
       }
       if (alive()) window.setTimeout(() => alive() && dismiss(), 900);
     },
-    [dismiss, handle, reset, say, voice]
+    [dismiss, handle, reset, say, showGreeting, voice]
   );
 
   // "Hey Assistant" (trigger increments): start a conversation.
@@ -182,7 +199,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
     if (phase === 'listening' || phase === 'speaking' || phase === 'greeting') {
       sessionRef.current++;
       voice.cancel();
-      voice.setPhase('armed');
+      voice.finishSession();
       return;
     }
     voice.unlockSpeech();
@@ -200,7 +217,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
       <div className="kd-voice-edge" style={{ '--level': state.level } as React.CSSProperties} aria-hidden />
       <div className="kd-voice-scrim" onClick={dismiss} aria-hidden />
 
-      <section role="dialog" aria-label="Voice assistant" className="kd-voice-panel">
+      <section key={round} role="dialog" aria-label="Voice assistant" className="kd-voice-panel">
         <button type="button" onClick={dismiss} className="kd-voice-close" aria-label="Close voice assistant">
           <X size={18} />
         </button>
@@ -252,7 +269,7 @@ export function VoiceOverlay({ open, trigger, onClose }: { open: boolean; trigge
             </div>
           )}
 
-          {!userText && !cards.length && (phase === 'greeting' || phase === 'armed' || phase === 'off') && (
+          {!userText && !cards.length && (phase === 'greeting' || phase === 'listening' || phase === 'armed' || phase === 'off') && (
             <div className="kd-voice-chips">
               {SUGGESTIONS.map((sgt) => (
                 <button
