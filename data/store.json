@@ -562248,6 +562248,44 @@
       ],
       "phone": "034-461-0714",
       "email": null
+    },
+    {
+      "id": "loc-dumoy-gws",
+      "district_id": "dist-davao-west",
+      "name": "Dumoy GWS",
+      "slug": "dumoy-gws",
+      "kind": "group_worship_service",
+      "address": "Blk 13 Lot 13 Rojo Orange st., Dacoville subd. Brgy. Dumoy, Davao City, Davao Del Sur, 8000, Philippines",
+      "latitude": 7.03154526845927,
+      "longitude": 125.50597040281244,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-09-26T10:00:14.989Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-dumoy-gws-3-1900",
+          "locale_id": "loc-dumoy-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-dumoy-gws-6-1900",
+          "locale_id": "loc-dumoy-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562342,17 +562380,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-09-26T01:18:30.376Z",
+  "last_updated": "2026-09-26T10:00:15.060Z",
   "last_sync": {
-    "finished_at": "2026-09-26T01:18:30.376Z",
+    "finished_at": "2026-09-26T10:00:15.060Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,779 locales: 1 changed.",
-    "locales_total": 8779,
-    "updated": 1,
-    "added": 0,
+    "message": "Checked 8,780 locales: 1 changed.",
+    "locales_total": 8780,
+    "updated": 0,
+    "added": 1,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 3433632
+    "duration_ms": 3334359
   }
 }
