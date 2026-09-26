@@ -30,6 +30,8 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
+  // Admin-only visitor data: never kept in the offline cache.
+  if (url.pathname.startsWith('/api/access-log')) return;
 
   // Directory data and pages: always try the network so syncs and redeploys show up right away.
   if (url.pathname.startsWith('/api/')) {

@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Public_Sans } from 'next/font/google';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
+import { AccessBeacon } from '@/components/AccessBeacon';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LocationProvider } from '@/components/LocationProvider';
 import { SplashProvider } from '@/components/SplashScreen';
@@ -64,6 +65,7 @@ export default function RootLayout({
               <VoiceProvider>
                 <div className="kd-app min-h-screen flex flex-col">
                   <ServiceWorkerRegister />
+                  <AccessBeacon />
                   <Navigation />
                   <main className="flex-1 pb-20 md:pb-10">{children}</main>
                 </div>

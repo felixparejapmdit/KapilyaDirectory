@@ -104,6 +104,8 @@ real values**; this repository is public.
 | Variable | Needed for | Required? | Default |
 | --- | --- | --- | --- |
 | `TELEGRAM_BOT_TOKEN` | Telegram bot (`npm run bot`) and `/api/telegram/webhook` | Only for the bot | none (the bot exits without it) |
+| `ADMIN_KEY` | Viewing Settings → Access log (visitor IPs and locations) | On Vercel, to see the log | none (only a local server shows the log) |
+| `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Storing the access log on Vercel (Upstash Redis, added by Vercel's Storage tab) | On Vercel, to record visits | not set (a local server uses `data/access-log.json`) |
 | `TELEGRAM_WEBHOOK_SECRET` | The always-on bot on Vercel: only requests carrying this secret (sent by Telegram) are accepted | Only for the webhook | none (the webhook rejects everything) |
 | `GOOGLE_MAPS_API_KEY` | Road distances from Google instead of OSRM, so they match Google Maps exactly | No | not set (uses OSRM) |
 | `SYNC_TIMEZONE` | Time zone of the 6-hourly sync (12 AM, 6 AM, 12 PM, 6 PM) | No | `Asia/Manila` |
@@ -133,6 +135,26 @@ desktop or **5 quick taps on the logo** on mobile. Anyone who knows the `/settin
 it, which is why sync, snapshots, and restore are disabled on the read-only Vercel deployment. If
 you host a writable server on the public internet, put `/settings`, `/api/ingest`, and
 `/api/snapshots` behind your host's access protection.
+
+## Access log
+
+**Settings → Access Log** lists recent page views: an anonymous visitor ID per browser (the site has
+no accounts), the device (phone/tablet/desktop, OS, browser, model, screen), the IP address and its
+approximate location (city, region, country), the page, and the referring site. Filter by date range,
+device, country, OS, browser, page, visitor, or IP, search any of them, hide your own device, and
+export the results as CSV. It keeps the latest 5,000 visits.
+
+- **Recording**: every page sends one small beacon to `/api/access-log`; IP, location, and browser
+  come from the request. Locations come from Vercel's IP geolocation (none on a local server).
+- **Viewing** needs `ADMIN_KEY` (entered once on the Settings page, remembered on that device):
+  the Settings page opens for anyone who knows the address, and this data is personal. On Vercel the
+  log stays locked until `ADMIN_KEY` is set.
+- **Storage on Vercel**: **Storage → Create Database → Upstash for Redis** (free tier), connect it
+  to the project (this adds `KV_REST_API_URL` and `KV_REST_API_TOKEN`), and redeploy. Without it,
+  visits on Vercel aren't recorded. A local server writes `data/access-log.json` (gitignored).
+
+IP addresses and locations are personal data (for example under the Philippine Data Privacy Act), so
+mention the access log in the site's privacy notice.
 
 ## Telegram bot
 

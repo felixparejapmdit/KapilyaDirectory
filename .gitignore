@@ -46,3 +46,5 @@ next-env.d.ts
 # directory data: rollback snapshots are large local backups; store.json is committed
 data/snapshots/
 data/store.json.tmp
+# access log (visitors' IP addresses) on a local server: never commit
+data/access-log.json
