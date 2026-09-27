@@ -94,8 +94,18 @@ function KindBar({ counts }: { counts: Counts }) {
  * Worldwide map of every congregation with Local / Extension / GWS counts per region and district.
  * Selecting a region or district (list, breadcrumb, or a district bubble) flies the map there.
  */
-export function DirectoryMapView({ kind, districtId }: { kind: KindFilter; /** Open zoomed into this district. */ districtId?: string }) {
-  const [data, setData] = useState<MapData | null>(null);
+export function DirectoryMapView({
+  kind,
+  districtId,
+  onlySlugs,
+}: {
+  kind: KindFilter;
+  /** Open zoomed into this district. */
+  districtId?: string;
+  /** Advanced filters: show only these congregations, with counts recomputed from them. */
+  onlySlugs?: Set<string> | null;
+}) {
+  const [raw, setData] = useState<MapData | null>(null);
   const [error, setError] = useState(false);
   const [scope, setScope] = useState<Scope>(() => (districtId ? { type: 'district', id: districtId } : { type: 'world' }));
   const [filter, setFilter] = useState('');
@@ -111,6 +121,23 @@ export function DirectoryMapView({ kind, districtId }: { kind: KindFilter; /** O
       alive = false;
     };
   }, []);
+
+  const data = useMemo<MapData | null>(() => {
+    if (!raw || !onlySlugs) return raw;
+    const points = raw.points.filter((p) => onlySlugs.has(p[5]));
+    const dCounts = raw.districts.map((): Counts => [0, 0, 0]);
+    for (const p of points) dCounts[p[3]][p[2]]++;
+    const districts = raw.districts.map((d, i) => ({ ...d, counts: dCounts[i] }));
+    const rCounts = new Map<string, Counts>();
+    const rDistricts = new Map<string, number>();
+    for (const d of districts) {
+      const c = rCounts.get(d.regionId) ?? [0, 0, 0];
+      rCounts.set(d.regionId, [c[0] + d.counts[0], c[1] + d.counts[1], c[2] + d.counts[2]]);
+      if (total(d.counts)) rDistricts.set(d.regionId, (rDistricts.get(d.regionId) ?? 0) + 1);
+    }
+    const regions = raw.regions.map((r) => ({ ...r, counts: rCounts.get(r.id) ?? [0, 0, 0], districtCount: rDistricts.get(r.id) ?? 0 }));
+    return { regions, districts, points };
+  }, [raw, onlySlugs]);
 
   const byRegion = useMemo(() => new Map(data?.regions.map((r) => [r.id, r]) ?? []), [data]);
   const byDistrict = useMemo(() => new Map(data?.districts.map((d) => [d.id, d]) ?? []), [data]);
@@ -314,19 +341,23 @@ export function DirectoryMapView({ kind, districtId }: { kind: KindFilter; /** O
   const q = filter.trim().toLowerCase();
   const worldGroups = useMemo(() => {
     if (!data) return [];
-    const intl = data.regions.filter((r) => r.worldArea !== 'philippines');
-    const ph = data.regions.filter((r) => r.worldArea === 'philippines');
+    // With advanced filters, regions without matches are left out.
+    const regions = onlySlugs ? data.regions.filter((r) => total(r.counts) > 0) : data.regions;
+    const intl = regions.filter((r) => r.worldArea !== 'philippines');
+    const ph = regions.filter((r) => r.worldArea === 'philippines');
     return [
       { title: 'Worldwide', items: intl },
       { title: 'Philippines', items: ph },
     ];
-  }, [data]);
+  }, [data, onlySlugs]);
   const regionDistricts = useMemo(
     () =>
       data && region && scope.type === 'region'
-        ? data.districts.filter((d) => d.regionId === region.id).sort((a, b) => total(b.counts) - total(a.counts))
+        ? data.districts
+            .filter((d) => d.regionId === region.id && (!onlySlugs || total(d.counts) > 0))
+            .sort((a, b) => total(b.counts) - total(a.counts))
         : [],
-    [data, region, scope.type]
+    [data, region, scope.type, onlySlugs]
   );
   const scopeKey = scope.type === 'world' ? 'world' : `${scope.type}:${scope.id}`;
 

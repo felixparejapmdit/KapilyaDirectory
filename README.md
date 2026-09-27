@@ -136,6 +136,25 @@ it, which is why sync, snapshots, and restore are disabled on the read-only Verc
 you host a writable server on the public internet, put `/settings`, `/api/ingest`, and
 `/api/snapshots` behind your host's access protection.
 
+## Districts: advanced filters
+
+The **Filters** button on the Districts page narrows congregations worldwide by:
+
+- **Where**: region, district, or within 5–100 km of your location.
+- **When**: worship day, time of day (early morning, morning, afternoon, evening, or a custom
+  start-time range), and "starting within" 1 hour, 3 hours, or later today (on each
+  congregation's own clock).
+- **Service**: language (bilingual services count for both), worship service or Children's
+  Worship Service (CWS), and whether a phone number or email is listed.
+
+Day, time, language, and service type must all match **the same service**: "Sunday + morning +
+English" finds congregations with an English service on Sunday morning. Every option shows how many
+congregations it would match; results can be sorted by best match, name, nearest, soonest service,
+or most services. The district list, the type counts, and the map follow the filters, and the
+filters are kept in the URL (`/districts?day=0&time=morning&lang=English`), so a filtered view can
+be bookmarked or shared. The rules live in `src/lib/locale-filter.ts`, served by
+`/api/locales/filter`.
+
 ## Access log
 
 **Settings → Access Log** lists recent page views: an anonymous visitor ID per browser (the site has

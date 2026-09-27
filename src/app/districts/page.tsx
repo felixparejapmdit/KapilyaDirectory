@@ -4,11 +4,15 @@ import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import { Globe2, Search, ChevronDown, ChevronRight, ListFilter, ArrowLeft, Clock, X, List, Map as MapIcon } from 'lucide-react';
-import { Region, District, WorldArea, Locale, LocaleKind } from '@/lib/types';
-import { findNextService } from '@/lib/next-service';
+import { Globe2, Search, ChevronDown, ChevronRight, ListFilter, ArrowLeft, Clock, X, List, Map as MapIcon, SlidersHorizontal, MapPin } from 'lucide-react';
+import { Region, District, WorldArea, LocaleKind } from '@/lib/types';
+import { findNextService, formatCountdown } from '@/lib/next-service';
 import { formatTime12Hour } from '@/lib/time';
+import { formatDistance } from '@/lib/geo';
+import { activeFilterCount, parseFilters, writeFilters, type AdvancedFilters, type FilterResult, type SortKey } from '@/lib/locale-filter';
 import { useDistrictHoverCard } from '@/components/DistrictHoverCard';
+import { useUserLocation } from '@/components/LocationProvider';
+import { AdvancedFiltersPanel, DAY_SHORT, FilterSummary, type FilterArea } from '@/components/districts/AdvancedFilters';
 
 // Leaflet only runs in the browser; load the map view on demand.
 const DirectoryMapView = dynamic(
@@ -34,6 +38,16 @@ const KIND_OPTIONS: { id: KindFilter; label: string }[] = [
   { id: 'extension', label: 'Extensions' },
   { id: 'group_worship_service', label: 'GWS' },
 ];
+
+const KIND_INDEX: Record<LocaleKind, number> = { local_congregation: 0, extension: 1, group_worship_service: 2 };
+
+const SORT_LABEL: Record<SortKey, string> = {
+  relevance: 'Best match',
+  name: 'Name (A–Z)',
+  nearest: 'Nearest to you',
+  soonest: 'Soonest service',
+  services: 'Most services',
+};
 
 const KIND_BADGE: Record<LocaleKind, string> = {
   local_congregation: 'Local',
@@ -80,10 +94,25 @@ function DistrictsView() {
     setView(searchParams.get('view') === 'map' ? 'map' : 'list');
   }
   const { linkProps, card: hoverCard } = useDistrictHoverCard(kind);
-  const [results, setResults] = useState<{ query: string; kind: KindFilter; total: number; locales: Locale[] } | null>(null);
+  const { location } = useUserLocation();
   const [expandedRegions, setExpandedRegions] = useState<{ [regId: string]: boolean }>({
-    'reg-ncr': true, // NCR expanded by default
+    'reg-national-capital-region': true, // NCR expanded by default
   });
+
+  // Advanced filters live in the URL (?day=0&time=morning&lang=English…), so a filtered view can be
+  // bookmarked or shared; changing one replaces the URL.
+  const adv = useMemo(() => parseFilters(new URLSearchParams(searchParams.toString())), [searchParams]);
+  const advCount = activeFilterCount(adv);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const setAdv = (next: AdvancedFilters) => {
+    const p = writeFilters(new URLSearchParams(searchParams.toString()), next);
+    const put = (k: string, v: string) => (v ? p.set(k, v) : p.delete(k));
+    put('q', searchQuery.trim());
+    put('kind', kind === 'all' ? '' : kind);
+    put('view', view === 'map' ? 'map' : '');
+    const qs = p.toString();
+    router.replace(`/districts${qs ? `?${qs}` : ''}`, { scroll: false });
+  };
 
   useEffect(() => {
     fetch('/api/regions/grouped')
@@ -103,26 +132,60 @@ function DistrictsView() {
     [grouped]
   );
   const searchingLocales = q.length >= MIN_LOCALE_QUERY && !regionNames.has(q);
+  const showResults = searchingLocales || advCount > 0;
+  const withSlugs = view === 'map' && advCount > 0;
 
-  // Instant congregation search (debounced; stale responses are discarded).
+  // "Show more" pages; back to the first page whenever the search or filters change.
+  const [pages, setPages] = useState(1);
+  const resetKey = `${searchParams.toString()}|${q}|${kind}`;
+  const [pageKey, setPageKey] = useState(resetKey);
+  if (pageKey !== resetKey) {
+    setPageKey(resetKey);
+    setPages(1);
+  }
+
+  // Congregation search + advanced filters (debounced; stale responses are discarded). Also runs
+  // while the filter panel is open, for the counts next to each option.
+  const fetchParams = useMemo(() => {
+    if (!showResults && !withSlugs && !filtersOpen) return null;
+    const p = writeFilters(new URLSearchParams(), adv);
+    if (searchingLocales) p.set('q', q);
+    if (kind !== 'all') p.set('kind', kind);
+    p.set('lat', location.lat.toFixed(5));
+    p.set('lng', location.lng.toFixed(5));
+    p.set('limit', String(RESULT_LIMIT * pages));
+    if (withSlugs) p.set('slugs', '1');
+    return p.toString();
+  }, [adv, searchingLocales, q, kind, location.lat, location.lng, pages, withSlugs, showResults, filtersOpen]);
+  const [filterRes, setFilterRes] = useState<{ key: string; data: FilterResult } | null>(null);
   useEffect(() => {
-    if (!searchingLocales) return;
+    if (!fetchParams) return;
     const ctrl = new AbortController();
     const t = window.setTimeout(() => {
-      const params = new URLSearchParams({ q, limit: String(RESULT_LIMIT) });
-      if (kind !== 'all') params.set('kind', kind);
-      fetch(`/api/locales/search?${params}`, { signal: ctrl.signal })
+      fetch(`/api/locales/filter?${fetchParams}`, { signal: ctrl.signal })
         .then((r) => r.json())
-        .then((d) => setResults({ query: q, kind, total: d.total ?? 0, locales: d.locales ?? [] }))
+        .then((d: FilterResult) => setFilterRes({ key: fetchParams, data: d }))
         .catch(() => undefined);
-    }, 180);
+    }, 150);
     return () => {
       ctrl.abort();
       window.clearTimeout(t);
     };
-  }, [q, kind, searchingLocales]);
+  }, [fetchParams]);
+  const currentResults = filterRes && filterRes.key === fetchParams ? filterRes.data : null;
+  // The last answer stays on screen (dimmed) while the next one loads.
+  const shownResults = currentResults ?? filterRes?.data ?? null;
+  const slugSet = useMemo(() => (filterRes?.data.slugs ? new Set(filterRes.data.slugs) : null), [filterRes]);
 
-  const currentResults = results && results.query === q && results.kind === kind ? results : null;
+  const areas: FilterArea[] = useMemo(
+    () =>
+      grouped.map((g) => ({
+        title: g.title,
+        regions: g.regions.map((r) => ({ id: r.region.id, name: r.region.name, districts: r.districts.map((d) => ({ slug: d.slug, name: d.name })) })),
+      })),
+    [grouped]
+  );
+  const sortValue: SortKey = adv.sort ?? (searchingLocales ? 'relevance' : adv.near ? 'nearest' : 'name');
 
   // Totals per kind across the whole directory (for the filter pills).
   const kindTotals = useMemo(() => {
@@ -138,14 +201,23 @@ function DistrictsView() {
     return totals;
   }, [grouped]);
 
-  const countFor = (d: { locale_count: number; kind_counts: KindCounts }) =>
-    kind === 'all' ? d.locale_count : d.kind_counts[kind];
+  // With advanced filters, districts list (and count) only their matching congregations.
+  const matchCounts = advCount > 0 ? shownResults?.byDistrict : undefined;
+  const countFor = (d: District & { locale_count: number; kind_counts: KindCounts }) => {
+    if (matchCounts) {
+      const c = matchCounts[d.id];
+      return !c ? 0 : kind === 'all' ? c[0] + c[1] + c[2] : c[KIND_INDEX[kind]];
+    }
+    return kind === 'all' ? d.locale_count : d.kind_counts[kind];
+  };
 
   // A district is listed when its name matches the search and it has locales of the chosen kind.
   // A search also matches the district's region name ("Central Luzon" lists all its districts).
   const districtMatches = (d: District & { locale_count: number; kind_counts: KindCounts }, regionName = '') =>
-    (!q || d.name.toLowerCase().includes(q) || regionName.toLowerCase().includes(q)) &&
-    (kind === 'all' || d.kind_counts[kind] > 0);
+    matchCounts
+      ? countFor(d) > 0
+      : (!q || d.name.toLowerCase().includes(q) || regionName.toLowerCase().includes(q)) && (kind === 'all' || d.kind_counts[kind] > 0);
+  const pillCounts: Record<KindFilter, number> = showResults && shownResults ? shownResults.facets.kind : kindTotals;
 
   const toggleRegion = (regId: string) => {
     setExpandedRegions((prev) => ({
@@ -154,7 +226,7 @@ function DistrictsView() {
     }));
   };
 
-  const filtering = !!q || kind !== 'all';
+  const filtering = !!q || kind !== 'all' || advCount > 0;
   const kindLabel = KIND_OPTIONS.find((o) => o.id === kind)!.label.toLowerCase();
 
   return (
@@ -221,12 +293,26 @@ function DistrictsView() {
               >
                 {o.label}{' '}
                 <span className="font-departure text-xs font-normal opacity-75">
-                  {loading ? '' : kindTotals[o.id].toLocaleString()}
+                  {loading ? '' : pillCounts[o.id].toLocaleString()}
                 </span>
               </button>
             );
           })}
         </div>
+
+        <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setFiltersOpen((o) => !o)}
+          aria-expanded={filtersOpen}
+          className={`flex items-center gap-1.5 rounded-xl border px-3 py-2 text-sm font-semibold transition-colors ${
+            filtersOpen || advCount > 0 ? 'border-[#E8A33D]/60 bg-[#E8A33D]/10 text-[#E8A33D]' : 'border-white/15 bg-white/5 text-[#A9B4C2] hover:text-white'
+          }`}
+        >
+          <SlidersHorizontal size={15} />
+          Filters
+          {advCount > 0 && <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#E8A33D] px-1 text-[11px] font-bold text-[#0B1426]">{advCount}</span>}
+        </button>
 
         {/* List | Map */}
         <div role="group" aria-label="View" className="flex items-center rounded-xl border border-white/15 bg-white/5 p-1 text-sm font-semibold">
@@ -251,34 +337,81 @@ function DistrictsView() {
           ))}
         </div>
         </div>
+        </div>
+
+        <FilterSummary filters={adv} areas={areas} onChange={setAdv} />
       </div>
 
-      {view === 'map' && <DirectoryMapView kind={kind} />}
+      {filtersOpen && (
+        <AdvancedFiltersPanel
+          filters={adv}
+          facets={shownResults?.facets ?? null}
+          areas={areas}
+          locationName={location.name}
+          total={currentResults ? currentResults.total : null}
+          onChange={setAdv}
+          onClose={() => {
+            setFiltersOpen(false);
+            if (showResults) document.getElementById('locale-results-h')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+        />
+      )}
+
+      {view === 'map' && <DirectoryMapView kind={kind} onlySlugs={advCount > 0 ? slugSet : null} />}
 
       {/* Congregation results (instant search) */}
-      {view === 'list' && searchingLocales && (
+      {view === 'list' && showResults && (
         <section aria-labelledby="locale-results-h" className="glass-panel p-5 border border-white/15 space-y-3">
-          <div className="flex items-baseline justify-between gap-3 border-b border-white/10 pb-3">
-            <h2 id="locale-results-h" className="text-lg font-bold text-white tracking-tight">
-              {kind === 'all' ? 'Congregations' : KIND_OPTIONS.find((o) => o.id === kind)!.label}
-            </h2>
-            <span className="text-xs text-[#A9B4C2] font-departure" aria-live="polite">
-              {!currentResults
-                ? 'Searching…'
-                : `${currentResults.total.toLocaleString()} ${currentResults.total === 1 ? 'match' : 'matches'}${
-                    currentResults.total > currentResults.locales.length ? ` · showing ${currentResults.locales.length}` : ''
-                  }`}
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
+            <div className="min-w-0">
+              <h2 id="locale-results-h" className="scroll-mt-24 text-lg font-bold text-white tracking-tight">
+                {advCount > 0 ? 'Matching ' : ''}
+                {kind === 'all' ? (advCount > 0 ? 'congregations' : 'Congregations') : KIND_OPTIONS.find((o) => o.id === kind)!.label}
+              </h2>
+              <span className="text-xs text-[#A9B4C2] font-departure" aria-live="polite">
+                {!shownResults
+                  ? 'Searching…'
+                  : `${shownResults.total.toLocaleString()} ${shownResults.total === 1 ? 'congregation' : 'congregations'}${
+                      advCount > 0 ? ` · ${shownResults.services.toLocaleString()} matching services` : ''
+                    }`}
+              </span>
+            </div>
+            <label className="flex items-center gap-2 text-xs text-[#A9B4C2]">
+              Sort
+              <select
+                value={sortValue}
+                onChange={(e) => setAdv({ ...adv, sort: e.target.value as SortKey })}
+                className="rounded-lg border border-white/15 bg-[#0B1426] px-2 py-1.5 text-xs text-white focus:border-[#E8A33D] focus:outline-none"
+              >
+                {(Object.keys(SORT_LABEL) as SortKey[])
+                  .filter((k) => k !== 'relevance' || searchingLocales)
+                  .map((k) => (
+                    <option key={k} value={k}>
+                      {SORT_LABEL[k]}
+                    </option>
+                  ))}
+              </select>
+            </label>
           </div>
 
-          {currentResults && currentResults.locales.length === 0 ? (
-            <p className="py-4 text-center text-sm text-[#A9B4C2]">
-              No {kind === 'all' ? 'congregations' : kindLabel} match &ldquo;{searchQuery.trim()}&rdquo;.
-            </p>
+          {shownResults && shownResults.locales.length === 0 ? (
+            <div className="py-4 text-center text-sm text-[#A9B4C2] space-y-2">
+              <p>
+                No {kind === 'all' ? 'congregations' : kindLabel} match
+                {searchingLocales ? <> &ldquo;{searchQuery.trim()}&rdquo;</> : null}
+                {advCount > 0 ? ' these filters' : ''}.
+              </p>
+              {advCount > 0 && (
+                <button type="button" onClick={() => setFiltersOpen(true)} className="text-xs font-semibold text-[#5AA9FF] hover:underline">
+                  Adjust filters
+                </button>
+              )}
+            </div>
           ) : (
-            <ul className="divide-y divide-white/5">
-              {(currentResults?.locales ?? []).map((l) => {
-                const next = findNextService(l.schedule, l.timezone);
+            <ul className={`divide-y divide-white/5 transition-opacity ${currentResults ? '' : 'opacity-60'}`}>
+              {(shownResults?.locales ?? []).map((l) => {
+                const matched = l.matched ? (l.schedule ?? []).filter((i) => l.matched!.includes(i.id)) : null;
+                const next = findNextService(matched ?? l.schedule, l.timezone);
                 return (
                   <li key={l.id}>
                     <Link
@@ -297,10 +430,34 @@ function DistrictsView() {
                         <p className="truncate text-xs text-[#A9B4C2]">
                           {l.district_name} · {l.address}
                         </p>
+                        {matched && matched.length > 0 && (
+                          <div className="mt-1 flex flex-wrap gap-1">
+                            {matched.slice(0, 4).map((i) => (
+                              <span key={i.id} className="rounded-md border border-[#E8A33D]/30 bg-[#E8A33D]/10 px-1.5 py-0.5 font-departure text-[10.5px] text-[#E8A33D]">
+                                {DAY_SHORT[i.day_of_week]} {formatTime12Hour(i.start_time)} · {i.language2 ? `${i.language} / ${i.language2}` : i.language}
+                                {i.is_cws || i.service_type === 'CWS' ? ' · CWS' : ''}
+                              </span>
+                            ))}
+                            {matched.length > 4 && <span className="px-1 text-[10.5px] text-[#A9B4C2]">+{matched.length - 4} more</span>}
+                          </div>
+                        )}
                       </div>
-                      <span className="hidden sm:flex shrink-0 items-center gap-1 font-departure text-xs text-[#E8A33D]">
-                        <Clock size={12} />
-                        {next ? `${next.item.day_name.slice(0, 3)} ${formatTime12Hour(next.item.start_time)}` : 'No schedule'}
+                      <span className="hidden sm:flex shrink-0 flex-col items-end gap-0.5 font-departure text-xs">
+                        <span className="flex items-center gap-1 text-[#E8A33D]">
+                          <Clock size={12} />
+                          {next
+                            ? next.startsInMinutes <= 0
+                              ? 'In progress'
+                              : next.startsInMinutes < 24 * 60
+                                ? `${DAY_SHORT[next.item.day_of_week]} ${formatTime12Hour(next.item.start_time)} · ${formatCountdown(next.startsInMinutes)}`
+                                : `${DAY_SHORT[next.item.day_of_week]} ${formatTime12Hour(next.item.start_time)}`
+                            : 'No schedule'}
+                        </span>
+                        {l.distance_km !== undefined && (
+                          <span className="flex items-center gap-1 text-[#A9B4C2]">
+                            <MapPin size={11} />≈{formatDistance(l.distance_km)}
+                          </span>
+                        )}
                       </span>
                       <ChevronRight size={16} className="shrink-0 text-[#A9B4C2] group-hover:text-[#E8A33D]" />
                     </Link>
@@ -308,6 +465,17 @@ function DistrictsView() {
                 );
               })}
             </ul>
+          )}
+
+          {shownResults && shownResults.total > shownResults.locales.length && (
+            <button
+              type="button"
+              onClick={() => setPages((n) => n + 1)}
+              disabled={!currentResults}
+              className="btn-glass w-full py-2 text-xs disabled:opacity-50"
+            >
+              Show more ({(shownResults.total - shownResults.locales.length).toLocaleString()} more)
+            </button>
           )}
         </section>
       )}
@@ -371,7 +539,7 @@ function DistrictsView() {
 
                       if (filtering && distList.length === 0) return null;
 
-                      const isExpanded = q ? true : !!expandedRegions[reg.id];
+                      const isExpanded = q || advCount > 0 ? true : !!expandedRegions[reg.id];
 
                       return (
                         <div
