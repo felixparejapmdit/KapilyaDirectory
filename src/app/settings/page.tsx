@@ -25,6 +25,7 @@ import { DataSnapshot } from '@/lib/types';
 import { useTheme, type ThemePref } from '@/components/ThemeProvider';
 import { useUserLocation, POPULAR_CITIES } from '@/components/LocationProvider';
 import { AccessLogPanel } from '@/components/settings/AccessLogPanel';
+import { ChangeHistoryPanel } from '@/components/settings/ChangeHistoryPanel';
 
 interface SyncStatus {
   state: 'idle' | 'running';
@@ -442,10 +443,13 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* 3. ACCESS LOG (admin key required) */}
+      {/* 3. CHANGE HISTORY (what each sync changed) */}
+      <ChangeHistoryPanel />
+
+      {/* 4. ACCESS LOG (admin key required) */}
       <AccessLogPanel />
 
-      {/* 4. CONNECTED CHANNELS: TELEGRAM BOT */}
+      {/* 5. CONNECTED CHANNELS: TELEGRAM BOT */}
       <div className="glass-panel p-5 border border-white/15 space-y-3">
         <h2 className="text-base font-bold text-white flex items-center gap-2">
           <Send size={18} className="text-[#5AA9FF]" />

@@ -17,7 +17,8 @@ function getNextScheduleText(locale: Locale, language?: string): string {
   const schedule = language ? locale.schedule?.filter((s) => matchesLanguage(s, language)) : locale.schedule;
   const next = findNextService(schedule, locale.timezone);
   if (!next) return 'no schedule posted';
-  return `${next.item.day_name} at ${formatTime12Hour(next.item.start_time)} (${next.item.language})`;
+  const when = `${next.item.day_name} at ${formatTime12Hour(next.item.start_time)} (${next.item.language})`;
+  return next.startsInMinutes <= 0 ? `${when}, ongoing now` : when;
 }
 
 /** Markdown link the Ask drawer renders as a link to the congregation's details page. */

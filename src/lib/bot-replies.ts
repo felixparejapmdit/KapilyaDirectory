@@ -76,7 +76,7 @@ function withTimezones(data: BotData): Locale[] {
 function nextServiceText(l: Locale): string {
   const next = findNextService(l.schedule, l.timezone);
   if (!next) return 'no schedule posted';
-  if (next.startsInMinutes <= 0) return `in progress (started ${formatTime12Hour(next.item.start_time)})`;
+  if (next.startsInMinutes <= 0) return `ongoing (started ${formatTime12Hour(next.item.start_time)})`;
   return `${next.item.day_name} ${formatTime12Hour(next.item.start_time)} (${next.item.language})`;
 }
 

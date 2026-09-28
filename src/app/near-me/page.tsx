@@ -14,6 +14,7 @@ import {
   findNextService,
   findReachableService,
   formatCountdown,
+  ONGOING_LABEL,
   formatLeaveIn,
   type ReachableService,
 } from '@/lib/next-service';
@@ -203,7 +204,7 @@ function NearMeView() {
         ) : selectedNext.startsInMinutes <= 0 ? (
           <span className="badge-service-active">
             <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
-            In progress · started {clock(selectedNext.item.start_time)}
+            {ONGOING_LABEL} · started {clock(selectedNext.item.start_time)}
           </span>
         ) : selectedNext.startsInMinutes <= 60 ? (
           <span className="badge-service-active">
@@ -480,7 +481,7 @@ function NearMeView() {
                         <span className="font-departure text-[11px] text-[#A9B4C2]">
                           {next
                             ? next.startsInMinutes <= 0
-                              ? 'In progress'
+                              ? ONGOING_LABEL
                               : `${next.item.day_name.slice(0, 3)} ${clock(next.item.start_time)}`
                             : 'No schedule'}
                         </span>

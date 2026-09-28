@@ -6,13 +6,15 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { Globe2, Search, ChevronDown, ChevronRight, ListFilter, ArrowLeft, Clock, X, List, Map as MapIcon, SlidersHorizontal, MapPin } from 'lucide-react';
 import { Region, District, WorldArea, LocaleKind } from '@/lib/types';
-import { findNextService, formatCountdown } from '@/lib/next-service';
+import { findNextService, formatCountdown, ONGOING_LABEL, shiftSlot } from '@/lib/next-service';
 import { formatTime12Hour } from '@/lib/time';
 import { formatDistance } from '@/lib/geo';
 import { activeFilterCount, parseFilters, writeFilters, type AdvancedFilters, type FilterResult, type SortKey } from '@/lib/locale-filter';
 import { useDistrictHoverCard } from '@/components/DistrictHoverCard';
 import { useUserLocation } from '@/components/LocationProvider';
-import { AdvancedFiltersPanel, DAY_SHORT, FilterSummary, type FilterArea } from '@/components/districts/AdvancedFilters';
+import { AdvancedFiltersPanel, DAY_SHORT, FilterSummary, myTimeZone, refClockLabel, type FilterArea } from '@/components/districts/AdvancedFilters';
+import { CountryDirectory } from '@/components/districts/CountryDirectory';
+import type { CountrySummary } from '@/lib/countries';
 
 // Leaflet only runs in the browser; load the map view on demand.
 const DirectoryMapView = dynamic(
@@ -104,8 +106,9 @@ function DistrictsView() {
   const adv = useMemo(() => parseFilters(new URLSearchParams(searchParams.toString())), [searchParams]);
   const advCount = activeFilterCount(adv);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const setAdv = (next: AdvancedFilters) => {
-    const p = writeFilters(new URLSearchParams(searchParams.toString()), next);
+  const replaceParams = (change: (p: URLSearchParams) => void) => {
+    const p = new URLSearchParams(searchParams.toString());
+    change(p);
     const put = (k: string, v: string) => (v ? p.set(k, v) : p.delete(k));
     put('q', searchQuery.trim());
     put('kind', kind === 'all' ? '' : kind);
@@ -113,6 +116,24 @@ function DistrictsView() {
     const qs = p.toString();
     router.replace(`/districts${qs ? `?${qs}` : ''}`, { scroll: false });
   };
+  const setAdv = (next: AdvancedFilters) => replaceParams((p) => writeFilters(p, next));
+
+  // Browse by region (districts) or by country (?group=country, e.g. from the dashboard).
+  const group: 'region' | 'country' = searchParams.get('group') === 'country' ? 'country' : 'region';
+  const setGroup = (g: 'region' | 'country') => replaceParams((p) => (g === 'country' ? p.set('group', 'country') : p.delete('group')));
+  const needCountries = group === 'country' || filtersOpen || !!adv.country;
+  const [countries, setCountries] = useState<CountrySummary | null>(null);
+  useEffect(() => {
+    if (!needCountries || countries) return;
+    let alive = true;
+    fetch('/api/countries')
+      .then((r) => r.json())
+      .then((d: CountrySummary) => alive && d.countries && setCountries(d))
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [needCountries, countries]);
 
   useEffect(() => {
     fetch('/api/regions/grouped')
@@ -155,6 +176,7 @@ function DistrictsView() {
     p.set('lng', location.lng.toFixed(5));
     p.set('limit', String(RESULT_LIMIT * pages));
     if (withSlugs) p.set('slugs', '1');
+    if (adv.tz === 'mine') p.set('mytz', myTimeZone());
     return p.toString();
   }, [adv, searchingLocales, q, kind, location.lat, location.lng, pages, withSlugs, showResults, filtersOpen]);
   const [filterRes, setFilterRes] = useState<{ key: string; data: FilterResult } | null>(null);
@@ -244,10 +266,12 @@ function DistrictsView() {
             </button>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
               <Globe2 className="text-[#5AA9FF]" size={28} />
-              <span>Districts By World Region</span>
+              <span>{group === 'country' ? 'Countries & Territories' : 'Districts By World Region'}</span>
             </h1>
             <p className="text-xs sm:text-sm text-[#A9B4C2] mt-0.5">
-              Browse Iglesia Ni Cristo ecclesiastical districts (hover one to preview its congregations), or search any congregation worldwide.
+              {group === 'country'
+                ? 'Every country and territory with Iglesia Ni Cristo congregations, by continent. Pick one to list its congregations.'
+                : 'Browse Iglesia Ni Cristo ecclesiastical districts (hover one to preview its congregations), or search any congregation worldwide.'}
             </p>
           </div>
 
@@ -272,6 +296,26 @@ function DistrictsView() {
               </button>
             )}
           </div>
+        </div>
+
+        <div role="tablist" aria-label="Browse by" className="flex w-fit items-center rounded-xl border border-white/15 bg-white/5 p-1 text-sm font-semibold">
+          {(
+            [
+              { id: 'region', label: 'By region' },
+              { id: 'country', label: 'By country' },
+            ] as const
+          ).map((g) => (
+            <button
+              key={g.id}
+              type="button"
+              role="tab"
+              aria-selected={group === g.id}
+              onClick={() => setGroup(g.id)}
+              className={`rounded-lg px-3.5 py-1.5 transition-colors ${group === g.id ? 'bg-[#5AA9FF] text-[#0B1426]' : 'text-[#A9B4C2] hover:text-white'}`}
+            >
+              {g.label}
+            </button>
+          ))}
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -339,7 +383,7 @@ function DistrictsView() {
         </div>
         </div>
 
-        <FilterSummary filters={adv} areas={areas} onChange={setAdv} />
+        <FilterSummary filters={adv} areas={areas} countries={countries?.countries} onChange={setAdv} />
       </div>
 
       {filtersOpen && (
@@ -347,6 +391,7 @@ function DistrictsView() {
           filters={adv}
           facets={shownResults?.facets ?? null}
           areas={areas}
+          countries={countries?.countries}
           locationName={location.name}
           total={currentResults ? currentResults.total : null}
           onChange={setAdv}
@@ -373,7 +418,7 @@ function DistrictsView() {
                   ? 'Searching…'
                   : `${shownResults.total.toLocaleString()} ${shownResults.total === 1 ? 'congregation' : 'congregations'}${
                       advCount > 0 ? ` · ${shownResults.services.toLocaleString()} matching services` : ''
-                    }`}
+                    }${shownResults.ref_tz ? ` · times in ${refClockLabel(adv.tz)}` : ''}`}
               </span>
             </div>
             <label className="flex items-center gap-2 text-xs text-[#A9B4C2]">
@@ -412,6 +457,13 @@ function DistrictsView() {
               {(shownResults?.locales ?? []).map((l) => {
                 const matched = l.matched ? (l.schedule ?? []).filter((i) => l.matched!.includes(i.id)) : null;
                 const next = findNextService(matched ?? l.schedule, l.timezone);
+                // In Philippine time / your time: the converted slot first, the congregation's own time after.
+                const shift = l.ref_shift ?? 0;
+                const slot = (day: number, start: string) => {
+                  const s = shift ? shiftSlot(day, start, shift) : { day, time: start };
+                  return `${DAY_SHORT[s.day]} ${formatTime12Hour(s.time)}`;
+                };
+                const localSlot = (day: number, start: string) => `${DAY_SHORT[day]} ${formatTime12Hour(start)}`;
                 return (
                   <li key={l.id}>
                     <Link
@@ -434,8 +486,9 @@ function DistrictsView() {
                           <div className="mt-1 flex flex-wrap gap-1">
                             {matched.slice(0, 4).map((i) => (
                               <span key={i.id} className="rounded-md border border-[#E8A33D]/30 bg-[#E8A33D]/10 px-1.5 py-0.5 font-departure text-[10.5px] text-[#E8A33D]">
-                                {DAY_SHORT[i.day_of_week]} {formatTime12Hour(i.start_time)} · {i.language2 ? `${i.language} / ${i.language2}` : i.language}
+                                {slot(i.day_of_week, i.start_time)} · {i.language2 ? `${i.language} / ${i.language2}` : i.language}
                                 {i.is_cws || i.service_type === 'CWS' ? ' · CWS' : ''}
+                                {shift !== 0 && <span className="opacity-70"> (local {localSlot(i.day_of_week, i.start_time)})</span>}
                               </span>
                             ))}
                             {matched.length > 4 && <span className="px-1 text-[10.5px] text-[#A9B4C2]">+{matched.length - 4} more</span>}
@@ -447,12 +500,15 @@ function DistrictsView() {
                           <Clock size={12} />
                           {next
                             ? next.startsInMinutes <= 0
-                              ? 'In progress'
+                              ? `${ONGOING_LABEL} · started ${slot(next.item.day_of_week, next.item.start_time).slice(4)}`
                               : next.startsInMinutes < 24 * 60
-                                ? `${DAY_SHORT[next.item.day_of_week]} ${formatTime12Hour(next.item.start_time)} · ${formatCountdown(next.startsInMinutes)}`
-                                : `${DAY_SHORT[next.item.day_of_week]} ${formatTime12Hour(next.item.start_time)}`
+                                ? `${slot(next.item.day_of_week, next.item.start_time)} · ${formatCountdown(next.startsInMinutes)}`
+                                : slot(next.item.day_of_week, next.item.start_time)
                             : 'No schedule'}
                         </span>
+                        {next && shift !== 0 && (
+                          <span className="text-[10.5px] text-[#A9B4C2]">local {localSlot(next.item.day_of_week, next.item.start_time)}</span>
+                        )}
                         {l.distance_km !== undefined && (
                           <span className="flex items-center gap-1 text-[#A9B4C2]">
                             <MapPin size={11} />≈{formatDistance(l.distance_km)}
@@ -480,7 +536,19 @@ function DistrictsView() {
         </section>
       )}
 
-      {view === 'map' ? null : loading ? (
+      {view === 'list' && group === 'country' && (
+        <CountryDirectory
+          summary={countries}
+          kind={kind}
+          selected={adv.country}
+          onSelect={(code) => {
+            setAdv({ ...adv, country: code });
+            if (code) window.setTimeout(() => document.getElementById('locale-results-h')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 400);
+          }}
+        />
+      )}
+
+      {view === 'map' || group === 'country' ? null : loading ? (
         <div className="glass-card p-12 text-center text-[#A9B4C2]">
           Loading worldwide districts directory...
         </div>

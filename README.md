@@ -140,7 +140,7 @@ you host a writable server on the public internet, put `/settings`, `/api/ingest
 
 The **Filters** button on the Districts page narrows congregations worldwide by:
 
-- **Where**: region, district, or within 5–100 km of your location.
+- **Where**: country, region, district, or within 5–100 km of your location.
 - **When**: worship day, time of day (early morning, morning, afternoon, evening, or a custom
   start-time range), and "starting within" 1 hour, 3 hours, or later today (on each
   congregation's own clock).
@@ -154,6 +154,43 @@ or most services. The district list, the type counts, and the map follow the fil
 filters are kept in the URL (`/districts?day=0&time=morning&lang=English`), so a filtered view can
 be bookmarked or shared. The rules live in `src/lib/locale-filter.ts`, served by
 `/api/locales/filter`.
+
+**Times shown in** chooses the clock that day and time filters use: each congregation's own local
+time (default), **Philippine time**, or your own time zone. In Philippine time, a Los Angeles
+Saturday 6:00 PM service counts as Sunday 9:00 AM; results show the converted time first and the
+congregation's local time next to it. Conversion uses each zone's current offset (daylight saving
+included), so no extra data is needed.
+
+## Countries and continents
+
+Districts don't follow country borders ("Central America" spans Mexico, Guatemala, Panama, and
+Belize; "Florida & Caribbean" spans the USA, Haiti, Jamaica, and more), so the country belongs to
+each congregation: from its map location (offline, via
+[country-coder](https://github.com/rapideditor/country-coder)), else the country at the end of its
+address, else its district's usual country. Territories count on their own (Guam, Hong Kong,
+Puerto Rico). **Districts → By country** (also the dashboard's "Countries & territories" card) lists
+every country by continent with Local / Extension / GWS counts; picking one lists its
+congregations. Served by `/api/countries` (`src/lib/countries.ts`).
+
+## Ongoing services
+
+A service shows as **Ongoing** from its start time until it ends: its end time when the source lists
+one (none do today), otherwise one hour after it starts. The same rule applies everywhere (Near me,
+Districts, hover cards, the dashboard, the congregation's schedule board, the Ask assistant, and the
+Telegram bot); it lives in `src/lib/next-service.ts`.
+
+## Change history
+
+Every sync compares the old records with the new ones and keeps what changed per congregation in
+`data/change-log.json` (committed with `store.json`, latest 5,000 changes): name, type, district,
+address, map location (with how far the pin moved), phone, email, and schedule (services removed and
+added), plus congregations added or removed. **Settings → Change History** shows them old → new,
+filterable by name/district, date range, kind of change, and field. To rebuild earlier history from
+git (each automatic sync is a commit):
+
+```bash
+node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/backfill-change-log.ts
+```
 
 ## Access log
 

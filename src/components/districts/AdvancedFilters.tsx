@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Clock, Info, Languages, MapPin, Phone, SlidersHorizontal, X } from 'lucide-react';
+import { Clock, Globe2, Info, Languages, MapPin, Phone, SlidersHorizontal, X } from 'lucide-react';
 import {
   EMPTY_FILTERS,
   NEAR_OPTIONS,
+  PH_TIMEZONE,
   SOON_WINDOWS,
   TIME_BUCKETS,
   type AdvancedFilters,
@@ -13,6 +14,7 @@ import {
   type TimeBucket,
 } from '@/lib/locale-filter';
 import { formatTime12Hour } from '@/lib/time';
+import type { CountryStat } from '@/lib/countries';
 
 export const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const SERVICE_LABEL = { worship: 'Worship service', cws: "Children's worship (CWS)" } as const;
@@ -23,6 +25,18 @@ export interface FilterArea {
 }
 
 const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
+
+/** The viewer's time zone, e.g. "America/Los_Angeles". */
+export const myTimeZone = () => {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+  } catch {
+    return '';
+  }
+};
+const zoneCity = (tz: string) => tz.split('/').pop()?.replace(/_/g, ' ') ?? tz;
+/** "Philippine time" / "your time" for the chosen reference clock. */
+export const refClockLabel = (tz: AdvancedFilters['tz']) => (tz === 'ph' ? 'Philippine time' : tz === 'mine' ? 'your time' : '');
 
 function Chip({
   active,
@@ -82,6 +96,7 @@ export function AdvancedFiltersPanel({
   filters: f,
   facets,
   areas,
+  countries,
   locationName,
   total,
   onChange,
@@ -90,6 +105,7 @@ export function AdvancedFiltersPanel({
   filters: AdvancedFilters;
   facets: FilterResult['facets'] | null;
   areas: FilterArea[];
+  countries?: CountryStat[];
   locationName: string;
   total: number | null;
   onChange: (next: AdvancedFilters) => void;
@@ -124,9 +140,42 @@ export function AdvancedFiltersPanel({
       </p>
 
       <div className="grid gap-5 lg:grid-cols-2 lg:gap-x-8">
+        {/* TIMES SHOWN IN (reference clock) */}
+        <div className="lg:col-span-2">
+          <Group label="Times shown in" icon={Globe2} hint="day, time, and “later today” follow this clock">
+            <div className="flex flex-wrap gap-2">
+              <Chip active={!f.tz} onClick={() => set({ tz: undefined })}>
+                Each congregation’s local time
+              </Chip>
+              <Chip active={f.tz === 'ph'} onClick={() => set({ tz: 'ph' })} title="Asia/Manila (UTC+8)">
+                Philippine time (PHT)
+              </Chip>
+              {myTimeZone() && myTimeZone() !== PH_TIMEZONE && (
+                <Chip active={f.tz === 'mine'} onClick={() => set({ tz: 'mine' })} title={myTimeZone()}>
+                  My time ({zoneCity(myTimeZone())})
+                </Chip>
+              )}
+            </div>
+          </Group>
+        </div>
+
         {/* WHERE */}
         <Group label="Where" icon={MapPin}>
-          <div className="grid gap-2 sm:grid-cols-3">
+          <div className="grid gap-2 sm:grid-cols-2">
+            <select value={f.country ?? ''} onChange={(e) => set({ country: e.target.value || undefined })} aria-label="Country" className={selectClass}>
+              <option value="">All countries</option>
+              {[...new Set((countries ?? []).map((c) => c.continent))].map((cont) => (
+                <optgroup key={cont} label={cont}>
+                  {(countries ?? [])
+                    .filter((c) => c.continent === cont)
+                    .map((c) => (
+                      <option key={c.code} value={c.code}>
+                        {c.name} ({c.total})
+                      </option>
+                    ))}
+                </optgroup>
+              ))}
+            </select>
             <select
               value={f.region ?? ''}
               onChange={(e) => set({ region: e.target.value || undefined, district: undefined })}
@@ -174,7 +223,7 @@ export function AdvancedFiltersPanel({
         </Group>
 
         {/* STARTING WITHIN */}
-        <Group label="Starting within" icon={Clock} hint="local time of each congregation">
+        <Group label="Starting within" icon={Clock} hint={f.tz ? `“later today” in ${refClockLabel(f.tz)}` : 'local time of each congregation'}>
           <div className="flex flex-wrap gap-2">
             <Chip active={!f.soon} onClick={() => set({ soon: undefined })}>
               Any time
@@ -188,7 +237,7 @@ export function AdvancedFiltersPanel({
         </Group>
 
         {/* DAY */}
-        <Group label="Worship day" icon={Clock}>
+        <Group label="Worship day" icon={Clock} hint={f.tz ? `in ${refClockLabel(f.tz)}` : undefined}>
           <div className="flex flex-wrap gap-2">
             {DAY_SHORT.map((d, i) => (
               <Chip key={d} active={f.days.includes(i)} count={facets?.day[i]} onClick={() => set({ days: toggle(f.days, i).sort() })}>
@@ -199,7 +248,7 @@ export function AdvancedFiltersPanel({
         </Group>
 
         {/* TIME */}
-        <Group label="Time of day" icon={Clock}>
+        <Group label="Time of day" icon={Clock} hint={f.tz ? `in ${refClockLabel(f.tz)}` : undefined}>
           <div className="flex flex-wrap gap-2">
             {TIME_BUCKETS.map((b) => (
               <Chip
@@ -292,15 +341,18 @@ export function AdvancedFiltersPanel({
 export function FilterSummary({
   filters: f,
   areas,
+  countries,
   onChange,
 }: {
   filters: AdvancedFilters;
   areas: FilterArea[];
+  countries?: CountryStat[];
   onChange: (next: AdvancedFilters) => void;
 }) {
   const regions = areas.flatMap((a) => a.regions);
   const districtName = f.district ? regions.flatMap((r) => r.districts).find((d) => d.slug === f.district)?.name ?? f.district : '';
   const chips: { key: string; label: string; clear: Partial<AdvancedFilters> }[] = [];
+  if (f.country) chips.push({ key: 'country', label: countries?.find((c) => c.code === f.country)?.name ?? f.country, clear: { country: undefined } });
   if (f.region) chips.push({ key: 'region', label: regions.find((r) => r.id === f.region)?.name ?? f.region, clear: { region: undefined, district: undefined } });
   if (f.district) chips.push({ key: 'district', label: districtName, clear: { district: undefined } });
   if (f.near) chips.push({ key: 'near', label: `Within ${f.near} km`, clear: { near: undefined } });
@@ -312,6 +364,7 @@ export function FilterSummary({
     chips.push({ key: 'time', label: f.times.map((t) => TIME_BUCKETS.find((b) => b.id === t)!.label).join(', '), clear: { times: [] } });
   if (f.langs.length) chips.push({ key: 'lang', label: f.langs.join(', '), clear: { langs: [] } });
   if (f.service) chips.push({ key: 'service', label: SERVICE_LABEL[f.service], clear: { service: undefined } });
+  if (f.tz) chips.push({ key: 'tz', label: f.tz === 'ph' ? 'Philippine time' : `My time (${zoneCity(myTimeZone())})`, clear: { tz: undefined } });
   if (f.contact.length) chips.push({ key: 'contact', label: f.contact.map((c) => (c === 'phone' ? 'Has phone' : 'Has email')).join(', '), clear: { contact: [] } });
   if (!chips.length) return null;
 

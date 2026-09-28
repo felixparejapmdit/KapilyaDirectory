@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
 import type { Locale, LocaleKind } from '@/lib/types';
-import { findNextService, formatCountdown } from '@/lib/next-service';
+import { findNextService, formatCountdown, ONGOING_LABEL } from '@/lib/next-service';
 import { formatTime12Hour } from '@/lib/time';
 
 type KindFilter = 'all' | LocaleKind;
@@ -260,7 +260,7 @@ function DistrictCard({
                               {!next ? (
                                 <span className="text-[11px] kd-hovercard-muted">No schedule</span>
                               ) : next.startsInMinutes <= 0 ? (
-                                <span className="kd-hovercard-live">Now</span>
+                                <span className="kd-hovercard-live">{ONGOING_LABEL}</span>
                               ) : next.startsInMinutes <= 120 ? (
                                 <span className="kd-hovercard-soon font-departure">{formatCountdown(next.startsInMinutes)}</span>
                               ) : (

@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { syncFromSource } from '../src/lib/sync.ts';
 import { STORE_FILE, readStoreFile, writeSnapshot, writeStoreFile, type SyncSummary } from '../src/lib/store-files.ts';
+import { appendChanges, diffLocales } from '../src/lib/change-log.ts';
 
 const args = new Map(
   process.argv.slice(2).map((a) => {
@@ -92,6 +93,10 @@ async function main() {
     duration_ms: Date.now() - started,
   };
   const snapshot = NO_SNAPSHOT ? null : writeSnapshot(data, 'Automatic pre-sync snapshot (cli sync)');
+  // Change history (data/change-log.json, committed alongside the store).
+  const changed = diffLocales(data.locales, locales, data.districts, { at: summary.finished_at, source: 'cli' });
+  appendChanges(changed);
+  console.log(`Change history: ${changed.length} congregations recorded.`);
   data.locales = locales;
   data.last_updated = summary.finished_at;
   data.last_sync = summary;

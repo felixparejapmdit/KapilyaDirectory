@@ -15,6 +15,8 @@ import { haversineKm } from './geo';
 import { formatTime12Hour } from './time';
 import { findNextService, formatCountdown } from './next-service';
 import { buildNameIndex, type NameIndex } from './entity-search';
+import { buildCountryIndex, summarizeCountries, type CountrySummary } from './countries';
+import { appendChanges, diffLocales, type ChangeSource } from './change-log';
 import {
   type StoreData,
   type SyncSummary,
@@ -31,6 +33,16 @@ class KapilyaStore {
   private loadedMtime: number | null = null;
   private cachedTotals: DirectoryTotals | null = null;
   private nameIndex: NameIndex | null = null;
+  private countryIndex: Map<string, string> | null = null;
+  private countrySummary: CountrySummary | null = null;
+
+  /** Drops everything derived from the data (after a reload or a change). */
+  private resetDerived() {
+    this.cachedTotals = null;
+    this.nameIndex = null;
+    this.countryIndex = null;
+    this.countrySummary = null;
+  }
 
   private load(): StoreData {
     // Reload when store.json changed on disk (CLI sync, or another server bundle wrote it).
@@ -43,8 +55,7 @@ class KapilyaStore {
       try {
         this.data = readStoreFile();
         this.loadedMtime = mtime;
-        this.cachedTotals = null;
-    this.nameIndex = null;
+        this.resetDerived();
         return this.data!;
       } catch (err) {
         if (this.data) return this.data;
@@ -67,8 +78,7 @@ class KapilyaStore {
 
   public save() {
     if (!this.data) return;
-    this.cachedTotals = null;
-    this.nameIndex = null;
+    this.resetDerived();
     if (READ_ONLY_DEPLOYMENT) return; // e.g. Vercel: the bundled store.json can't be written
     writeStoreFile(this.data);
     this.loadedMtime = storeFileMtime();
@@ -322,6 +332,20 @@ class KapilyaStore {
     return this.nameIndex;
   }
 
+  /** Country (ISO code) of every congregation, from its map location (see countries.ts). */
+  public getCountryIndex(): Map<string, string> {
+    const data = this.load();
+    this.countryIndex ??= buildCountryIndex(data.locales);
+    return this.countryIndex;
+  }
+
+  /** Congregations per country and continent. */
+  public getCountrySummary(): CountrySummary {
+    const data = this.load();
+    this.countrySummary ??= summarizeCountries(data.locales, this.getCountryIndex(), data.districts);
+    return this.countrySummary;
+  }
+
   // --- Next Service Status ---
   public getNextService(userLat?: number, userLng?: number): NextServiceStatus | null {
     const data = this.load();
@@ -352,7 +376,7 @@ class KapilyaStore {
     const item = nearestUpcoming.next.item;
     const statusText =
       diff <= 0
-        ? 'Service ongoing'
+        ? `Ongoing · started ${formatTime12Hour(item.start_time)}`
         : diff < 24 * 60
           ? `starts ${formatCountdown(diff)}`
           : `next ${item.day_name} at ${formatTime12Hour(item.start_time)}`;
@@ -381,6 +405,8 @@ class KapilyaStore {
       locales: locales.filter((l) => l.kind === 'local_congregation').length,
       extensions: locales.filter((l) => l.kind === 'extension').length,
       group_worship_services: locales.filter((l) => l.kind === 'group_worship_service').length,
+      countries: this.getCountrySummary().countries.length,
+      continents: this.getCountrySummary().continents.length,
       last_updated: data.last_updated,
       last_snapshot_id: data.snapshots[0]?.id || 'snap-seed-v1',
     };
@@ -408,10 +434,20 @@ class KapilyaStore {
       return;
     }
     writeSnapshot(data, `Automatic pre-sync snapshot (${summary.trigger} sync)`);
+    this.logChanges(data.locales, locales, summary.trigger);
     data.locales = locales;
     data.last_updated = summary.finished_at;
     data.last_sync = summary;
     this.save();
+  }
+
+  /** Keeps what changed (Settings → Change history). Never blocks the data update itself. */
+  private logChanges(before: Locale[], after: Locale[], source: ChangeSource) {
+    try {
+      appendChanges(diffLocales(before, after, this.load().districts, { at: new Date().toISOString(), source }));
+    } catch (err) {
+      console.error('Change history not recorded:', err);
+    }
   }
 
   /** Records a sync attempt that changed no data (e.g. the source was unreachable). */
@@ -446,6 +482,7 @@ class KapilyaStore {
     if (!fs.existsSync(snapshotPath)) {
       // If seed snapshot
       if (snapshotId === INITIAL_SNAPSHOT.id) {
+        this.logChanges(data.locales, [...INITIAL_LOCALES], 'restore');
         this.data = {
           regions: [...INITIAL_REGIONS],
           districts: [...INITIAL_DISTRICTS],
@@ -462,6 +499,7 @@ class KapilyaStore {
 
     try {
       const restored = JSON.parse(fs.readFileSync(snapshotPath, 'utf-8'));
+      this.logChanges(data.locales, restored.locales ?? [], 'restore');
       this.data = {
         ...restored,
         snapshots: data.snapshots,

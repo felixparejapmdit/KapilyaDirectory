@@ -32,8 +32,18 @@ const OVERVIEW_CARDS: {
   fallback: number;
   href?: string;
   span?: string;
+  /** Small line under the label. */
+  note?: (t: DirectoryTotals) => string;
 }[] = [
-  { label: 'Regions Worldwide', icon: Globe2, tone: 'bg-[#3A6EA5]/20 text-[#5AA9FF] border-[#3A6EA5]/40', value: (t) => t.regions, fallback: 21, href: '/districts' },
+  {
+    label: 'Countries & territories',
+    icon: Globe2,
+    tone: 'bg-[#3A6EA5]/20 text-[#5AA9FF] border-[#3A6EA5]/40',
+    value: (t) => t.countries ?? 0,
+    fallback: 117,
+    href: '/districts?group=country',
+    note: (t) => `on ${t.continents ?? 6} continents · ${t.regions} regions`,
+  },
   { label: 'Ecclesiastical Districts', icon: MapIcon, tone: 'bg-[#E8A33D]/15 text-[#E8A33D] border-[#E8A33D]/35', value: (t) => t.districts, fallback: 198, href: '/districts' },
   { label: 'Local Congregations', icon: Building2, tone: 'bg-sky-500/15 text-sky-300 border-sky-400/30', value: (t) => t.locales, fallback: 0 },
   { label: 'Extensions', icon: GitBranch, tone: 'bg-orange-500/15 text-orange-300 border-orange-400/30', value: (t) => t.extensions, fallback: 0 },
@@ -224,6 +234,7 @@ export default function DashboardPage() {
                 <span className="block mt-1 text-xs font-semibold text-[#A9B4C2] group-hover:text-white transition-colors">
                   {card.label}
                 </span>
+                {card.note && totals && <span className="block mt-0.5 text-[11px] text-[#A9B4C2]/80">{card.note(totals)}</span>}
               </>
             );
             return card.href ? (
@@ -293,9 +304,10 @@ export default function DashboardPage() {
                         <Clock size={12} />
                         {(() => {
                           const next = findNextService(locale.schedule, locale.timezone);
-                          return next
-                            ? `Next: ${next.item.day_name} ${formatTime12Hour(next.item.start_time)}`
-                            : 'No schedule posted';
+                          if (!next) return 'No schedule posted';
+                          return next.startsInMinutes <= 0
+                            ? `Ongoing · started ${formatTime12Hour(next.item.start_time)}`
+                            : `Next: ${next.item.day_name} ${formatTime12Hour(next.item.start_time)}`;
                         })()}
                       </span>
                       <span>•</span>

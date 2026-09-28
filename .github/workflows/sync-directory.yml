@@ -38,7 +38,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/store.json
+          git add data/store.json data/change-log.json
           git commit -m "data: sync directory from iglesianicristo.net"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"

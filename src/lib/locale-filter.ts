@@ -7,7 +7,7 @@
  * a filtered view can be bookmarked or shared.
  */
 import type { District, Locale, LocaleKind, WorshipScheduleItem } from './types.ts';
-import { zonedWallClock } from './next-service.ts';
+import { serviceDurationMinutes, shiftSlot, tzOffsetMinutes, zonedWallClock } from './next-service.ts';
 import { haversineKm } from './geo.ts';
 import { timeToMinutes } from './time.ts';
 
@@ -16,6 +16,12 @@ export type ServiceKind = 'worship' | 'cws';
 export type SoonWindow = 'now' | '3h' | 'today';
 export type ContactKind = 'phone' | 'email';
 export type SortKey = 'relevance' | 'name' | 'nearest' | 'soonest' | 'services';
+/**
+ * Which clock day/time filters (and displayed times) use: each congregation's own (default),
+ * Philippine time, or the viewer's own time zone.
+ */
+export type TimeRef = 'ph' | 'mine';
+export const PH_TIMEZONE = 'Asia/Manila';
 
 export const TIME_BUCKETS: { id: TimeBucket; label: string; range: string; from: number; to: number }[] = [
   { id: 'early', label: 'Early morning', range: 'before 7 AM', from: 0, to: 7 * 60 },
@@ -31,6 +37,8 @@ export const SOON_WINDOWS: { id: SoonWindow; label: string }[] = [
 export const NEAR_OPTIONS = [5, 10, 25, 50, 100];
 
 export interface AdvancedFilters {
+  /** ISO country/territory code, e.g. "JP" (see countries.ts). */
+  country?: string;
   region?: string;
   district?: string;
   /** Within this many km of the user's location. */
@@ -45,6 +53,8 @@ export interface AdvancedFilters {
   soon?: SoonWindow;
   contact: ContactKind[];
   sort?: SortKey;
+  /** Match (and show) times in Philippine time or the viewer's own time zone. */
+  tz?: TimeRef;
 }
 
 export const EMPTY_FILTERS: AdvancedFilters = { days: [], times: [], langs: [], contact: [] };
@@ -56,6 +66,7 @@ const oneOf = <T extends string>(v: string | null, options: readonly T[]) => (v 
 export function parseFilters(p: URLSearchParams): AdvancedFilters {
   const near = Number(p.get('near'));
   return {
+    country: /^[A-Z]{2}$/.test(p.get('country') ?? '') ? p.get('country')! : undefined,
     region: p.get('region') || undefined,
     district: p.get('district') || undefined,
     near: NEAR_OPTIONS.includes(near) ? near : undefined,
@@ -68,12 +79,14 @@ export function parseFilters(p: URLSearchParams): AdvancedFilters {
     soon: oneOf(p.get('soon'), ['now', '3h', 'today'] as const),
     contact: list(p.get('contact')).filter((c): c is ContactKind => c === 'phone' || c === 'email'),
     sort: oneOf(p.get('sort'), ['relevance', 'name', 'nearest', 'soonest', 'services'] as const),
+    tz: oneOf(p.get('tz'), ['ph', 'mine'] as const),
   };
 }
 
 /** Writes the filters into `p` (removing unset ones), leaving other params alone. */
 export function writeFilters(p: URLSearchParams, f: AdvancedFilters): URLSearchParams {
   const put = (k: string, v: string | number | undefined) => (v === undefined || v === '' ? p.delete(k) : p.set(k, String(v)));
+  put('country', f.country);
   put('region', f.region);
   put('district', f.district);
   put('near', f.near);
@@ -86,12 +99,14 @@ export function writeFilters(p: URLSearchParams, f: AdvancedFilters): URLSearchP
   put('soon', f.soon);
   put('contact', f.contact.join(','));
   put('sort', f.sort);
+  put('tz', f.tz);
   return p;
 }
 
 /** Number of active filters (sort doesn't count). */
 export function activeFilterCount(f: AdvancedFilters): number {
   return (
+    (f.country ? 1 : 0) +
     (f.region ? 1 : 0) +
     (f.district ? 1 : 0) +
     (f.near ? 1 : 0) +
@@ -129,11 +144,17 @@ export interface FilterQuery {
   limit: number;
   /** Also return every matching slug (for the map). */
   withSlugs: boolean;
+  /** Country code of a congregation (needed for the country filter). */
+  countryOf?: (l: Locale) => string | undefined;
+  /** Time zone that day/time filters use (from `filters.tz`); unset = each congregation's own. */
+  refTz?: string;
 }
 
 export interface FilteredLocale extends Locale {
   /** IDs of the services that meet the schedule criteria (only when schedule criteria are set). */
   matched?: string[];
+  /** Minutes to add to this congregation's times to get the reference time zone's (see `ref_tz`). */
+  ref_shift?: number;
 }
 
 type Counts = [number, number, number];
@@ -154,6 +175,8 @@ export interface FilterResult {
     service: Record<ServiceKind, number>;
   };
   slugs?: string[];
+  /** The reference time zone used for day/time matching, when not each congregation's own. */
+  ref_tz?: string;
 }
 
 export function filterLocales(
@@ -180,13 +203,22 @@ export function filterLocales(
   const startsIn = (item: WorshipScheduleItem, tz: string) => {
     const c = clockFor(tz);
     let diff = item.day_of_week * 1440 + timeToMinutes(item.start_time) - (c.day * 1440 + c.minutes);
-    if (diff < -60) diff += 7 * 1440;
+    if (diff < -serviceDurationMinutes(item)) diff += 7 * 1440; // ongoing services count as now
     return { diff, leftToday: 1440 - c.minutes };
   };
 
-  const dayOK = (i: WorshipScheduleItem) => !f.days.length || f.days.includes(i.day_of_week);
-  const timeOK = (i: WorshipScheduleItem) => {
-    const m = timeToMinutes(i.start_time);
+  // Reference time zone: each service's day and time as seen there (this week's offsets, so DST counts).
+  const refTz = query.refTz;
+  const offsets = new Map<string, number>();
+  const offsetOf = (tz: string) => {
+    let o = offsets.get(tz);
+    if (o === undefined) offsets.set(tz, (o = tzOffsetMinutes(tz, now)));
+    return o;
+  };
+  const refLeftToday = refTz ? 1440 - clockFor(refTz).minutes : null;
+
+  const dayOK = (day: number) => !f.days.length || f.days.includes(day);
+  const timeOK = (m: number) => {
     if (customRange) return m >= customFrom && m <= customTo;
     return !f.times.length || f.times.some((t) => {
       const b = TIME_BUCKETS.find((x) => x.id === t)!;
@@ -199,7 +231,7 @@ export function filterLocales(
   const soonOK = (i: WorshipScheduleItem, tz: string) => {
     if (!f.soon) return true;
     const { diff, leftToday } = startsIn(i, tz);
-    return f.soon === 'now' ? diff <= 60 : f.soon === '3h' ? diff <= 180 : diff <= leftToday;
+    return f.soon === 'now' ? diff <= 60 : f.soon === '3h' ? diff <= 180 : diff <= (refLeftToday ?? leftToday);
   };
 
   const facets: FilterResult['facets'] = {
@@ -211,12 +243,13 @@ export function filterLocales(
   };
   const langCounts = new Map<string, number>();
   const byDistrict: Record<string, Counts> = {};
-  const matches: { locale: Locale; score: number; km?: number; matched: WorshipScheduleItem[]; soonest: number }[] = [];
+  const matches: { locale: Locale; score: number; km?: number; matched: WorshipScheduleItem[]; soonest: number; shift: number }[] = [];
   let services = 0;
 
   for (const locale of data.locales) {
     const district = districtById.get(locale.district_id);
     // Where + contact + search: independent of the schedule.
+    if (f.country && query.countryOf?.(locale) !== f.country) continue;
     if (f.district && district?.slug !== f.district) continue;
     if (f.region && district?.region_id !== f.region) continue;
     if (f.contact.includes('phone') && !locale.phone) continue;
@@ -227,6 +260,7 @@ export function filterLocales(
     if (!score) continue;
 
     const tz = district?.timezone || 'Asia/Manila';
+    const shift = refTz ? offsetOf(refTz) - offsetOf(tz) : 0;
     const items = locale.schedule ?? [];
     // Per service: which criteria it meets. Facets leave out their own criterion.
     const facetDays = new Set<number>();
@@ -236,14 +270,14 @@ export function filterLocales(
     const matched: WorshipScheduleItem[] = [];
     for (const i of items) {
       if (!soonOK(i, tz)) continue;
-      const d = dayOK(i);
-      const t = timeOK(i);
+      const slot = shift ? shiftSlot(i.day_of_week, i.start_time, shift) : { day: i.day_of_week, minutes: timeToMinutes(i.start_time) };
+      const d = dayOK(slot.day);
+      const t = timeOK(slot.minutes);
       const l = langOK(i);
       const s = serviceOK(i);
-      if (t && l && s) facetDays.add(i.day_of_week);
+      if (t && l && s) facetDays.add(slot.day);
       if (d && l && s) {
-        const m = timeToMinutes(i.start_time);
-        const bucket = TIME_BUCKETS.find((b) => m >= b.from && m < b.to);
+        const bucket = TIME_BUCKETS.find((b) => slot.minutes >= b.from && slot.minutes < b.to);
         if (bucket) facetTimes.add(bucket.id);
       }
       if (d && t && s) {
@@ -273,7 +307,7 @@ export function filterLocales(
     // Minutes to the next (or in-progress) service, on the congregation's own clock.
     let soonest = Infinity;
     for (const i of pool) soonest = Math.min(soonest, startsIn(i, tz).diff);
-    matches.push({ locale, score, km, matched, soonest });
+    matches.push({ locale, score, km, matched, soonest, shift });
   }
 
   const sort: SortKey = f.sort ?? (q ? 'relevance' : f.near && hasPoint ? 'nearest' : 'name');
@@ -297,7 +331,7 @@ export function filterLocales(
   return {
     total: matches.length,
     services,
-    locales: matches.slice(query.offset, query.offset + query.limit).map(({ locale, km, matched }) => {
+    locales: matches.slice(query.offset, query.offset + query.limit).map(({ locale, km, matched, shift }) => {
       const district = districtById.get(locale.district_id);
       return {
         ...locale,
@@ -306,10 +340,12 @@ export function filterLocales(
         timezone: district?.timezone || 'Asia/Manila',
         distance_km: km,
         matched: scheduleCriteria ? matched.map((i) => i.id) : undefined,
+        ref_shift: refTz ? shift : undefined,
       };
     }),
     byDistrict,
     facets,
     slugs: query.withSlugs ? matches.map((m) => m.locale.slug) : undefined,
+    ref_tz: refTz,
   };
 }

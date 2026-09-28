@@ -84,6 +84,9 @@ export interface DirectoryTotals {
   locales: number;
   extensions: number;
   group_worship_services: number;
+  /** Countries and territories with at least one congregation. */
+  countries?: number;
+  continents?: number;
   last_updated: string;
   last_snapshot_id: string;
 }

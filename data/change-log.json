@@ -1,0 +1,477 @@
+{
+ "updated_at": "2026-09-28T01:46:29.392Z",
+ "entries": [
+  {
+   "id": "chg-1790506116000-pulong-bunga-ext",
+   "at": "2026-09-27T10:48:36.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-pulong-bunga-ext",
+   "slug": "pulong-bunga-ext",
+   "name": "Pulong Bunga",
+   "kind": "local_congregation",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790416815000-dumoy-gws",
+   "at": "2026-09-26T10:00:15.000Z",
+   "source": "history",
+   "action": "added",
+   "locale_id": "loc-dumoy-gws",
+   "slug": "dumoy-gws",
+   "name": "Dumoy GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-davao-west",
+   "district_name": "Davao City",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Blk 13 Lot 13 Rojo Orange st., Dacoville subd. Brgy. Dumoy, Davao City, Davao Del Sur, 8000, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "7.03155, 125.50597"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 7:00 PM · Tagalog; Sat 7:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 7:00 PM · Tagalog",
+      "Sat 7:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790385510000-sta-ana-1",
+   "at": "2026-09-26T01:18:30.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-sta-ana-1",
+   "slug": "sta-ana-1",
+   "name": "Sta Ana",
+   "kind": "local_congregation",
+   "district_id": "dist-cagayan-east",
+   "district_name": "Cagayan East",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Ilocano / Tagalog; Thu 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Ilocano / Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Wed 6:45 PM · Ilocano / Tagalog; Thu 6:00 PM · Tagalog / Tagalog Sign; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Ilocano / Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [],
+     "added": [
+      "Sat 6:00 PM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790367681000-hillsdale-ext",
+   "at": "2026-09-25T20:21:21.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-hillsdale-ext",
+   "slug": "hillsdale-ext",
+   "name": "Hillsdale Ext",
+   "kind": "extension",
+   "district_id": "dist-rizal",
+   "district_name": "Rizal",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Thu 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790350750000-ciudad-de-panama",
+   "at": "2026-09-25T15:39:10.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-ciudad-de-panama",
+   "slug": "ciudad-de-panama",
+   "name": "Ciudad de Panama",
+   "kind": "local_congregation",
+   "district_id": "dist-latin-america",
+   "district_name": "Central America",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 8:00 PM · Spanish; Sun 10:00 AM · Spanish",
+     "new": "Thu 8:00 PM · Spanish; Sun 10:00 AM · Spanish; Sun 12:00 PM · Spanish · CWS",
+     "removed": [],
+     "added": [
+      "Sun 12:00 PM · Spanish · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790350750000-san-jose-20",
+   "at": "2026-09-25T15:39:10.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-san-jose-20",
+   "slug": "san-jose-20",
+   "name": "San Jose",
+   "kind": "local_congregation",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:45 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:45 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-anahawan-gws",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-anahawan-gws",
+   "slug": "anahawan-gws",
+   "name": "Anahawan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southern-leyte",
+   "district_name": "Southern Leyte",
+   "changes": [
+    {
+     "field": "location",
+     "old": "10.29259, 125.26232",
+     "new": "10.29334, 125.26489",
+     "moved_km": 0.29
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-balete",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-balete",
+   "slug": "balete",
+   "name": "Balete",
+   "kind": "local_congregation",
+   "district_id": "dist-batangas",
+   "district_name": "Batangas",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog / Tagalog Sign; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Thu 7:00 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Thu 7:00 PM · Tagalog / Tagalog Sign",
+      "Sun 10:00 AM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-canelar",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-canelar",
+   "slug": "canelar",
+   "name": "Canelar",
+   "kind": "local_congregation",
+   "district_id": "dist-zamboanga-central",
+   "district_name": "Zamboanga City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 7:00 PM · English; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · English",
+     "new": "Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 7:00 PM · English",
+      "Sun 10:00 AM · English"
+     ],
+     "added": [
+      "Thu 7:00 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-haguimitan-ext",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-haguimitan-ext",
+   "slug": "haguimitan-ext",
+   "name": "Haguimitan Ext",
+   "kind": "extension",
+   "district_id": "dist-surigao-central",
+   "district_name": "Tandag City, Surigao Del Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 PM · Tagalog / Cebuano; Sat 8:00 AM · Tagalog · CWS; Sat 4:00 PM · Tagalog / Cebuano",
+     "new": "Wed 5:30 PM · Tagalog / Cebuano; Sat 8:00 AM · Tagalog · CWS; Sat 4:30 PM · Tagalog / Cebuano",
+     "removed": [
+      "Sat 4:00 PM · Tagalog / Cebuano"
+     ],
+     "added": [
+      "Sat 4:30 PM · Tagalog / Cebuano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-ibaan-poblacion",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-ibaan-poblacion",
+   "slug": "ibaan-poblacion",
+   "name": "Ibaan",
+   "kind": "local_congregation",
+   "district_id": "dist-batangas",
+   "district_name": "Batangas",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-lucban",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-lucban",
+   "slug": "lucban",
+   "name": "Lucban",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-west",
+   "district_name": "Quezon",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Tagalog / Tagalog Sign; Sat 3:00 PM · English · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "new": "Thu 6:00 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Tagalog / Tagalog Sign; Sat 3:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Sat 3:00 PM · English · CWS"
+     ],
+     "added": [
+      "Sat 3:00 PM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-malicboy",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-malicboy",
+   "slug": "malicboy",
+   "name": "Malicboy",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-west",
+   "district_name": "Quezon",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 6:00 PM · Tagalog",
+     "new": "Wed 6:00 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sun 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Sun 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-matala",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-matala",
+   "slug": "matala",
+   "name": "Matala",
+   "kind": "local_congregation",
+   "district_id": "dist-batangas",
+   "district_name": "Batangas",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-new-era-6",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-new-era-6",
+   "slug": "new-era-6",
+   "name": "New Era",
+   "kind": "local_congregation",
+   "district_id": "dist-aurora",
+   "district_name": "Aurora",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS",
+     "new": "Wed 6:30 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Sat 6:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-olea",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-olea",
+   "slug": "olea",
+   "name": "Olea",
+   "kind": "local_congregation",
+   "district_id": "dist-pangasinan-east",
+   "district_name": "Urdaneta City, Pangasinan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Thu 5:45 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 5:45 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Wed 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-pulong-bunga-ext",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-pulong-bunga-ext",
+   "slug": "pulong-bunga-ext",
+   "name": "Pulong Bunga",
+   "kind": "local_congregation",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Pulong Bunga Ext.",
+     "new": "Pulong Bunga"
+    },
+    {
+     "field": "kind",
+     "old": "Extension",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-sauyo-ext",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-sauyo-ext",
+   "slug": "sauyo-ext",
+   "name": "Sauyo Ext",
+   "kind": "extension",
+   "district_id": "dist-metro-manila-north",
+   "district_name": "Camanava",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 3:45 PM · Tagalog; Thu 6:45 PM · Tagalog; Sat 9:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:45 AM · Tagalog; Thu 3:45 PM · Tagalog; Thu 6:45 PM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 9:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 9:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790333246000-taguig",
+   "at": "2026-09-25T10:47:26.000Z",
+   "source": "history",
+   "action": "updated",
+   "locale_id": "loc-taguig",
+   "slug": "taguig",
+   "name": "Taguig",
+   "kind": "local_congregation",
+   "district_id": "dist-metro-manila-east",
+   "district_name": "Metro Manila East",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 8:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 10:30 AM · Tagalog · CWS",
+     "new": "Thu 5:45 AM · Tagalog; Thu 8:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 12:30 PM · Tagalog · CWS",
+     "removed": [
+      "Sun 10:30 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 12:30 PM · Tagalog · CWS"
+     ]
+    }
+   ]
+  }
+ ]
+}

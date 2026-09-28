@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { WorshipScheduleItem } from '@/lib/types';
-import { Clock, Calendar, CheckCircle2 } from 'lucide-react';
+import { Clock, Calendar } from 'lucide-react';
 import { formatTime12Hour, timeToMinutes } from '@/lib/time';
+import { findNextService, formatCountdown, ONGOING_LABEL } from '@/lib/next-service';
 
 interface DepartureBoardProps {
   schedule?: WorshipScheduleItem[];
@@ -11,6 +12,22 @@ interface DepartureBoardProps {
 }
 
 export function DepartureBoard({ schedule = [], timezone = 'Local Time' }: DepartureBoardProps) {
+  // Live status on the congregation's own clock, refreshed every 30 s.
+  const [now, setNow] = useState<Date | null>(null);
+  useEffect(() => {
+    const tick = () => setNow(new Date());
+    const first = window.setTimeout(tick, 0);
+    const id = window.setInterval(tick, 30_000);
+    return () => {
+      window.clearTimeout(first);
+      window.clearInterval(id);
+    };
+  }, []);
+  const tz = timezone === 'Local Time' ? undefined : timezone;
+  const current = now ? findNextService(schedule, tz, now) : null;
+  const ongoingId = current && current.startsInMinutes <= 0 ? current.item.id : null;
+  const upcoming = now ? findNextService(schedule, tz, now, 0) : null;
+
   if (schedule.length === 0) {
     return (
       <div className="p-6 text-center text-sm text-[#A9B4C2] glass-card">
@@ -77,8 +94,26 @@ export function DepartureBoard({ schedule = [], timezone = 'Local Time' }: Depar
                 {items.map((item) => (
                   <div
                     key={item.id}
-                    className="departure-chip bg-[#0B1426] border border-white/20 px-3 py-1.5 rounded-lg shadow-inner group flex items-center gap-2"
+                    className={`departure-chip bg-[#0B1426] border px-3 py-1.5 rounded-lg shadow-inner group flex flex-wrap items-center gap-2 ${
+                      item.id === ongoingId
+                        ? 'border-emerald-400/70 ring-1 ring-emerald-400/40'
+                        : item.id === upcoming?.item.id
+                          ? 'border-[#E8A33D]/70'
+                          : 'border-white/20'
+                    }`}
                   >
+                    {/* Live status: ongoing from its start time for one hour (or until its end time) */}
+                    {item.id === ongoingId && (
+                      <span className="flex items-center gap-1 rounded bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                        {ONGOING_LABEL}
+                      </span>
+                    )}
+                    {item.id !== ongoingId && item.id === upcoming?.item.id && (
+                      <span className="rounded bg-[#E8A33D]/15 px-1.5 py-0.5 font-departure text-[10px] font-bold text-[#E8A33D]">
+                        NEXT · {formatCountdown(upcoming.startsInMinutes)}
+                      </span>
+                    )}
                     {/* Time Digits */}
                     <span className="text-base text-white font-departure tracking-tight">
                       {formatTime12Hour(item.start_time)}
