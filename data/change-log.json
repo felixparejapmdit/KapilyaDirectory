@@ -1,6 +1,185 @@
 {
- "updated_at": "2026-09-29T02:03:39.320Z",
+ "updated_at": "2026-09-29T11:02:55.209Z",
  "entries": [
+  {
+   "id": "chg-1790679775087-bangkhaethailand",
+   "at": "2026-09-29T11:02:55.087Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bangkhaethailand",
+   "slug": "bangkhaethailand",
+   "name": "Bangkhae",
+   "kind": "local_congregation",
+   "district_id": "dist-southeast-asia-i",
+   "district_name": "Thailand",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Sat 5:30 PM · English · CWS; Sat 8:00 PM · English; Sun 9:00 AM · English",
+     "new": "Sat 3:30 PM · English · CWS; Sat 6:00 PM · English; Sun 9:00 AM · English",
+     "removed": [
+      "Sat 5:30 PM · English · CWS",
+      "Sat 8:00 PM · English"
+     ],
+     "added": [
+      "Sat 3:30 PM · English · CWS",
+      "Sat 6:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790679775087-danlog-san-jose-gws",
+   "at": "2026-09-29T11:02:55.087Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-danlog-san-jose-gws",
+   "slug": "danlog-san-jose-gws",
+   "name": "Danlog San Jose GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-camarines-southeast",
+   "district_name": "Iriga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog; Sat 6:30 AM · Tagalog",
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:30 PM · Tagalog",
+     "removed": [
+      "Sat 6:30 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790679775087-goldhunga-nepal",
+   "at": "2026-09-29T11:02:55.087Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-goldhunga-nepal",
+   "slug": "goldhunga-nepal",
+   "name": "Goldhunga,Nepal GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southeast-asia-i",
+   "district_name": "Thailand",
+   "changes": [
+    {
+     "field": "district",
+     "old": "South Korea",
+     "new": "Thailand"
+    }
+   ]
+  },
+  {
+   "id": "chg-1790679775087-high-river",
+   "at": "2026-09-29T11:02:55.087Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-high-river",
+   "slug": "high-river",
+   "name": "High River",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-v",
+   "district_name": "Calgary",
+   "changes": [
+    {
+     "field": "name",
+     "old": "High River GWS",
+     "new": "High River"
+    },
+    {
+     "field": "kind",
+     "old": "Group Worship Service (GWS)",
+     "new": "Local congregation"
+    },
+    {
+     "field": "schedule",
+     "old": "Tue 7:45 PM · English; Sun 10:00 AM · English",
+     "new": "Wed 7:45 PM · English; Sun 10:00 AM · English",
+     "removed": [
+      "Tue 7:45 PM · English"
+     ],
+     "added": [
+      "Wed 7:45 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790679775087-lagankel-nepal",
+   "at": "2026-09-29T11:02:55.087Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-lagankel-nepal",
+   "slug": "lagankel-nepal",
+   "name": "Lalitpur, Nepal GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southeast-asia-i",
+   "district_name": "Thailand",
+   "changes": [
+    {
+     "field": "district",
+     "old": "South Korea",
+     "new": "Thailand"
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · English; Sat 7:00 PM · English",
+     "new": "Thu 7:00 AM · English; Sat 7:00 PM · English",
+     "removed": [
+      "Wed 6:30 PM · English"
+     ],
+     "added": [
+      "Thu 7:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790679775087-malacca-gwsmalaysia",
+   "at": "2026-09-29T11:02:55.087Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-malacca-gwsmalaysia",
+   "slug": "malacca-gwsmalaysia",
+   "name": "Malacca GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southeast-asia-ii",
+   "district_name": "Malaysia",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Malacca",
+     "new": "Malacca GWS"
+    },
+    {
+     "field": "kind",
+     "old": "Local congregation",
+     "new": "Group Worship Service (GWS)"
+    }
+   ]
+  },
+  {
+   "id": "chg-1790679775087-rodriguez",
+   "at": "2026-09-29T11:02:55.087Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-rodriguez",
+   "slug": "rodriguez",
+   "name": "Rodriguez",
+   "kind": "local_congregation",
+   "district_id": "dist-rodriguez",
+   "district_name": "Rodriguez",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "(02) 941-2393",
+     "new": "(02) 8941-2393"
+    }
+   ]
+  },
   {
    "id": "chg-1790647419158-danlog-san-jose-gws",
    "at": "2026-09-29T02:03:39.158Z",
