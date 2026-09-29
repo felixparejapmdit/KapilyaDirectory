@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-09-29T11:02:55.209Z",
+ "updated_at": "2026-09-29T20:59:46.464Z",
  "entries": [
+  {
+   "id": "chg-1790715586372-hamilton-west",
+   "at": "2026-09-29T20:59:46.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-hamilton-west",
+   "slug": "hamilton-west",
+   "name": "Hamilton West",
+   "kind": "local_congregation",
+   "district_id": "dist-new-zealand",
+   "district_name": "New Zealand North",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 8:00 PM · English; Fri 8:00 PM · English",
+     "new": "Tue 8:00 PM · English; Wed 5:00 AM · Tagalog; Fri 8:00 PM · English",
+     "removed": [],
+     "added": [
+      "Wed 5:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1790679775087-bangkhaethailand",
    "at": "2026-09-29T11:02:55.087Z",

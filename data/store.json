@@ -62645,9 +62645,10 @@
       "latitude": -37.795794538726184,
       "longitude": 175.28035788352167,
       "languages": [
-        "English"
+        "English",
+        "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-29T20:59:46.302Z",
       "schedule": [
         {
           "id": "sch-hamilton-west-2-2000",
@@ -62657,6 +62658,16 @@
           "day_name": "Tuesday",
           "start_time": "20:00",
           "language": "English",
+          "is_cws": false
+        },
+        {
+          "id": "sch-hamilton-west-3-0500",
+          "locale_id": "loc-hamilton-west",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "05:00",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -562390,17 +562401,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-09-29T11:02:55.087Z",
+  "last_updated": "2026-09-29T20:59:46.372Z",
   "last_sync": {
-    "finished_at": "2026-09-29T11:02:55.087Z",
+    "finished_at": "2026-09-29T20:59:46.372Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,780 locales: 7 changed.",
+    "message": "Checked 8,780 locales: 1 changed.",
     "locales_total": 8780,
-    "updated": 7,
+    "updated": 1,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2361389
+    "duration_ms": 2024727
   }
 }
