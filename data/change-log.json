@@ -1,6 +1,102 @@
 {
- "updated_at": "2026-09-28T01:46:29.392Z",
+ "updated_at": "2026-09-29T02:03:39.320Z",
  "entries": [
+  {
+   "id": "chg-1790647419158-danlog-san-jose-gws",
+   "at": "2026-09-29T02:03:39.158Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-danlog-san-jose-gws",
+   "slug": "danlog-san-jose-gws",
+   "name": "Danlog San Jose GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-camarines-southeast",
+   "district_name": "Iriga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 AM · Tagalog; Sat 6:00 AM · Tagalog",
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:30 AM · Tagalog",
+     "removed": [
+      "Wed 6:00 AM · Tagalog",
+      "Sat 6:00 AM · Tagalog"
+     ],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:30 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790647419158-dela-fe-ext",
+   "at": "2026-09-29T02:03:39.158Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dela-fe-ext",
+   "slug": "dela-fe-ext",
+   "name": "Dela Fe Ext",
+   "kind": "extension",
+   "district_id": "dist-camarines-southeast",
+   "district_name": "Iriga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "new": "Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Wed 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790647419158-garchitorena",
+   "at": "2026-09-29T02:03:39.158Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-garchitorena",
+   "slug": "garchitorena",
+   "name": "Garchitorena",
+   "kind": "local_congregation",
+   "district_id": "dist-camarines-southeast",
+   "district_name": "Iriga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "new": "Thu 6:00 PM · Tagalog; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Wed 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790647419158-sangay",
+   "at": "2026-09-29T02:03:39.158Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sangay",
+   "slug": "sangay",
+   "name": "Sagñay",
+   "kind": "local_congregation",
+   "district_id": "dist-camarines-southeast",
+   "district_name": "Iriga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Sangay",
+     "new": "Sagñay"
+    }
+   ]
+  },
   {
    "id": "chg-1790506116000-pulong-bunga-ext",
    "at": "2026-09-27T10:48:36.000Z",

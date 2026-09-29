@@ -100986,25 +100986,25 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-29T02:03:39.076Z",
       "schedule": [
         {
-          "id": "sch-danlog-san-jose-gws-3-0600",
+          "id": "sch-danlog-san-jose-gws-3-1830",
           "locale_id": "loc-danlog-san-jose-gws",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "06:00",
+          "start_time": "18:30",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-danlog-san-jose-gws-6-0600",
+          "id": "sch-danlog-san-jose-gws-6-0630",
           "locale_id": "loc-danlog-san-jose-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "06:00",
+          "start_time": "06:30",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -101026,14 +101026,14 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-29T02:03:39.076Z",
       "schedule": [
         {
-          "id": "sch-dela-fe-ext-3-1800",
+          "id": "sch-dela-fe-ext-4-1800",
           "locale_id": "loc-dela-fe-ext",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
+          "day_of_week": 4,
+          "day_name": "Thursday",
           "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
@@ -101176,14 +101176,14 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-29T02:03:39.076Z",
       "schedule": [
         {
-          "id": "sch-garchitorena-3-1800",
+          "id": "sch-garchitorena-4-1800",
           "locale_id": "loc-garchitorena",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
+          "day_of_week": 4,
+          "day_name": "Thursday",
           "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
@@ -102952,7 +102952,7 @@
       "district_id": "dist-camarines-southeast",
       "district_name": "Iriga City, Camarines Sur",
       "district_slug": "camarines-southeast",
-      "name": "Sangay",
+      "name": "Sagñay",
       "slug": "sangay",
       "kind": "local_congregation",
       "address": "San Antonio Poblacion, Sagñay, Camarines Sur, 4421, Philippines",
@@ -102961,7 +102961,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-29T02:03:39.076Z",
       "schedule": [
         {
           "id": "sch-sangay-4-0600",
@@ -562390,17 +562390,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-09-27T10:48:35.778Z",
+  "last_updated": "2026-09-29T02:03:39.158Z",
   "last_sync": {
-    "finished_at": "2026-09-27T10:48:35.778Z",
+    "finished_at": "2026-09-29T02:03:39.158Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,780 locales: 1 changed.",
+    "message": "Checked 8,780 locales: 4 changed.",
     "locales_total": 8780,
-    "updated": 1,
+    "updated": 4,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 3629290
+    "duration_ms": 2171851
   }
 }
