@@ -1,6 +1,68 @@
 {
- "updated_at": "2026-09-30T01:51:11.528Z",
+ "updated_at": "2026-09-30T11:02:12.025Z",
  "entries": [
+  {
+   "id": "chg-1790766131876-marivic",
+   "at": "2026-09-30T11:02:11.876Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-marivic",
+   "slug": "marivic",
+   "name": "Marivic",
+   "kind": "local_congregation",
+   "district_id": "dist-mountain-province",
+   "district_name": "Mountain Province",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:30 AM · Ilocano / Tagalog; Wed 6:30 PM · Ilocano / Tagalog; Sat 8:30 AM · Tagalog · CWS; Sat 10:00 AM · Ilocano / Tagalog; Sat 6:00 PM · Ilocano / Tagalog",
+     "new": "Wed 8:30 AM · Ilocano / Tagalog; Wed 6:30 PM · Ilocano / Tagalog; Sat 8:30 AM · Ilocano / Tagalog; Sat 10:30 AM · Tagalog · CWS; Sat 6:00 PM · Ilocano / Tagalog",
+     "removed": [
+      "Sat 8:30 AM · Tagalog · CWS",
+      "Sat 10:00 AM · Ilocano / Tagalog"
+     ],
+     "added": [
+      "Sat 8:30 AM · Ilocano / Tagalog",
+      "Sat 10:30 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790766131876-morioka-gws",
+   "at": "2026-09-30T11:02:11.876Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-morioka-gws",
+   "slug": "morioka-gws",
+   "name": "Morioka GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Japan, 020-0133, Iwate Ken, Morioka Shi, Aoyama, 3-7-10",
+     "new": "〒020-0133 Iwate, Morioka, Aoyama, 3 Chome−7−10, サ ンコーポ アオバ"
+    },
+    {
+     "field": "location",
+     "old": "39.72804, 141.11798",
+     "new": "39.72632, 141.11698",
+     "moved_km": 0.21
+    },
+    {
+     "field": "phone",
+     "old": "0890-4841-1478",
+     "new": "+81-90-7270-4517"
+    },
+    {
+     "field": "email",
+     "old": "lolieboyladra26@gmail.com",
+     "new": "lolieboyladra28@gmail.com"
+    }
+   ]
+  },
   {
    "id": "chg-1790733071378-camias-buensuceso-ext",
    "at": "2026-09-30T01:51:11.378Z",

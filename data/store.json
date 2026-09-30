@@ -45846,14 +45846,14 @@
       "name": "Morioka GWS",
       "slug": "morioka-gws",
       "kind": "group_worship_service",
-      "address": "Japan, 020-0133, Iwate Ken, Morioka Shi, Aoyama, 3-7-10",
-      "latitude": 39.72803615569229,
-      "longitude": 141.11798286932063,
+      "address": "〒020-0133 Iwate, Morioka, Aoyama, 3 Chome−7−10, サ ンコーポ アオバ",
+      "latitude": 39.726316,
+      "longitude": 141.116985,
       "languages": [
         "Tagalog",
         "Nihongo"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-30T11:02:11.790Z",
       "schedule": [
         {
           "id": "sch-morioka-gws-6-2000",
@@ -45878,8 +45878,8 @@
           "is_cws": false
         }
       ],
-      "phone": "0890-4841-1478",
-      "email": "lolieboyladra26@gmail.com"
+      "phone": "+81-90-7270-4517",
+      "email": "lolieboyladra28@gmail.com"
     },
     {
       "id": "loc-narita-japan",
@@ -311319,7 +311319,7 @@
         "Ilocano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-09-30T11:02:11.790Z",
       "schedule": [
         {
           "id": "sch-marivic-3-0830",
@@ -311346,23 +311346,23 @@
         {
           "id": "sch-marivic-6-0830",
           "locale_id": "loc-marivic",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:30",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
-          "id": "sch-marivic-6-1000",
-          "locale_id": "loc-marivic",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "10:00",
+          "start_time": "08:30",
           "language": "Ilocano",
           "language2": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-marivic-6-1030",
+          "locale_id": "loc-marivic",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "10:30",
+          "language": "Tagalog",
+          "is_cws": true
         },
         {
           "id": "sch-marivic-6-1800",
@@ -562419,17 +562419,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-09-30T01:51:11.378Z",
+  "last_updated": "2026-09-30T11:02:11.876Z",
   "last_sync": {
-    "finished_at": "2026-09-30T01:51:11.378Z",
+    "finished_at": "2026-09-30T11:02:11.876Z",
     "trigger": "cli",
     "status": "success",
     "message": "Checked 8,781 locales: 2 changed.",
     "locales_total": 8781,
-    "updated": 1,
-    "added": 1,
+    "updated": 2,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2925856
+    "duration_ms": 2743396
   }
 }
