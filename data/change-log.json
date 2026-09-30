@@ -1,6 +1,64 @@
 {
- "updated_at": "2026-09-29T20:59:46.464Z",
+ "updated_at": "2026-09-30T01:51:11.528Z",
  "entries": [
+  {
+   "id": "chg-1790733071378-camias-buensuceso-ext",
+   "at": "2026-09-30T01:51:11.378Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-camias-buensuceso-ext",
+   "slug": "camias-buensuceso-ext",
+   "name": "Camias Buensuceso Ext.",
+   "kind": "extension",
+   "district_id": "dist-pampanga-east",
+   "district_name": "Pampanga East",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Buensuceso, Arayat, Pampanga, 2012, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "15.19350, 120.65754"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 7:00 PM · Tagalog",
+      "Sun 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1790733071378-can-abay",
+   "at": "2026-09-30T01:51:11.378Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-can-abay",
+   "slug": "can-abay",
+   "name": "Can-Abay",
+   "kind": "local_congregation",
+   "district_id": "dist-leyte-east",
+   "district_name": "Tacloban City, Leyte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:45 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 6:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1790715586372-hamilton-west",
    "at": "2026-09-29T20:59:46.372Z",
