@@ -5737,18 +5737,8 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-01T11:18:17.280Z",
       "schedule": [
-        {
-          "id": "sch-calgary-west-alberta-2-1945",
-          "locale_id": "loc-calgary-west-alberta",
-          "service_type": "Worship",
-          "day_of_week": 2,
-          "day_name": "Tuesday",
-          "start_time": "19:45",
-          "language": "English",
-          "is_cws": false
-        },
         {
           "id": "sch-calgary-west-alberta-3-1945",
           "locale_id": "loc-calgary-west-alberta",
@@ -5760,32 +5750,42 @@
           "is_cws": false
         },
         {
-          "id": "sch-calgary-west-alberta-6-0600",
+          "id": "sch-calgary-west-alberta-4-1945",
           "locale_id": "loc-calgary-west-alberta",
           "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "06:00",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "19:45",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-calgary-west-alberta-6-0900",
+          "id": "sch-calgary-west-alberta-6-1900",
           "locale_id": "loc-calgary-west-alberta",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "09:00",
+          "start_time": "19:00",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-calgary-west-alberta-6-1100",
+          "id": "sch-calgary-west-alberta-0-1000",
+          "locale_id": "loc-calgary-west-alberta",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "10:00",
+          "language": "English",
+          "is_cws": false
+        },
+        {
+          "id": "sch-calgary-west-alberta-0-1230",
           "locale_id": "loc-calgary-west-alberta",
           "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "11:00",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "12:30",
           "language": "English",
           "is_cws": true
         }
@@ -562325,6 +562325,85 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-panipuan-gws",
+      "district_id": "dist-pampanga-north",
+      "name": "Panipuan GWS",
+      "slug": "panipuan-gws",
+      "kind": "group_worship_service",
+      "address": "Brgy. Panipuan Calulut Rd, San Fernando City, Pampanga, 2000, Philippines",
+      "latitude": 15.108931543978038,
+      "longitude": 120.63344281448535,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-10-01T11:18:17.280Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-panipuan-gws-4-1900",
+          "locale_id": "loc-panipuan-gws",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-panipuan-gws-0-1900",
+          "locale_id": "loc-panipuan-gws",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
+    },
+    {
+      "id": "loc-ticulon-dako-ng-mawalay",
+      "district_id": "dist-davao-occidental-1",
+      "name": "Ticulon - dako ng Mawalay",
+      "slug": "ticulon-dako-ng-mawalay",
+      "kind": "local_congregation",
+      "address": "Brgy. Lais Malita, Davao Occidental, Davao del Sur, 8012, Philippines",
+      "latitude": 6.298388836200435,
+      "longitude": 125.63024512432946,
+      "languages": [
+        "Tagalog",
+        "Cebuano"
+      ],
+      "source_updated_at": "2026-10-01T11:18:17.280Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-ticulon-dako-ng-mawalay-3-1800",
+          "locale_id": "loc-ticulon-dako-ng-mawalay",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "language2": "Cebuano",
+          "is_cws": false
+        },
+        {
+          "id": "sch-ticulon-dako-ng-mawalay-6-1800",
+          "locale_id": "loc-ticulon-dako-ng-mawalay",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "language2": "Cebuano",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562419,17 +562498,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-09-30T11:02:11.876Z",
+  "last_updated": "2026-10-01T11:18:17.364Z",
   "last_sync": {
-    "finished_at": "2026-09-30T11:02:11.876Z",
+    "finished_at": "2026-10-01T11:18:17.364Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,781 locales: 2 changed.",
-    "locales_total": 8781,
-    "updated": 2,
-    "added": 0,
+    "message": "Checked 8,783 locales: 3 changed.",
+    "locales_total": 8783,
+    "updated": 1,
+    "added": 2,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2743396
+    "duration_ms": 2136747
   }
 }
