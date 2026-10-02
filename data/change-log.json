@@ -1,6 +1,42 @@
 {
- "updated_at": "2026-10-02T10:54:44.712Z",
+ "updated_at": "2026-10-02T20:59:09.786Z",
  "entries": [
+  {
+   "id": "chg-1790974749477-san-pedro-2",
+   "at": "2026-10-02T20:59:09.477Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-san-pedro-2",
+   "slug": "san-pedro-2",
+   "name": "San Pedro",
+   "kind": "local_congregation",
+   "district_id": "dist-albay",
+   "district_name": "Albay",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Barangay San Pedro, San Pascual, Masbate, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 8:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 10:00 AM · Tagalog; Sat 5:00 PM · Tagalog; Sat 5:00 PM · Tagalog; Sun 5:45 AM · Tagalog",
+     "new": null,
+     "removed": [
+      "Thu 5:30 AM · Tagalog",
+      "Thu 8:30 AM · Tagalog",
+      "Thu 6:00 PM · Tagalog",
+      "Thu 6:00 PM · Tagalog",
+      "Sat 6:00 AM · Tagalog",
+      "Sat 10:00 AM · Tagalog",
+      "Sat 5:00 PM · Tagalog",
+      "Sat 5:00 PM · Tagalog",
+      "Sun 5:45 AM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1790938484570-weirton-ext-wv",
    "at": "2026-10-02T10:54:44.570Z",

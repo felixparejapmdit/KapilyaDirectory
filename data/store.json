@@ -93084,116 +93084,6 @@
       "email": null
     },
     {
-      "id": "loc-san-pedro-2",
-      "district_id": "dist-albay",
-      "district_name": "Albay",
-      "district_slug": "albay",
-      "name": "San Pedro",
-      "slug": "san-pedro-2",
-      "kind": "local_congregation",
-      "address": "Barangay San Pedro, San Pascual, Masbate, Philippines",
-      "latitude": 13.133333,
-      "longitude": 122.983333,
-      "languages": [
-        "Tagalog"
-      ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
-      "schedule": [
-        {
-          "id": "sch-san-pedro-2-4-0530",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "05:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-4-0830",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "08:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-4-1800",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-4-1800-2",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-6-0600",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "06:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-6-1000",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-6-1700",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "17:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-6-1700-2",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "17:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-pedro-2-0-0545",
-          "locale_id": "loc-san-pedro-2",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "05:45",
-          "language": "Tagalog",
-          "is_cws": false
-        }
-      ],
-      "phone": null,
-      "email": null
-    },
-    {
       "id": "loc-san-pedro-burias",
       "district_id": "dist-albay",
       "district_name": "Albay",
@@ -562498,17 +562388,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-02T10:54:44.570Z",
+  "last_updated": "2026-10-02T20:59:09.477Z",
   "last_sync": {
-    "finished_at": "2026-10-02T10:54:44.570Z",
+    "finished_at": "2026-10-02T20:59:09.477Z",
     "trigger": "cli",
-    "status": "success",
-    "message": "Checked 8,783 locales: 1 changed.",
-    "locales_total": 8783,
-    "updated": 1,
+    "status": "partial",
+    "message": "Checked 8,782 locales: 1 changed; 1 pages kept their previous data.",
+    "locales_total": 8782,
+    "updated": 0,
     "added": 0,
-    "removed": 0,
-    "fetch_failures": 0,
-    "duration_ms": 2210288
+    "removed": 1,
+    "fetch_failures": 1,
+    "duration_ms": 2345844
   }
 }
