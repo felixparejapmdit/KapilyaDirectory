@@ -1,6 +1,31 @@
 {
- "updated_at": "2026-10-01T11:18:17.828Z",
+ "updated_at": "2026-10-02T02:09:45.218Z",
  "entries": [
+  {
+   "id": "chg-1790906985085-timaru-new-zealand",
+   "at": "2026-10-02T02:09:45.085Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-timaru-new-zealand",
+   "slug": "timaru-new-zealand",
+   "name": "Timaru GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-new-zealand-south",
+   "district_name": "New Zealand South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Fri 6:30 PM · English; Fri 8:00 PM · English",
+     "new": "Wed 7:30 PM · English; Fri 6:30 PM · English · CWS; Fri 8:00 PM · English",
+     "removed": [
+      "Fri 6:30 PM · English"
+     ],
+     "added": [
+      "Fri 6:30 PM · English · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1790853497364-panipuan-gws",
    "at": "2026-10-01T11:18:17.364Z",

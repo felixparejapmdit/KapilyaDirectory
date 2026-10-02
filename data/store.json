@@ -64656,7 +64656,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-02T02:09:45.005Z",
       "schedule": [
         {
           "id": "sch-timaru-new-zealand-3-1930",
@@ -64671,12 +64671,12 @@
         {
           "id": "sch-timaru-new-zealand-5-1830",
           "locale_id": "loc-timaru-new-zealand",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 5,
           "day_name": "Friday",
           "start_time": "18:30",
           "language": "English",
-          "is_cws": false
+          "is_cws": true
         },
         {
           "id": "sch-timaru-new-zealand-5-2000",
@@ -562498,17 +562498,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-01T11:18:17.364Z",
+  "last_updated": "2026-10-02T02:09:45.085Z",
   "last_sync": {
-    "finished_at": "2026-10-01T11:18:17.364Z",
+    "finished_at": "2026-10-02T02:09:45.085Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,783 locales: 3 changed.",
+    "message": "Checked 8,783 locales: 1 changed.",
     "locales_total": 8783,
     "updated": 1,
-    "added": 2,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2136747
+    "duration_ms": 3186715
   }
 }
