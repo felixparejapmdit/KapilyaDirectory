@@ -12432,16 +12432,16 @@
       "district_id": "dist-northern-midwest",
       "district_name": "Great Lakes",
       "district_slug": "northern-midwest",
-      "name": "Weirton,West Virginia EXT (Cleveland)",
+      "name": "Beaver Falls, PA EXT",
       "slug": "weirton-ext-wv",
       "kind": "extension",
-      "address": "2898 Pioneer Dr, Ambridge, Pennsylvania, 15003, USA",
-      "latitude": 40.6126149,
-      "longitude": -80.22478989999999,
+      "address": "419 40th st., Beaver Falls, Pennsylvania, 15010, USA",
+      "latitude": 40.780033,
+      "longitude": -80.327011,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-02T10:54:44.487Z",
       "schedule": [
         {
           "id": "sch-weirton-ext-wv-3-1930",
@@ -562498,9 +562498,9 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-02T02:09:45.085Z",
+  "last_updated": "2026-10-02T10:54:44.570Z",
   "last_sync": {
-    "finished_at": "2026-10-02T02:09:45.085Z",
+    "finished_at": "2026-10-02T10:54:44.570Z",
     "trigger": "cli",
     "status": "success",
     "message": "Checked 8,783 locales: 1 changed.",
@@ -562509,6 +562509,6 @@
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 3186715
+    "duration_ms": 2210288
   }
 }

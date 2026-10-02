@@ -1,6 +1,36 @@
 {
- "updated_at": "2026-10-02T02:09:45.218Z",
+ "updated_at": "2026-10-02T10:54:44.712Z",
  "entries": [
+  {
+   "id": "chg-1790938484570-weirton-ext-wv",
+   "at": "2026-10-02T10:54:44.570Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-weirton-ext-wv",
+   "slug": "weirton-ext-wv",
+   "name": "Beaver Falls, PA EXT",
+   "kind": "extension",
+   "district_id": "dist-northern-midwest",
+   "district_name": "Great Lakes",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Weirton,West Virginia EXT (Cleveland)",
+     "new": "Beaver Falls, PA EXT"
+    },
+    {
+     "field": "address",
+     "old": "2898 Pioneer Dr, Ambridge, Pennsylvania, 15003, USA",
+     "new": "419 40th st., Beaver Falls, Pennsylvania, 15010, USA"
+    },
+    {
+     "field": "location",
+     "old": "40.61261, -80.22479",
+     "new": "40.78003, -80.32701",
+     "moved_km": 20.51
+    }
+   ]
+  },
   {
    "id": "chg-1790906985085-timaru-new-zealand",
    "at": "2026-10-02T02:09:45.085Z",
