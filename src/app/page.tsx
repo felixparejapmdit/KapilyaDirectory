@@ -35,15 +35,7 @@ const OVERVIEW_CARDS: {
   /** Small line under the label. */
   note?: (t: DirectoryTotals) => string;
 }[] = [
-  {
-    label: 'Countries & territories',
-    icon: Globe2,
-    tone: 'bg-[#3A6EA5]/20 text-[#5AA9FF] border-[#3A6EA5]/40',
-    value: (t) => t.countries ?? 0,
-    fallback: 117,
-    href: '/districts?group=country',
-    note: (t) => `on ${t.continents ?? 6} continents · ${t.regions} regions`,
-  },
+  { label: 'Regions Worldwide', icon: Globe2, tone: 'bg-[#3A6EA5]/20 text-[#5AA9FF] border-[#3A6EA5]/40', value: (t) => t.regions, fallback: 21, href: '/districts' },
   { label: 'Ecclesiastical Districts', icon: MapIcon, tone: 'bg-[#E8A33D]/15 text-[#E8A33D] border-[#E8A33D]/35', value: (t) => t.districts, fallback: 198, href: '/districts' },
   { label: 'Local Congregations', icon: Building2, tone: 'bg-sky-500/15 text-sky-300 border-sky-400/30', value: (t) => t.locales, fallback: 0 },
   { label: 'Extensions', icon: GitBranch, tone: 'bg-orange-500/15 text-orange-300 border-orange-400/30', value: (t) => t.extensions, fallback: 0 },
