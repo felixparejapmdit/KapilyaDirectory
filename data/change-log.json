@@ -1,6 +1,296 @@
 {
- "updated_at": "2026-10-02T20:59:09.786Z",
+ "updated_at": "2026-10-06T11:36:23.077Z",
  "entries": [
+  {
+   "id": "chg-1791286582761-baclayon-ext",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-baclayon-ext",
+   "slug": "baclayon-ext",
+   "name": "Baclayon Ext",
+   "kind": "extension",
+   "district_id": "dist-bohol",
+   "district_name": "Bohol",
+   "changes": [
+    {
+     "field": "location",
+     "old": "9.62851, 123.90611",
+     "new": "9.62841, 123.90595",
+     "moved_km": 0.02
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-bala-dako-ng-tacul",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bala-dako-ng-tacul",
+   "slug": "bala-dako-ng-tacul",
+   "name": "Bala - dako ng Tacul",
+   "kind": "local_congregation",
+   "district_id": "dist-davao-del-sur",
+   "district_name": "Davao Del Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 2:00 PM · Tagalog",
+     "new": "Wed 6:00 PM · Tagalog; Sat 5:00 PM · Tagalog",
+     "removed": [
+      "Sat 2:00 PM · Tagalog"
+     ],
+     "added": [
+      "Sat 5:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-dau-ville-extension",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dau-ville-extension",
+   "slug": "dau-ville-extension",
+   "name": "Dau Ville",
+   "kind": "local_congregation",
+   "district_id": "dist-pampanga-north",
+   "district_name": "Pampanga North",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Dau Ville Extension",
+     "new": "Dau Ville"
+    },
+    {
+     "field": "kind",
+     "old": "Extension",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-marysville-washington",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-marysville-washington",
+   "slug": "marysville-washington",
+   "name": "Marysville",
+   "kind": "local_congregation",
+   "district_id": "dist-pacific-northwest",
+   "district_name": "Washington State",
+   "changes": [
+    {
+     "field": "address",
+     "old": "10520, 86th street, NE Lake Stevens, Washington, 98258, United States of America",
+     "new": "@ Everett Chapel, 6110 Colby Ave, Everett, Washington, 98203 - 3823, United States of America"
+    },
+    {
+     "field": "location",
+     "old": "48.07365, -122.08814",
+     "new": "47.94213, -122.20764",
+     "moved_km": 17.11
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-monterico",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-monterico",
+   "slug": "monterico",
+   "name": "Monterico",
+   "kind": "local_congregation",
+   "district_id": "dist-misamis-occidental",
+   "district_name": "Misamis Occidental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Cebuano / Tagalog; Thu 6:00 PM · Cebuano / Tagalog; Sun 6:00 AM · Cebuano / Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano / Tagalog",
+     "new": "Wed 5:45 AM · Cebuano / Tagalog; Wed 6:30 PM · Cebuano / Tagalog; Sat 6:00 PM · Cebuano / Tagalog; Sun 7:00 AM · Cebuano / Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Thu 6:00 AM · Cebuano / Tagalog",
+      "Thu 6:00 PM · Cebuano / Tagalog",
+      "Sun 6:00 AM · Cebuano / Tagalog",
+      "Sun 8:00 AM · Tagalog · CWS",
+      "Sun 10:00 AM · Cebuano / Tagalog"
+     ],
+     "added": [
+      "Wed 5:45 AM · Cebuano / Tagalog",
+      "Wed 6:30 PM · Cebuano / Tagalog",
+      "Sat 6:00 PM · Cebuano / Tagalog",
+      "Sun 7:00 AM · Cebuano / Tagalog",
+      "Sun 8:30 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-016",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-016",
+   "slug": "016",
+   "name": "Puyallup",
+   "kind": "local_congregation",
+   "district_id": "dist-pacific-northwest",
+   "district_name": "Washington State",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Sat 10:00 AM · English; Sat 1:00 PM · English · CWS",
+     "new": "Wed 7:30 PM · English; Sat 9:00 AM · English; Sat 11:30 AM · English · CWS",
+     "removed": [
+      "Sat 10:00 AM · English",
+      "Sat 1:00 PM · English · CWS"
+     ],
+     "added": [
+      "Sat 9:00 AM · English",
+      "Sat 11:30 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-sacramento",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sacramento",
+   "slug": "sacramento",
+   "name": "Sacramento",
+   "kind": "local_congregation",
+   "district_id": "dist-makati",
+   "district_name": "Makati",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog / Tagalog Sign; Thu 6:00 AM · Tagalog; Thu 8:00 PM · English; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog; Sun 8:15 AM · Tagalog · CWS; Sun 10:00 AM · English; Sun 1:00 PM · English · CWS",
+     "new": "Wed 7:00 PM · Tagalog / Tagalog Sign; Thu 6:00 AM · English; Thu 8:00 PM · Tagalog; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog; Sun 8:15 AM · Tagalog · CWS; Sun 10:00 AM · English; Sun 1:00 PM · English · CWS",
+     "removed": [
+      "Thu 6:00 AM · Tagalog",
+      "Thu 8:00 PM · English"
+     ],
+     "added": [
+      "Thu 6:00 AM · English",
+      "Thu 8:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-sitio-laya-gws",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-sitio-laya-gws",
+   "slug": "sitio-laya-gws",
+   "name": "Sitio Laya GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-davao-west",
+   "district_name": "Davao City",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Sitio Laya, Brgy Salaysay, Davao City, Davao Del Sur, 8000, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "7.25771, 125.29218"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 5:00 PM · Tagalog / Cebuano; Sat 5:00 PM · Tagalog / Cebuano",
+     "removed": [],
+     "added": [
+      "Wed 5:00 PM · Tagalog / Cebuano",
+      "Sat 5:00 PM · Tagalog / Cebuano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-springfield-il-gws",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-springfield-il-gws",
+   "slug": "springfield-il-gws",
+   "name": "Springfield, IL GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-northern-plains",
+   "district_name": "Northern Plains",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 7:30 PM · English; Sun 10:30 AM · English",
+     "new": "Thu 7:30 PM · English; Sun 9:00 AM · English",
+     "removed": [
+      "Sun 10:30 AM · English"
+     ],
+     "added": [
+      "Sun 9:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-st-louis-missouri",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-st-louis-missouri",
+   "slug": "st-louis-missouri",
+   "name": "St. Louis, Missouri",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-plains",
+   "district_name": "Northern Plains",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · English; Thu 10:00 AM · English; Sun 9:00 AM · English · CWS; Sun 10:30 AM · English",
+     "new": "Wed 7:00 PM · English; Thu 10:00 AM · English; Sun 9:00 AM · English; Sun 11:30 AM · English · CWS",
+     "removed": [
+      "Sun 9:00 AM · English · CWS",
+      "Sun 10:30 AM · English"
+     ],
+     "added": [
+      "Sun 9:00 AM · English",
+      "Sun 11:30 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791286582761-vienna-illinois",
+   "at": "2026-10-06T11:36:22.761Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-vienna-illinois",
+   "slug": "vienna-illinois",
+   "name": "Vienna, Illinois GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-northern-plains",
+   "district_name": "Northern Plains",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · English; Sun 10:30 AM · English; Sun 10:30 AM · English",
+     "new": "Wed 7:00 PM · English; Sun 9:00 AM · English; Sun 10:30 AM · English",
+     "removed": [],
+     "added": [
+      "Sun 9:00 AM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1790974749477-san-pedro-2",
    "at": "2026-10-02T20:59:09.477Z",

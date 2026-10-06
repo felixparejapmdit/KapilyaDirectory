@@ -22067,7 +22067,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-springfield-il-gws-4-1930",
@@ -22080,12 +22080,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-springfield-il-gws-0-1030",
+          "id": "sch-springfield-il-gws-0-0900",
           "locale_id": "loc-springfield-il-gws",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:30",
+          "start_time": "09:00",
           "language": "English",
           "is_cws": false
         }
@@ -22147,7 +22147,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-st-louis-missouri-3-1900",
@@ -22172,22 +22172,22 @@
         {
           "id": "sch-st-louis-missouri-0-0900",
           "locale_id": "loc-st-louis-missouri",
-          "service_type": "CWS",
+          "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "09:00",
           "language": "English",
-          "is_cws": true
+          "is_cws": false
         },
         {
-          "id": "sch-st-louis-missouri-0-1030",
+          "id": "sch-st-louis-missouri-0-1130",
           "locale_id": "loc-st-louis-missouri",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:30",
+          "start_time": "11:30",
           "language": "English",
-          "is_cws": false
+          "is_cws": true
         }
       ],
       "phone": "612-741-7793",
@@ -22327,7 +22327,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-vienna-illinois-3-1900",
@@ -22340,17 +22340,17 @@
           "is_cws": false
         },
         {
-          "id": "sch-vienna-illinois-0-1030",
+          "id": "sch-vienna-illinois-0-0900",
           "locale_id": "loc-vienna-illinois",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:30",
+          "start_time": "09:00",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-vienna-illinois-0-1030-2",
+          "id": "sch-vienna-illinois-0-1030",
           "locale_id": "loc-vienna-illinois",
           "service_type": "Worship",
           "day_of_week": 0,
@@ -34012,13 +34012,13 @@
       "name": "Marysville",
       "slug": "marysville-washington",
       "kind": "local_congregation",
-      "address": "10520, 86th street, NE Lake Stevens, Washington, 98258, United States of America",
-      "latitude": 48.07365201999659,
-      "longitude": -122.0881443490131,
+      "address": "@ Everett Chapel, 6110 Colby Ave, Everett, Washington, 98203 - 3823, United States of America",
+      "latitude": 47.94212848128925,
+      "longitude": -122.20763648625973,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-marysville-washington-4-1930",
@@ -34188,7 +34188,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-016-3-1930",
@@ -34201,22 +34201,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-016-6-1000",
+          "id": "sch-016-6-0900",
           "locale_id": "loc-016",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "10:00",
+          "start_time": "09:00",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-016-6-1300",
+          "id": "sch-016-6-1130",
           "locale_id": "loc-016",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "13:00",
+          "start_time": "11:30",
           "language": "English",
           "is_cws": true
         }
@@ -226756,16 +226756,16 @@
       "district_id": "dist-pampanga-north",
       "district_name": "Pampanga North",
       "district_slug": "pampanga-north",
-      "name": "Dau Ville Extension",
+      "name": "Dau Ville",
       "slug": "dau-ville-extension",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "Lot 7 Dau Ville, Duquit, Mabalacat, Pampanga, 2010, Philippines",
       "latitude": 15.180184875607456,
       "longitude": 120.61239796053286,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-dau-ville-extension-4-0530",
@@ -281013,13 +281013,13 @@
       "slug": "baclayon-ext",
       "kind": "extension",
       "address": "Old Provincial rd. Landican, Baclayon, Bohol, 6301, Philippines",
-      "latitude": 9.62851,
-      "longitude": 123.90611,
+      "latitude": 9.62840846672878,
+      "longitude": 123.9059526178154,
       "languages": [
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-baclayon-ext-3-1830",
@@ -378072,7 +378072,7 @@
         "Tagalog Sign",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-sacramento-3-1900",
@@ -378092,7 +378092,7 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "06:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         },
         {
@@ -378102,7 +378102,7 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "20:00",
-          "language": "English",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -403919,61 +403919,61 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
-          "id": "sch-monterico-4-0600",
+          "id": "sch-monterico-3-0545",
           "locale_id": "loc-monterico",
           "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "06:00",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "05:45",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-monterico-4-1800",
+          "id": "sch-monterico-3-1830",
           "locale_id": "loc-monterico",
           "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:30",
+          "language": "Cebuano",
+          "language2": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-monterico-6-1800",
+          "locale_id": "loc-monterico",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "18:00",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-monterico-0-0600",
+          "id": "sch-monterico-0-0700",
           "locale_id": "loc-monterico",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "06:00",
+          "start_time": "07:00",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-monterico-0-0800",
+          "id": "sch-monterico-0-0830",
           "locale_id": "loc-monterico",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "08:00",
+          "start_time": "08:30",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-monterico-0-1000",
-          "locale_id": "loc-monterico",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Cebuano",
-          "language2": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": null,
@@ -422262,7 +422262,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
       "schedule": [
         {
           "id": "sch-bala-dako-ng-tacul-3-1800",
@@ -422275,12 +422275,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-bala-dako-ng-tacul-6-1400",
+          "id": "sch-bala-dako-ng-tacul-6-1700",
           "locale_id": "loc-bala-dako-ng-tacul",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "14:00",
+          "start_time": "17:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -562294,6 +562294,47 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-sitio-laya-gws",
+      "district_id": "dist-davao-west",
+      "name": "Sitio Laya GWS",
+      "slug": "sitio-laya-gws",
+      "kind": "group_worship_service",
+      "address": "Sitio Laya, Brgy Salaysay, Davao City, Davao Del Sur, 8000, Philippines",
+      "latitude": 7.2577067261761865,
+      "longitude": 125.2921833967998,
+      "languages": [
+        "Tagalog",
+        "Cebuano"
+      ],
+      "source_updated_at": "2026-10-06T11:36:22.693Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-sitio-laya-gws-3-1700",
+          "locale_id": "loc-sitio-laya-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "17:00",
+          "language": "Tagalog",
+          "language2": "Cebuano",
+          "is_cws": false
+        },
+        {
+          "id": "sch-sitio-laya-gws-6-1700",
+          "locale_id": "loc-sitio-laya-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "17:00",
+          "language": "Tagalog",
+          "language2": "Cebuano",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562388,17 +562429,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-02T20:59:09.477Z",
+  "last_updated": "2026-10-06T11:36:22.761Z",
   "last_sync": {
-    "finished_at": "2026-10-02T20:59:09.477Z",
+    "finished_at": "2026-10-06T11:36:22.761Z",
     "trigger": "cli",
-    "status": "partial",
-    "message": "Checked 8,782 locales: 1 changed; 1 pages kept their previous data.",
-    "locales_total": 8782,
-    "updated": 0,
-    "added": 0,
-    "removed": 1,
-    "fetch_failures": 1,
-    "duration_ms": 2345844
+    "status": "success",
+    "message": "Checked 8,783 locales: 11 changed.",
+    "locales_total": 8783,
+    "updated": 10,
+    "added": 1,
+    "removed": 0,
+    "fetch_failures": 0,
+    "duration_ms": 2189430
   }
 }
