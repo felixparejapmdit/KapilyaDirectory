@@ -1,6 +1,88 @@
 {
- "updated_at": "2026-10-07T11:24:09.453Z",
+ "updated_at": "2026-10-07T21:35:32.922Z",
  "entries": [
+  {
+   "id": "chg-1791408932788-hagatna-ext",
+   "at": "2026-10-07T21:35:32.788Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-hagatna-ext",
+   "slug": "hagatna-ext",
+   "name": "Hagatna Ext (Mangilao)",
+   "kind": "extension",
+   "district_id": "dist-marianas-islands",
+   "district_name": "Micronesia",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · Tagalog; Thu 8:00 PM · English; Sat 8:00 PM · English; Sun 8:00 AM · Tagalog",
+     "new": "Thu 8:00 PM · English; Sat 8:00 PM · English",
+     "removed": [
+      "Wed 8:00 PM · Tagalog",
+      "Sun 8:00 AM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1791408932788-salcedo-gws",
+   "at": "2026-10-07T21:35:32.788Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-salcedo-gws",
+   "slug": "salcedo-gws",
+   "name": "Salcedo GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-iloilo-north",
+   "district_name": "Iloilo North",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Salcedo, Sara, Iloilo, 5014, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "11.23775, 123.04152"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:00 PM · Tagalog / Hiligaynon; Sat 6:00 PM · Tagalog / Hiligaynon",
+     "removed": [],
+     "added": [
+      "Wed 6:00 PM · Tagalog / Hiligaynon",
+      "Sat 6:00 PM · Tagalog / Hiligaynon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791408932788-tubigan",
+   "at": "2026-10-07T21:35:32.788Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-tubigan",
+   "slug": "tubigan",
+   "name": "Tubigan",
+   "kind": "local_congregation",
+   "district_id": "dist-sta-rosa-city-laguna",
+   "district_name": "Sta. Rosa City, Laguna",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 7:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:30 AM · Tagalog; Thu 7:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 7:30 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1791372249313-taytay-gws",
    "at": "2026-10-07T11:24:09.313Z",
