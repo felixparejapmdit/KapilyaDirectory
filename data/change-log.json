@@ -1,6 +1,71 @@
 {
- "updated_at": "2026-10-07T01:53:22.613Z",
+ "updated_at": "2026-10-07T11:24:09.453Z",
  "entries": [
+  {
+   "id": "chg-1791372249313-taytay-gws",
+   "at": "2026-10-07T11:24:09.313Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-taytay-gws",
+   "slug": "taytay-gws",
+   "name": "Taytay GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-laguna-east",
+   "district_name": "Sta. Cruz, Laguna",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Palayan St., Brgy. Taytay, Majayjay, Laguna, 4005, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "new": null,
+     "removed": [
+      "Thu 6:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1791372249313-vallejo",
+   "at": "2026-10-07T11:24:09.313Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-vallejo",
+   "slug": "vallejo",
+   "name": "Vallejo",
+   "kind": "local_congregation",
+   "district_id": "dist-northeast-california",
+   "district_name": "Northeast California",
+   "changes": [
+    {
+     "field": "address",
+     "old": "502 Virginia st, Vallejo, California, 94590, United States of America",
+     "new": "600 Ryder Street, Vallejo, California, 94590, United States of America"
+    },
+    {
+     "field": "location",
+     "old": "38.10236, -122.25470",
+     "new": "38.09322, -122.24832",
+     "moved_km": 1.16
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 AM · English; Wed 7:30 PM · Tagalog; Thu 7:30 PM · English; Sat 7:00 PM · English; Sun 7:00 AM · Tagalog; Sun 9:00 AM · English · CWS; Sun 11:00 AM · English",
+     "new": "Wed 5:30 AM · English; Wed 7:30 PM · Tagalog; Thu 7:30 PM · English; Sat 7:00 PM · English; Sun 7:00 AM · Tagalog; Sun 11:00 AM · English · CWS; Sun 11:00 AM · English",
+     "removed": [
+      "Sun 9:00 AM · English · CWS"
+     ],
+     "added": [
+      "Sun 11:00 AM · English · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1791338002473-benny",
    "at": "2026-10-07T01:53:22.473Z",
