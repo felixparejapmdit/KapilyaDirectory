@@ -1,6 +1,110 @@
 {
- "updated_at": "2026-10-06T11:36:23.077Z",
+ "updated_at": "2026-10-07T01:53:22.613Z",
  "entries": [
+  {
+   "id": "chg-1791338002473-benny",
+   "at": "2026-10-07T01:53:22.473Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-benny",
+   "slug": "benny",
+   "name": "Benicia",
+   "kind": "local_congregation",
+   "district_id": "dist-northeast-california",
+   "district_name": "Northeast California",
+   "changes": [
+    {
+     "field": "address",
+     "old": "1175 Church street, Benicia, California, 94510, CWS @ 600 Ryder St., Vallejo CA 94590, USA",
+     "new": "Vallejo Chapel, 600 Ryder St., Vallejo, CA, 94590, USA"
+    },
+    {
+     "field": "location",
+     "old": "38.06464, -122.17726",
+     "new": "38.09325, -122.24834",
+     "moved_km": 6.99
+    }
+   ]
+  },
+  {
+   "id": "chg-1791338002473-cabuyao",
+   "at": "2026-10-07T01:53:22.473Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cabuyao",
+   "slug": "cabuyao",
+   "name": "Cabuyao",
+   "kind": "local_congregation",
+   "district_id": "dist-sta-rosa-city-laguna",
+   "district_name": "Sta. Rosa City, Laguna",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 2:00 PM · Tagalog; Wed 7:30 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 2:00 PM · Tagalog; Wed 7:30 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Tagalog / Tagalog Sign; Sat 6:00 AM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Thu 7:30 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Thu 7:30 PM · Tagalog / Tagalog Sign",
+      "Sun 10:00 AM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791338002473-dau-ville-extension",
+   "at": "2026-10-07T01:53:22.473Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dau-ville-extension",
+   "slug": "dau-ville-extension",
+   "name": "Dau Ville",
+   "kind": "local_congregation",
+   "district_id": "dist-pampanga-north",
+   "district_name": "Pampanga North",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "new": "Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 8:30 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791338002473-san-pedro-4",
+   "at": "2026-10-07T01:53:22.473Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-pedro-4",
+   "slug": "san-pedro-4",
+   "name": "San Pedro",
+   "kind": "local_congregation",
+   "district_id": "dist-sta-rosa-city-laguna",
+   "district_name": "Sta. Rosa City, Laguna",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Tagalog Sign; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog Sign",
+     "new": "Wed 7:30 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Tagalog / Tagalog Sign; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Thu 7:30 PM · Tagalog Sign",
+      "Sun 10:00 AM · Tagalog Sign"
+     ],
+     "added": [
+      "Thu 7:30 PM · Tagalog / Tagalog Sign",
+      "Sun 10:00 AM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1791286582761-baclayon-ext",
    "at": "2026-10-06T11:36:22.761Z",
