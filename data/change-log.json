@@ -1,6 +1,69 @@
 {
- "updated_at": "2026-10-07T21:35:32.922Z",
+ "updated_at": "2026-10-08T11:41:19.350Z",
  "entries": [
+  {
+   "id": "chg-1791459678777-laguile-gws",
+   "at": "2026-10-08T11:41:18.777Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-laguile-gws",
+   "slug": "laguile-gws",
+   "name": "Laguile GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-batangas",
+   "district_name": "Batangas",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Brgy Laguile, Taal, Batangas, 4208, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "13.89938, 120.91457"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:00 PM · Tagalog; Sun 8:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:00 PM · Tagalog",
+      "Sun 8:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791459678777-mizawa",
+   "at": "2026-10-08T11:41:18.777Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-mizawa",
+   "slug": "mizawa",
+   "name": "Misawa GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "address",
+     "old": "1-11-1 Maetai, Misawa, Aomori-ken, 033-143, Japan",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 8:30 PM · English; Sun 10:00 AM · English",
+     "new": null,
+     "removed": [
+      "Wed 8:30 PM · English",
+      "Sun 10:00 AM · English"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1791408932788-hagatna-ext",
    "at": "2026-10-07T21:35:32.788Z",
