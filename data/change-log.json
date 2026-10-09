@@ -1,6 +1,31 @@
 {
- "updated_at": "2026-10-08T11:41:19.350Z",
+ "updated_at": "2026-10-09T02:23:51.533Z",
  "entries": [
+  {
+   "id": "chg-1791512631380-nogales-mexico-gws",
+   "at": "2026-10-09T02:23:51.380Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-nogales-mexico-gws",
+   "slug": "nogales-mexico-gws",
+   "name": "Nogales, Mexico GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-latin-america",
+   "district_name": "Central America",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Spanish; Sat 4:30 PM · Spanish",
+     "new": "Wed 7:00 PM · Spanish; Sat 8:00 AM · Spanish",
+     "removed": [
+      "Sat 4:30 PM · Spanish"
+     ],
+     "added": [
+      "Sat 8:00 AM · Spanish"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1791459678777-laguile-gws",
    "at": "2026-10-08T11:41:18.777Z",
