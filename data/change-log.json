@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-10-09T02:23:51.533Z",
+ "updated_at": "2026-10-10T11:09:20.444Z",
  "entries": [
+  {
+   "id": "chg-1791630559864-arnstadt-germany-gws",
+   "at": "2026-10-10T11:09:19.864Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-arnstadt-germany-gws",
+   "slug": "arnstadt-germany-gws",
+   "name": "Arnstadt, Germany GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-central-europe",
+   "district_name": "Central Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 7:30 PM · English; Fri 6:00 PM · English · CWS; Fri 8:00 PM · English",
+     "new": "Tue 7:30 PM · English; Fri 8:00 PM · English",
+     "removed": [
+      "Fri 6:00 PM · English · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1791512631380-nogales-mexico-gws",
    "at": "2026-10-09T02:23:51.380Z",
