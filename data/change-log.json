@@ -1,6 +1,35 @@
 {
- "updated_at": "2026-10-10T11:09:20.444Z",
+ "updated_at": "2026-10-11T01:59:08.556Z",
  "entries": [
+  {
+   "id": "chg-1791683948449-sta-teresita-gws-1",
+   "at": "2026-10-11T01:59:08.449Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-sta-teresita-gws-1",
+   "slug": "sta-teresita-gws-1",
+   "name": "Sta. Teresita GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-batangas",
+   "district_name": "Batangas",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Barangay Bihis, Sta. Teresita, Batangas, 4208, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "new": null,
+     "removed": [
+      "Wed 6:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1791630559864-arnstadt-germany-gws",
    "at": "2026-10-10T11:09:19.864Z",
