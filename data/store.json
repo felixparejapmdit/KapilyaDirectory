@@ -26758,15 +26758,15 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
         {
-          "id": "sch-russel-gws-3-1800",
+          "id": "sch-russel-gws-4-2000",
           "locale_id": "loc-russel-gws",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:00",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "20:00",
           "language": "English",
           "is_cws": false
         },
@@ -30986,13 +30986,13 @@
       "name": "Mount Pleasant",
       "slug": "central-parkway-ontario-canada",
       "kind": "local_congregation",
-      "address": "Heartlake United Church_, 85 Sandalwood Parkway E, Brampton, Ontario, L6Z 4S6, Canada",
+      "address": "@ c, 22 Abbey rd., Brampton, Ontario, L6Z 4S6, Canada",
       "latitude": 43.6382971,
       "longitude": -79.6490702,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
         {
           "id": "sch-central-parkway-ontario-canada-2-2000",
@@ -31005,6 +31005,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-central-parkway-ontario-canada-6-1600",
+          "locale_id": "loc-central-parkway-ontario-canada",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "16:00",
+          "language": "English",
+          "is_cws": true
+        },
+        {
           "id": "sch-central-parkway-ontario-canada-6-1900",
           "locale_id": "loc-central-parkway-ontario-canada",
           "service_type": "Worship",
@@ -31013,16 +31023,6 @@
           "start_time": "19:00",
           "language": "English",
           "is_cws": false
-        },
-        {
-          "id": "sch-central-parkway-ontario-canada-6-2100",
-          "locale_id": "loc-central-parkway-ontario-canada",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "21:00",
-          "language": "English",
-          "is_cws": true
         }
       ],
       "phone": "416-277-4960",
@@ -31168,13 +31168,13 @@
       "name": "Sarnia,Ontario GWS",
       "slug": "sarniaontario-gws",
       "kind": "group_worship_service",
-      "address": "Greene's residence_, 1315 Echo Road, Sarnia, Ontario, N7S 3K2, Canada",
-      "latitude": 42.986665676136425,
-      "longitude": -82.39453480238092,
+      "address": "SARNIA (FOUR99 INC), #2, 2109, London Line, Sarnia, Ontario, Canada",
+      "latitude": 42.98265514287656,
+      "longitude": -82.29863527736885,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
         {
           "id": "sch-sarniaontario-gws-3-2000",
@@ -46819,7 +46819,7 @@
         "Tagalog",
         "Nihongo"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
         {
           "id": "sch-yokota-4-2030",
@@ -46843,12 +46843,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-yokota-0-1200",
+          "id": "sch-yokota-0-1230",
           "locale_id": "loc-yokota",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "12:00",
+          "start_time": "12:30",
           "language": "Nihongo",
           "language2": "Tagalog",
           "is_cws": true
@@ -47085,13 +47085,13 @@
       "name": "Doncaster, England GWS",
       "slug": "doncaster",
       "kind": "group_worship_service",
-      "address": "Flat 2, No. 9 Lawn Road, Doncaster, South Yorkshire, DN1 2JF, United Kingodm",
-      "latitude": 53.523873629,
-      "longitude": -1.123225793,
+      "address": "Armthrope Community Centre, Welfare Park, 20 Church St, Armthorpe, Doncaster, DN3 3AG, United Kingodm",
+      "latitude": 53.534597372229136,
+      "longitude": -1.0540585049208404,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
         {
           "id": "sch-doncaster-3-1930",
@@ -49992,13 +49992,13 @@
       "name": "Dresden,Germany GWS",
       "slug": "dresdengermany-gws",
       "kind": "group_worship_service",
-      "address": "38 Weiberitz, 4.0G Mitte, Sachsen, Dresden, 01067, Germany",
+      "address": "Tempo @ Meissen GWE, Sachsen, Dresden, 01067, Germany",
       "latitude": 51.06017594384063,
       "longitude": 13.71801856893801,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
         {
           "id": "sch-dresdengermany-gws-2-1830",
@@ -50397,7 +50397,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
         {
           "id": "sch-jena-germany-gws-2-1930",
@@ -50410,12 +50410,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-jena-germany-gws-5-2000",
+          "id": "sch-jena-germany-gws-6-1100",
           "locale_id": "loc-jena-germany-gws",
           "service_type": "Worship",
-          "day_of_week": 5,
-          "day_name": "Friday",
-          "start_time": "20:00",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "11:00",
           "language": "English",
           "is_cws": false
         }
@@ -71808,8 +71808,18 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-12T12:22:40.743Z",
       "schedule": [
+        {
+          "id": "sch-area-56-malawi-3-1000",
+          "locale_id": "loc-area-56-malawi",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "10:00",
+          "language": "English",
+          "is_cws": false
+        },
         {
           "id": "sch-area-56-malawi-4-1800",
           "locale_id": "loc-area-56-malawi",
@@ -71817,16 +71827,6 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "18:00",
-          "language": "English",
-          "is_cws": false
-        },
-        {
-          "id": "sch-area-56-malawi-5-1000",
-          "locale_id": "loc-area-56-malawi",
-          "service_type": "Worship",
-          "day_of_week": 5,
-          "day_name": "Friday",
-          "start_time": "10:00",
           "language": "English",
           "is_cws": false
         },
@@ -562342,17 +562342,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-11T01:59:08.449Z",
+  "last_updated": "2026-10-12T12:22:40.816Z",
   "last_sync": {
-    "finished_at": "2026-10-11T01:59:08.449Z",
+    "finished_at": "2026-10-12T12:22:40.816Z",
     "trigger": "cli",
-    "status": "partial",
-    "message": "Checked 8,782 locales: 1 changed; 1 pages kept their previous data.",
+    "status": "success",
+    "message": "Checked 8,782 locales: 8 changed.",
     "locales_total": 8782,
-    "updated": 0,
+    "updated": 8,
     "added": 0,
-    "removed": 1,
-    "fetch_failures": 1,
-    "duration_ms": 4773746
+    "removed": 0,
+    "fetch_failures": 0,
+    "duration_ms": 2659534
   }
 }

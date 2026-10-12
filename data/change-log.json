@@ -1,6 +1,205 @@
 {
- "updated_at": "2026-10-11T01:59:08.556Z",
+ "updated_at": "2026-10-12T12:22:40.935Z",
  "entries": [
+  {
+   "id": "chg-1791807760816-area-56-malawi",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-area-56-malawi",
+   "slug": "area-56-malawi",
+   "name": "Area 56, Malawi",
+   "kind": "local_congregation",
+   "district_id": "dist-southeastern-africa",
+   "district_name": "Southeastern Africa",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 PM · English; Fri 10:00 AM · English; Sat 10:00 AM · English; Sun 10:00 AM · English",
+     "new": "Wed 10:00 AM · English; Thu 6:00 PM · English; Sat 10:00 AM · English; Sun 10:00 AM · English",
+     "removed": [
+      "Fri 10:00 AM · English"
+     ],
+     "added": [
+      "Wed 10:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791807760816-doncaster",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-doncaster",
+   "slug": "doncaster",
+   "name": "Doncaster, England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-britain-north",
+   "district_name": "Britain North",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Flat 2, No. 9 Lawn Road, Doncaster, South Yorkshire, DN1 2JF, United Kingodm",
+     "new": "Armthrope Community Centre, Welfare Park, 20 Church St, Armthorpe, Doncaster, DN3 3AG, United Kingodm"
+    },
+    {
+     "field": "location",
+     "old": "53.52387, -1.12323",
+     "new": "53.53460, -1.05406",
+     "moved_km": 4.72
+    }
+   ]
+  },
+  {
+   "id": "chg-1791807760816-dresdengermany-gws",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dresdengermany-gws",
+   "slug": "dresdengermany-gws",
+   "name": "Dresden,Germany GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-central-europe",
+   "district_name": "Central Europe",
+   "changes": [
+    {
+     "field": "address",
+     "old": "38 Weiberitz, 4.0G Mitte, Sachsen, Dresden, 01067, Germany",
+     "new": "Tempo @ Meissen GWE, Sachsen, Dresden, 01067, Germany"
+    }
+   ]
+  },
+  {
+   "id": "chg-1791807760816-jena-germany-gws",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-jena-germany-gws",
+   "slug": "jena-germany-gws",
+   "name": "Jena, Germany GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-central-europe",
+   "district_name": "Central Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 7:30 PM · English; Fri 8:00 PM · English",
+     "new": "Tue 7:30 PM · English; Sat 11:00 AM · English",
+     "removed": [
+      "Fri 8:00 PM · English"
+     ],
+     "added": [
+      "Sat 11:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791807760816-central-parkway-ontario-canada",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-central-parkway-ontario-canada",
+   "slug": "central-parkway-ontario-canada",
+   "name": "Mount Pleasant",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Heartlake United Church_, 85 Sandalwood Parkway E, Brampton, Ontario, L6Z 4S6, Canada",
+     "new": "@ c, 22 Abbey rd., Brampton, Ontario, L6Z 4S6, Canada"
+    },
+    {
+     "field": "schedule",
+     "old": "Tue 8:00 PM · English; Sat 7:00 PM · English; Sat 9:00 PM · English · CWS",
+     "new": "Tue 8:00 PM · English; Sat 4:00 PM · English · CWS; Sat 7:00 PM · English",
+     "removed": [
+      "Sat 9:00 PM · English · CWS"
+     ],
+     "added": [
+      "Sat 4:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791807760816-russel-gws",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-russel-gws",
+   "slug": "russel-gws",
+   "name": "Russel GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-saskatchewan",
+   "district_name": "Saskatchewan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · English; Sun 8:00 AM · English",
+     "new": "Thu 8:00 PM · English; Sun 8:00 AM · English",
+     "removed": [
+      "Wed 6:00 PM · English"
+     ],
+     "added": [
+      "Thu 8:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791807760816-sarniaontario-gws",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sarniaontario-gws",
+   "slug": "sarniaontario-gws",
+   "name": "Sarnia,Ontario GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Greene's residence_, 1315 Echo Road, Sarnia, Ontario, N7S 3K2, Canada",
+     "new": "SARNIA (FOUR99 INC), #2, 2109, London Line, Sarnia, Ontario, Canada"
+    },
+    {
+     "field": "location",
+     "old": "42.98667, -82.39453",
+     "new": "42.98266, -82.29864",
+     "moved_km": 7.81
+    }
+   ]
+  },
+  {
+   "id": "chg-1791807760816-yokota",
+   "at": "2026-10-12T12:22:40.816Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-yokota",
+   "slug": "yokota",
+   "name": "Yokota",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 8:30 PM · Tagalog; Sun 10:00 AM · Tagalog / Nihongo; Sun 12:00 PM · Nihongo / Tagalog · CWS",
+     "new": "Thu 8:30 PM · Tagalog; Sun 10:00 AM · Tagalog / Nihongo; Sun 12:30 PM · Nihongo / Tagalog · CWS",
+     "removed": [
+      "Sun 12:00 PM · Nihongo / Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 12:30 PM · Nihongo / Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1791683948449-sta-teresita-gws-1",
    "at": "2026-10-11T01:59:08.449Z",
