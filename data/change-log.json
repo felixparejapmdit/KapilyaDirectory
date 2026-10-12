@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-10-12T12:22:40.935Z",
+ "updated_at": "2026-10-12T23:26:33.145Z",
  "entries": [
+  {
+   "id": "chg-1791847593004-st-thomas-ontario",
+   "at": "2026-10-12T23:26:33.004Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-st-thomas-ontario",
+   "slug": "st-thomas-ontario",
+   "name": "St. Thomas, Ontario",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 AM · English; Wed 8:00 PM · English; Sat 4:00 PM · English · CWS; Sat 7:00 PM · English",
+     "new": "Wed 8:00 PM · English; Sat 4:00 PM · English · CWS; Sat 7:00 PM · English",
+     "removed": [
+      "Wed 8:00 AM · English"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1791807760816-area-56-malawi",
    "at": "2026-10-12T12:22:40.816Z",
