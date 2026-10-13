@@ -1,6 +1,945 @@
 {
- "updated_at": "2026-10-12T23:26:33.145Z",
+ "updated_at": "2026-10-13T12:06:38.787Z",
  "entries": [
+  {
+   "id": "chg-1791893198286-baggao",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-baggao",
+   "slug": "baggao",
+   "name": "Baggao",
+   "kind": "local_congregation",
+   "district_id": "dist-cagayan-south",
+   "district_name": "Cagayan South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 9:00 AM · Tagalog · CWS",
+     "removed": [
+      "Thu 6:30 PM · Tagalog",
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Thu 7:00 PM · Tagalog",
+      "Sun 9:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-canaman",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-canaman",
+   "slug": "canaman",
+   "name": "Canaman",
+   "kind": "local_congregation",
+   "district_id": "dist-camarines-southwest",
+   "district_name": "Naga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 6:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-catmonon",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-catmonon",
+   "slug": "catmonon",
+   "name": "Catmonon",
+   "kind": "local_congregation",
+   "district_id": "dist-agusan-del-sur",
+   "district_name": "Agusan Del Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:30 PM · Cebuano / Tagalog; Sun 6:00 AM · Cebuano / Tagalog; Sun 7:30 AM · Tagalog / Cebuano · CWS",
+     "new": "Thu 6:30 PM · Cebuano / Tagalog; Sun 6:00 AM · Cebuano / Tagalog; Sun 8:00 AM · Tagalog / Cebuano · CWS",
+     "removed": [
+      "Sun 7:30 AM · Tagalog / Cebuano · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog / Cebuano · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-clisoc-field",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-clisoc-field",
+   "slug": "clisoc-field",
+   "name": "Clisoc Field",
+   "kind": "local_congregation",
+   "district_id": "dist-nueva-vizcaya",
+   "district_name": "Nueva Vizcaya",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:15 PM · English; Thu 5:45 AM · Tagalog; Thu 6:15 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · English",
+     "new": "Wed 6:30 PM · English; Thu 5:30 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · English",
+     "removed": [
+      "Wed 6:15 PM · English",
+      "Thu 5:45 AM · Tagalog",
+      "Thu 6:15 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 6:30 PM · English",
+      "Thu 5:30 AM · Tagalog",
+      "Thu 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-crossin-mahaplag",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-crossin-mahaplag",
+   "slug": "crossin-mahaplag",
+   "name": "Crossin Mahaplag",
+   "kind": "local_congregation",
+   "district_id": "dist-southern-leyte",
+   "district_name": "Southern Leyte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 PM · Tagalog; Sun 7:30 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 6:45 PM · Tagalog; Sun 7:30 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:45 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-diarabasin-gws",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-diarabasin-gws",
+   "slug": "diarabasin-gws",
+   "name": "Diarabasin GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-aurora",
+   "district_name": "Aurora",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog; Sat 6:00 AM · Tagalog",
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Sat 6:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-dimaseset",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dimaseset",
+   "slug": "dimaseset",
+   "name": "Dimaseset",
+   "kind": "local_congregation",
+   "district_id": "dist-aurora",
+   "district_name": "Aurora",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "new": "Thu 6:30 PM · Tagalog; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Sun 6:00 AM · Tagalog",
+      "Sun 8:30 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 4:00 PM · Tagalog · CWS",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-dinadiawan",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dinadiawan",
+   "slug": "dinadiawan",
+   "name": "Dinadiawan",
+   "kind": "local_congregation",
+   "district_id": "dist-aurora",
+   "district_name": "Aurora",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 10:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:30 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sat 10:00 AM · Tagalog · CWS",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 6:00 PM · Tagalog",
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-dingle",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dingle",
+   "slug": "dingle",
+   "name": "Dingle",
+   "kind": "local_congregation",
+   "district_id": "dist-iloilo-south",
+   "district_name": "Iloilo South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog / Hiligaynon; Thu 5:45 PM · Tagalog / Hiligaynon; Sun 6:00 AM · Tagalog / Hiligaynon; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Hiligaynon",
+     "new": "Thu 6:00 AM · Tagalog / Hiligaynon; Thu 6:00 PM · Tagalog / Hiligaynon; Sun 6:00 AM · Tagalog / Hiligaynon; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Hiligaynon",
+     "removed": [
+      "Thu 5:45 PM · Tagalog / Hiligaynon"
+     ],
+     "added": [
+      "Thu 6:00 PM · Tagalog / Hiligaynon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-fourth-estate",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-fourth-estate",
+   "slug": "fourth-estate",
+   "name": "Fourth Estate",
+   "kind": "local_congregation",
+   "district_id": "dist-metro-manila-south",
+   "district_name": "Metro Manila South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog; Sun 12:00 PM · Tagalog · CWS",
+     "new": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sat 12:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS",
+      "Sun 12:00 PM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 9:00 AM · Tagalog · CWS",
+      "Sat 12:00 PM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-futtsu-ext-chiba",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-futtsu-ext-chiba",
+   "slug": "futtsu-ext-chiba",
+   "name": "Futtsu ext (Chiba)",
+   "kind": "extension",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "location",
+     "old": "35.32302, 139.84073",
+     "new": "35.32328, 139.83969",
+     "moved_km": 0.1
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-galway-ireland",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-galway-ireland",
+   "slug": "galway-ireland",
+   "name": "Galway, Ireland",
+   "kind": "local_congregation",
+   "district_id": "dist-ireland",
+   "district_name": "Ireland",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 9:00 PM · English; Sun 11:00 AM · English",
+     "new": "Wed 9:00 PM · English; Sat 7:00 PM · English",
+     "removed": [
+      "Sun 11:00 AM · English"
+     ],
+     "added": [
+      "Sat 7:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-haneda-ext-shinagawa",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-haneda-ext-shinagawa",
+   "slug": "haneda-ext-shinagawa",
+   "name": "Haneda ext (Shinagawa)",
+   "kind": "extension",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "8180-7073-0128",
+     "new": "080-6255-1914"
+    },
+    {
+     "field": "email",
+     "old": null,
+     "new": "ukesrluchiyama@yahoo.co.jp"
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-hobo",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-hobo",
+   "slug": "hobo",
+   "name": "Hobo",
+   "kind": "local_congregation",
+   "district_id": "dist-camarines-southwest",
+   "district_name": "Naga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 5:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 5:30 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-inzaijapan-ext-ichikawa",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-inzaijapan-ext-ichikawa",
+   "slug": "inzaijapan-ext-ichikawa",
+   "name": "Inzai ext (Ichikawa)",
+   "kind": "extension",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "070-1563-1261",
+     "new": "090-9174-2014"
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-la-fuente",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-la-fuente",
+   "slug": "la-fuente",
+   "name": "La Fuente",
+   "kind": "local_congregation",
+   "district_id": "dist-nueva-ecija-south",
+   "district_name": "Sta. Rosa, Nueva Ecija",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 6:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Wed 6:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 6:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:30 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-mabuhay",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-mabuhay",
+   "slug": "mabuhay",
+   "name": "Mabuhay",
+   "kind": "local_congregation",
+   "district_id": "dist-agusan-del-sur",
+   "district_name": "Agusan Del Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Cebuano / Tagalog; Thu 6:00 PM · Cebuano / Tagalog; Sat 9:00 AM · Tagalog · CWS; Sat 6:00 PM · Cebuano / Tagalog; Sun 6:00 AM · Cebuano / Tagalog",
+     "new": "Thu 5:30 AM · Cebuano / Tagalog; Thu 6:30 PM · Cebuano / Tagalog; Sat 9:00 AM · Tagalog · CWS; Sat 6:00 PM · Cebuano / Tagalog; Sun 6:00 AM · Cebuano / Tagalog",
+     "removed": [
+      "Thu 6:00 PM · Cebuano / Tagalog"
+     ],
+     "added": [
+      "Thu 6:30 PM · Cebuano / Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-dolores-porac-1",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dolores-porac-1",
+   "slug": "dolores-porac-1",
+   "name": "Mancatian",
+   "kind": "local_congregation",
+   "district_id": "dist-pampanga-north",
+   "district_name": "Pampanga North",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Dolores Porac",
+     "new": "Mancatian"
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-mansud",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-mansud",
+   "slug": "mansud",
+   "name": "Mansud",
+   "kind": "local_congregation",
+   "district_id": "dist-davao-west",
+   "district_name": "Davao City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 6:00 PM · Cebuano; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 6:00 PM · Cebuano; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-masical-ext",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-masical-ext",
+   "slug": "masical-ext",
+   "name": "Masical Ext",
+   "kind": "extension",
+   "district_id": "dist-cagayan-south",
+   "district_name": "Cagayan South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Wed 6:30 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 7:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-moose-jaw-saskatchewan",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-moose-jaw-saskatchewan",
+   "slug": "moose-jaw-saskatchewan",
+   "name": "Moose Jaw, Saskatchewan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-saskatchewan",
+   "district_name": "Saskatchewan",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Comfort Inn & Suites Hotel, 155 Thatcher Drive, Moose Jaw, Saskatchewan, S6J 1M1, Canada",
+     "new": "A & L Royal Academy, 502 6th Ave NE, Moose Jaw, Saskatchewan, S6H 6B8, Canada"
+    },
+    {
+     "field": "location",
+     "old": "50.39448, -105.56061",
+     "new": "50.39476, -105.52028",
+     "moved_km": 2.86
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · Tagalog; Sat 2:00 PM · English",
+     "new": "Wed 7:30 PM · Tagalog; Sat 8:00 AM · English",
+     "removed": [
+      "Sat 2:00 PM · English"
+     ],
+     "added": [
+      "Sat 8:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-nanomi-ext",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-nanomi-ext",
+   "slug": "nanomi-ext",
+   "name": "Nonami Ext.",
+   "kind": "extension",
+   "district_id": "dist-japan-ii",
+   "district_name": "Nagoya, Japan",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "2 Chome - 391 Nanomi, Tempaku Ward, Nagoya, Aichi, Japan"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "35.12319, 136.99205"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Sat 7:00 PM · Tagalog / Nihongo",
+     "removed": [],
+     "added": [
+      "Sat 7:00 PM · Tagalog / Nihongo"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-olas-ext",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-olas-ext",
+   "slug": "olas-ext",
+   "name": "Olas Ext.",
+   "kind": "extension",
+   "district_id": "dist-camarines-southwest",
+   "district_name": "Naga City, Camarines Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 3:00 PM · Tagalog; Fri 3:00 AM · Tagalog",
+     "new": "Tue 10:00 AM · Tagalog; Fri 10:00 AM · Tagalog",
+     "removed": [
+      "Tue 3:00 PM · Tagalog",
+      "Fri 3:00 AM · Tagalog"
+     ],
+     "added": [
+      "Tue 10:00 AM · Tagalog",
+      "Fri 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-paris-france",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-paris-france",
+   "slug": "paris-france",
+   "name": "Paris, France",
+   "kind": "local_congregation",
+   "district_id": "dist-western-europe",
+   "district_name": "Western Europe",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Venue 1: #14 Rue de Patay, Paris, France 75013, Venue 2:, MAS (Maison des Associations), 10 Rue des Terres au Cure 75013 Paris, France",
+     "new": "1 Reu, Lenine, 94200, Ivry-sur-Seine, France"
+    },
+    {
+     "field": "location",
+     "old": "48.82411, 2.37229",
+     "new": "48.81830, 2.39870",
+     "moved_km": 2.04
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · English; Wed 8:45 PM · English / French; Sat 9:00 AM · Tagalog; Sat 11:00 AM · French · CWS",
+     "new": "Wed 6:45 PM · English; Wed 8:45 PM · English / French; Sat 5:30 PM · French · CWS; Sat 6:00 PM · French / English; Sat 8:00 PM · Tagalog",
+     "removed": [
+      "Sat 9:00 AM · Tagalog",
+      "Sat 11:00 AM · French · CWS"
+     ],
+     "added": [
+      "Sat 5:30 PM · French · CWS",
+      "Sat 6:00 PM · French / English",
+      "Sat 8:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-polomolok",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-polomolok",
+   "slug": "polomolok",
+   "name": "Polomolok",
+   "kind": "local_congregation",
+   "district_id": "dist-sarangani",
+   "district_name": "Sarangani",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog / Tagalog Sign; Thu 5:45 AM · English; Thu 9:45 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · English; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · English / English Sign; Thu 5:45 AM · Tagalog; Thu 9:45 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · English / English Sign; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 7:00 PM · Tagalog / Tagalog Sign",
+      "Thu 5:45 AM · English",
+      "Sat 6:00 PM · Tagalog / Tagalog Sign",
+      "Sun 6:00 AM · English"
+     ],
+     "added": [
+      "Wed 7:00 PM · English / English Sign",
+      "Thu 5:45 AM · Tagalog",
+      "Sat 6:00 PM · English / English Sign",
+      "Sun 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-saint-bernard",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-saint-bernard",
+   "slug": "saint-bernard",
+   "name": "Saint Bernard",
+   "kind": "local_congregation",
+   "district_id": "dist-southern-leyte",
+   "district_name": "Southern Leyte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog / Cebuano; Thu 6:30 PM · Tagalog / Cebuano; Sat 6:00 PM · Tagalog / Cebuano; Sun 6:00 AM · Tagalog / Cebuano; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 5:45 AM · Tagalog / Cebuano; Thu 6:30 PM · Tagalog / Cebuano; Sat 9:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Cebuano; Sun 8:00 AM · Tagalog / Cebuano",
+     "removed": [
+      "Sun 6:00 AM · Tagalog / Cebuano",
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 9:00 AM · Tagalog · CWS",
+      "Sun 8:00 AM · Tagalog / Cebuano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-sampaguita-1",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sampaguita-1",
+   "slug": "sampaguita-1",
+   "name": "Sampaguita",
+   "kind": "local_congregation",
+   "district_id": "dist-cagayan-south",
+   "district_name": "Cagayan South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:45 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 6:45 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 9:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 9:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-san-agustin",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-agustin",
+   "slug": "san-agustin",
+   "name": "San Agustin",
+   "kind": "local_congregation",
+   "district_id": "dist-agusan-del-sur",
+   "district_name": "Agusan Del Sur",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Cebuano / Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano / Tagalog",
+     "new": "Thu 6:00 AM · Cebuano / Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Cebuano / Tagalog",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS",
+      "Sun 10:00 AM · Cebuano / Tagalog"
+     ],
+     "added": [
+      "Sat 8:00 AM · Tagalog · CWS",
+      "Sun 6:00 AM · Cebuano / Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-san-luis-1",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-luis-1",
+   "slug": "san-luis-1",
+   "name": "San Luis",
+   "kind": "local_congregation",
+   "district_id": "dist-aurora",
+   "district_name": "Aurora",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 6:45 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 5:30 AM · Tagalog; Wed 6:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:30 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Thu 5:30 AM · Tagalog",
+      "Thu 6:45 PM · Tagalog",
+      "Sun 6:00 AM · Tagalog",
+      "Sun 8:00 AM · Tagalog · CWS",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Wed 5:30 AM · Tagalog",
+      "Wed 6:45 PM · Tagalog",
+      "Sat 6:00 AM · Tagalog",
+      "Sat 8:30 AM · Tagalog · CWS",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-shinagawa",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-shinagawa",
+   "slug": "shinagawa",
+   "name": "Shinagawa",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "email",
+     "old": "ukersrluchiyama@yahoo.com.co.jp",
+     "new": "ukesrluchiyama@yahoo.co.jp"
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-shizouka",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-shizouka",
+   "slug": "shizouka",
+   "name": "Shizuoka",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · Tagalog; Sat 8:00 PM · Tagalog; Sun 10:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Nihongo · CWS",
+     "new": "Wed 8:30 PM · Tagalog; Sat 8:00 PM · Tagalog; Sun 10:00 AM · Tagalog; Sun 10:00 AM · Tagalog · CWS",
+     "removed": [
+      "Wed 8:00 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog / Nihongo · CWS"
+     ],
+     "added": [
+      "Wed 8:30 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-silangan-ext",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-silangan-ext",
+   "slug": "silangan-ext",
+   "name": "Silangan Ext",
+   "kind": "extension",
+   "district_id": "dist-marikina",
+   "district_name": "Marikina",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog",
+     "new": "Thu 7:00 PM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 6:00 PM · Tagalog",
+      "Sun 6:00 AM · Tagalog"
+     ],
+     "added": [
+      "Thu 7:00 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-tigbangagan-ext",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-tigbangagan-ext",
+   "slug": "tigbangagan-ext",
+   "name": "Tigbangagan Ext",
+   "kind": "extension",
+   "district_id": "dist-zamboanga-sibugay",
+   "district_name": "Zamboanga Sibugay",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 PM · Cebuano / Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano / Tagalog",
+     "new": "Wed 6:00 PM · Cebuano / Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano / Tagalog",
+     "removed": [
+      "Thu 6:00 PM · Cebuano / Tagalog"
+     ],
+     "added": [
+      "Wed 6:00 PM · Cebuano / Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-tokyo",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-tokyo",
+   "slug": "tokyo",
+   "name": "Tokyo",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "email",
+     "old": "geraldlico@yahoo.com",
+     "new": "geraldlico0425@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-wahiawa",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-wahiawa",
+   "slug": "wahiawa",
+   "name": "Wahiawa",
+   "kind": "local_congregation",
+   "district_id": "dist-hawaii-pacific",
+   "district_name": "Hawaii Pacific",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Thu 7:30 PM · English; Sat 8:00 PM · English; Sun 8:00 AM · English; Sun 10:00 AM · English · CWS",
+     "new": "Wed 7:30 PM · English; Thu 7:30 PM · English; Sat 7:00 PM · English; Sun 8:00 AM · English; Sun 10:00 AM · English · CWS",
+     "removed": [
+      "Sat 8:00 PM · English"
+     ],
+     "added": [
+      "Sat 7:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1791893198286-yokosuka",
+   "at": "2026-10-13T12:06:38.286Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-yokosuka",
+   "slug": "yokosuka",
+   "name": "Yokosuka",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:30 PM · English / English; Thu 8:00 PM · Tagalog; Sat 8:00 PM · English / Nihongo; Sun 10:00 AM · English / Nihongo; Sun 12:30 PM · English · CWS",
+     "new": "Wed 8:30 PM · English / English; Thu 8:00 PM · Tagalog; Sat 8:00 PM · Tagalog; Sun 10:00 AM · English / Nihongo; Sun 12:30 PM · English · CWS",
+     "removed": [
+      "Sat 8:00 PM · English / Nihongo"
+     ],
+     "added": [
+      "Sat 8:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1791847593004-st-thomas-ontario",
    "at": "2026-10-12T23:26:33.004Z",
