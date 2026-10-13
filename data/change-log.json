@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-10-13T12:06:38.787Z",
+ "updated_at": "2026-10-13T21:36:55.983Z",
  "entries": [
+  {
+   "id": "chg-1791927415520-dunedinnew-zealand",
+   "at": "2026-10-13T21:36:55.520Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dunedinnew-zealand",
+   "slug": "dunedinnew-zealand",
+   "name": "Dunedin",
+   "kind": "local_congregation",
+   "district_id": "dist-new-zealand-south",
+   "district_name": "New Zealand South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 7:30 PM · English; Sat 5:45 PM · English · CWS; Sat 7:30 PM · English",
+     "new": "Wed 5:00 AM · English; Thu 7:30 PM · English; Sat 5:45 PM · English · CWS; Sat 7:30 PM · English",
+     "removed": [],
+     "added": [
+      "Wed 5:00 AM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1791893198286-baggao",
    "at": "2026-10-13T12:06:38.286Z",
