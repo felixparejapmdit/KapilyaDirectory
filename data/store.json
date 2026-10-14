@@ -44964,7 +44964,7 @@
         "Tagalog",
         "Nihongo"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-gotemba-gws-4-2030",
@@ -44989,8 +44989,8 @@
           "is_cws": false
         }
       ],
-      "phone": "080-9874-3913",
-      "email": "wyrloulayao0825@gmail.com"
+      "phone": "0890-9451-3499",
+      "email": "robertt.maano723@yahoo.com"
     },
     {
       "id": "loc-gunmaken",
@@ -45872,14 +45872,14 @@
       "name": "Numazu",
       "slug": "numazu",
       "kind": "local_congregation",
-      "address": "Hagiwara 625-1, Pastel Gotemba103, Gotemba-shi, Hagiwara, 412-0042, Japan",
-      "latitude": 35.1009978,
-      "longitude": 138.8546564,
+      "address": "410-0804 Shizuoka ken, Numazu shi, Saijocho, 68 GS BIRU 1F, Japan",
+      "latitude": 35.100720696334236,
+      "longitude": 138.85464962796104,
       "languages": [
         "Tagalog",
         "Nihongo"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-numazu-4-2030",
@@ -59421,7 +59421,7 @@
         "Tagalog",
         "Spanish"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-marbella-spain-4-0900",
@@ -59475,8 +59475,8 @@
           "is_cws": false
         }
       ],
-      "phone": "0034-722-207-551",
-      "email": "afminc2014@gmail.com"
+      "phone": "+34672532403",
+      "email": "villaluzramil@gmail.com"
     },
     {
       "id": "loc-san-pedro-7",
@@ -107692,8 +107692,18 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
+        {
+          "id": "sch-placer-4-0545",
+          "locale_id": "loc-placer",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "05:45",
+          "language": "Tagalog",
+          "is_cws": false
+        },
         {
           "id": "sch-placer-4-1000",
           "locale_id": "loc-placer",
@@ -107710,6 +107720,16 @@
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
+          "start_time": "18:30",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-placer-6-1830",
+          "locale_id": "loc-placer",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "18:30",
           "language": "Tagalog",
           "is_cws": false
@@ -151405,16 +151425,16 @@
       "district_id": "dist-nueva-vizcaya",
       "district_name": "Nueva Vizcaya",
       "district_slug": "nueva-vizcaya",
-      "name": "Monguia",
+      "name": "Munguia",
       "slug": "monguia",
       "kind": "local_congregation",
-      "address": "Monguia, Dupax del Norte, Nueva Vizcaya, 3706, Philippines",
+      "address": "Munguia, Dupax del Norte, Nueva Vizcaya, 3706, Philippines",
       "latitude": 16.30124586790904,
       "longitude": 121.14697192989824,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-monguia-3-1830",
@@ -151956,17 +151976,17 @@
       "district_id": "dist-nueva-vizcaya",
       "district_name": "Nueva Vizcaya",
       "district_slug": "nueva-vizcaya",
-      "name": "Parae",
+      "name": "Parai",
       "slug": "parae",
       "kind": "local_congregation",
-      "address": "Parae, Dupax del Norte, Nueva Vizcaya, 3706, Philippines",
+      "address": "Parai, Dupax del Norte, Nueva Vizcaya, 3706, Philippines",
       "latitude": 16.310019,
       "longitude": 121.169106,
       "languages": [
         "Ilocano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-14T01:49:22.111Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-parae-4-1830",
@@ -151980,22 +152000,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-parae-6-0600",
+          "id": "sch-parae-0-0600",
           "locale_id": "loc-parae",
           "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
+          "day_of_week": 0,
+          "day_name": "Sunday",
           "start_time": "06:00",
           "language": "Ilocano",
           "language2": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-parae-6-0830",
+          "id": "sch-parae-0-0830",
           "locale_id": "loc-parae",
           "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
+          "day_of_week": 0,
+          "day_name": "Sunday",
           "start_time": "08:30",
           "language": "Ilocano",
           "language2": "Tagalog",
@@ -285585,7 +285605,7 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-bairan-gws-4-0500",
@@ -285610,6 +285630,17 @@
           "is_cws": false
         },
         {
+          "id": "sch-bairan-gws-6-1800",
+          "locale_id": "loc-bairan-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "language2": "Cebuano",
+          "is_cws": false
+        },
+        {
           "id": "sch-bairan-gws-0-0600",
           "locale_id": "loc-bairan-gws",
           "service_type": "Worship",
@@ -285621,26 +285652,15 @@
           "is_cws": false
         },
         {
-          "id": "sch-bairan-gws-0-0800",
+          "id": "sch-bairan-gws-0-0830",
           "locale_id": "loc-bairan-gws",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "08:00",
+          "start_time": "08:30",
           "language": "Tagalog",
           "language2": "Cebuano",
           "is_cws": true
-        },
-        {
-          "id": "sch-bairan-gws-0-1000",
-          "locale_id": "loc-bairan-gws",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "language2": "Cebuano",
-          "is_cws": false
         }
       ],
       "phone": null,
@@ -286679,7 +286699,7 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-cubong-gws-3-1800",
@@ -286693,12 +286713,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-cubong-gws-6-1800",
+          "id": "sch-cubong-gws-6-0700",
           "locale_id": "loc-cubong-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "18:00",
+          "start_time": "07:00",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
@@ -287576,7 +287596,7 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-manguiao-4-1900",
@@ -287590,22 +287610,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-manguiao-0-0730",
+          "id": "sch-manguiao-6-1500",
           "locale_id": "loc-manguiao",
           "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "07:30",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "15:00",
           "language": "Tagalog",
           "is_cws": true
         },
         {
-          "id": "sch-manguiao-0-1000",
+          "id": "sch-manguiao-6-1800",
           "locale_id": "loc-manguiao",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
@@ -301902,7 +301922,7 @@
         "Tagalog",
         "Ilocano"
       ],
-      "source_updated_at": "2026-10-14T01:49:22.111Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-angad-ext-4-0545",
@@ -301949,12 +301969,12 @@
         {
           "id": "sch-angad-ext-0-0800",
           "locale_id": "loc-angad-ext",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "08:00",
           "language": "Tagalog",
-          "is_cws": false
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -340022,7 +340042,7 @@
         "Tagalog",
         "Ilocano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-lussoc-ext-3-1845",
@@ -340036,12 +340056,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-lussoc-ext-0-1000",
+          "id": "sch-lussoc-ext-6-1800",
           "locale_id": "loc-lussoc-ext",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
           "language": "Tagalog",
           "language2": "Ilocano",
           "is_cws": false
@@ -341563,7 +341583,7 @@
         "Ilocano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-sto-domingo-4-0545",
@@ -341586,16 +341606,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-sto-domingo-6-1800",
-          "locale_id": "loc-sto-domingo",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
           "id": "sch-sto-domingo-0-0600",
           "locale_id": "loc-sto-domingo",
           "service_type": "Worship",
@@ -341614,6 +341624,16 @@
           "start_time": "08:45",
           "language": "Tagalog",
           "is_cws": true
+        },
+        {
+          "id": "sch-sto-domingo-0-1000",
+          "locale_id": "loc-sto-domingo",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "10:00",
+          "language": "Tagalog",
+          "is_cws": false
         }
       ],
       "phone": null,
@@ -346394,24 +346414,24 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
-          "id": "sch-duro-gws-2-1900",
+          "id": "sch-duro-gws-3-1900",
           "locale_id": "loc-duro-gws",
           "service_type": "Worship",
-          "day_of_week": 2,
-          "day_name": "Tuesday",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
           "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-duro-gws-5-1900",
+          "id": "sch-duro-gws-6-1900",
           "locale_id": "loc-duro-gws",
           "service_type": "Worship",
-          "day_of_week": 5,
-          "day_name": "Friday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
@@ -417366,7 +417386,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-14T01:49:22.111Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-battalion-gws-3-0530",
@@ -417381,12 +417401,12 @@
         {
           "id": "sch-battalion-gws-6-1600",
           "locale_id": "loc-battalion-gws",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "16:00",
           "language": "Tagalog",
-          "is_cws": false
+          "is_cws": true
         },
         {
           "id": "sch-battalion-gws-6-1800",
@@ -436954,18 +436974,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
-        {
-          "id": "sch-san-carlos-3-1830",
-          "locale_id": "loc-san-carlos",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-san-carlos-4-0530",
           "locale_id": "loc-san-carlos",
@@ -437015,16 +437025,6 @@
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-san-carlos-0-1000",
-          "locale_id": "loc-san-carlos",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": "043-321-3150",
@@ -437957,18 +437957,8 @@
         "Tagalog Sign",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
-        {
-          "id": "sch-tanauan-city-3-0600",
-          "locale_id": "loc-tanauan-city",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "06:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-tanauan-city-3-2000",
           "locale_id": "loc-tanauan-city",
@@ -438018,16 +438008,6 @@
           "day_name": "Saturday",
           "start_time": "06:00",
           "language": "English",
-          "is_cws": false
-        },
-        {
-          "id": "sch-tanauan-city-6-1000",
-          "locale_id": "loc-tanauan-city",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "10:00",
-          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -447685,57 +447665,37 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
-          "id": "sch-binakayan-4-0530",
+          "id": "sch-binakayan-4-1945",
           "locale_id": "loc-binakayan",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "05:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-binakayan-4-1900",
-          "locale_id": "loc-binakayan",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "19:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-binakayan-0-0600",
-          "locale_id": "loc-binakayan",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "06:00",
+          "start_time": "19:45",
           "language": "Tagalog",
           "is_cws": false
         },
         {
           "id": "sch-binakayan-0-0800",
           "locale_id": "loc-binakayan",
-          "service_type": "CWS",
+          "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "08:00",
           "language": "Tagalog",
-          "is_cws": true
+          "is_cws": false
         },
         {
           "id": "sch-binakayan-0-1000",
           "locale_id": "loc-binakayan",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
           "language": "Tagalog",
-          "is_cws": false
+          "is_cws": true
         }
       ],
       "phone": "(046) 434-9691",
@@ -448766,7 +448726,7 @@
         "Tagalog",
         "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-f-manalo-3-0530",
@@ -448809,13 +448769,14 @@
           "is_cws": false
         },
         {
-          "id": "sch-f-manalo-4-1800",
+          "id": "sch-f-manalo-4-1930",
           "locale_id": "loc-f-manalo",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "18:00",
-          "language": "Tagalog Sign",
+          "start_time": "19:30",
+          "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -448825,6 +448786,16 @@
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-f-manalo-6-1000",
+          "locale_id": "loc-f-manalo",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -448865,17 +448836,8 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
-          "language": "Tagalog Sign",
-          "is_cws": false
-        },
-        {
-          "id": "sch-f-manalo-0-1400",
-          "locale_id": "loc-f-manalo",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "14:00",
           "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         }
       ],
@@ -451175,18 +451137,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
-        {
-          "id": "sch-san-antonio-1-3-0600",
-          "locale_id": "loc-san-antonio-1",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "06:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-san-antonio-1-3-1900",
           "locale_id": "loc-san-antonio-1",
@@ -451214,16 +451166,6 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "19:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-san-antonio-1-6-0600",
-          "locale_id": "loc-san-antonio-1",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -483411,7 +483353,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-langgas-3-1830",
@@ -483434,16 +483376,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-langgas-6-0830",
-          "locale_id": "loc-langgas",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:30",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
           "id": "sch-langgas-6-1800",
           "locale_id": "loc-langgas",
           "service_type": "Worship",
@@ -483462,6 +483394,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-langgas-0-0900",
+          "locale_id": "loc-langgas",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "09:00",
+          "language": "Tagalog",
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -489697,9 +489639,10 @@
       "latitude": 13.885342221412042,
       "longitude": 121.27916723899186,
       "languages": [
+        "English",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-san-antonio-5-3-1800",
@@ -489708,7 +489651,7 @@
           "day_of_week": 3,
           "day_name": "Wednesday",
           "start_time": "18:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         },
         {
@@ -496190,35 +496133,15 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
-          "id": "sch-ondoy-village-gws-3-1845",
-          "locale_id": "loc-ondoy-village-gws",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:45",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-ondoy-village-gws-4-1800",
+          "id": "sch-ondoy-village-gws-4-1845",
           "locale_id": "loc-ondoy-village-gws",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-ondoy-village-gws-6-1800",
-          "locale_id": "loc-ondoy-village-gws",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
+          "start_time": "18:45",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -501038,7 +500961,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-14T01:49:22.111Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
           "id": "sch-san-agustin-5-4-1830",
@@ -501051,12 +500974,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-san-agustin-5-6-1000",
+          "id": "sch-san-agustin-5-6-0900",
           "locale_id": "loc-san-agustin-5",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "10:00",
+          "start_time": "09:00",
           "language": "Tagalog",
           "is_cws": true
         },
@@ -532878,15 +532801,15 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
       "schedule": [
         {
-          "id": "sch-lilo-an-gws-3-0600",
+          "id": "sch-lilo-an-gws-3-1830",
           "locale_id": "loc-lilo-an-gws",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "06:00",
+          "start_time": "18:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562200,6 +562123,44 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-alangilan-ext",
+      "district_id": "dist-negros-oriental",
+      "name": "Alangilan Ext.",
+      "slug": "alangilan-ext",
+      "kind": "extension",
+      "address": "Alangilan, Sta Catalina, Negros Oriental, Philippines",
+      "latitude": 9.276817,
+      "longitude": 122.880042,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-10-14T15:32:09.845Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-alangilan-ext-3-1800",
+          "locale_id": "loc-alangilan-ext",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-alangilan-ext-6-1800",
+          "locale_id": "loc-alangilan-ext",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562294,17 +562255,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-14T01:49:22.197Z",
+  "last_updated": "2026-10-14T15:32:09.929Z",
   "last_sync": {
-    "finished_at": "2026-10-14T01:49:22.197Z",
+    "finished_at": "2026-10-14T15:32:09.929Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,783 locales: 29 changed.",
-    "locales_total": 8783,
-    "updated": 29,
-    "added": 0,
+    "message": "Checked 8,784 locales: 25 changed.",
+    "locales_total": 8784,
+    "updated": 24,
+    "added": 1,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 3522696
+    "duration_ms": 2396062
   }
 }
