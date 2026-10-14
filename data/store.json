@@ -370280,7 +370280,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-14T20:37:19.105Z",
       "schedule": [
         {
           "id": "sch-letre-3-0545",
@@ -370381,6 +370381,16 @@
           "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-letre-0-1300",
+          "locale_id": "loc-letre",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "13:00",
+          "language": "Tagalog",
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -562255,17 +562265,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-14T15:32:09.929Z",
+  "last_updated": "2026-10-14T20:37:19.185Z",
   "last_sync": {
-    "finished_at": "2026-10-14T15:32:09.929Z",
+    "finished_at": "2026-10-14T20:37:19.185Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,784 locales: 25 changed.",
+    "message": "Checked 8,784 locales: 1 changed.",
     "locales_total": 8784,
-    "updated": 24,
-    "added": 1,
+    "updated": 1,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2396062
+    "duration_ms": 2391667
   }
 }

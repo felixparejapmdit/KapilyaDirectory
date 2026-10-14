@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-10-14T15:32:10.077Z",
+ "updated_at": "2026-10-14T20:37:19.326Z",
  "entries": [
+  {
+   "id": "chg-1792010239185-letre",
+   "at": "2026-10-14T20:37:19.185Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-letre",
+   "slug": "letre",
+   "name": "Letre",
+   "kind": "local_congregation",
+   "district_id": "dist-metro-manila-north",
+   "district_name": "Camanava",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:45 AM · Tagalog; Wed 7:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 3:45 PM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 5:45 AM · Tagalog; Wed 7:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 3:45 PM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 1:00 PM · Tagalog · CWS",
+     "removed": [],
+     "added": [
+      "Sun 1:00 PM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1791991929929-alangilan-ext",
    "at": "2026-10-14T15:32:09.929Z",
