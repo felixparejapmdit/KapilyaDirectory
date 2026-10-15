@@ -1,6 +1,49 @@
 {
- "updated_at": "2026-10-15T09:51:46.026Z",
+ "updated_at": "2026-10-15T15:15:17.401Z",
  "entries": [
+  {
+   "id": "chg-1792077317287-fukushima",
+   "at": "2026-10-15T15:15:17.287Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-fukushima",
+   "slug": "fukushima",
+   "name": "Fukushima GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "email",
+     "old": "lolieboyladra26@gmail.com",
+     "new": "Lolieboyladra26@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1792077317287-otawara-gws",
+   "at": "2026-10-15T15:15:17.287Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-otawara-gws",
+   "slug": "otawara-gws",
+   "name": "Otawara GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "0890-4841-1478",
+     "new": "090-7270-4517"
+    },
+    {
+     "field": "email",
+     "old": "lolieboyladra26@gmail.com",
+     "new": "Lolieboyladra26@gmail.com"
+    }
+   ]
+  },
   {
    "id": "chg-1792057905471-bagasbas-ext",
    "at": "2026-10-15T09:51:45.471Z",
