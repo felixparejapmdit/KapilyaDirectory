@@ -1,6 +1,313 @@
 {
- "updated_at": "2026-10-15T01:11:34.663Z",
+ "updated_at": "2026-10-15T09:51:46.026Z",
  "entries": [
+  {
+   "id": "chg-1792057905471-bagasbas-ext",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-bagasbas-ext",
+   "slug": "bagasbas-ext",
+   "name": "Bagasbas Ext.",
+   "kind": "extension",
+   "district_id": "dist-camarines-norte",
+   "district_name": "Camarines Norte",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Prk 11, Brgy. Bagasbas, Daet, Camarines Norte, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "new": null,
+     "removed": [
+      "Wed 6:45 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-cuautitlan-gwsmexico",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cuautitlan-gwsmexico",
+   "slug": "cuautitlan-gwsmexico",
+   "name": "Cuautitlan Izcalli, Mexico GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-latin-america",
+   "district_name": "Central America",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 4:00 PM · Spanish; Wed 7:30 PM · Spanish; Sat 11:30 AM · Spanish; Sun 10:00 AM · Spanish",
+     "new": "Wed 4:15 PM · Spanish; Wed 7:30 PM · Spanish; Sat 11:30 AM · Spanish; Sun 10:00 AM · Spanish",
+     "removed": [
+      "Wed 4:00 PM · Spanish"
+     ],
+     "added": [
+      "Wed 4:15 PM · Spanish"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-jerusalem-israel",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-jerusalem-israel",
+   "slug": "jerusalem-israel",
+   "name": "Jerusalem, Israel",
+   "kind": "local_congregation",
+   "district_id": "dist-mediterranean",
+   "district_name": "Mediterranean",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 9:00 PM · Tagalog; Sat 5:00 PM · Tagalog",
+     "new": "Wed 8:30 PM · Tagalog; Sat 5:00 PM · Tagalog",
+     "removed": [
+      "Wed 9:00 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 8:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-lismore-gws",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-lismore-gws",
+   "slug": "lismore-gws",
+   "name": "Lismore,New South Wales GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-queensland-australia",
+   "district_name": "Queensland, Australia",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Sat 6:00 PM · English; Sun 4:00 PM · English",
+     "new": "Wed 7:00 PM · English; Sat 6:00 PM · English; Sun 4:00 PM · English",
+     "removed": [
+      "Wed 7:30 PM · English"
+     ],
+     "added": [
+      "Wed 7:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-milan-west-italy",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-milan-west-italy",
+   "slug": "milan-west-italy",
+   "name": "Milan West",
+   "kind": "local_congregation",
+   "district_id": "dist-milan",
+   "district_name": "Italy North",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Thu 6:30 AM · Italian; Thu 8:00 PM · Tagalog; Sat 4:00 PM · Italian · CWS; Sat 7:00 PM · English; Sun 8:00 AM · Italian; Sun 11:00 AM · Tagalog",
+     "new": "Wed 7:30 PM · English; Thu 6:30 AM · Italian; Thu 8:00 PM · Tagalog; Sat 4:00 PM · Italian · CWS; Sat 7:00 PM · English; Sun 8:00 AM · Tagalog; Sun 11:00 AM · Italian",
+     "removed": [
+      "Sun 8:00 AM · Italian",
+      "Sun 11:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog",
+      "Sun 11:00 AM · Italian"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-minante-i",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-minante-i",
+   "slug": "minante-i",
+   "name": "Minante 1",
+   "kind": "local_congregation",
+   "district_id": "dist-isabela-east",
+   "district_name": "Isabela East",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 AM · Tagalog; Wed 6:30 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "new": "Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Wed 5:30 AM · Tagalog",
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:00 AM · Tagalog",
+      "Sat 9:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Thu 5:30 AM · Tagalog",
+      "Thu 7:00 PM · Tagalog",
+      "Sun 6:00 AM · Tagalog",
+      "Sun 8:30 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-placer",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-placer",
+   "slug": "placer",
+   "name": "Placer",
+   "kind": "local_congregation",
+   "district_id": "dist-masbate",
+   "district_name": "Masbate",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 10:00 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:30 PM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:45 AM · Tagalog; Thu 10:00 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sun 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-prado-saba",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-prado-saba",
+   "slug": "prado-saba",
+   "name": "Prado Saba",
+   "kind": "local_congregation",
+   "district_id": "dist-pampanga-west",
+   "district_name": "Pampanga West",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 6:45 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 6:45 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 6:45 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-rizal-6",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-rizal-6",
+   "slug": "rizal-6",
+   "name": "Rizal",
+   "kind": "local_congregation",
+   "district_id": "dist-nueva-ecija-north",
+   "district_name": "San Jose City, Nueva Ecija",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · English; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · English",
+     "new": "Wed 7:00 PM · English; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 9:00 AM · English · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · English",
+     "removed": [],
+     "added": [
+      "Sat 9:00 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-sea-view-gws",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sea-view-gws",
+   "slug": "sea-view-gws",
+   "name": "Sea View GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-cebu-iii",
+   "district_name": "Carcar City, Cebu",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Cebuano / Tagalog; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Cebuano / Tagalog",
+     "new": "Wed 7:00 PM · Cebuano / Tagalog; Sat 6:00 PM · Cebuano / Tagalog",
+     "removed": [
+      "Sat 4:00 PM · Tagalog · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-warsaw-poland-gws",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-warsaw-poland-gws",
+   "slug": "warsaw-poland-gws",
+   "name": "Warsaw, Poland GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "address",
+     "old": "#2 Tomasza, Edisona, Wawer 04-510, Warsaw, Poland",
+     "new": "Al. Waszyng Tona 53, Apt 4a, 04-074, Warsaw, Poland"
+    },
+    {
+     "field": "location",
+     "old": "52.29534, 21.04021",
+     "new": "52.24397, 21.07738",
+     "moved_km": 6.25
+    }
+   ]
+  },
+  {
+   "id": "chg-1792057905471-zurich-switzerland",
+   "at": "2026-10-15T09:51:45.471Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-zurich-switzerland",
+   "slug": "zurich-switzerland",
+   "name": "Zurich, Switzerland",
+   "kind": "local_congregation",
+   "district_id": "dist-central-europe",
+   "district_name": "Central Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Sat 3:00 PM · English / German · CWS; Sat 6:30 PM · English",
+     "new": "Wed 7:30 PM · English / German; Thu 7:30 PM · English / German; Sat 3:00 PM · English / German · CWS; Sat 6:30 PM · English; Sun 10:00 AM · English / German",
+     "removed": [
+      "Wed 7:30 PM · English"
+     ],
+     "added": [
+      "Wed 7:30 PM · English / German",
+      "Thu 7:30 PM · English / German",
+      "Sun 10:00 AM · English / German"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792026694569-bagac",
    "at": "2026-10-15T01:11:34.569Z",

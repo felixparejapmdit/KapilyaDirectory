@@ -6038,15 +6038,15 @@
       "languages": [
         "Spanish"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
-          "id": "sch-cuautitlan-gwsmexico-3-1600",
+          "id": "sch-cuautitlan-gwsmexico-3-1615",
           "locale_id": "loc-cuautitlan-gwsmexico",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "16:00",
+          "start_time": "16:15",
           "language": "Spanish",
           "is_cws": false
         },
@@ -51381,7 +51381,7 @@
         "English",
         "German"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
           "id": "sch-zurich-switzerland-3-1930",
@@ -51391,6 +51391,18 @@
           "day_name": "Wednesday",
           "start_time": "19:30",
           "language": "English",
+          "language2": "German",
+          "is_cws": false
+        },
+        {
+          "id": "sch-zurich-switzerland-4-1930",
+          "locale_id": "loc-zurich-switzerland",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "19:30",
+          "language": "English",
+          "language2": "German",
           "is_cws": false
         },
         {
@@ -51412,6 +51424,17 @@
           "day_name": "Saturday",
           "start_time": "18:30",
           "language": "English",
+          "is_cws": false
+        },
+        {
+          "id": "sch-zurich-switzerland-0-1000",
+          "locale_id": "loc-zurich-switzerland",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "10:00",
+          "language": "English",
+          "language2": "German",
           "is_cws": false
         }
       ],
@@ -52738,7 +52761,7 @@
         "Italian",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
           "id": "sch-milan-west-italy-3-1930",
@@ -52797,7 +52820,7 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "08:00",
-          "language": "Italian",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -52807,7 +52830,7 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "11:00",
-          "language": "Tagalog",
+          "language": "Italian",
           "is_cws": false
         }
       ],
@@ -55237,15 +55260,15 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
-          "id": "sch-jerusalem-israel-3-2100",
+          "id": "sch-jerusalem-israel-3-2030",
           "locale_id": "loc-jerusalem-israel",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "21:00",
+          "start_time": "20:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -58366,13 +58389,13 @@
       "name": "Warsaw, Poland GWS",
       "slug": "warsaw-poland-gws",
       "kind": "group_worship_service",
-      "address": "#2 Tomasza, Edisona, Wawer 04-510, Warsaw, Poland",
-      "latitude": 52.295338,
-      "longitude": 21.040211,
+      "address": "Al. Waszyng Tona 53, Apt 4a, 04-074, Warsaw, Poland",
+      "latitude": 52.24397,
+      "longitude": 21.07738,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
           "id": "sch-warsaw-poland-gws-6-1900",
@@ -65343,15 +65366,15 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
-          "id": "sch-lismore-gws-3-1930",
+          "id": "sch-lismore-gws-3-1900",
           "locale_id": "loc-lismore-gws",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "19:30",
+          "start_time": "19:00",
           "language": "English",
           "is_cws": false
         },
@@ -94261,46 +94284,6 @@
       "email": null
     },
     {
-      "id": "loc-bagasbas-ext",
-      "district_id": "dist-camarines-norte",
-      "district_name": "Camarines Norte",
-      "district_slug": "camarines-norte",
-      "name": "Bagasbas Ext.",
-      "slug": "bagasbas-ext",
-      "kind": "extension",
-      "address": "Prk 11, Brgy. Bagasbas, Daet, Camarines Norte, Philippines",
-      "latitude": 14.135046924125685,
-      "longitude": 122.98138582732453,
-      "languages": [
-        "Tagalog"
-      ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
-      "schedule": [
-        {
-          "id": "sch-bagasbas-ext-3-1845",
-          "locale_id": "loc-bagasbas-ext",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:45",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-bagasbas-ext-6-1800",
-          "locale_id": "loc-bagasbas-ext",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "is_cws": false
-        }
-      ],
-      "phone": null,
-      "email": null
-    },
-    {
       "id": "loc-bagong-silang-1",
       "district_id": "dist-camarines-norte",
       "district_name": "Camarines Norte",
@@ -107692,7 +107675,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-14T15:32:09.845Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
           "id": "sch-placer-4-0545",
@@ -107731,6 +107714,16 @@
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "18:30",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-placer-0-0600",
+          "locale_id": "loc-placer",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -133985,47 +133978,27 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
-          "id": "sch-minante-i-3-0530",
+          "id": "sch-minante-i-4-0530",
           "locale_id": "loc-minante-i",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
+          "day_of_week": 4,
+          "day_name": "Thursday",
           "start_time": "05:30",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-minante-i-3-1830",
+          "id": "sch-minante-i-4-1900",
           "locale_id": "loc-minante-i",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:30",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
-        },
-        {
-          "id": "sch-minante-i-6-0600",
-          "locale_id": "loc-minante-i",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "06:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-minante-i-6-0900",
-          "locale_id": "loc-minante-i",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "09:00",
-          "language": "Tagalog",
-          "is_cws": true
         },
         {
           "id": "sch-minante-i-6-1800",
@@ -134036,6 +134009,26 @@
           "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-minante-i-0-0600",
+          "locale_id": "loc-minante-i",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-minante-i-0-0830",
+          "locale_id": "loc-minante-i",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:30",
+          "language": "Tagalog",
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -231797,18 +231790,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
-        {
-          "id": "sch-prado-saba-3-1845",
-          "locale_id": "loc-prado-saba",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:45",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-prado-saba-4-0600",
           "locale_id": "loc-prado-saba",
@@ -231826,16 +231809,6 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "18:45",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-prado-saba-6-1800",
-          "locale_id": "loc-prado-saba",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -242533,7 +242506,7 @@
         "English",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
           "id": "sch-rizal-6-3-1900",
@@ -242564,6 +242537,16 @@
           "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-rizal-6-6-0900",
+          "locale_id": "loc-rizal-6",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "09:00",
+          "language": "English",
+          "is_cws": true
         },
         {
           "id": "sch-rizal-6-6-1800",
@@ -288537,7 +288520,7 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-15T09:51:45.386Z",
       "schedule": [
         {
           "id": "sch-sea-view-gws-3-1900",
@@ -288549,16 +288532,6 @@
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
-        },
-        {
-          "id": "sch-sea-view-gws-6-1600",
-          "locale_id": "loc-sea-view-gws",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "16:00",
-          "language": "Tagalog",
-          "is_cws": true
         },
         {
           "id": "sch-sea-view-gws-6-1800",
@@ -562192,17 +562165,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-15T01:11:34.569Z",
+  "last_updated": "2026-10-15T09:51:45.471Z",
   "last_sync": {
-    "finished_at": "2026-10-15T01:11:34.569Z",
+    "finished_at": "2026-10-15T09:51:45.471Z",
     "trigger": "cli",
-    "status": "success",
-    "message": "Checked 8,784 locales: 22 changed.",
-    "locales_total": 8784,
-    "updated": 22,
+    "status": "partial",
+    "message": "Checked 8,783 locales: 12 changed; 1 pages kept their previous data.",
+    "locales_total": 8783,
+    "updated": 11,
     "added": 0,
-    "removed": 0,
-    "fetch_failures": 0,
-    "duration_ms": 3290682
+    "removed": 1,
+    "fetch_failures": 1,
+    "duration_ms": 3737274
   }
 }
