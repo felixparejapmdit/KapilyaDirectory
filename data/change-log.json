@@ -1,6 +1,59 @@
 {
- "updated_at": "2026-10-16T09:30:26.528Z",
+ "updated_at": "2026-10-16T15:12:01.858Z",
  "entries": [
+  {
+   "id": "chg-1792163521710-luwasan-gws",
+   "at": "2026-10-16T15:12:01.710Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-luwasan-gws",
+   "slug": "luwasan-gws",
+   "name": "Luwasan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-bulacan-north-1",
+   "district_name": "Bulacan North",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Purok 2 Luwasan, Barangay Bagong Barrio, San Ildefonso, Bulacan, 3010, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "new": null,
+     "removed": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792163521710-pasay",
+   "at": "2026-10-16T15:12:01.710Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pasay",
+   "slug": "pasay",
+   "name": "Pasay",
+   "kind": "local_congregation",
+   "district_id": "dist-makati",
+   "district_name": "Makati",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · English; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · English; Sun 10:00 AM · Tagalog; Sun 11:00 AM · English · CWS",
+     "new": "Thu 6:00 AM · English; Thu 7:00 PM · Tagalog; Sun 6:00 AM · English; Sun 10:00 AM · Tagalog; Sun 11:00 AM · English · CWS",
+     "removed": [
+      "Wed 7:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792143026375-camella-springville",
    "at": "2026-10-16T09:30:26.375Z",
