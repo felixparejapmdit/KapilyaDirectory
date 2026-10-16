@@ -1,6 +1,61 @@
 {
- "updated_at": "2026-10-15T20:15:36.266Z",
+ "updated_at": "2026-10-16T00:57:47.897Z",
  "entries": [
+  {
+   "id": "chg-1792112267739-san-manuel-gws",
+   "at": "2026-10-16T00:57:47.739Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-manuel-gws",
+   "slug": "san-manuel-gws",
+   "name": "San Miguel GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-calamian",
+   "district_name": "Calamian",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 7:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792112267739-zurich-south-switzerland",
+   "at": "2026-10-16T00:57:47.739Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-zurich-south-switzerland",
+   "slug": "zurich-south-switzerland",
+   "name": "Zurich South,Switzerland",
+   "kind": "local_congregation",
+   "district_id": "dist-central-europe",
+   "district_name": "Central Europe",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Schaffhauserstrasse 121, 8302 Kloten, Switzerland_Zurich place of worship, Kloten, 8302, Switzerland",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 7:30 PM · English; Sat 4:00 PM · English · CWS; Sun 10:00 AM · English",
+     "new": null,
+     "removed": [
+      "Thu 7:30 PM · English",
+      "Sat 4:00 PM · English · CWS",
+      "Sun 10:00 AM · English"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792095336132-balagtas-gws",
    "at": "2026-10-15T20:15:36.132Z",
