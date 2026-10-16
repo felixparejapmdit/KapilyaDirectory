@@ -1,6 +1,88 @@
 {
- "updated_at": "2026-10-16T00:57:47.897Z",
+ "updated_at": "2026-10-16T09:30:26.528Z",
  "entries": [
+  {
+   "id": "chg-1792143026375-camella-springville",
+   "at": "2026-10-16T09:30:26.375Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-camella-springville",
+   "slug": "camella-springville",
+   "name": "Camella Springville",
+   "kind": "local_congregation",
+   "district_id": "dist-cavite",
+   "district_name": "Cavite",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 10:00 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 10:00 AM · Tagalog · CWS; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 10:00 AM · Tagalog; Thu 4:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 10:00 AM · Tagalog · CWS; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792143026375-hyltenruk-sweden",
+   "at": "2026-10-16T09:30:26.375Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-hyltenruk-sweden",
+   "slug": "hyltenruk-sweden",
+   "name": "Hyltebruk, Sweden",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Liljevägen 2B, Hyltebruk, 314 34, Sweden",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · English",
+     "new": null,
+     "removed": [
+      "Wed 7:00 PM · English"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792143026375-tomas-oppus-gws",
+   "at": "2026-10-16T09:30:26.375Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-tomas-oppus-gws",
+   "slug": "tomas-oppus-gws",
+   "name": "Tomas Oppus GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southern-leyte",
+   "district_name": "Southern Leyte",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "San Antonio, Tomas Oppus, Southern Leyte, 6605, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "10.30058, 124.98184"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": null,
+     "removed": [],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792112267739-san-manuel-gws",
    "at": "2026-10-16T00:57:47.739Z",
