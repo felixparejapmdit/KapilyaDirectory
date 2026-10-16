@@ -561974,6 +561974,74 @@
       "phone": null,
       "email": null,
       "schedule": []
+    },
+    {
+      "id": "loc-kalubkob-gws",
+      "district_id": "dist-cavite-south",
+      "name": "Kalubkob GWS",
+      "slug": "kalubkob-gws",
+      "kind": "group_worship_service",
+      "address": "Kalubkob, Silang, Cavite, 4118, Philippines",
+      "latitude": 14.2098663,
+      "longitude": 120.952634,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-10-16T19:54:17.347Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-kalubkob-gws-4-0530",
+          "locale_id": "loc-kalubkob-gws",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "05:30",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-kalubkob-gws-4-1900",
+          "locale_id": "loc-kalubkob-gws",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-kalubkob-gws-6-1800",
+          "locale_id": "loc-kalubkob-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-kalubkob-gws-0-0600",
+          "locale_id": "loc-kalubkob-gws",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-kalubkob-gws-0-0800",
+          "locale_id": "loc-kalubkob-gws",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562068,17 +562136,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-16T15:12:01.710Z",
+  "last_updated": "2026-10-16T19:54:17.435Z",
   "last_sync": {
-    "finished_at": "2026-10-16T15:12:01.710Z",
+    "finished_at": "2026-10-16T19:54:17.435Z",
     "trigger": "cli",
-    "status": "partial",
-    "message": "Checked 8,782 locales: 2 changed; 1 pages kept their previous data.",
-    "locales_total": 8782,
-    "updated": 1,
-    "added": 0,
-    "removed": 1,
-    "fetch_failures": 1,
-    "duration_ms": 2482430
+    "status": "success",
+    "message": "Checked 8,783 locales: 1 changed.",
+    "locales_total": 8783,
+    "updated": 0,
+    "added": 1,
+    "removed": 0,
+    "fetch_failures": 0,
+    "duration_ms": 2252989
   }
 }

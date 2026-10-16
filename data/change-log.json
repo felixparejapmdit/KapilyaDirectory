@@ -1,6 +1,43 @@
 {
- "updated_at": "2026-10-16T15:12:01.858Z",
+ "updated_at": "2026-10-16T19:54:17.581Z",
  "entries": [
+  {
+   "id": "chg-1792180457435-kalubkob-gws",
+   "at": "2026-10-16T19:54:17.435Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-kalubkob-gws",
+   "slug": "kalubkob-gws",
+   "name": "Kalubkob GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Kalubkob, Silang, Cavite, 4118, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "14.20987, 120.95263"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [],
+     "added": [
+      "Thu 5:30 AM · Tagalog",
+      "Thu 7:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog",
+      "Sun 6:00 AM · Tagalog",
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792163521710-luwasan-gws",
    "at": "2026-10-16T15:12:01.710Z",
