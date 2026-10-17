@@ -1,6 +1,35 @@
 {
- "updated_at": "2026-10-17T00:56:49.691Z",
+ "updated_at": "2026-10-17T09:11:16.225Z",
  "entries": [
+  {
+   "id": "chg-1792228276078-bunaguit-gws",
+   "at": "2026-10-17T09:11:16.078Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-bunaguit-gws",
+   "slug": "bunaguit-gws",
+   "name": "Bunaguit GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-agusan-del-sur",
+   "district_name": "Agusan Del Sur",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Bunaguit, Esperanza, Agusan Del Sur, 8513, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 AM · Tagalog / Cebuano; Sat 8:00 AM · Tagalog / Cebuano",
+     "new": null,
+     "removed": [
+      "Wed 6:30 AM · Tagalog / Cebuano",
+      "Sat 8:00 AM · Tagalog / Cebuano"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792198609533-numazu",
    "at": "2026-10-17T00:56:49.533Z",
