@@ -1,6 +1,67 @@
 {
- "updated_at": "2026-10-17T09:11:16.225Z",
+ "updated_at": "2026-10-19T10:16:11.924Z",
  "entries": [
+  {
+   "id": "chg-1792404971813-amutan-ext",
+   "at": "2026-10-19T10:16:11.813Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-amutan-ext",
+   "slug": "amutan-ext",
+   "name": "Amutan",
+   "kind": "local_congregation",
+   "district_id": "dist-nueva-ecija-east",
+   "district_name": "Palayan City, Nueva Ecija",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:30 AM · Tagalog · CWS",
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Wed 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792404971813-wroclaw-poland",
+   "at": "2026-10-19T10:16:11.813Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-wroclaw-poland",
+   "slug": "wroclaw-poland",
+   "name": "Gliwice, Poland",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Gliwice place of worship_, Żabka, Jana Pawła II 13, 44-100, Katowice, Gliwice, Poland",
+     "new": "Glogowska, 1, 44-103, Gliwice, Poland"
+    },
+    {
+     "field": "location",
+     "old": "50.29220, 18.66730",
+     "new": "50.29447, 18.73235",
+     "moved_km": 4.63
+    },
+    {
+     "field": "schedule",
+     "old": "Sat 7:00 PM · Tagalog; Sun 10:30 AM · English",
+     "new": "Sat 7:00 PM · English; Sun 10:30 AM · English",
+     "removed": [
+      "Sat 7:00 PM · Tagalog"
+     ],
+     "added": [
+      "Sat 7:00 PM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792228276078-bunaguit-gws",
    "at": "2026-10-17T09:11:16.078Z",
