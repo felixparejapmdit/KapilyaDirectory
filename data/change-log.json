@@ -1,6 +1,353 @@
 {
- "updated_at": "2026-10-19T10:16:11.924Z",
+ "updated_at": "2026-10-20T01:54:32.257Z",
  "entries": [
+  {
+   "id": "chg-1792461272116-bago-gallera",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bago-gallera",
+   "slug": "bago-gallera",
+   "name": "Bago Gallera",
+   "kind": "local_congregation",
+   "district_id": "dist-davao-west",
+   "district_name": "Davao City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 7:30 PM · Tagalog / Tagalog Sign; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:30 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 7:30 PM · Tagalog / Tagalog Sign; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 2:00 PM · Tagalog; Sun 2:00 PM · Tagalog",
+     "removed": [
+      "Wed 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 7:30 PM · Tagalog",
+      "Sun 2:00 PM · Tagalog",
+      "Sun 2:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-brantford-gws",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-brantford-gws",
+   "slug": "brantford-gws",
+   "name": "Brantford GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Greenbrier Presbyterian Church_, 11 White Oaks avenue, Brantford, Ontario, N3R 5N8, Canada",
+     "new": "11 White Oaks avenue, Brantford, Ontario, N3R 5N8, Canada"
+    },
+    {
+     "field": "location",
+     "old": "43.18016, -80.27039",
+     "new": "43.17771, -80.27307",
+     "moved_km": 0.35
+    },
+    {
+     "field": "phone",
+     "old": null,
+     "new": "+1 (437) 237-7554"
+    },
+    {
+     "field": "email",
+     "old": null,
+     "new": "aarmiles@pm.me"
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-buso-buso",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-buso-buso",
+   "slug": "buso-buso",
+   "name": "Buso-Buso",
+   "kind": "local_congregation",
+   "district_id": "dist-rizal",
+   "district_name": "Rizal",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 3:00 PM · Tagalog; Thu 6:00 PM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 6:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 7:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-cagmanipis-ext",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cagmanipis-ext",
+   "slug": "cagmanipis-ext",
+   "name": "Cagmanipis Ext",
+   "kind": "extension",
+   "district_id": "dist-western-samar",
+   "district_name": "Western Samar",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 PM · Tagalog; Sat 10:00 AM · Tagalog",
+     "new": "Wed 5:30 PM · Tagalog; Sat 8:00 AM · Tagalog",
+     "removed": [
+      "Sat 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 8:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-rono-ext",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-rono-ext",
+   "slug": "rono-ext",
+   "name": "Caybago Ext",
+   "kind": "extension",
+   "district_id": "dist-western-samar",
+   "district_name": "Western Samar",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 9:00 AM · Tagalog · CWS",
+     "new": "Wed 6:30 PM · Tagalog; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [
+      "Wed 6:00 PM · Tagalog",
+      "Sat 6:00 AM · Tagalog",
+      "Sat 9:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 4:00 PM · Tagalog · CWS",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-grimsby-gws",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-grimsby-gws",
+   "slug": "grimsby-gws",
+   "name": "Grimsby GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "address",
+     "old": "85 Chestnut Drive, Grimsby, Ontario (ON), L3M 0B9, Canada",
+     "new": "Unit 85, 6 Chestnut Drive, Grimsby, Ontario (ON), L3M 3X8, Canada"
+    },
+    {
+     "field": "phone",
+     "old": "437-225-9306",
+     "new": "+1 (437) 237-7554"
+    },
+    {
+     "field": "email",
+     "old": null,
+     "new": "aarmiles@pm.me"
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-hamilton",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-hamilton",
+   "slug": "hamilton",
+   "name": "Hamilton, Ontario",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "address",
+     "old": "866 Mohawk Rd, East Hamilton, ON, L8T 2R5, Canada",
+     "new": "11 White Oaks Ave., Bradford, ON, N3R 5N8, Canada"
+    },
+    {
+     "field": "location",
+     "old": "43.21642, -79.83369",
+     "new": "43.17771, -80.27308",
+     "moved_km": 35.88
+    },
+    {
+     "field": "phone",
+     "old": "905-746-3737",
+     "new": "+1 (514) 577-3679"
+    },
+    {
+     "field": "email",
+     "old": null,
+     "new": "garciaherald17@gmail.com"
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 AM · English; Wed 8:00 PM · English; Sat 4:30 PM · English · CWS; Sat 8:00 PM · English; Sun 7:00 AM · English",
+     "new": "Thu 8:00 PM · English; Sat 5:30 PM · English · CWS; Sat 8:00 PM · English",
+     "removed": [
+      "Wed 6:00 AM · English",
+      "Wed 8:00 PM · English",
+      "Sat 4:30 PM · English · CWS",
+      "Sun 7:00 AM · English"
+     ],
+     "added": [
+      "Thu 8:00 PM · English",
+      "Sat 5:30 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-lungsodaan",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-lungsodaan",
+   "slug": "lungsodaan",
+   "name": "Lungsodaan",
+   "kind": "local_congregation",
+   "district_id": "dist-bohol",
+   "district_name": "Bohol",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 PM · Cebuano; Sat 8:00 AM · Tagalog; Sun 10:30 AM · Cebuano · CWS",
+     "new": "Thu 6:00 PM · Cebuano; Sat 8:00 AM · Tagalog; Sun 10:30 AM · Cebuano · CWS",
+     "removed": [
+      "Wed 5:30 PM · Cebuano"
+     ],
+     "added": [
+      "Thu 6:00 PM · Cebuano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-masiag-gws",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-masiag-gws",
+   "slug": "masiag-gws",
+   "name": "Masiag GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-sultan-kudarat",
+   "district_name": "Sultan Kudarat",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:00 PM · Tagalog; Sat 5:00 PM · Tagalog",
+     "new": "Thu 4:30 PM · Tagalog; Sat 4:00 PM · Tagalog",
+     "removed": [
+      "Thu 5:00 PM · Tagalog",
+      "Sat 5:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 4:30 PM · Tagalog",
+      "Sat 4:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-motiong",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-motiong",
+   "slug": "motiong",
+   "name": "Motiong",
+   "kind": "local_congregation",
+   "district_id": "dist-western-samar",
+   "district_name": "Western Samar",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-santiago-sm",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-santiago-sm",
+   "slug": "santiago-sm",
+   "name": "Santiago SM Ext",
+   "kind": "extension",
+   "district_id": "dist-cagayan-west",
+   "district_name": "Cagayan West",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog / Ilocano; Sat 6:00 PM · Tagalog / Ilocano",
+     "new": "Wed 6:30 PM · Tagalog / Ilocano; Sat 6:00 PM · Tagalog / Ilocano",
+     "removed": [
+      "Wed 6:00 PM · Tagalog / Ilocano"
+     ],
+     "added": [
+      "Wed 6:30 PM · Tagalog / Ilocano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792461272116-talomo",
+   "at": "2026-10-20T01:54:32.116Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-talomo",
+   "slug": "talomo",
+   "name": "Talomo",
+   "kind": "local_congregation",
+   "district_id": "dist-davao-west",
+   "district_name": "Davao City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:45 AM · Tagalog; Thu 7:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 7:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 7:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792404971813-amutan-ext",
    "at": "2026-10-19T10:16:11.813Z",

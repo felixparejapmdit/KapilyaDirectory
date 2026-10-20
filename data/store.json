@@ -30326,13 +30326,13 @@
       "name": "Brantford GWS",
       "slug": "brantford-gws",
       "kind": "group_worship_service",
-      "address": "Greenbrier Presbyterian Church_, 11 White Oaks avenue, Brantford, Ontario, N3R 5N8, Canada",
-      "latitude": 43.1801636,
-      "longitude": -80.2703873,
+      "address": "11 White Oaks avenue, Brantford, Ontario, N3R 5N8, Canada",
+      "latitude": 43.17771220467274,
+      "longitude": -80.27307130782111,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
           "id": "sch-brantford-gws-4-2000",
@@ -30365,8 +30365,8 @@
           "is_cws": false
         }
       ],
-      "phone": null,
-      "email": null
+      "phone": "+1 (437) 237-7554",
+      "email": "aarmiles@pm.me"
     },
     {
       "id": "loc-burlington-ontario",
@@ -30486,13 +30486,13 @@
       "name": "Grimsby GWS",
       "slug": "grimsby-gws",
       "kind": "group_worship_service",
-      "address": "85 Chestnut Drive, Grimsby, Ontario (ON), L3M 0B9, Canada",
+      "address": "Unit 85, 6 Chestnut Drive, Grimsby, Ontario (ON), L3M 3X8, Canada",
       "latitude": 43.19539271082342,
       "longitude": -79.59115109332636,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
           "id": "sch-grimsby-gws-2-2000",
@@ -30525,8 +30525,8 @@
           "is_cws": false
         }
       ],
-      "phone": "437-225-9306",
-      "email": null
+      "phone": "+1 (437) 237-7554",
+      "email": "aarmiles@pm.me"
     },
     {
       "id": "loc-guelph",
@@ -30586,41 +30586,31 @@
       "name": "Hamilton, Ontario",
       "slug": "hamilton",
       "kind": "local_congregation",
-      "address": "866 Mohawk Rd, East Hamilton, ON, L8T 2R5, Canada",
-      "latitude": 43.2164233,
-      "longitude": -79.83369119999999,
+      "address": "11 White Oaks Ave., Bradford, ON, N3R 5N8, Canada",
+      "latitude": 43.17771220467274,
+      "longitude": -80.27307667223867,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
-          "id": "sch-hamilton-3-0600",
+          "id": "sch-hamilton-4-2000",
           "locale_id": "loc-hamilton",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "06:00",
-          "language": "English",
-          "is_cws": false
-        },
-        {
-          "id": "sch-hamilton-3-2000",
-          "locale_id": "loc-hamilton",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
+          "day_of_week": 4,
+          "day_name": "Thursday",
           "start_time": "20:00",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-hamilton-6-1630",
+          "id": "sch-hamilton-6-1730",
           "locale_id": "loc-hamilton",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "16:30",
+          "start_time": "17:30",
           "language": "English",
           "is_cws": true
         },
@@ -30633,20 +30623,10 @@
           "start_time": "20:00",
           "language": "English",
           "is_cws": false
-        },
-        {
-          "id": "sch-hamilton-0-0700",
-          "locale_id": "loc-hamilton",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "07:00",
-          "language": "English",
-          "is_cws": false
         }
       ],
-      "phone": "905-746-3737",
-      "email": null
+      "phone": "+1 (514) 577-3679",
+      "email": "garciaherald17@gmail.com"
     },
     {
       "id": "loc-mississauga-central-ontario",
@@ -130389,15 +130369,15 @@
         "Tagalog",
         "Ilocano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
-          "id": "sch-santiago-sm-3-1800",
+          "id": "sch-santiago-sm-3-1830",
           "locale_id": "loc-santiago-sm",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "18:00",
+          "start_time": "18:30",
           "language": "Tagalog",
           "language2": "Ilocano",
           "is_cws": false
@@ -276043,25 +276023,25 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
-          "id": "sch-masiag-gws-4-1700",
+          "id": "sch-masiag-gws-4-1630",
           "locale_id": "loc-masiag-gws",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "17:00",
+          "start_time": "16:30",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-masiag-gws-6-1700",
+          "id": "sch-masiag-gws-6-1600",
           "locale_id": "loc-masiag-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "17:00",
+          "start_time": "16:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -283186,15 +283166,15 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
-          "id": "sch-lungsodaan-3-1730",
+          "id": "sch-lungsodaan-4-1800",
           "locale_id": "loc-lungsodaan",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "17:30",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "18:00",
           "language": "Cebuano",
           "is_cws": false
         },
@@ -325308,7 +325288,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
           "id": "sch-cagmanipis-ext-3-1730",
@@ -325321,12 +325301,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-cagmanipis-ext-6-1000",
+          "id": "sch-cagmanipis-ext-6-0800",
           "locale_id": "loc-cagmanipis-ext",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "10:00",
+          "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -325658,37 +325638,37 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
-          "id": "sch-rono-ext-3-1800",
+          "id": "sch-rono-ext-3-1830",
           "locale_id": "loc-rono-ext",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "18:00",
+          "start_time": "18:30",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-rono-ext-6-0600",
-          "locale_id": "loc-rono-ext",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "06:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-rono-ext-6-0900",
+          "id": "sch-rono-ext-6-1600",
           "locale_id": "loc-rono-ext",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "09:00",
+          "start_time": "16:00",
           "language": "Tagalog",
           "is_cws": true
+        },
+        {
+          "id": "sch-rono-ext-6-1800",
+          "locale_id": "loc-rono-ext",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
         }
       ],
       "phone": null,
@@ -326072,7 +326052,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
           "id": "sch-motiong-4-0530",
@@ -326095,16 +326075,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-motiong-6-0800",
-          "locale_id": "loc-motiong",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:00",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
           "id": "sch-motiong-0-0600",
           "locale_id": "loc-motiong",
           "service_type": "Worship",
@@ -326113,6 +326083,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-motiong-0-0800",
+          "locale_id": "loc-motiong",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
         },
         {
           "id": "sch-motiong-0-1000",
@@ -407490,15 +407470,15 @@
         "Tagalog",
         "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
-          "id": "sch-bago-gallera-3-1800",
+          "id": "sch-bago-gallera-3-1930",
           "locale_id": "loc-bago-gallera",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "18:00",
+          "start_time": "19:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -407561,6 +407541,26 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-bago-gallera-0-1400",
+          "locale_id": "loc-bago-gallera",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "14:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-bago-gallera-0-1400-2",
+          "locale_id": "loc-bago-gallera",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "14:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -412676,7 +412676,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
           "id": "sch-talomo-4-0545",
@@ -412689,12 +412689,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-talomo-4-1900",
+          "id": "sch-talomo-4-1930",
           "locale_id": "loc-talomo",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "19:00",
+          "start_time": "19:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -490915,7 +490915,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T01:54:32.033Z",
       "schedule": [
         {
           "id": "sch-buso-buso-3-1800",
@@ -490948,12 +490948,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-buso-buso-4-1800",
+          "id": "sch-buso-buso-4-1900",
           "locale_id": "loc-buso-buso",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "18:00",
+          "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562092,17 +562092,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-19T10:16:11.813Z",
+  "last_updated": "2026-10-20T01:54:32.116Z",
   "last_sync": {
-    "finished_at": "2026-10-19T10:16:11.813Z",
+    "finished_at": "2026-10-20T01:54:32.116Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,782 locales: 2 changed.",
+    "message": "Checked 8,782 locales: 12 changed.",
     "locales_total": 8782,
-    "updated": 2,
+    "updated": 12,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2513139
+    "duration_ms": 3637796
   }
 }
