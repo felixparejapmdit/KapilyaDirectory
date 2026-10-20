@@ -1,6 +1,63 @@
 {
- "updated_at": "2026-10-20T15:16:10.532Z",
+ "updated_at": "2026-10-20T20:25:04.994Z",
  "entries": [
+  {
+   "id": "chg-1792527904853-cagsiay-ii-gws",
+   "at": "2026-10-20T20:25:04.853Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-cagsiay-ii-gws",
+   "slug": "cagsiay-ii-gws",
+   "name": "Cagsiay II GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-quezon-west",
+   "district_name": "Quezon",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Cagsiay, Mauban, Quezon, 4330, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "14.26993, 121.68511"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:00 PM · Tagalog; Sat 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:00 PM · Tagalog",
+      "Sat 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792527904853-pinagbayanan-gws",
+   "at": "2026-10-20T20:25:04.853Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pinagbayanan-gws",
+   "slug": "pinagbayanan-gws",
+   "name": "Pinagbayanan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-batangas",
+   "district_name": "Batangas",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Sun 7:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sun 7:00 AM · Tagalog · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792509370431-paoay",
    "at": "2026-10-20T15:16:10.431Z",

@@ -431869,7 +431869,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-20T20:25:04.768Z",
       "schedule": [
         {
           "id": "sch-pinagbayanan-gws-3-1900",
@@ -431880,16 +431880,6 @@
           "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
-        },
-        {
-          "id": "sch-pinagbayanan-gws-0-0700",
-          "locale_id": "loc-pinagbayanan-gws",
-          "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "07:00",
-          "language": "Tagalog",
-          "is_cws": true
         },
         {
           "id": "sch-pinagbayanan-gws-0-1000",
@@ -561993,6 +561983,44 @@
           "is_cws": true
         }
       ]
+    },
+    {
+      "id": "loc-cagsiay-ii-gws",
+      "district_id": "dist-quezon-west",
+      "name": "Cagsiay II GWS",
+      "slug": "cagsiay-ii-gws",
+      "kind": "group_worship_service",
+      "address": "Cagsiay, Mauban, Quezon, 4330, Philippines",
+      "latitude": 14.269931586568514,
+      "longitude": 121.6851056711881,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-10-20T20:25:04.768Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-cagsiay-ii-gws-3-1800",
+          "locale_id": "loc-cagsiay-ii-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-cagsiay-ii-gws-6-1000",
+          "locale_id": "loc-cagsiay-ii-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "10:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562087,17 +562115,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-20T15:16:10.431Z",
+  "last_updated": "2026-10-20T20:25:04.853Z",
   "last_sync": {
-    "finished_at": "2026-10-20T15:16:10.431Z",
+    "finished_at": "2026-10-20T20:25:04.853Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,782 locales: 1 changed.",
-    "locales_total": 8782,
+    "message": "Checked 8,783 locales: 2 changed.",
+    "locales_total": 8783,
     "updated": 1,
-    "added": 0,
+    "added": 1,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2230552
+    "duration_ms": 2161985
   }
 }
