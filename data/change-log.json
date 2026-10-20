@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-10-20T10:01:48.898Z",
+ "updated_at": "2026-10-20T15:16:10.532Z",
  "entries": [
+  {
+   "id": "chg-1792509370431-paoay",
+   "at": "2026-10-20T15:16:10.431Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-paoay",
+   "slug": "paoay",
+   "name": "Paoay",
+   "kind": "local_congregation",
+   "district_id": "dist-ilocos-norte-ii",
+   "district_name": "Batac City, Ilocos Norte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Ilocano / Tagalog; Thu 6:00 AM · Ilocano / Tagalog; Thu 6:30 PM · English; Sat 6:00 PM · Ilocano / Tagalog; Sun 6:00 AM · Ilocano / Tagalog; Sun 8:15 AM · Tagalog · CWS; Sun 10:00 AM · English",
+     "new": "Wed 6:30 PM · Ilocano / Tagalog; Thu 6:00 AM · Ilocano / Tagalog; Thu 6:30 PM · English; Sat 2:00 PM · English · CWS; Sat 6:00 PM · Ilocano / Tagalog; Sun 6:00 AM · Ilocano / Tagalog; Sun 8:15 AM · Tagalog · CWS; Sun 10:00 AM · English",
+     "removed": [],
+     "added": [
+      "Sat 2:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792490508799-amacalan",
    "at": "2026-10-20T10:01:48.799Z",
