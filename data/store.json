@@ -108307,7 +108307,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-21T01:32:08.177Z",
       "schedule": [
         {
           "id": "sch-uson-3-1800",
@@ -108338,16 +108338,6 @@
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-uson-6-1800",
-          "locale_id": "loc-uson",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": null,
@@ -393567,7 +393557,7 @@
         "Tagalog",
         "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-21T01:32:08.177Z",
       "schedule": [
         {
           "id": "sch-bonbon-1-4-0530",
@@ -393581,12 +393571,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-bonbon-1-4-1845",
+          "id": "sch-bonbon-1-4-1930",
           "locale_id": "loc-bonbon-1",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "18:45",
+          "start_time": "19:30",
           "language": "Cebuano",
           "language2": "Tagalog Sign",
           "is_cws": false
@@ -394253,25 +394243,26 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-21T01:32:08.177Z",
       "schedule": [
         {
-          "id": "sch-claveria-2-4-0600",
+          "id": "sch-claveria-2-4-0530",
           "locale_id": "loc-claveria-2",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "06:00",
+          "start_time": "05:30",
           "language": "Tagalog",
+          "language2": "Cebuano",
           "is_cws": false
         },
         {
-          "id": "sch-claveria-2-4-1800",
+          "id": "sch-claveria-2-4-1830",
           "locale_id": "loc-claveria-2",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "18:00",
+          "start_time": "18:30",
           "language": "Cebuano",
           "is_cws": false
         },
@@ -394303,6 +394294,7 @@
           "day_name": "Sunday",
           "start_time": "10:00",
           "language": "Tagalog",
+          "language2": "Cebuano",
           "is_cws": false
         }
       ],
@@ -397721,25 +397713,25 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-21T01:32:08.177Z",
       "schedule": [
         {
-          "id": "sch-punta-bonbon-gws-3-0600",
+          "id": "sch-punta-bonbon-gws-3-1830",
           "locale_id": "loc-punta-bonbon-gws",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "06:00",
+          "start_time": "18:30",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-punta-bonbon-gws-6-0600",
+          "id": "sch-punta-bonbon-gws-6-1830",
           "locale_id": "loc-punta-bonbon-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "06:00",
+          "start_time": "18:30",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -459492,18 +459484,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-21T01:32:08.177Z",
       "schedule": [
-        {
-          "id": "sch-tagumpay-3-4-0545",
-          "locale_id": "loc-tagumpay-3",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "05:45",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-tagumpay-3-4-1830",
           "locale_id": "loc-tagumpay-3",
@@ -459531,16 +459513,6 @@
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "18:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-tagumpay-3-0-0545",
-          "locale_id": "loc-tagumpay-3",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "05:45",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -562021,6 +561993,44 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-san-martin-gws",
+      "district_id": "dist-zambales-south",
+      "name": "San Martin GWS",
+      "slug": "san-martin-gws",
+      "kind": "group_worship_service",
+      "address": "Sitio Abot, San Martin, Cawag, Zambales, 2209, Philippines",
+      "latitude": 14.885563945059372,
+      "longitude": 120.22274825867507,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-10-21T01:32:08.177Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-san-martin-gws-3-0530",
+          "locale_id": "loc-san-martin-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "05:30",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-san-martin-gws-6-0600",
+          "locale_id": "loc-san-martin-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562115,17 +562125,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-20T20:25:04.853Z",
+  "last_updated": "2026-10-21T01:32:08.264Z",
   "last_sync": {
-    "finished_at": "2026-10-20T20:25:04.853Z",
+    "finished_at": "2026-10-21T01:32:08.264Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,783 locales: 2 changed.",
-    "locales_total": 8783,
-    "updated": 1,
+    "message": "Checked 8,784 locales: 6 changed.",
+    "locales_total": 8784,
+    "updated": 5,
     "added": 1,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2161985
+    "duration_ms": 4178291
   }
 }

@@ -1,6 +1,168 @@
 {
- "updated_at": "2026-10-20T20:25:04.994Z",
+ "updated_at": "2026-10-21T01:32:08.731Z",
  "entries": [
+  {
+   "id": "chg-1792546328264-bonbon-1",
+   "at": "2026-10-21T01:32:08.264Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bonbon-1",
+   "slug": "bonbon-1",
+   "name": "Bonbon",
+   "kind": "local_congregation",
+   "district_id": "dist-misamis-oriental",
+   "district_name": "Cagayan De Oro City, Misamis Oriental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Cebuano / Tagalog; Thu 6:45 PM · Cebuano / Tagalog Sign; Sun 6:00 AM · Cebuano / Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano / Tagalog",
+     "new": "Thu 5:30 AM · Cebuano / Tagalog; Thu 7:30 PM · Cebuano / Tagalog Sign; Sun 6:00 AM · Cebuano / Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano / Tagalog",
+     "removed": [
+      "Thu 6:45 PM · Cebuano / Tagalog Sign"
+     ],
+     "added": [
+      "Thu 7:30 PM · Cebuano / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792546328264-claveria-2",
+   "at": "2026-10-21T01:32:08.264Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-claveria-2",
+   "slug": "claveria-2",
+   "name": "Claveria",
+   "kind": "local_congregation",
+   "district_id": "dist-misamis-oriental",
+   "district_name": "Cagayan De Oro City, Misamis Oriental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 6:00 PM · Cebuano; Sun 6:00 AM · Cebuano; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:30 AM · Tagalog / Cebuano; Thu 6:30 PM · Cebuano; Sun 6:00 AM · Cebuano; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Cebuano",
+     "removed": [
+      "Thu 6:00 AM · Tagalog",
+      "Thu 6:00 PM · Cebuano",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Thu 5:30 AM · Tagalog / Cebuano",
+      "Thu 6:30 PM · Cebuano",
+      "Sun 10:00 AM · Tagalog / Cebuano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792546328264-punta-bonbon-gws",
+   "at": "2026-10-21T01:32:08.264Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-punta-bonbon-gws",
+   "slug": "punta-bonbon-gws",
+   "name": "Punta Bonbon GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-misamis-oriental",
+   "district_name": "Cagayan De Oro City, Misamis Oriental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 AM · Tagalog; Sat 6:00 AM · Tagalog",
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:30 PM · Tagalog",
+     "removed": [
+      "Wed 6:00 AM · Tagalog",
+      "Sat 6:00 AM · Tagalog"
+     ],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792546328264-san-martin-gws",
+   "at": "2026-10-21T01:32:08.264Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-san-martin-gws",
+   "slug": "san-martin-gws",
+   "name": "San Martin GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-zambales-south",
+   "district_name": "Zambales South",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Sitio Abot, San Martin, Cawag, Zambales, 2209, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "14.88556, 120.22275"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 5:30 AM · Tagalog; Sat 6:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 5:30 AM · Tagalog",
+      "Sat 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792546328264-tagumpay-3",
+   "at": "2026-10-21T01:32:08.264Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-tagumpay-3",
+   "slug": "tagumpay-3",
+   "name": "Tagumpay",
+   "kind": "local_congregation",
+   "district_id": "dist-mamburao-occidental-mindoro",
+   "district_name": "Mamburao, Mindoro Occidental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sat 6:30 PM · Tagalog; Sun 5:45 AM · Tagalog",
+     "new": "Thu 6:30 PM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sat 6:30 PM · Tagalog",
+     "removed": [
+      "Thu 5:45 AM · Tagalog",
+      "Sun 5:45 AM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792546328264-uson",
+   "at": "2026-10-21T01:32:08.264Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-uson",
+   "slug": "uson",
+   "name": "Uson",
+   "kind": "local_congregation",
+   "district_id": "dist-masbate",
+   "district_name": "Masbate",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "new": "Wed 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792527904853-cagsiay-ii-gws",
    "at": "2026-10-20T20:25:04.853Z",
