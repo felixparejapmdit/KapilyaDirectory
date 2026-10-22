@@ -1,6 +1,159 @@
 {
- "updated_at": "2026-10-21T10:18:46.304Z",
+ "updated_at": "2026-10-22T01:40:34.691Z",
  "entries": [
+  {
+   "id": "chg-1792633234549-ambayat-ext",
+   "at": "2026-10-22T01:40:34.549Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ambayat-ext",
+   "slug": "ambayat-ext",
+   "name": "Ambayat",
+   "kind": "local_congregation",
+   "district_id": "dist-san-carlos-city-pangasinan",
+   "district_name": "San Carlos City, Pangasinan",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Ambayat Ext",
+     "new": "Ambayat"
+    },
+    {
+     "field": "kind",
+     "old": "Extension",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1792633234549-brgy-chapel-basag",
+   "at": "2026-10-22T01:40:34.549Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-brgy-chapel-basag",
+   "slug": "brgy-chapel-basag",
+   "name": "Basag",
+   "kind": "local_congregation",
+   "district_id": "dist-agusan-del-norte",
+   "district_name": "Agusan Del Norte",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Basag Ext.",
+     "new": "Basag"
+    },
+    {
+     "field": "kind",
+     "old": "Extension",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1792633234549-jerusalem-israel",
+   "at": "2026-10-22T01:40:34.549Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-jerusalem-israel",
+   "slug": "jerusalem-israel",
+   "name": "Jerusalem, Israel",
+   "kind": "local_congregation",
+   "district_id": "dist-mediterranean",
+   "district_name": "Mediterranean",
+   "changes": [
+    {
+     "field": "address",
+     "old": "7 Ben, Yehuda street, Jerusalem, Italy, Israel",
+     "new": "7 Ben, Yehuda street, Jerusalem, Israel"
+    }
+   ]
+  },
+  {
+   "id": "chg-1792633234549-liloan-1",
+   "at": "2026-10-22T01:40:34.549Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-liloan-1",
+   "slug": "liloan-1",
+   "name": "Liloan",
+   "kind": "local_congregation",
+   "district_id": "dist-cebu-south",
+   "district_name": "Cebu City, Cebu",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 10:00 AM · Cebuano; Thu 7:00 PM · Cebuano; Sat 6:00 PM · Cebuano; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano",
+     "new": "Thu 5:30 AM · Tagalog; Thu 10:00 AM · Cebuano; Thu 7:00 PM · Cebuano; Sat 6:00 PM · Cebuano; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano",
+     "removed": [
+      "Thu 6:00 AM · Tagalog"
+     ],
+     "added": [
+      "Thu 5:30 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792633234549-lucca-italy",
+   "at": "2026-10-22T01:40:34.549Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-lucca-italy",
+   "slug": "lucca-italy",
+   "name": "Lucca",
+   "kind": "local_congregation",
+   "district_id": "dist-southern-europe",
+   "district_name": "Italy South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:15 PM · Italian; Thu 5:45 AM · English; Thu 6:30 PM · Tagalog; Sat 4:30 PM · Italian · CWS; Sat 6:30 PM · Italian; Sun 10:00 AM · Tagalog",
+     "new": "Wed 5:45 PM · Italian; Thu 5:45 AM · English; Sat 4:30 PM · Italian · CWS; Sat 6:30 PM · Italian; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 5:15 PM · Italian",
+      "Thu 6:30 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 5:45 PM · Italian"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792633234549-nolasco-ext",
+   "at": "2026-10-22T01:40:34.549Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-nolasco-ext",
+   "slug": "nolasco-ext",
+   "name": "Nolasco",
+   "kind": "local_congregation",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Nolasco Ext.",
+     "new": "Nolasco"
+    },
+    {
+     "field": "kind",
+     "old": "Extension",
+     "new": "Local congregation"
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 2:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 10:30 AM · Tagalog · CWS; Sun 2:00 PM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 2:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog; Sun 2:00 PM · Tagalog",
+     "removed": [
+      "Sun 10:30 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792577926150-aglosong-ext-san-dionisio",
    "at": "2026-10-21T10:18:46.150Z",

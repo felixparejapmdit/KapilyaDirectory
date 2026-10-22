@@ -53712,15 +53712,15 @@
         "English",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T01:40:34.459Z",
       "schedule": [
         {
-          "id": "sch-lucca-italy-3-1715",
+          "id": "sch-lucca-italy-3-1745",
           "locale_id": "loc-lucca-italy",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "17:15",
+          "start_time": "17:45",
           "language": "Italian",
           "is_cws": false
         },
@@ -53732,16 +53732,6 @@
           "day_name": "Thursday",
           "start_time": "05:45",
           "language": "English",
-          "is_cws": false
-        },
-        {
-          "id": "sch-lucca-italy-4-1830",
-          "locale_id": "loc-lucca-italy",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "18:30",
-          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -55184,13 +55174,13 @@
       "name": "Jerusalem, Israel",
       "slug": "jerusalem-israel",
       "kind": "local_congregation",
-      "address": "7 Ben, Yehuda street, Jerusalem, Italy, Israel",
+      "address": "7 Ben, Yehuda street, Jerusalem, Israel",
       "latitude": 31.781627,
       "longitude": 35.217941,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-15T09:51:45.386Z",
+      "source_updated_at": "2026-10-22T01:40:34.459Z",
       "schedule": [
         {
           "id": "sch-jerusalem-israel-3-2030",
@@ -157322,9 +157312,9 @@
       "district_id": "dist-agusan-del-norte",
       "district_name": "Agusan Del Norte",
       "district_slug": "agusan-del-norte",
-      "name": "Basag Ext.",
+      "name": "Basag",
       "slug": "brgy-chapel-basag",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "Brgy. Basag, Butuan City, Agusan del Norte, 8600, Philippines",
       "latitude": 8.932726,
       "longitude": 125.616377,
@@ -157332,7 +157322,7 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T01:40:34.459Z",
       "schedule": [
         {
           "id": "sch-brgy-chapel-basag-4-0545",
@@ -291511,15 +291501,15 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T01:40:34.459Z",
       "schedule": [
         {
-          "id": "sch-liloan-1-4-0600",
+          "id": "sch-liloan-1-4-0530",
           "locale_id": "loc-liloan-1",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "06:00",
+          "start_time": "05:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -358059,16 +358049,16 @@
       "district_id": "dist-san-carlos-city-pangasinan",
       "district_name": "San Carlos City, Pangasinan",
       "district_slug": "san-carlos-city-pangasinan",
-      "name": "Ambayat Ext",
+      "name": "Ambayat",
       "slug": "ambayat-ext",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "Prk 3, Brgy Ambayat 1st, Bayambang, Pangasinan, 2423, Philippines",
       "latitude": 15.770565224816828,
       "longitude": 120.41193891993488,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T01:40:34.459Z",
       "schedule": [
         {
           "id": "sch-ambayat-ext-3-1845",
@@ -454229,16 +454219,16 @@
       "district_id": "dist-cavite-south",
       "district_name": "Dasmarinas City, Cavite",
       "district_slug": "cavite-south",
-      "name": "Nolasco Ext.",
+      "name": "Nolasco",
       "slug": "nolasco-ext",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "B 67 L 16 Brgy. Ipil II, Bulihan, Silang, Cavite, 4118, Philippines",
       "latitude": 14.272788447993145,
       "longitude": 120.99838283525322,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T01:40:34.459Z",
       "schedule": [
         {
           "id": "sch-nolasco-ext-4-0600",
@@ -454281,6 +454271,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-nolasco-ext-0-0800",
+          "locale_id": "loc-nolasco-ext",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
+        },
+        {
           "id": "sch-nolasco-ext-0-1000",
           "locale_id": "loc-nolasco-ext",
           "service_type": "Worship",
@@ -454289,16 +454289,6 @@
           "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
-        },
-        {
-          "id": "sch-nolasco-ext-0-1030",
-          "locale_id": "loc-nolasco-ext",
-          "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:30",
-          "language": "Tagalog",
-          "is_cws": true
         },
         {
           "id": "sch-nolasco-ext-0-1400",
@@ -562149,17 +562139,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-21T10:18:46.150Z",
+  "last_updated": "2026-10-22T01:40:34.549Z",
   "last_sync": {
-    "finished_at": "2026-10-21T10:18:46.150Z",
+    "finished_at": "2026-10-22T01:40:34.549Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,785 locales: 29 changed.",
+    "message": "Checked 8,785 locales: 6 changed.",
     "locales_total": 8785,
-    "updated": 28,
-    "added": 1,
+    "updated": 6,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 4356795
+    "duration_ms": 4506530
   }
 }
