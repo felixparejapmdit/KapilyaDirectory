@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-10-22T15:37:22.170Z",
+ "updated_at": "2026-10-22T20:25:40.119Z",
  "entries": [
+  {
+   "id": "chg-1792700739972-e-sadaba-gws",
+   "at": "2026-10-22T20:25:39.972Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-e-sadaba-gws",
+   "slug": "e-sadaba-gws",
+   "name": "E. Sadaba GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-cavite",
+   "district_name": "Cavite",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Block 55 Lot 2 ACM Woodstock Homes, Navarro, General Trias, Cavite, 4107, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "14.38293, 120.88853"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 7:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792683442065-basco",
    "at": "2026-10-22T15:37:22.065Z",
