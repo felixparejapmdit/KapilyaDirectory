@@ -1,6 +1,139 @@
 {
- "updated_at": "2026-10-22T10:29:06.516Z",
+ "updated_at": "2026-10-22T15:37:22.170Z",
  "entries": [
+  {
+   "id": "chg-1792683442065-basco",
+   "at": "2026-10-22T15:37:22.065Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-basco",
+   "slug": "basco",
+   "name": "Basco",
+   "kind": "local_congregation",
+   "district_id": "dist-cagayan-south",
+   "district_name": "Cagayan South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Wed 6:30 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792683442065-pembo",
+   "at": "2026-10-22T15:37:22.065Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pembo",
+   "slug": "pembo",
+   "name": "Pembo",
+   "kind": "local_congregation",
+   "district_id": "dist-metro-manila-east",
+   "district_name": "Metro Manila East",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · Tagalog / Tagalog Sign; Thu 6:00 AM · Tagalog; Thu 5:00 PM · Tagalog; Thu 8:00 PM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Tagalog Sign; Sun 12:00 PM · Tagalog · CWS",
+     "new": "Wed 8:00 PM · Tagalog / Tagalog Sign; Thu 6:00 AM · Tagalog; Thu 5:00 PM · Tagalog; Thu 8:00 PM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Tagalog Sign; Sun 12:00 PM · Tagalog · CWS; Sun 2:00 PM · English · CWS",
+     "removed": [],
+     "added": [
+      "Sun 2:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792683442065-sitio-tanap-ext",
+   "at": "2026-10-22T15:37:22.065Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-sitio-tanap-ext",
+   "slug": "sitio-tanap-ext",
+   "name": "Sitio Tanap Ext",
+   "kind": "extension",
+   "district_id": "dist-ilocos-norte-ii",
+   "district_name": "Batac City, Ilocos Norte",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "10 Sitio Tanap, Macayepyep, Banna, Ilocos Norte, 2908, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "17.93750, 120.65838"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:30 PM · Tagalog / Ilocano; Sat 6:00 PM · Tagalog / Ilocano",
+     "removed": [],
+     "added": [
+      "Wed 6:30 PM · Tagalog / Ilocano",
+      "Sat 6:00 PM · Tagalog / Ilocano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792683442065-sta-cruz-gws",
+   "at": "2026-10-22T15:37:22.065Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-sta-cruz-gws",
+   "slug": "sta-cruz-gws",
+   "name": "Sta. Cruz GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-isabela-west",
+   "district_name": "Isabela West",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Purok 3, Sta. Cruz, San Manuel, Isabela, 3317, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Ilocano / Tagalog; Sat 6:00 PM · Ilocano / Tagalog",
+     "new": null,
+     "removed": [
+      "Wed 6:30 PM · Ilocano / Tagalog",
+      "Sat 6:00 PM · Ilocano / Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1792683442065-talomo",
+   "at": "2026-10-22T15:37:22.065Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-talomo",
+   "slug": "talomo",
+   "name": "Talomo",
+   "kind": "local_congregation",
+   "district_id": "dist-davao-west",
+   "district_name": "Davao City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 7:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:45 AM · Tagalog; Thu 7:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792664946372-ambayat-ext",
    "at": "2026-10-22T10:29:06.372Z",

@@ -122958,18 +122958,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T15:37:21.994Z",
       "schedule": [
-        {
-          "id": "sch-basco-3-1830",
-          "locale_id": "loc-basco",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-basco-4-0600",
           "locale_id": "loc-basco",
@@ -123019,16 +123009,6 @@
           "start_time": "08:30",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-basco-0-1000",
-          "locale_id": "loc-basco",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": null,
@@ -146309,49 +146289,6 @@
         {
           "id": "sch-sta-catalina-gws-manano-6-1800",
           "locale_id": "loc-sta-catalina-gws-manano",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
-          "language": "Ilocano",
-          "language2": "Tagalog",
-          "is_cws": false
-        }
-      ],
-      "phone": null,
-      "email": null
-    },
-    {
-      "id": "loc-sta-cruz-gws",
-      "district_id": "dist-isabela-west",
-      "district_name": "Isabela West",
-      "district_slug": "isabela-west",
-      "name": "Sta. Cruz GWS",
-      "slug": "sta-cruz-gws",
-      "kind": "group_worship_service",
-      "address": "Purok 3, Sta. Cruz, San Manuel, Isabela, 3317, Philippines",
-      "latitude": 17.0148653,
-      "longitude": 121.5813777,
-      "languages": [
-        "Ilocano",
-        "Tagalog"
-      ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
-      "schedule": [
-        {
-          "id": "sch-sta-cruz-gws-3-1830",
-          "locale_id": "loc-sta-cruz-gws",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:30",
-          "language": "Ilocano",
-          "language2": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-sta-cruz-gws-6-1800",
-          "locale_id": "loc-sta-cruz-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
@@ -383608,9 +383545,10 @@
       "longitude": 121.059807,
       "languages": [
         "Tagalog",
-        "Tagalog Sign"
+        "Tagalog Sign",
+        "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T15:37:21.994Z",
       "schedule": [
         {
           "id": "sch-pembo-3-2000",
@@ -383702,6 +383640,16 @@
           "day_name": "Sunday",
           "start_time": "12:00",
           "language": "Tagalog",
+          "is_cws": true
+        },
+        {
+          "id": "sch-pembo-0-1400",
+          "locale_id": "loc-pembo",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "14:00",
+          "language": "English",
           "is_cws": true
         }
       ],
@@ -412629,7 +412577,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-20T01:54:32.033Z",
+      "source_updated_at": "2026-10-22T15:37:21.994Z",
       "schedule": [
         {
           "id": "sch-talomo-4-0545",
@@ -412648,16 +412596,6 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "19:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-talomo-6-1800",
-          "locale_id": "loc-talomo",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562055,6 +561993,47 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-sitio-tanap-ext",
+      "district_id": "dist-ilocos-norte-ii",
+      "name": "Sitio Tanap Ext",
+      "slug": "sitio-tanap-ext",
+      "kind": "extension",
+      "address": "10 Sitio Tanap, Macayepyep, Banna, Ilocos Norte, 2908, Philippines",
+      "latitude": 17.9374972887288,
+      "longitude": 120.658384174581,
+      "languages": [
+        "Tagalog",
+        "Ilocano"
+      ],
+      "source_updated_at": "2026-10-22T15:37:21.994Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-sitio-tanap-ext-3-1830",
+          "locale_id": "loc-sitio-tanap-ext",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:30",
+          "language": "Tagalog",
+          "language2": "Ilocano",
+          "is_cws": false
+        },
+        {
+          "id": "sch-sitio-tanap-ext-6-1800",
+          "locale_id": "loc-sitio-tanap-ext",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "language2": "Ilocano",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562149,17 +562128,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-22T10:29:06.372Z",
+  "last_updated": "2026-10-22T15:37:22.065Z",
   "last_sync": {
-    "finished_at": "2026-10-22T10:29:06.372Z",
+    "finished_at": "2026-10-22T15:37:22.065Z",
     "trigger": "cli",
-    "status": "success",
-    "message": "Checked 8,785 locales: 14 changed.",
+    "status": "partial",
+    "message": "Checked 8,785 locales: 5 changed; 1 pages kept their previous data.",
     "locales_total": 8785,
-    "updated": 14,
-    "added": 0,
-    "removed": 0,
-    "fetch_failures": 0,
-    "duration_ms": 4828962
+    "updated": 3,
+    "added": 1,
+    "removed": 1,
+    "fetch_failures": 1,
+    "duration_ms": 2757711
   }
 }
