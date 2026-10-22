@@ -2529,7 +2529,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-antioch-3-2000",
@@ -2582,12 +2582,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-antioch-0-1300",
+          "id": "sch-antioch-0-1330",
           "locale_id": "loc-antioch",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "13:00",
+          "start_time": "13:30",
           "language": "English",
           "is_cws": true
         }
@@ -13132,7 +13132,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-sudburyontario-gws-4-2000",
@@ -13145,16 +13145,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-sudburyontario-gws-6-1630",
-          "locale_id": "loc-sudburyontario-gws",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "16:30",
-          "language": "English",
-          "is_cws": true
-        },
-        {
           "id": "sch-sudburyontario-gws-0-1000",
           "locale_id": "loc-sudburyontario-gws",
           "service_type": "Worship",
@@ -13163,6 +13153,16 @@
           "start_time": "10:00",
           "language": "English",
           "is_cws": false
+        },
+        {
+          "id": "sch-sudburyontario-gws-0-1230",
+          "locale_id": "loc-sudburyontario-gws",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "12:30",
+          "language": "English",
+          "is_cws": true
         }
       ],
       "phone": "581-372-4150",
@@ -13263,7 +13263,7 @@
         "English",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-toronto-ontario-4-0530",
@@ -13296,22 +13296,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-toronto-ontario-0-0900",
+          "id": "sch-toronto-ontario-0-1000",
           "locale_id": "loc-toronto-ontario",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "09:00",
+          "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-toronto-ontario-0-0900-2",
+          "id": "sch-toronto-ontario-0-1000-2",
           "locale_id": "loc-toronto-ontario",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "09:00",
+          "start_time": "10:00",
           "language": "English",
           "is_cws": true
         }
@@ -23848,13 +23848,13 @@
       "name": "Great Falls, Montana GWS",
       "slug": "great-falls-montana",
       "kind": "group_worship_service",
-      "address": "c/o Bro Moises Alhambra residence_, 1201 19th st. S., Great Falls, Montana, 59405, United States of America",
-      "latitude": 47.4916767,
-      "longitude": -111.2745343,
+      "address": "600w Central Ave, Ste 24, Great Falls, Montana, 59401, United States of America",
+      "latitude": 47.50526622,
+      "longitude": -111.2968571,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-great-falls-montana-4-0645",
@@ -24144,7 +24144,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-redding-california-4-1930",
@@ -24157,11 +24157,11 @@
           "is_cws": false
         },
         {
-          "id": "sch-redding-california-0-1000",
+          "id": "sch-redding-california-6-1000",
           "locale_id": "loc-redding-california",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "10:00",
           "language": "English",
           "is_cws": false
@@ -30192,7 +30192,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-mississauga-east-2-2000",
@@ -30215,22 +30215,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-mississauga-east-6-0530",
+          "id": "sch-mississauga-east-6-0700",
           "locale_id": "loc-mississauga-east",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "05:30",
-          "language": "English",
-          "is_cws": false
-        },
-        {
-          "id": "sch-mississauga-east-6-0830",
-          "locale_id": "loc-mississauga-east",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:30",
+          "start_time": "07:00",
           "language": "English",
           "is_cws": false
         },
@@ -36205,25 +36195,25 @@
         "English",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
-          "id": "sch-bangsar-malaysia-4-2030",
+          "id": "sch-bangsar-malaysia-3-2030",
           "locale_id": "loc-bangsar-malaysia",
           "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
           "start_time": "20:30",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-bangsar-malaysia-6-2000",
+          "id": "sch-bangsar-malaysia-6-0800",
           "locale_id": "loc-bangsar-malaysia",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "20:00",
+          "start_time": "08:00",
           "language": "English",
           "is_cws": false
         },
@@ -47993,13 +47983,13 @@
       "name": "Cornwall, England GWS",
       "slug": "cornwall",
       "kind": "group_worship_service",
-      "address": "Hugus hall_Threemilestone Community Centre_, Pengelly Way, Threemilestone, Truro, TR3 6DP, United Kingdom",
-      "latitude": 50.2162063,
-      "longitude": -5.2039911,
+      "address": "Cornwall Federation Of Womens Institutes, Truro Business Park, Threemilestone, Truro, TR4 9NH, United Kingdom",
+      "latitude": 50.259313209097485,
+      "longitude": -5.124742069058637,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-cornwall-3-1930",
@@ -57995,16 +57985,16 @@
       "district_id": "dist-northern-europe",
       "district_name": "Northern Europe",
       "district_slug": "northern-europe",
-      "name": "Trondheim, Norway GWS",
+      "name": "Rindal, Norway GWS",
       "slug": "trondheim-norway",
       "kind": "group_worship_service",
-      "address": "Julianus Holms Vei 26, H2-44, Trondheim, 7041, Norway",
-      "latitude": 63.4432629,
-      "longitude": 10.4569944,
+      "address": "Rindalslina 197, Rindal, 6657, Norway",
+      "latitude": 63.04188,
+      "longitude": 10.12955,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-trondheim-norway-4-1930",
@@ -141167,7 +141157,7 @@
         "Tagalog",
         "Ilocano"
       ],
-      "source_updated_at": "2026-10-21T10:18:46.065Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-san-felipe-1-4-1830",
@@ -141192,12 +141182,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-san-felipe-1-0-0800",
+          "id": "sch-san-felipe-1-0-0830",
           "locale_id": "loc-san-felipe-1",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "08:00",
+          "start_time": "08:30",
           "language": "Tagalog",
           "is_cws": true
         }
@@ -334413,7 +334403,7 @@
         "Tagalog",
         "Ilocano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-batac-3-1830",
@@ -334478,6 +334468,16 @@
           "language": "Tagalog",
           "language2": "Ilocano",
           "is_cws": false
+        },
+        {
+          "id": "sch-batac-0-0800",
+          "locale_id": "loc-batac",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "English",
+          "is_cws": true
         },
         {
           "id": "sch-batac-0-1000",
@@ -358058,7 +358058,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-22T01:40:34.459Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-ambayat-ext-3-1845",
@@ -358071,6 +358071,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-ambayat-ext-0-0600",
+          "locale_id": "loc-ambayat-ext",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
           "id": "sch-ambayat-ext-0-0800",
           "locale_id": "loc-ambayat-ext",
           "service_type": "CWS",
@@ -358079,16 +358089,6 @@
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-ambayat-ext-0-1000",
-          "locale_id": "loc-ambayat-ext",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": null,
@@ -454222,13 +454222,13 @@
       "name": "Nolasco",
       "slug": "nolasco-ext",
       "kind": "local_congregation",
-      "address": "B 67 L 16 Brgy. Ipil II, Bulihan, Silang, Cavite, 4118, Philippines",
+      "address": "B 67 L 14 Brgy. Ipil II, Bulihan, Silang, Cavite, 4118, Philippines",
       "latitude": 14.272788447993145,
       "longitude": 120.99838283525322,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-22T01:40:34.459Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-nolasco-ext-4-0600",
@@ -454261,6 +454261,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-nolasco-ext-6-1800",
+          "locale_id": "loc-nolasco-ext",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
           "id": "sch-nolasco-ext-0-0600",
           "locale_id": "loc-nolasco-ext",
           "service_type": "Worship",
@@ -454287,16 +454297,6 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-nolasco-ext-0-1400",
-          "locale_id": "loc-nolasco-ext",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "14:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -548757,7 +548757,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-22T10:29:06.288Z",
       "schedule": [
         {
           "id": "sch-vista-alegre-gws-1-3-1800",
@@ -548778,6 +548778,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-vista-alegre-gws-1-6-0800",
+          "locale_id": "loc-vista-alegre-gws-1",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -562139,17 +562149,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-22T01:40:34.549Z",
+  "last_updated": "2026-10-22T10:29:06.372Z",
   "last_sync": {
-    "finished_at": "2026-10-22T01:40:34.549Z",
+    "finished_at": "2026-10-22T10:29:06.372Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,785 locales: 6 changed.",
+    "message": "Checked 8,785 locales: 14 changed.",
     "locales_total": 8785,
-    "updated": 6,
+    "updated": 14,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 4506530
+    "duration_ms": 4828962
   }
 }

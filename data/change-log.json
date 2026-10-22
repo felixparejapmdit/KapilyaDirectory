@@ -1,6 +1,367 @@
 {
- "updated_at": "2026-10-22T01:40:34.691Z",
+ "updated_at": "2026-10-22T10:29:06.516Z",
  "entries": [
+  {
+   "id": "chg-1792664946372-ambayat-ext",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ambayat-ext",
+   "slug": "ambayat-ext",
+   "name": "Ambayat",
+   "kind": "local_congregation",
+   "district_id": "dist-san-carlos-city-pangasinan",
+   "district_name": "San Carlos City, Pangasinan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 6:45 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sun 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-antioch",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-antioch",
+   "slug": "antioch",
+   "name": "Antioch",
+   "kind": "local_congregation",
+   "district_id": "dist-northwest-california",
+   "district_name": "Bay Area California",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · English; Thu 6:00 AM · English; Thu 8:00 PM · English; Sun 8:00 AM · English; Sun 11:00 AM · English; Sun 1:00 PM · English · CWS",
+     "new": "Wed 8:00 PM · English; Thu 6:00 AM · English; Thu 8:00 PM · English; Sun 8:00 AM · English; Sun 11:00 AM · English; Sun 1:30 PM · English · CWS",
+     "removed": [
+      "Sun 1:00 PM · English · CWS"
+     ],
+     "added": [
+      "Sun 1:30 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-mississauga-east",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-mississauga-east",
+   "slug": "mississauga-east",
+   "name": "Applewood",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 8:00 PM · English; Wed 8:00 PM · English; Sat 5:30 AM · English; Sat 8:30 AM · English; Sat 4:30 PM · English · CWS; Sat 7:00 PM · English",
+     "new": "Tue 8:00 PM · English; Wed 8:00 PM · English; Sat 7:00 AM · English; Sat 4:30 PM · English · CWS; Sat 7:00 PM · English",
+     "removed": [
+      "Sat 5:30 AM · English",
+      "Sat 8:30 AM · English"
+     ],
+     "added": [
+      "Sat 7:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-bangsar-malaysia",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bangsar-malaysia",
+   "slug": "bangsar-malaysia",
+   "name": "Bangsar",
+   "kind": "local_congregation",
+   "district_id": "dist-southeast-asia-ii",
+   "district_name": "Malaysia",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 8:30 PM · English; Sat 8:00 PM · English; Sun 8:00 AM · Tagalog; Sun 10:30 AM · Tagalog; Sun 12:30 PM · English · CWS",
+     "new": "Wed 8:30 PM · English; Sat 8:00 AM · English; Sun 8:00 AM · Tagalog; Sun 10:30 AM · Tagalog; Sun 12:30 PM · English · CWS",
+     "removed": [
+      "Thu 8:30 PM · English",
+      "Sat 8:00 PM · English"
+     ],
+     "added": [
+      "Wed 8:30 PM · English",
+      "Sat 8:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-batac",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-batac",
+   "slug": "batac",
+   "name": "Batac",
+   "kind": "local_congregation",
+   "district_id": "dist-ilocos-norte-ii",
+   "district_name": "Batac City, Ilocos Norte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · English; Thu 5:30 AM · Tagalog / Ilocano; Thu 7:00 PM · Tagalog / Ilocano; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Ilocano; Sun 6:00 AM · Tagalog / Ilocano; Sun 10:00 AM · English",
+     "new": "Wed 6:30 PM · English; Thu 5:30 AM · Tagalog / Ilocano; Thu 7:00 PM · Tagalog / Ilocano; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Ilocano; Sun 6:00 AM · Tagalog / Ilocano; Sun 8:00 AM · English · CWS; Sun 10:00 AM · English",
+     "removed": [],
+     "added": [
+      "Sun 8:00 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-cornwall",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cornwall",
+   "slug": "cornwall",
+   "name": "Cornwall, England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Hugus hall_Threemilestone Community Centre_, Pengelly Way, Threemilestone, Truro, TR3 6DP, United Kingdom",
+     "new": "Cornwall Federation Of Womens Institutes, Truro Business Park, Threemilestone, Truro, TR4 9NH, United Kingdom"
+    },
+    {
+     "field": "location",
+     "old": "50.21621, -5.20399",
+     "new": "50.25931, -5.12474",
+     "moved_km": 7.4
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-great-falls-montana",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-great-falls-montana",
+   "slug": "great-falls-montana",
+   "name": "Great Falls, Montana GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-oregon",
+   "district_name": "Oregon",
+   "changes": [
+    {
+     "field": "address",
+     "old": "c/o Bro Moises Alhambra residence_, 1201 19th st. S., Great Falls, Montana, 59405, United States of America",
+     "new": "600w Central Ave, Ste 24, Great Falls, Montana, 59401, United States of America"
+    },
+    {
+     "field": "location",
+     "old": "47.49168, -111.27453",
+     "new": "47.50527, -111.29686",
+     "moved_km": 2.26
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-nolasco-ext",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-nolasco-ext",
+   "slug": "nolasco-ext",
+   "name": "Nolasco",
+   "kind": "local_congregation",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "address",
+     "old": "B 67 L 16 Brgy. Ipil II, Bulihan, Silang, Cavite, 4118, Philippines",
+     "new": "B 67 L 14 Brgy. Ipil II, Bulihan, Silang, Cavite, 4118, Philippines"
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 2:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog; Sun 2:00 PM · Tagalog",
+     "new": "Thu 6:00 AM · Tagalog; Thu 2:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sun 2:00 PM · Tagalog"
+     ],
+     "added": [
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-redding-california",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-redding-california",
+   "slug": "redding-california",
+   "name": "Redding GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-oregon",
+   "district_name": "Oregon",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 7:30 PM · English; Sun 10:00 AM · English",
+     "new": "Thu 7:30 PM · English; Sat 10:00 AM · English",
+     "removed": [
+      "Sun 10:00 AM · English"
+     ],
+     "added": [
+      "Sat 10:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-trondheim-norway",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-trondheim-norway",
+   "slug": "trondheim-norway",
+   "name": "Rindal, Norway GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Trondheim, Norway GWS",
+     "new": "Rindal, Norway GWS"
+    },
+    {
+     "field": "address",
+     "old": "Julianus Holms Vei 26, H2-44, Trondheim, 7041, Norway",
+     "new": "Rindalslina 197, Rindal, 6657, Norway"
+    },
+    {
+     "field": "location",
+     "old": "63.44326, 10.45699",
+     "new": "63.04188, 10.12955",
+     "moved_km": 47.55
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-san-felipe-1",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-felipe-1",
+   "slug": "san-felipe-1",
+   "name": "San Felipe",
+   "kind": "local_congregation",
+   "district_id": "dist-isabela-south",
+   "district_name": "Isabela South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:30 PM · Tagalog / Ilocano; Sun 6:00 AM · Tagalog / Ilocano; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 6:30 PM · Tagalog / Ilocano; Sun 6:00 AM · Tagalog / Ilocano; Sun 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:30 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-sudburyontario-gws",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sudburyontario-gws",
+   "slug": "sudburyontario-gws",
+   "name": "Sudbury, Ontario GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-eastern-canada",
+   "district_name": "Greater Toronto",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 8:00 PM · English; Sat 4:30 PM · English · CWS; Sun 10:00 AM · English",
+     "new": "Thu 8:00 PM · English; Sun 10:00 AM · English; Sun 12:30 PM · English · CWS",
+     "removed": [
+      "Sat 4:30 PM · English · CWS"
+     ],
+     "added": [
+      "Sun 12:30 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-toronto-ontario",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-toronto-ontario",
+   "slug": "toronto-ontario",
+   "name": "Toronto",
+   "kind": "local_congregation",
+   "district_id": "dist-eastern-canada",
+   "district_name": "Greater Toronto",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · English; Thu 8:00 PM · English; Sat 6:00 PM · English; Sun 9:00 AM · Tagalog; Sun 9:00 AM · English · CWS",
+     "new": "Thu 5:30 AM · English; Thu 8:00 PM · English; Sat 6:00 PM · English; Sun 10:00 AM · Tagalog; Sun 10:00 AM · English · CWS",
+     "removed": [
+      "Sun 9:00 AM · Tagalog",
+      "Sun 9:00 AM · English · CWS"
+     ],
+     "added": [
+      "Sun 10:00 AM · Tagalog",
+      "Sun 10:00 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792664946372-vista-alegre-gws-1",
+   "at": "2026-10-22T10:29:06.372Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-vista-alegre-gws-1",
+   "slug": "vista-alegre-gws-1",
+   "name": "Vista Alegre GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-iloilo-north",
+   "district_name": "Iloilo North",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog",
+     "new": "Wed 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS",
+     "removed": [],
+     "added": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792633234549-ambayat-ext",
    "at": "2026-10-22T01:40:34.549Z",
