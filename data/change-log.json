@@ -1,6 +1,63 @@
 {
- "updated_at": "2026-10-23T09:45:42.072Z",
+ "updated_at": "2026-10-23T15:08:24.577Z",
  "entries": [
+  {
+   "id": "chg-1792768104250-lower-banilad-ext",
+   "at": "2026-10-23T15:08:24.250Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-lower-banilad-ext",
+   "slug": "lower-banilad-ext",
+   "name": "Lower Banilad Ext.",
+   "kind": "extension",
+   "district_id": "dist-mindoro-oriental-south",
+   "district_name": "Bongabong, Oriental Mindoro",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Proper Banilad, Pinamalayan, Oriental Mindoro, 5208, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "13.08378, 121.54763"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792768104250-san-mariano-ext",
+   "at": "2026-10-23T15:08:24.250Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-mariano-ext",
+   "slug": "san-mariano-ext",
+   "name": "San Mariano Sur Ext.",
+   "kind": "extension",
+   "district_id": "dist-isabela-south",
+   "district_name": "Isabela South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog / Ilocano; Sat 6:00 PM · Tagalog / Ilocano",
+     "new": "Wed 6:30 PM · Tagalog / Ilocano; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Ilocano",
+     "removed": [],
+     "added": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792748741976-cornwall",
    "at": "2026-10-23T09:45:41.976Z",
