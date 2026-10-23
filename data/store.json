@@ -47989,14 +47989,14 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-10-23T01:01:43.110Z",
+      "source_updated_at": "2026-10-23T09:45:41.917Z",
       "schedule": [
         {
-          "id": "sch-cornwall-3-1930",
+          "id": "sch-cornwall-4-1930",
           "locale_id": "loc-cornwall",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
+          "day_of_week": 4,
+          "day_name": "Thursday",
           "start_time": "19:30",
           "language": "English",
           "is_cws": false
@@ -389238,27 +389238,17 @@
       "district_id": "dist-quezon-city",
       "district_name": "Quezon City",
       "district_slug": "quezon-city",
-      "name": "North Fairview Ext",
+      "name": "Villanueva",
       "slug": "north-fairview-ext",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "L 21, B 226 baht St. Brgy North Fairview, Quezon City, Metro Manila, Philippines",
       "latitude": 14.707193,
       "longitude": 121.056524,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-23T09:45:41.917Z",
       "schedule": [
-        {
-          "id": "sch-north-fairview-ext-3-0545",
-          "locale_id": "loc-north-fairview-ext",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "05:45",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-north-fairview-ext-3-1845",
           "locale_id": "loc-north-fairview-ext",
@@ -389266,6 +389256,26 @@
           "day_of_week": 3,
           "day_name": "Wednesday",
           "start_time": "18:45",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-north-fairview-ext-4-0545",
+          "locale_id": "loc-north-fairview-ext",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "05:45",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-north-fairview-ext-4-1945",
+          "locale_id": "loc-north-fairview-ext",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "19:45",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -389290,12 +389300,22 @@
           "is_cws": true
         },
         {
-          "id": "sch-north-fairview-ext-6-1800",
+          "id": "sch-north-fairview-ext-0-0600",
           "locale_id": "loc-north-fairview-ext",
           "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-north-fairview-ext-0-1000",
+          "locale_id": "loc-north-fairview-ext",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -562156,9 +562176,9 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-23T01:01:43.199Z",
+  "last_updated": "2026-10-23T09:45:41.976Z",
   "last_sync": {
-    "finished_at": "2026-10-23T01:01:43.199Z",
+    "finished_at": "2026-10-23T09:45:41.976Z",
     "trigger": "cli",
     "status": "success",
     "message": "Checked 8,786 locales: 2 changed.",
@@ -562167,6 +562187,6 @@
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2338854
+    "duration_ms": 2435913
   }
 }
