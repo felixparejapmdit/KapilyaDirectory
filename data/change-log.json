@@ -1,6 +1,53 @@
 {
- "updated_at": "2026-10-22T20:25:40.119Z",
+ "updated_at": "2026-10-23T01:01:43.936Z",
  "entries": [
+  {
+   "id": "chg-1792717303199-cornwall",
+   "at": "2026-10-23T01:01:43.199Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cornwall",
+   "slug": "cornwall",
+   "name": "Cornwall, England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Sun 11:00 AM · English",
+     "new": "Wed 7:30 PM · English; Sun 11:00 AM · English; Sun 1:30 PM · English · CWS",
+     "removed": [],
+     "added": [
+      "Sun 1:30 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1792717303199-julita-1",
+   "at": "2026-10-23T01:01:43.199Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-julita-1",
+   "slug": "julita-1",
+   "name": "Julita",
+   "kind": "local_congregation",
+   "district_id": "dist-leyte-east",
+   "district_name": "Tacloban City, Leyte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 6:30 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Thu 5:45 AM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1792700739972-e-sadaba-gws",
    "at": "2026-10-22T20:25:39.972Z",

@@ -47989,7 +47989,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-10-22T10:29:06.288Z",
+      "source_updated_at": "2026-10-23T01:01:43.110Z",
       "schedule": [
         {
           "id": "sch-cornwall-3-1930",
@@ -48010,6 +48010,16 @@
           "start_time": "11:00",
           "language": "English",
           "is_cws": false
+        },
+        {
+          "id": "sch-cornwall-0-1330",
+          "locale_id": "loc-cornwall",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "13:30",
+          "language": "English",
+          "is_cws": true
         }
       ],
       "phone": "0044-74-7679-8256",
@@ -323425,18 +323435,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-10-23T01:01:43.110Z",
       "schedule": [
-        {
-          "id": "sch-julita-1-4-0545",
-          "locale_id": "loc-julita-1",
-          "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "05:45",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-julita-1-4-1830",
           "locale_id": "loc-julita-1",
@@ -323444,16 +323444,6 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "18:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-julita-1-6-1800",
-          "locale_id": "loc-julita-1",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562166,17 +562156,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-22T20:25:39.972Z",
+  "last_updated": "2026-10-23T01:01:43.199Z",
   "last_sync": {
-    "finished_at": "2026-10-22T20:25:39.972Z",
+    "finished_at": "2026-10-23T01:01:43.199Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,786 locales: 1 changed.",
+    "message": "Checked 8,786 locales: 2 changed.",
     "locales_total": 8786,
-    "updated": 0,
-    "added": 1,
+    "updated": 2,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2530820
+    "duration_ms": 2338854
   }
 }
