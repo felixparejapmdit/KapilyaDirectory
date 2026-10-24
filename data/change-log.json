@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-10-23T15:08:24.577Z",
+ "updated_at": "2026-10-24T09:18:50.852Z",
  "entries": [
+  {
+   "id": "chg-1792833530432-pinagpala-gws",
+   "at": "2026-10-24T09:18:50.432Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-pinagpala-gws",
+   "slug": "pinagpala-gws",
+   "name": "Pinagpala GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-pampanga-west",
+   "district_name": "Pampanga West",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Pinagpala, Balsir, Hermosa, Bataan, 2110, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "14.86825, 120.49041"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 1:30 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 1:30 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792768104250-lower-banilad-ext",
    "at": "2026-10-23T15:08:24.250Z",
