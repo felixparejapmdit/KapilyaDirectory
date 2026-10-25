@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-10-24T09:18:50.852Z",
+ "updated_at": "2026-10-25T09:41:04.634Z",
  "entries": [
+  {
+   "id": "chg-1792921264548-jackson-ms-gws",
+   "at": "2026-10-25T09:41:04.548Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-jackson-ms-gws",
+   "slug": "jackson-ms-gws",
+   "name": "Jackson MS GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-south-central-states",
+   "district_name": "South Central States",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "764 W. Porter St., Jackson, Mississippi, 39202, USA"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "32.28856, -90.20068"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Thu 7:30 PM · English; Sun 11:00 PM · English",
+     "removed": [],
+     "added": [
+      "Thu 7:30 PM · English",
+      "Sun 11:00 PM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792833530432-pinagpala-gws",
    "at": "2026-10-24T09:18:50.432Z",
