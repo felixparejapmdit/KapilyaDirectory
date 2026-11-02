@@ -1,6 +1,31 @@
 {
- "updated_at": "2026-10-25T09:41:04.634Z",
+ "updated_at": "2026-11-02T23:52:35.656Z",
  "entries": [
+  {
+   "id": "chg-1793663555523-north-fairview-ext",
+   "at": "2026-11-02T23:52:35.523Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-north-fairview-ext",
+   "slug": "north-fairview-ext",
+   "name": "Villanueva",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-city",
+   "district_name": "Quezon City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 6:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 9:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1792921264548-jackson-ms-gws",
    "at": "2026-10-25T09:41:04.548Z",

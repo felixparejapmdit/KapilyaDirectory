@@ -389257,7 +389257,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-23T09:45:41.917Z",
+      "source_updated_at": "2026-11-02T23:52:35.445Z",
       "schedule": [
         {
           "id": "sch-north-fairview-ext-3-1845",
@@ -389300,12 +389300,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-north-fairview-ext-6-0900",
+          "id": "sch-north-fairview-ext-6-0800",
           "locale_id": "loc-north-fairview-ext",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "09:00",
+          "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
         },
@@ -562300,17 +562300,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-10-25T09:41:04.548Z",
+  "last_updated": "2026-11-02T23:52:35.523Z",
   "last_sync": {
-    "finished_at": "2026-10-25T09:41:04.548Z",
+    "finished_at": "2026-11-02T23:52:35.523Z",
     "trigger": "cli",
     "status": "success",
     "message": "Checked 8,789 locales: 1 changed.",
     "locales_total": 8789,
-    "updated": 0,
-    "added": 1,
+    "updated": 1,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2706898
+    "duration_ms": 2024955
   }
 }
