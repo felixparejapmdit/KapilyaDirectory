@@ -81884,15 +81884,15 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
-          "id": "sch-milaya-3-0600",
+          "id": "sch-milaya-3-1900",
           "locale_id": "loc-milaya",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "06:00",
+          "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -83215,7 +83215,7 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-bantuanon-4-1830",
@@ -83229,25 +83229,25 @@
           "is_cws": false
         },
         {
-          "id": "sch-bantuanon-0-0600",
-          "locale_id": "loc-bantuanon",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "06:00",
-          "language": "Cebuano",
-          "language2": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-bantuanon-0-0830",
+          "id": "sch-bantuanon-0-0800",
           "locale_id": "loc-bantuanon",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "08:30",
+          "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
+        },
+        {
+          "id": "sch-bantuanon-0-1000",
+          "locale_id": "loc-bantuanon",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "10:00",
+          "language": "Cebuano",
+          "language2": "Tagalog",
+          "is_cws": false
         }
       ],
       "phone": null,
@@ -104320,9 +104320,10 @@
       "latitude": 12.29748,
       "longitude": 123.34165833333333,
       "languages": [
-        "Tagalog"
+        "Tagalog",
+        "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-cabitan-3-1800",
@@ -104351,7 +104352,7 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "18:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         },
         {
@@ -104401,7 +104402,7 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         }
       ],
@@ -119139,13 +119140,13 @@
       "name": "Bangatan",
       "slug": "bangatan",
       "kind": "local_congregation",
-      "address": "@ Temp Chapel, Zone 4, Brgy. Bangatan, Gattaran, Cagayan, 3508, Philippines",
+      "address": "Zone 4, Brgy. Bangatan, Gattaran, Cagayan, 3508, Philippines",
       "latitude": 18.04061747971148,
       "longitude": 121.75837580952842,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-bangatan-4-0600",
@@ -119188,12 +119189,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-bangatan-0-0900",
+          "id": "sch-bangatan-0-0830",
           "locale_id": "loc-bangatan",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "09:00",
+          "start_time": "08:30",
           "language": "Tagalog",
           "is_cws": true
         }
@@ -120466,7 +120467,7 @@
         "Ilocano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-logac-4-1830",
@@ -120480,12 +120481,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-logac-0-0600",
+          "id": "sch-logac-6-1800",
           "locale_id": "loc-logac",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "06:00",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
           "language": "Ilocano",
           "language2": "Tagalog",
           "is_cws": false
@@ -123242,7 +123243,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-bitag-grande-ext-4-0530",
@@ -123265,16 +123266,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-bitag-grande-ext-6-1600",
-          "locale_id": "loc-bitag-grande-ext",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "16:00",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
           "id": "sch-bitag-grande-ext-6-1800",
           "locale_id": "loc-bitag-grande-ext",
           "service_type": "Worship",
@@ -123293,6 +123284,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-bitag-grande-ext-0-0800",
+          "locale_id": "loc-bitag-grande-ext",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -171102,15 +171103,15 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
-          "id": "sch-corrigidor-4-0900",
+          "id": "sch-corrigidor-4-0600",
           "locale_id": "loc-corrigidor",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "09:00",
+          "start_time": "06:00",
           "language": "Cebuano",
           "is_cws": false
         },
@@ -171150,9 +171151,10 @@
       "latitude": 9.761862,
       "longitude": 126.045541,
       "languages": [
-        "Cebuano"
+        "Cebuano",
+        "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-dapa-4-0530",
@@ -171175,16 +171177,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-dapa-6-1400",
-          "locale_id": "loc-dapa",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "14:00",
-          "language": "Cebuano",
-          "is_cws": true
-        },
-        {
           "id": "sch-dapa-6-1800",
           "locale_id": "loc-dapa",
           "service_type": "Worship",
@@ -171203,6 +171195,16 @@
           "start_time": "06:00",
           "language": "Cebuano",
           "is_cws": false
+        },
+        {
+          "id": "sch-dapa-0-0800",
+          "locale_id": "loc-dapa",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -171263,7 +171265,7 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-dinagat-4-1830",
@@ -171286,12 +171288,12 @@
           "is_cws": true
         },
         {
-          "id": "sch-dinagat-0-0600",
+          "id": "sch-dinagat-6-1800",
           "locale_id": "loc-dinagat",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "06:00",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
           "language": "Cebuano",
           "is_cws": false
         }
@@ -173378,7 +173380,7 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-placer-1-4-0530",
@@ -173391,12 +173393,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-placer-1-4-1800",
+          "id": "sch-placer-1-4-1830",
           "locale_id": "loc-placer-1",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "18:00",
+          "start_time": "18:30",
           "language": "Cebuano",
           "is_cws": false
         },
@@ -250293,7 +250295,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-dalayap-gws-3-1830",
@@ -250326,6 +250328,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-dalayap-gws-0-0600",
+          "locale_id": "loc-dalayap-gws",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
           "id": "sch-dalayap-gws-0-0800",
           "locale_id": "loc-dalayap-gws",
           "service_type": "CWS",
@@ -250334,16 +250346,6 @@
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-dalayap-gws-0-1000",
-          "locale_id": "loc-dalayap-gws",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": null,
@@ -273125,10 +273127,10 @@
       "longitude": 125.059878,
       "languages": [
         "English",
-        "English Sign",
-        "Tagalog"
+        "Tagalog",
+        "Tagalog Sign"
       ],
-      "source_updated_at": "2026-10-13T12:06:38.206Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-polomolok-3-1900",
@@ -273138,7 +273140,6 @@
           "day_name": "Wednesday",
           "start_time": "19:00",
           "language": "English",
-          "language2": "English Sign",
           "is_cws": false
         },
         {
@@ -273169,6 +273170,7 @@
           "day_name": "Thursday",
           "start_time": "19:00",
           "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -273179,7 +273181,6 @@
           "day_name": "Saturday",
           "start_time": "18:00",
           "language": "English",
-          "language2": "English Sign",
           "is_cws": false
         },
         {
@@ -273210,6 +273211,7 @@
           "day_name": "Sunday",
           "start_time": "10:00",
           "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         }
       ],
@@ -273230,7 +273232,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-lemblisong-dako-ng-pagsamba-4-1830",
@@ -273243,21 +273245,21 @@
           "is_cws": false
         },
         {
-          "id": "sch-lemblisong-dako-ng-pagsamba-0-0800",
+          "id": "sch-lemblisong-dako-ng-pagsamba-6-0800",
           "locale_id": "loc-lemblisong-dako-ng-pagsamba",
           "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
         },
         {
-          "id": "sch-lemblisong-dako-ng-pagsamba-0-1000",
+          "id": "sch-lemblisong-dako-ng-pagsamba-6-1000",
           "locale_id": "loc-lemblisong-dako-ng-pagsamba",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
@@ -297074,7 +297076,7 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-samac-gws-3-1800",
@@ -297088,12 +297090,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-samac-gws-6-1800",
+          "id": "sch-samac-gws-6-0800",
           "locale_id": "loc-samac-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "18:00",
+          "start_time": "08:00",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
@@ -301414,7 +301416,7 @@
       "languages": [
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-vallehermoso-4-1000",
@@ -301437,16 +301439,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-vallehermoso-6-1600",
-          "locale_id": "loc-vallehermoso",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "16:00",
-          "language": "Cebuano",
-          "is_cws": true
-        },
-        {
           "id": "sch-vallehermoso-6-1800",
           "locale_id": "loc-vallehermoso",
           "service_type": "Worship",
@@ -301455,6 +301447,16 @@
           "start_time": "18:00",
           "language": "Cebuano",
           "is_cws": false
+        },
+        {
+          "id": "sch-vallehermoso-0-0800",
+          "locale_id": "loc-vallehermoso",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Cebuano",
+          "is_cws": true
         },
         {
           "id": "sch-vallehermoso-0-1000",
@@ -342497,34 +342499,34 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
-          "id": "sch-lipay-ext-4-1730",
+          "id": "sch-lipay-ext-3-1730",
           "locale_id": "loc-lipay-ext",
           "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
           "start_time": "17:30",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-lipay-ext-0-0800",
+          "id": "sch-lipay-ext-6-0800",
           "locale_id": "loc-lipay-ext",
           "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
         },
         {
-          "id": "sch-lipay-ext-0-1000",
+          "id": "sch-lipay-ext-6-1000",
           "locale_id": "loc-lipay-ext",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
@@ -384517,7 +384519,7 @@
         "English",
         "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-almanza-3-0600",
@@ -384601,6 +384603,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-almanza-6-1030",
+          "locale_id": "loc-almanza",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "10:30",
+          "language": "English",
+          "is_cws": true
+        },
+        {
           "id": "sch-almanza-6-1400",
           "locale_id": "loc-almanza",
           "service_type": "Worship",
@@ -384640,16 +384652,6 @@
           "start_time": "10:00",
           "language": "English",
           "is_cws": false
-        },
-        {
-          "id": "sch-almanza-0-1200",
-          "locale_id": "loc-almanza",
-          "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "12:00",
-          "language": "English",
-          "is_cws": true
         }
       ],
       "phone": "(02) 8805-4545",
@@ -384989,19 +384991,19 @@
       "latitude": 14.461688,
       "longitude": 120.992549,
       "languages": [
-        "English",
-        "Tagalog"
+        "Tagalog",
+        "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
-          "id": "sch-caa-3-0600",
+          "id": "sch-caa-3-1700",
           "locale_id": "loc-caa",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "06:00",
-          "language": "English",
+          "start_time": "17:00",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -385011,7 +385013,7 @@
           "day_of_week": 3,
           "day_name": "Wednesday",
           "start_time": "20:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         },
         {
@@ -385061,16 +385063,16 @@
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "06:00",
-          "language": "English",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-caa-6-0830",
+          "id": "sch-caa-6-1000",
           "locale_id": "loc-caa",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "08:30",
+          "start_time": "10:00",
           "language": "English",
           "is_cws": true
         },
@@ -385091,7 +385093,7 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "06:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         },
         {
@@ -416043,7 +416045,7 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-mt-diwata-4-1800",
@@ -416057,25 +416059,25 @@
           "is_cws": false
         },
         {
-          "id": "sch-mt-diwata-6-0800",
-          "locale_id": "loc-mt-diwata",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:00",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
-          "id": "sch-mt-diwata-6-1400",
+          "id": "sch-mt-diwata-6-0700",
           "locale_id": "loc-mt-diwata",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "14:00",
+          "start_time": "07:00",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-mt-diwata-6-0930",
+          "locale_id": "loc-mt-diwata",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "09:30",
+          "language": "Tagalog",
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -448899,15 +448901,15 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
-          "id": "sch-j-apostol-gws-3-1900",
+          "id": "sch-j-apostol-gws-3-1930",
           "locale_id": "loc-j-apostol-gws",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "19:00",
+          "start_time": "19:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -448922,32 +448924,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-j-apostol-gws-4-1900",
+          "id": "sch-j-apostol-gws-4-1930",
           "locale_id": "loc-j-apostol-gws",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "19:00",
+          "start_time": "19:30",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-j-apostol-gws-6-0900",
-          "locale_id": "loc-j-apostol-gws",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "09:00",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
-          "id": "sch-j-apostol-gws-6-1800",
+          "id": "sch-j-apostol-gws-6-1900",
           "locale_id": "loc-j-apostol-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "18:00",
+          "start_time": "19:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -448960,6 +448952,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-j-apostol-gws-0-0800",
+          "locale_id": "loc-j-apostol-gws",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": true
         },
         {
           "id": "sch-j-apostol-gws-0-1000",
@@ -449079,7 +449081,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-kawit-3-2000",
@@ -449102,12 +449104,12 @@
           "is_cws": true
         },
         {
-          "id": "sch-kawit-6-1800",
+          "id": "sch-kawit-0-1600",
           "locale_id": "loc-kawit",
           "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "16:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -531418,7 +531420,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-cayangwan-gws-3-1800",
@@ -531431,12 +531433,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-cayangwan-gws-6-0800",
+          "id": "sch-cayangwan-gws-6-1800",
           "locale_id": "loc-cayangwan-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "08:00",
+          "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -532098,7 +532100,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-kalibo-4-0600",
@@ -532121,6 +532123,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-kalibo-6-1800",
+          "locale_id": "loc-kalibo",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
           "id": "sch-kalibo-0-0600",
           "locale_id": "loc-kalibo",
           "service_type": "Worship",
@@ -532131,24 +532143,14 @@
           "is_cws": false
         },
         {
-          "id": "sch-kalibo-0-0800",
+          "id": "sch-kalibo-0-0830",
           "locale_id": "loc-kalibo",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "08:00",
+          "start_time": "08:30",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-kalibo-0-1000",
-          "locale_id": "loc-kalibo",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": "(036) 262-1024",
@@ -532168,7 +532170,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-03T12:03:39.518Z",
       "schedule": [
         {
           "id": "sch-kinalangay-viejo-gws-3-1730",
@@ -532181,11 +532183,11 @@
           "is_cws": false
         },
         {
-          "id": "sch-kinalangay-viejo-gws-6-0800",
+          "id": "sch-kinalangay-viejo-gws-0-0800",
           "locale_id": "loc-kinalangay-viejo-gws",
           "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
+          "day_of_week": 0,
+          "day_name": "Sunday",
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": false
@@ -562300,17 +562302,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-02T23:52:35.523Z",
+  "last_updated": "2026-11-03T12:03:39.608Z",
   "last_sync": {
-    "finished_at": "2026-11-02T23:52:35.523Z",
+    "finished_at": "2026-11-03T12:03:39.608Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,789 locales: 1 changed.",
+    "message": "Checked 8,789 locales: 24 changed.",
     "locales_total": 8789,
-    "updated": 1,
+    "updated": 24,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2024955
+    "duration_ms": 1646227
   }
 }
