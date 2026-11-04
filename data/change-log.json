@@ -1,6 +1,146 @@
 {
- "updated_at": "2026-11-03T12:03:39.783Z",
+ "updated_at": "2026-11-04T02:17:01.330Z",
  "entries": [
+  {
+   "id": "chg-1793758621216-bantuanon",
+   "at": "2026-11-04T02:17:01.216Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bantuanon",
+   "slug": "bantuanon",
+   "name": "Bantuanon",
+   "kind": "local_congregation",
+   "district_id": "dist-bukidnon",
+   "district_name": "Valencia City, Bukidnon",
+   "changes": [
+    {
+     "field": "address",
+     "old": "@ Temporary Dako, Bantuanon, Lantapan, Bukidnon, 8722, Philippines",
+     "new": "Bantuanon, Lantapan, Bukidnon, 8722, Philippines"
+    }
+   ]
+  },
+  {
+   "id": "chg-1793758621216-dapa",
+   "at": "2026-11-04T02:17:01.216Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-dapa",
+   "slug": "dapa",
+   "name": "Dapa",
+   "kind": "local_congregation",
+   "district_id": "dist-surigao-del-norte",
+   "district_name": "Surigao Del Norte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Cebuano; Thu 6:30 PM · Cebuano; Sat 6:00 PM · Cebuano; Sun 6:00 AM · Cebuano; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 5:30 AM · Cebuano; Thu 6:30 PM · Cebuano; Sat 6:00 PM · Cebuano; Sun 6:00 AM · Cebuano; Sun 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:30 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793758621216-hamptons",
+   "at": "2026-11-04T02:17:01.216Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-hamptons",
+   "slug": "hamptons",
+   "name": "Hamptons",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-vi",
+   "district_name": "Edmonton",
+   "changes": [
+    {
+     "field": "address",
+     "old": "7003, 199 St., Edmonton, Alberta, T5T 3A8, Canada",
+     "new": "The Barn on Winterburn Rd, 21530 103 Ave, Edmonton, Alberta, T5T 3A8, Canada"
+    },
+    {
+     "field": "location",
+     "old": "53.50463, -113.66352",
+     "new": "53.54443, -113.69190",
+     "moved_km": 4.81
+    }
+   ]
+  },
+  {
+   "id": "chg-1793758621216-nagsabaran",
+   "at": "2026-11-04T02:17:01.216Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-nagsabaran",
+   "slug": "nagsabaran",
+   "name": "Nagsabaran",
+   "kind": "local_congregation",
+   "district_id": "dist-nueva-vizcaya",
+   "district_name": "Nueva Vizcaya",
+   "changes": [
+    {
+     "field": "address",
+     "old": "INC Compound, Nagsabaran, Diadi, Nueva Vizcaya, 3712, Philippines",
+     "new": "Temp @ Lokal ng Decabacan, INC Compound Nagsabaran, Diadi, Nueva Vizcaya, 3712, Philippines"
+    }
+   ]
+  },
+  {
+   "id": "chg-1793758621216-rosario-4",
+   "at": "2026-11-04T02:17:01.216Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-rosario-4",
+   "slug": "rosario-4",
+   "name": "Rosario",
+   "kind": "local_congregation",
+   "district_id": "dist-agoo-la-union",
+   "district_name": "Agoo, La Union",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 6:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 6:00 PM · Tagalog / Tagalog Sign; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Thu 6:00 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:00 PM · Tagalog / Tagalog Sign",
+      "Sun 10:00 AM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793758621216-north-fairview-ext",
+   "at": "2026-11-04T02:17:01.216Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-north-fairview-ext",
+   "slug": "north-fairview-ext",
+   "name": "Villanueva",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-city",
+   "district_name": "Quezon City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 6:45 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 9:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1793707419608-almanza",
    "at": "2026-11-03T12:03:39.608Z",
