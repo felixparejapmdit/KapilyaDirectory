@@ -26577,15 +26577,15 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
-          "id": "sch-north-battleford-sas-4-1900",
+          "id": "sch-north-battleford-sas-3-2000",
           "locale_id": "loc-north-battleford-sas",
           "service_type": "Worship",
-          "day_of_week": 4,
-          "day_name": "Thursday",
-          "start_time": "19:00",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "20:00",
           "language": "English",
           "is_cws": false
         },
@@ -39330,15 +39330,15 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
-          "id": "sch-balung-group-worship-service-5-1600",
+          "id": "sch-balung-group-worship-service-0-1000",
           "locale_id": "loc-balung-group-worship-service",
           "service_type": "Worship",
-          "day_of_week": 5,
-          "day_name": "Friday",
-          "start_time": "16:00",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -55905,18 +55905,18 @@
       "latitude": 40.6376266,
       "longitude": 22.9453289,
       "languages": [
-        "English"
+        "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
-          "id": "sch-thessaloniki-greece-0-0800",
+          "id": "sch-thessaloniki-greece-4-2000",
           "locale_id": "loc-thessaloniki-greece",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "08:00",
-          "language": "English",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "20:00",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -55926,7 +55926,7 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "11:00",
-          "language": "English",
+          "language": "Tagalog",
           "is_cws": false
         }
       ],
@@ -151026,16 +151026,16 @@
       "district_id": "dist-nueva-vizcaya",
       "district_name": "Nueva Vizcaya",
       "district_slug": "nueva-vizcaya",
-      "name": "Magsaysay Hill GWS",
+      "name": "Magsaysay Hill",
       "slug": "magsaysay-hill-gws",
-      "kind": "group_worship_service",
+      "kind": "local_congregation",
       "address": "Barangay Magsaysay Hill, Bambang, Nueva Vizcaya, 3702, Philippines",
       "latitude": 16.40781289631299,
       "longitude": 121.1117548645957,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-magsaysay-hill-gws-3-1830",
@@ -203760,25 +203760,15 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
-          "id": "sch-sagrada-3-1900",
-          "locale_id": "loc-sagrada",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "19:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-sagrada-4-0600",
+          "id": "sch-sagrada-4-0530",
           "locale_id": "loc-sagrada",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "06:00",
+          "start_time": "05:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -203821,16 +203811,6 @@
           "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
-        },
-        {
-          "id": "sch-sagrada-0-1000",
-          "locale_id": "loc-sagrada",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "is_cws": false
         }
       ],
       "phone": null,
@@ -204426,16 +204406,16 @@
       "district_id": "dist-bulacan-west",
       "district_name": "Bulacan West",
       "district_slug": "bulacan-west",
-      "name": "Wawa Ext",
+      "name": "Wawa",
       "slug": "wawa-ext",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "Wawa, Brgy. Iba, Hagonoy, Bulacan, 1630, Philippines",
       "latitude": 14.8696019,
       "longitude": 120.7640506,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-wawa-ext-3-1900",
@@ -239937,13 +239917,13 @@
       "name": "Bunga",
       "slug": "bunga-1",
       "kind": "local_congregation",
-      "address": "Bunga, Carranglan, Nueva Ecija, 3123, Philippines",
+      "address": "Temp @ Domingo Compd., Bunga, Carranglan, Nueva Ecija, 3123, Philippines",
       "latitude": 16.001226518306712,
       "longitude": 121.04281467387996,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-bunga-1-4-0530",
@@ -268164,9 +268144,10 @@
       "latitude": 6.475381,
       "longitude": 124.876609,
       "languages": [
-        "Tagalog"
+        "Tagalog",
+        "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-concepcion-9-3-1830",
@@ -268195,7 +268176,7 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "18:30",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         },
         {
@@ -268235,7 +268216,7 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         }
       ],
@@ -281982,7 +281963,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-del-monte-1-3-1800",
@@ -281995,12 +281976,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-del-monte-1-6-0700",
+          "id": "sch-del-monte-1-6-0600",
           "locale_id": "loc-del-monte-1",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "07:00",
+          "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -321898,7 +321879,7 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-salvacion-6-4-0530",
@@ -321923,12 +321904,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-salvacion-6-0-0600",
+          "id": "sch-salvacion-6-6-1600",
+          "locale_id": "loc-salvacion-6",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "16:00",
+          "language": "Tagalog",
+          "is_cws": true
+        },
+        {
+          "id": "sch-salvacion-6-6-1830",
           "locale_id": "loc-salvacion-6",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "06:00",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:30",
           "language": "Tagalog",
           "language2": "Cebuano",
           "is_cws": false
@@ -321936,20 +321927,10 @@
         {
           "id": "sch-salvacion-6-0-0800",
           "locale_id": "loc-salvacion-6",
-          "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "08:00",
-          "language": "Tagalog",
-          "is_cws": true
-        },
-        {
-          "id": "sch-salvacion-6-0-1000",
-          "locale_id": "loc-salvacion-6",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:00",
+          "start_time": "08:00",
           "language": "Tagalog",
           "language2": "Cebuano",
           "is_cws": false
@@ -371362,7 +371343,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-25T10:35:53.492Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-sauyo-ext-4-0545",
@@ -371385,12 +371366,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-sauyo-ext-4-1845",
+          "id": "sch-sauyo-ext-4-1945",
           "locale_id": "loc-sauyo-ext",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "18:45",
+          "start_time": "19:45",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -373582,7 +373563,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-mindanao-avenue-1-4-0545",
@@ -373625,12 +373606,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-mindanao-avenue-1-0-1145",
+          "id": "sch-mindanao-avenue-1-0-1200",
           "locale_id": "loc-mindanao-avenue-1",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "11:45",
+          "start_time": "12:00",
           "language": "Tagalog",
           "is_cws": true
         }
@@ -480355,7 +480336,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-pitogo-4-0600",
@@ -480378,14 +480359,14 @@
           "is_cws": false
         },
         {
-          "id": "sch-pitogo-6-0800",
+          "id": "sch-pitogo-6-1800",
           "locale_id": "loc-pitogo",
-          "service_type": "CWS",
+          "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "08:00",
+          "start_time": "18:00",
           "language": "Tagalog",
-          "is_cws": true
+          "is_cws": false
         },
         {
           "id": "sch-pitogo-0-0600",
@@ -480398,14 +480379,14 @@
           "is_cws": false
         },
         {
-          "id": "sch-pitogo-0-1000",
+          "id": "sch-pitogo-0-0830",
           "locale_id": "loc-pitogo",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:00",
+          "start_time": "08:30",
           "language": "Tagalog",
-          "is_cws": false
+          "is_cws": true
         }
       ],
       "phone": null,
@@ -542825,16 +542806,16 @@
       "district_id": "dist-capiz",
       "district_name": "Capiz",
       "district_slug": "capiz",
-      "name": "Jaena Sur Ext.",
+      "name": "Jaena Sur",
       "slug": "jaena-sur-ext",
-      "kind": "extension",
+      "kind": "local_congregation",
       "address": "Brgy. Jaena Sur, Jamindan, Capiz, 5808, Philippines",
       "latitude": 11.381705,
       "longitude": 122.464954,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-04T12:15:16.047Z",
       "schedule": [
         {
           "id": "sch-jaena-sur-ext-3-0530",
@@ -562305,17 +562286,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-04T02:17:01.216Z",
+  "last_updated": "2026-11-04T12:15:16.142Z",
   "last_sync": {
-    "finished_at": "2026-11-04T02:17:01.216Z",
+    "finished_at": "2026-11-04T12:15:16.142Z",
     "trigger": "cli",
     "status": "partial",
-    "message": "Checked 8,788 locales: 6 changed; 1 pages kept their previous data.",
+    "message": "Checked 8,788 locales: 14 changed; 1 pages kept their previous data.",
     "locales_total": 8789,
-    "updated": 6,
+    "updated": 14,
     "added": 0,
     "removed": 0,
     "fetch_failures": 1,
-    "duration_ms": 1455508
+    "duration_ms": 1469536
   }
 }
