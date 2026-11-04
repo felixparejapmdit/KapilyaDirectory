@@ -562192,6 +562192,44 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-iwaki-gws",
+      "district_id": "dist-japan",
+      "name": "Iwaki GWS",
+      "slug": "iwaki-gws",
+      "kind": "group_worship_service",
+      "address": "Rokuchome - 244 Yotsukuramachi, Iwaki, Fukushima, Japan",
+      "latitude": 37.110869330700446,
+      "longitude": 140.99518784432942,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-04T22:10:52.738Z",
+      "phone": "+81 90 3127 0303",
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-iwaki-gws-6-2000",
+          "locale_id": "loc-iwaki-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "20:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-iwaki-gws-0-1000",
+          "locale_id": "loc-iwaki-gws",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "10:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562286,17 +562324,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-04T12:15:16.142Z",
+  "last_updated": "2026-11-04T22:10:52.833Z",
   "last_sync": {
-    "finished_at": "2026-11-04T12:15:16.142Z",
+    "finished_at": "2026-11-04T22:10:52.833Z",
     "trigger": "cli",
     "status": "partial",
-    "message": "Checked 8,788 locales: 14 changed; 1 pages kept their previous data.",
-    "locales_total": 8789,
-    "updated": 14,
-    "added": 0,
+    "message": "Checked 8,789 locales: 1 changed; 1 pages kept their previous data.",
+    "locales_total": 8790,
+    "updated": 0,
+    "added": 1,
     "removed": 0,
     "fetch_failures": 1,
-    "duration_ms": 1469536
+    "duration_ms": 1693091
   }
 }

@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-11-04T12:15:16.290Z",
+ "updated_at": "2026-11-04T22:10:52.986Z",
  "entries": [
+  {
+   "id": "chg-1793830252833-iwaki-gws",
+   "at": "2026-11-04T22:10:52.833Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-iwaki-gws",
+   "slug": "iwaki-gws",
+   "name": "Iwaki GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Rokuchome - 244 Yotsukuramachi, Iwaki, Fukushima, Japan"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "37.11087, 140.99519"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Sat 8:00 PM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sat 8:00 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1793794516142-balung-group-worship-service",
    "at": "2026-11-04T12:15:16.142Z",
