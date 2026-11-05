@@ -282625,49 +282625,6 @@
       "email": null
     },
     {
-      "id": "loc-kauswagan-gws",
-      "district_id": "dist-bohol",
-      "district_name": "Bohol",
-      "district_slug": "bohol",
-      "name": "Kauswagan GWS",
-      "slug": "kauswagan-gws",
-      "kind": "group_worship_service",
-      "address": "Prk 2, Brgy. Kauswagan, Trinidad, Bohol, 6325, Philippines",
-      "latitude": 10.037354634356447,
-      "longitude": 124.26986541593855,
-      "languages": [
-        "Tagalog",
-        "Cebuano"
-      ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
-      "schedule": [
-        {
-          "id": "sch-kauswagan-gws-3-1800",
-          "locale_id": "loc-kauswagan-gws",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "language2": "Cebuano",
-          "is_cws": false
-        },
-        {
-          "id": "sch-kauswagan-gws-6-1800",
-          "locale_id": "loc-kauswagan-gws",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "18:00",
-          "language": "Tagalog",
-          "language2": "Cebuano",
-          "is_cws": false
-        }
-      ],
-      "phone": null,
-      "email": null
-    },
-    {
       "id": "loc-kinan-oan",
       "district_id": "dist-bohol",
       "district_name": "Bohol",
@@ -475025,25 +474982,35 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T12:19:58.575Z",
       "schedule": [
         {
-          "id": "sch-ipilan-1-3-1845",
+          "id": "sch-ipilan-1-4-0545",
           "locale_id": "loc-ipilan-1",
           "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "05:45",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-ipilan-1-4-1845",
+          "locale_id": "loc-ipilan-1",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
           "start_time": "18:45",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-ipilan-1-6-0800",
+          "id": "sch-ipilan-1-6-1500",
           "locale_id": "loc-ipilan-1",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "08:00",
+          "start_time": "15:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -475054,6 +475021,16 @@
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-ipilan-1-0-0600",
+          "locale_id": "loc-ipilan-1",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -550088,7 +550065,7 @@
         "Tagalog",
         "Hiligaynon"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T12:19:58.575Z",
       "schedule": [
         {
           "id": "sch-caguisanan-4-1730",
@@ -550100,16 +550077,6 @@
           "language": "Tagalog",
           "language2": "Hiligaynon",
           "is_cws": false
-        },
-        {
-          "id": "sch-caguisanan-6-0800",
-          "locale_id": "loc-caguisanan",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:00",
-          "language": "Tagalog",
-          "is_cws": true
         },
         {
           "id": "sch-caguisanan-0-1000",
@@ -550257,49 +550224,6 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "10:00",
-          "language": "Tagalog",
-          "language2": "Hiligaynon",
-          "is_cws": false
-        }
-      ],
-      "phone": null,
-      "email": null
-    },
-    {
-      "id": "loc-canauillan-gws",
-      "district_id": "dist-iloilo-south",
-      "district_name": "Iloilo South",
-      "district_slug": "iloilo-south",
-      "name": "Canauillan GWS (Lokal ng Barasalon)",
-      "slug": "canauillan-gws",
-      "kind": "group_worship_service",
-      "address": "Canauillan, Janiuay, Iloilo, Philippines",
-      "latitude": 10.956113840660606,
-      "longitude": 122.50384504590744,
-      "languages": [
-        "Tagalog",
-        "Hiligaynon"
-      ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
-      "schedule": [
-        {
-          "id": "sch-canauillan-gws-3-1500",
-          "locale_id": "loc-canauillan-gws",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "15:00",
-          "language": "Tagalog",
-          "language2": "Hiligaynon",
-          "is_cws": false
-        },
-        {
-          "id": "sch-canauillan-gws-6-0800",
-          "locale_id": "loc-canauillan-gws",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "08:00",
           "language": "Tagalog",
           "language2": "Hiligaynon",
           "is_cws": false
@@ -554027,49 +553951,6 @@
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "language2": "Hiligaynon",
-          "is_cws": false
-        }
-      ],
-      "phone": null,
-      "email": null
-    },
-    {
-      "id": "loc-tutugura-ao-gws",
-      "district_id": "dist-iloilo-south",
-      "district_name": "Iloilo South",
-      "district_slug": "iloilo-south",
-      "name": "Tugura-ao GWS",
-      "slug": "tutugura-ao-gws",
-      "kind": "group_worship_service",
-      "address": "Tugura-ao, Miag-ao, Iloilo, 5023, Philippines",
-      "latitude": 10.653828,
-      "longitude": 122.190497,
-      "languages": [
-        "Tagalog",
-        "Hiligaynon"
-      ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
-      "schedule": [
-        {
-          "id": "sch-tutugura-ao-gws-3-1000",
-          "locale_id": "loc-tutugura-ao-gws",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "10:00",
-          "language": "Tagalog",
-          "language2": "Hiligaynon",
-          "is_cws": false
-        },
-        {
-          "id": "sch-tutugura-ao-gws-6-1000",
-          "locale_id": "loc-tutugura-ao-gws",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
           "start_time": "10:00",
           "language": "Tagalog",
           "language2": "Hiligaynon",
@@ -562338,17 +562219,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-05T02:31:00.192Z",
+  "last_updated": "2026-11-05T12:19:58.656Z",
   "last_sync": {
-    "finished_at": "2026-11-05T02:31:00.192Z",
+    "finished_at": "2026-11-05T12:19:58.656Z",
     "trigger": "cli",
     "status": "partial",
-    "message": "Checked 8,789 locales: 13 changed; 1 pages kept their previous data.",
-    "locales_total": 8790,
-    "updated": 13,
+    "message": "Checked 8,787 locales: 5 changed; 3 pages kept their previous data.",
+    "locales_total": 8787,
+    "updated": 2,
     "added": 0,
-    "removed": 0,
-    "fetch_failures": 1,
-    "duration_ms": 1929203
+    "removed": 3,
+    "fetch_failures": 3,
+    "duration_ms": 1770797
   }
 }

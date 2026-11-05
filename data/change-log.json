@@ -1,6 +1,145 @@
 {
- "updated_at": "2026-11-05T02:31:00.339Z",
+ "updated_at": "2026-11-05T12:19:58.786Z",
  "entries": [
+  {
+   "id": "chg-1793881198656-caguisanan",
+   "at": "2026-11-05T12:19:58.656Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-caguisanan",
+   "slug": "caguisanan",
+   "name": "Caguisanan",
+   "kind": "local_congregation",
+   "district_id": "dist-iloilo-south",
+   "district_name": "Iloilo South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 PM · Tagalog / Hiligaynon; Sat 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Hiligaynon",
+     "new": "Thu 5:30 PM · Tagalog / Hiligaynon; Sun 10:00 AM · Tagalog / Hiligaynon",
+     "removed": [
+      "Sat 8:00 AM · Tagalog · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1793881198656-canauillan-gws",
+   "at": "2026-11-05T12:19:58.656Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-canauillan-gws",
+   "slug": "canauillan-gws",
+   "name": "Canauillan GWS (Lokal ng Barasalon)",
+   "kind": "group_worship_service",
+   "district_id": "dist-iloilo-south",
+   "district_name": "Iloilo South",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Canauillan, Janiuay, Iloilo, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 3:00 PM · Tagalog / Hiligaynon; Sat 8:00 AM · Tagalog / Hiligaynon",
+     "new": null,
+     "removed": [
+      "Wed 3:00 PM · Tagalog / Hiligaynon",
+      "Sat 8:00 AM · Tagalog / Hiligaynon"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1793881198656-ipilan-1",
+   "at": "2026-11-05T12:19:58.656Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ipilan-1",
+   "slug": "ipilan-1",
+   "name": "Ipilan",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-west",
+   "district_name": "Quezon",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:45 PM · Tagalog; Sat 8:00 AM · Tagalog; Sat 6:00 PM · Tagalog",
+     "new": "Thu 5:45 AM · Tagalog; Thu 6:45 PM · Tagalog; Sat 3:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog",
+     "removed": [
+      "Wed 6:45 PM · Tagalog",
+      "Sat 8:00 AM · Tagalog"
+     ],
+     "added": [
+      "Thu 5:45 AM · Tagalog",
+      "Thu 6:45 PM · Tagalog",
+      "Sat 3:00 PM · Tagalog",
+      "Sun 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793881198656-kauswagan-gws",
+   "at": "2026-11-05T12:19:58.656Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-kauswagan-gws",
+   "slug": "kauswagan-gws",
+   "name": "Kauswagan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-bohol",
+   "district_name": "Bohol",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Prk 2, Brgy. Kauswagan, Trinidad, Bohol, 6325, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Tagalog / Cebuano; Sat 6:00 PM · Tagalog / Cebuano",
+     "new": null,
+     "removed": [
+      "Wed 6:00 PM · Tagalog / Cebuano",
+      "Sat 6:00 PM · Tagalog / Cebuano"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1793881198656-tutugura-ao-gws",
+   "at": "2026-11-05T12:19:58.656Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-tutugura-ao-gws",
+   "slug": "tutugura-ao-gws",
+   "name": "Tugura-ao GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-iloilo-south",
+   "district_name": "Iloilo South",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Tugura-ao, Miag-ao, Iloilo, 5023, Philippines",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 10:00 AM · Tagalog / Hiligaynon; Sat 10:00 AM · Tagalog / Hiligaynon",
+     "new": null,
+     "removed": [
+      "Wed 10:00 AM · Tagalog / Hiligaynon",
+      "Sat 10:00 AM · Tagalog / Hiligaynon"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1793845860192-olomouc-czech-republic-gws",
    "at": "2026-11-05T02:31:00.192Z",
