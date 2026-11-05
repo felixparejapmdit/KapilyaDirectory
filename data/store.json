@@ -562125,6 +562125,44 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-san-pablo-gws-2",
+      "district_id": "dist-isabela-south",
+      "name": "San Pablo GWS",
+      "slug": "san-pablo-gws-2",
+      "kind": "group_worship_service",
+      "address": "San Pablo, Alicia, Isabela, 3306, Philippines",
+      "latitude": 16.803436751102844,
+      "longitude": 121.65441958496993,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-05T22:17:48.287Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-san-pablo-gws-2-3-1830",
+          "locale_id": "loc-san-pablo-gws-2",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:30",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-san-pablo-gws-2-6-1830",
+          "locale_id": "loc-san-pablo-gws-2",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:30",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562219,17 +562257,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-05T12:19:58.656Z",
+  "last_updated": "2026-11-05T22:17:48.368Z",
   "last_sync": {
-    "finished_at": "2026-11-05T12:19:58.656Z",
+    "finished_at": "2026-11-05T22:17:48.368Z",
     "trigger": "cli",
-    "status": "partial",
-    "message": "Checked 8,787 locales: 5 changed; 3 pages kept their previous data.",
-    "locales_total": 8787,
-    "updated": 2,
-    "added": 0,
-    "removed": 3,
-    "fetch_failures": 3,
-    "duration_ms": 1770797
+    "status": "success",
+    "message": "Checked 8,788 locales: 1 changed.",
+    "locales_total": 8788,
+    "updated": 0,
+    "added": 1,
+    "removed": 0,
+    "fetch_failures": 0,
+    "duration_ms": 1956866
   }
 }

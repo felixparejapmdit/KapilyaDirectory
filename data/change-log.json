@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-11-05T12:19:58.786Z",
+ "updated_at": "2026-11-05T22:17:48.503Z",
  "entries": [
+  {
+   "id": "chg-1793917068368-san-pablo-gws-2",
+   "at": "2026-11-05T22:17:48.368Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-san-pablo-gws-2",
+   "slug": "san-pablo-gws-2",
+   "name": "San Pablo GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-isabela-south",
+   "district_name": "Isabela South",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "San Pablo, Alicia, Isabela, 3306, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "16.80344, 121.65442"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:30 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1793881198656-caguisanan",
    "at": "2026-11-05T12:19:58.656Z",
