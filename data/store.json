@@ -30766,13 +30766,13 @@
       "name": "London, Ontario",
       "slug": "london-gws",
       "kind": "local_congregation",
-      "address": "219, Queens avenue, London, Ontario, N6A 1J8, Canada",
-      "latitude": 42.97754,
-      "longitude": -81.24155,
+      "address": "Unit 3, 1150 Frances St., London, Ontario, N5W 5N5, Canada",
+      "latitude": 42.990731718899134,
+      "longitude": -81.2099794326187,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-london-gws-4-0600",
@@ -30795,12 +30795,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-london-gws-6-1200",
+          "id": "sch-london-gws-6-1000",
           "locale_id": "loc-london-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "12:00",
+          "start_time": "10:00",
           "language": "English",
           "is_cws": false
         },
@@ -30815,17 +30815,17 @@
           "is_cws": false
         },
         {
-          "id": "sch-london-gws-0-1600",
+          "id": "sch-london-gws-0-1300",
           "locale_id": "loc-london-gws",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "16:00",
+          "start_time": "13:00",
           "language": "English",
           "is_cws": true
         }
       ],
-      "phone": "647-471-0254",
+      "phone": "437 980 6591",
       "email": null
     },
     {
@@ -49054,13 +49054,13 @@
       "name": "Southend, England GWS",
       "slug": "southend-england-gws",
       "kind": "group_worship_service",
-      "address": "71-73 Elm Road, Leigh-on-Sea, Southend-on-Sea, Leigh-on-Sea, SS9 1SP, United Kingdom",
-      "latitude": 51.54368438626845,
-      "longitude": 0.6541630229719624,
+      "address": "Iveagh Hall, 67 Leagh rd., Southend-on-Sea, Leigh-on-Sea, SS9 1JW, United Kingdom",
+      "latitude": 51.54371351672217,
+      "longitude": 0.6695451967773838,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-southend-england-gws-2-1930",
@@ -56068,8 +56068,18 @@
         "Tagalog",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
+        {
+          "id": "sch-olomouc-czech-republic-gws-3-1900",
+          "locale_id": "loc-olomouc-czech-republic-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
         {
           "id": "sch-olomouc-czech-republic-gws-6-1300",
           "locale_id": "loc-olomouc-czech-republic-gws",
@@ -56081,32 +56091,32 @@
           "is_cws": false
         },
         {
-          "id": "sch-olomouc-czech-republic-gws-6-1600",
-          "locale_id": "loc-olomouc-czech-republic-gws",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "16:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-olomouc-czech-republic-gws-0-1000",
+          "id": "sch-olomouc-czech-republic-gws-0-0800",
           "locale_id": "loc-olomouc-czech-republic-gws",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:00",
+          "start_time": "08:00",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-olomouc-czech-republic-gws-0-1300",
+          "id": "sch-olomouc-czech-republic-gws-0-1200",
           "locale_id": "loc-olomouc-czech-republic-gws",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "13:00",
+          "start_time": "12:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-olomouc-czech-republic-gws-0-1900",
+          "locale_id": "loc-olomouc-czech-republic-gws",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "19:00",
           "language": "English",
           "is_cws": false
         }
@@ -56169,15 +56179,15 @@
         "Tagalog",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
-          "id": "sch-budapest-hungary-3-0800",
+          "id": "sch-budapest-hungary-3-0830",
           "locale_id": "loc-budapest-hungary",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "08:00",
+          "start_time": "08:30",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -56192,6 +56202,16 @@
           "is_cws": false
         },
         {
+          "id": "sch-budapest-hungary-5-1830",
+          "locale_id": "loc-budapest-hungary",
+          "service_type": "Worship",
+          "day_of_week": 5,
+          "day_name": "Friday",
+          "start_time": "18:30",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
           "id": "sch-budapest-hungary-6-2000",
           "locale_id": "loc-budapest-hungary",
           "service_type": "Worship",
@@ -56202,22 +56222,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-budapest-hungary-0-0900",
+          "id": "sch-budapest-hungary-0-1000",
           "locale_id": "loc-budapest-hungary",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "09:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-budapest-hungary-0-1200",
-          "locale_id": "loc-budapest-hungary",
-          "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "12:00",
+          "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
         }
@@ -56380,17 +56390,17 @@
       "district_id": "dist-northern-europe",
       "district_name": "Northern Europe",
       "district_slug": "northern-europe",
-      "name": "Espoo,Finland GWS",
+      "name": "Espoo, Finland GWS",
       "slug": "espoo-finland",
       "kind": "group_worship_service",
-      "address": "Jälkimaininki 4 C, 02320, Espoo, Finland",
-      "latitude": 60.15407815004698,
-      "longitude": 24.644292000388337,
+      "address": "Jälkimaininki 9, Espoo, Finland",
+      "latitude": 60.1541006,
+      "longitude": 24.6446481,
       "languages": [
         "Tagalog",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-espoo-finland-4-1900",
@@ -253066,9 +253076,10 @@
       "latitude": 15.424842273512501,
       "longitude": 120.59973567155497,
       "languages": [
-        "Tagalog"
+        "Tagalog",
+        "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-sapang-tagalog-3-0530",
@@ -253078,6 +253089,7 @@
           "day_name": "Wednesday",
           "start_time": "05:30",
           "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -253128,6 +253140,7 @@
           "day_name": "Saturday",
           "start_time": "06:00",
           "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -376453,7 +376466,7 @@
         "Tagalog Sign",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-las-pinas-3-2000",
@@ -376487,12 +376500,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-las-pinas-6-0900",
+          "id": "sch-las-pinas-6-0800",
           "locale_id": "loc-las-pinas",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "09:00",
+          "start_time": "08:00",
           "language": "English",
           "is_cws": true
         },
@@ -376507,12 +376520,12 @@
           "is_cws": true
         },
         {
-          "id": "sch-las-pinas-6-1900",
+          "id": "sch-las-pinas-6-1800",
           "locale_id": "loc-las-pinas",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "19:00",
+          "start_time": "18:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -376553,10 +376566,9 @@
       "latitude": 14.501392468089646,
       "longitude": 121.06418272040767,
       "languages": [
-        "Tagalog",
-        "Tagalog Sign"
+        "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-lower-bicutan-3-0530",
@@ -376576,7 +376588,6 @@
           "day_name": "Wednesday",
           "start_time": "19:00",
           "language": "Tagalog",
-          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -376627,7 +376638,6 @@
           "day_name": "Saturday",
           "start_time": "18:00",
           "language": "Tagalog",
-          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -389406,7 +389416,7 @@
         "English",
         "English Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-novaliches-3-1545",
@@ -389519,16 +389529,6 @@
           "start_time": "10:00",
           "language": "Tagalog",
           "is_cws": false
-        },
-        {
-          "id": "sch-novaliches-0-1200",
-          "locale_id": "loc-novaliches",
-          "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "12:00",
-          "language": "Tagalog",
-          "is_cws": true
         },
         {
           "id": "sch-novaliches-0-1400",
@@ -394373,7 +394373,7 @@
         "Tagalog",
         "Cebuano"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-cugman-4-0530",
@@ -394428,12 +394428,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-cugman-0-0830",
+          "id": "sch-cugman-0-0800",
           "locale_id": "loc-cugman",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "08:30",
+          "start_time": "08:00",
           "language": "Tagalog",
           "is_cws": true
         },
@@ -491310,10 +491310,12 @@
       "latitude": 14.622921,
       "longitude": 121.175787,
       "languages": [
+        "Tagalog",
         "Tagalog Sign",
-        "Tagalog"
+        "English",
+        "English Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-egm-3-3-1945",
@@ -491322,7 +491324,8 @@
           "day_of_week": 3,
           "day_name": "Wednesday",
           "start_time": "19:45",
-          "language": "Tagalog Sign",
+          "language": "Tagalog",
+          "language2": "Tagalog Sign",
           "is_cws": false
         },
         {
@@ -491332,7 +491335,7 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "05:45",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": false
         },
         {
@@ -491382,7 +491385,8 @@
           "day_of_week": 0,
           "day_name": "Sunday",
           "start_time": "06:00",
-          "language": "Tagalog Sign",
+          "language": "English",
+          "language2": "English Sign",
           "is_cws": false
         },
         {
@@ -493175,7 +493179,7 @@
         "Tagalog",
         "Tagalog Sign"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-summerville-3-1945",
@@ -493199,12 +493203,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-summerville-4-1900",
+          "id": "sch-summerville-4-1545",
           "locale_id": "loc-summerville",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "19:00",
+          "start_time": "15:45",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-summerville-4-1945",
+          "locale_id": "loc-summerville",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "19:45",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -493752,7 +493766,7 @@
         "Tagalog",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-05T02:31:00.105Z",
       "schedule": [
         {
           "id": "sch-village-east-3-1900",
@@ -493775,12 +493789,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-village-east-4-1900",
+          "id": "sch-village-east-4-1945",
           "locale_id": "loc-village-east",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "19:00",
+          "start_time": "19:45",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562324,17 +562338,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-04T22:10:52.833Z",
+  "last_updated": "2026-11-05T02:31:00.192Z",
   "last_sync": {
-    "finished_at": "2026-11-04T22:10:52.833Z",
+    "finished_at": "2026-11-05T02:31:00.192Z",
     "trigger": "cli",
     "status": "partial",
-    "message": "Checked 8,789 locales: 1 changed; 1 pages kept their previous data.",
+    "message": "Checked 8,789 locales: 13 changed; 1 pages kept their previous data.",
     "locales_total": 8790,
-    "updated": 0,
-    "added": 1,
+    "updated": 13,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 1,
-    "duration_ms": 1693091
+    "duration_ms": 1929203
   }
 }

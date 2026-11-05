@@ -1,6 +1,372 @@
 {
- "updated_at": "2026-11-04T22:10:52.986Z",
+ "updated_at": "2026-11-05T02:31:00.339Z",
  "entries": [
+  {
+   "id": "chg-1793845860192-olomouc-czech-republic-gws",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-olomouc-czech-republic-gws",
+   "slug": "olomouc-czech-republic-gws",
+   "name": "Brno, Czech Republic",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Sat 1:00 PM · Tagalog; Sat 4:00 PM · Tagalog; Sun 10:00 AM · English; Sun 1:00 PM · English",
+     "new": "Wed 7:00 PM · Tagalog; Sat 1:00 PM · Tagalog; Sun 8:00 AM · English; Sun 12:00 PM · Tagalog; Sun 7:00 PM · English",
+     "removed": [
+      "Sat 4:00 PM · Tagalog",
+      "Sun 10:00 AM · English",
+      "Sun 1:00 PM · English"
+     ],
+     "added": [
+      "Wed 7:00 PM · Tagalog",
+      "Sun 8:00 AM · English",
+      "Sun 12:00 PM · Tagalog",
+      "Sun 7:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-budapest-hungary",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-budapest-hungary",
+   "slug": "budapest-hungary",
+   "name": "Budapest, Hungary",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 AM · Tagalog; Thu 8:00 PM · English; Sat 8:00 PM · English; Sun 9:00 AM · Tagalog; Sun 12:00 PM · Tagalog",
+     "new": "Wed 8:30 AM · Tagalog; Thu 8:00 PM · English; Fri 6:30 PM · Tagalog; Sat 8:00 PM · English; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 8:00 AM · Tagalog",
+      "Sun 9:00 AM · Tagalog",
+      "Sun 12:00 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 8:30 AM · Tagalog",
+      "Fri 6:30 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-cugman",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cugman",
+   "slug": "cugman",
+   "name": "Cugman",
+   "kind": "local_congregation",
+   "district_id": "dist-misamis-oriental",
+   "district_name": "Cagayan De Oro City, Misamis Oriental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog / Cebuano; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Cebuano; Sat 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog / Cebuano; Sun 8:30 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano",
+     "new": "Thu 5:30 AM · Tagalog / Cebuano; Thu 4:00 PM · Tagalog; Thu 7:30 PM · Cebuano; Sat 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog / Cebuano; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano",
+     "removed": [
+      "Sun 8:30 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-egm-3",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-egm-3",
+   "slug": "egm-3",
+   "name": "EGM",
+   "kind": "local_congregation",
+   "district_id": "dist-rizal",
+   "district_name": "Rizal",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:45 PM · Tagalog Sign; Thu 5:45 AM · Tagalog; Thu 2:45 PM · Tagalog; Thu 6:45 PM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog Sign; Sun 10:00 AM · Tagalog; Sun 11:30 AM · Tagalog · CWS",
+     "new": "Wed 7:45 PM · Tagalog / Tagalog Sign; Thu 5:45 AM · English; Thu 2:45 PM · Tagalog; Thu 6:45 PM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · English / English Sign; Sun 10:00 AM · Tagalog; Sun 11:30 AM · Tagalog · CWS",
+     "removed": [
+      "Wed 7:45 PM · Tagalog Sign",
+      "Thu 5:45 AM · Tagalog",
+      "Sun 6:00 AM · Tagalog Sign"
+     ],
+     "added": [
+      "Wed 7:45 PM · Tagalog / Tagalog Sign",
+      "Thu 5:45 AM · English",
+      "Sun 6:00 AM · English / English Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-espoo-finland",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-espoo-finland",
+   "slug": "espoo-finland",
+   "name": "Espoo, Finland GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Espoo,Finland GWS",
+     "new": "Espoo, Finland GWS"
+    },
+    {
+     "field": "address",
+     "old": "Jälkimaininki 4 C, 02320, Espoo, Finland",
+     "new": "Jälkimaininki 9, Espoo, Finland"
+    },
+    {
+     "field": "location",
+     "old": "60.15408, 24.64429",
+     "new": "60.15410, 24.64465",
+     "moved_km": 0.02
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-las-pinas",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-las-pinas",
+   "slug": "las-pinas",
+   "name": "Las Piñas",
+   "kind": "local_congregation",
+   "district_id": "dist-makati",
+   "district_name": "Makati",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 8:00 PM · Tagalog / Tagalog Sign; Sat 9:00 AM · English · CWS; Sat 4:00 PM · Tagalog · CWS; Sat 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "new": "Wed 8:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 8:00 PM · Tagalog / Tagalog Sign; Sat 8:00 AM · English · CWS; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Sat 9:00 AM · English · CWS",
+      "Sat 7:00 PM · Tagalog"
+     ],
+     "added": [
+      "Sat 8:00 AM · English · CWS",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-london-gws",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-london-gws",
+   "slug": "london-gws",
+   "name": "London, Ontario",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "address",
+     "old": "219, Queens avenue, London, Ontario, N6A 1J8, Canada",
+     "new": "Unit 3, 1150 Frances St., London, Ontario, N5W 5N5, Canada"
+    },
+    {
+     "field": "location",
+     "old": "42.97754, -81.24155",
+     "new": "42.99073, -81.20998",
+     "moved_km": 2.96
+    },
+    {
+     "field": "phone",
+     "old": "647-471-0254",
+     "new": "437 980 6591"
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · English; Thu 8:00 PM · English; Sat 12:00 PM · English; Sun 9:00 AM · English; Sun 4:00 PM · English · CWS",
+     "new": "Thu 6:00 AM · English; Thu 8:00 PM · English; Sat 10:00 AM · English; Sun 9:00 AM · English; Sun 1:00 PM · English · CWS",
+     "removed": [
+      "Sat 12:00 PM · English",
+      "Sun 4:00 PM · English · CWS"
+     ],
+     "added": [
+      "Sat 10:00 AM · English",
+      "Sun 1:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-lower-bicutan",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-lower-bicutan",
+   "slug": "lower-bicutan",
+   "name": "Lower Bicutan",
+   "kind": "local_congregation",
+   "district_id": "dist-makati",
+   "district_name": "Makati",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 AM · Tagalog; Wed 7:00 PM · Tagalog / Tagalog Sign; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 5:30 AM · Tagalog; Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 7:00 PM · Tagalog / Tagalog Sign",
+      "Sat 6:00 PM · Tagalog / Tagalog Sign"
+     ],
+     "added": [
+      "Wed 7:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-novaliches",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-novaliches",
+   "slug": "novaliches",
+   "name": "Novaliches",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-city",
+   "district_name": "Quezon City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 3:45 PM · Tagalog; Wed 7:45 PM · Tagalog / Tagalog Sign; Thu 5:45 AM · English; Thu 9:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · English / English Sign; Sat 10:00 AM · Tagalog · CWS; Sat 12:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 12:00 PM · Tagalog · CWS; Sun 2:00 PM · Tagalog",
+     "new": "Wed 3:45 PM · Tagalog; Wed 7:45 PM · Tagalog / Tagalog Sign; Thu 5:45 AM · English; Thu 9:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · English / English Sign; Sat 10:00 AM · Tagalog · CWS; Sat 12:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 2:00 PM · Tagalog",
+     "removed": [
+      "Sun 12:00 PM · Tagalog · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-sapang-tagalog",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sapang-tagalog",
+   "slug": "sapang-tagalog",
+   "name": "Sapang Tagalog",
+   "kind": "local_congregation",
+   "district_id": "dist-tarlac-central",
+   "district_name": "Tarlac City, Tarlac",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 AM · Tagalog; Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 2:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 5:30 AM · Tagalog / Tagalog Sign; Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 2:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog / Tagalog Sign; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 5:30 AM · Tagalog",
+      "Sat 6:00 AM · Tagalog"
+     ],
+     "added": [
+      "Wed 5:30 AM · Tagalog / Tagalog Sign",
+      "Sat 6:00 AM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-southend-england-gws",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-southend-england-gws",
+   "slug": "southend-england-gws",
+   "name": "Southend, England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "address",
+     "old": "71-73 Elm Road, Leigh-on-Sea, Southend-on-Sea, Leigh-on-Sea, SS9 1SP, United Kingdom",
+     "new": "Iveagh Hall, 67 Leagh rd., Southend-on-Sea, Leigh-on-Sea, SS9 1JW, United Kingdom"
+    },
+    {
+     "field": "location",
+     "old": "51.54368, 0.65416",
+     "new": "51.54371, 0.66955",
+     "moved_km": 1.06
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-summerville",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-summerville",
+   "slug": "summerville",
+   "name": "Summerville",
+   "kind": "local_congregation",
+   "district_id": "dist-rizal",
+   "district_name": "Rizal",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:45 PM · Tagalog / Tagalog Sign; Thu 6:00 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 11:45 AM · Tagalog · CWS",
+     "new": "Wed 7:45 PM · Tagalog / Tagalog Sign; Thu 6:00 AM · Tagalog; Thu 3:45 PM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 11:45 AM · Tagalog · CWS",
+     "removed": [
+      "Thu 7:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 3:45 PM · Tagalog",
+      "Thu 7:45 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793845860192-village-east",
+   "at": "2026-11-05T02:31:00.192Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-village-east",
+   "slug": "village-east",
+   "name": "Village East",
+   "kind": "local_congregation",
+   "district_id": "dist-rizal",
+   "district_name": "Rizal",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · English; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · English; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog; Sun 12:00 PM · English · CWS",
+     "new": "Wed 7:00 PM · Tagalog; Thu 6:00 AM · English; Thu 7:45 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · English; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog; Sun 12:00 PM · English · CWS",
+     "removed": [
+      "Thu 7:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 7:45 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1793830252833-iwaki-gws",
    "at": "2026-11-04T22:10:52.833Z",
