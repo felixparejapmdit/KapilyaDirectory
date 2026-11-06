@@ -1,6 +1,211 @@
 {
- "updated_at": "2026-11-05T22:17:48.503Z",
+ "updated_at": "2026-11-06T02:28:24.521Z",
  "entries": [
+  {
+   "id": "chg-1793932104417-olomouc-czech-republic-gws",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-olomouc-czech-republic-gws",
+   "slug": "olomouc-czech-republic-gws",
+   "name": "Brno, Czech Republic",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Sat 1:00 PM · Tagalog; Sun 8:00 AM · English; Sun 12:00 PM · Tagalog; Sun 7:00 PM · English",
+     "new": "Wed 7:00 PM · Tagalog; Sat 10:00 AM · Tagalog; Sat 7:00 PM · English / Tagalog; Sun 8:00 AM · English; Sun 12:00 PM · Tagalog",
+     "removed": [
+      "Sat 1:00 PM · Tagalog",
+      "Sun 7:00 PM · English"
+     ],
+     "added": [
+      "Sat 10:00 AM · Tagalog",
+      "Sat 7:00 PM · English / Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793932104417-bunga-irigasyon-ext",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bunga-irigasyon-ext",
+   "slug": "bunga-irigasyon-ext",
+   "name": "Bunga - dako ng Irigasyon",
+   "kind": "local_congregation",
+   "district_id": "dist-nueva-ecija-north",
+   "district_name": "San Jose City, Nueva Ecija",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Bunga - Irigasyon Ext.",
+     "new": "Bunga - dako ng Irigasyon"
+    },
+    {
+     "field": "kind",
+     "old": "Extension",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1793932104417-espoo-finland",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-espoo-finland",
+   "slug": "espoo-finland",
+   "name": "Espoo, Finland GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 7:00 PM · Tagalog; Sun 10:00 AM · English",
+     "new": "Wed 7:00 PM · English; Thu 7:00 PM · Tagalog; Sat 7:00 PM · Tagalog; Sun 10:00 AM · English",
+     "removed": [],
+     "added": [
+      "Wed 7:00 PM · English",
+      "Sat 7:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793932104417-hamamatsu",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-hamamatsu",
+   "slug": "hamamatsu",
+   "name": "Hamamatsu",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:30 PM · Tagalog; Sat 10:00 AM · Tagalog / Nihongo; Sat 8:00 PM · Tagalog / Nihongo; Sun 10:00 AM · Tagalog / Nihongo; Sun 11:30 AM · Tagalog / Nihongo · CWS",
+     "new": "Wed 8:30 PM · Tagalog; Sat 10:00 AM · Tagalog / Nihongo; Sat 8:00 PM · Tagalog / Nihongo; Sun 10:00 AM · Tagalog / Nihongo; Sun 11:30 AM · Nihongo · CWS",
+     "removed": [
+      "Sun 11:30 AM · Tagalog / Nihongo · CWS"
+     ],
+     "added": [
+      "Sun 11:30 AM · Nihongo · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793932104417-hamptons",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-hamptons",
+   "slug": "hamptons",
+   "name": "Hamptons",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-vi",
+   "district_name": "Edmonton",
+   "changes": [
+    {
+     "field": "address",
+     "old": "The Barn on Winterburn Rd, 21530 103 Ave, Edmonton, Alberta, T5T 3A8, Canada",
+     "new": "The Barn on Winterburn Rd, 21530 103 Ave, Edmonton, Alberta, T5S 2C4, Canada"
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 AM · English; Wed 7:30 PM · English; Sat 6:00 AM · English; Sat 8:00 AM · English · CWS; Sat 10:00 AM · English",
+     "new": "Wed 5:30 AM · English; Wed 7:00 PM · English; Sat 6:00 AM · English; Sat 8:00 AM · English · CWS; Sat 10:00 AM · English",
+     "removed": [
+      "Wed 7:30 PM · English"
+     ],
+     "added": [
+      "Wed 7:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793932104417-ichikawa",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ichikawa",
+   "slug": "ichikawa",
+   "name": "Ichikawa",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:30 PM · Nihongo; Thu 8:30 PM · Tagalog; Sat 8:00 PM · Nihongo; Sun 10:00 AM · Tagalog; Sun 12:15 PM · Tagalog / Nihongo · CWS",
+     "new": "Wed 8:30 PM · Nihongo; Thu 8:30 PM · Tagalog; Sat 8:00 PM · Nihongo; Sun 10:00 AM · Tagalog; Sun 12:15 PM · Nihongo · CWS",
+     "removed": [
+      "Sun 12:15 PM · Tagalog / Nihongo · CWS"
+     ],
+     "added": [
+      "Sun 12:15 PM · Nihongo · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793932104417-maligaya-farm",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-maligaya-farm",
+   "slug": "maligaya-farm",
+   "name": "Maligaya Farm",
+   "kind": "local_congregation",
+   "district_id": "dist-bulacan-north-1",
+   "district_name": "Bulacan North",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:45 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 9:00 AM · Tagalog · CWS",
+     "new": "Thu 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 9:00 AM · Tagalog · CWS",
+     "removed": [
+      "Thu 6:45 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793932104417-saitama",
+   "at": "2026-11-06T02:28:24.417Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-saitama",
+   "slug": "saitama",
+   "name": "Saitama",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:30 PM · Tagalog / Nihongo; Sat 8:00 PM · Tagalog / Nihongo; Sun 10:00 AM · Tagalog / Nihongo; Sun 12:30 PM · Tagalog / Nihongo · CWS",
+     "new": "Wed 8:30 PM · Tagalog / Nihongo; Sat 8:00 PM · Tagalog / Nihongo; Sun 10:00 AM · Tagalog / Nihongo; Sun 12:30 PM · Nihongo · CWS",
+     "removed": [
+      "Sun 12:30 PM · Tagalog / Nihongo · CWS"
+     ],
+     "added": [
+      "Sun 12:30 PM · Nihongo · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1793917068368-san-pablo-gws-2",
    "at": "2026-11-05T22:17:48.368Z",
