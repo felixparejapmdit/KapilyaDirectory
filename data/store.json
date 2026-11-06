@@ -6038,7 +6038,7 @@
       "languages": [
         "Spanish"
       ],
-      "source_updated_at": "2026-10-15T09:51:45.386Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-cuautitlan-gwsmexico-3-1615",
@@ -6071,12 +6071,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-cuautitlan-gwsmexico-0-1000",
+          "id": "sch-cuautitlan-gwsmexico-6-1600",
           "locale_id": "loc-cuautitlan-gwsmexico",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "10:00",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "16:00",
           "language": "Spanish",
           "is_cws": false
         }
@@ -13327,13 +13327,13 @@
       "name": "Vaughan",
       "slug": "vaughan-ontario",
       "kind": "local_congregation",
-      "address": "@ Midtown Chapel, 71 Guestville Avenue, North York, Ontario, L7B 0G3, Canada",
-      "latitude": 43.684007488311096,
-      "longitude": -79.48891907485898,
+      "address": "Laskay Community Hall, 2920 King Rd, King City, Ontario, L7B 1L6, Canada",
+      "latitude": 43.92398948538563,
+      "longitude": -79.55076757809712,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-vaughan-ontario-3-2000",
@@ -17974,7 +17974,7 @@
       "district_id": "dist-mountain-states",
       "district_name": "Mountain States",
       "district_slug": "mountain-states",
-      "name": "Henderson,Nevada",
+      "name": "Henderson, Nevada",
       "slug": "henderson-nevada",
       "kind": "local_congregation",
       "address": "# 5515 Mountain, Vista Street, Las Vegas, Nevada, 89120, USA",
@@ -17984,7 +17984,7 @@
         "English",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-henderson-nevada-4-1000",
@@ -25049,17 +25049,16 @@
       "district_id": "dist-canada-vii",
       "district_name": "Quebec and Atlantic Canada",
       "district_slug": "canada-vii",
-      "name": "Pointe Claire,Quebec",
+      "name": "Pointe Claire, Quebec",
       "slug": "pointe-claire",
       "kind": "local_congregation",
       "address": "@ Beaconsfield Chapel, 300 St Charles Blvd, Beaconsfield, Quebec, H9W 2X6, Canada",
       "latitude": 45.44505497360406,
       "longitude": -73.85247040037034,
       "languages": [
-        "English Sign",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-pointe-claire-3-1930",
@@ -25068,26 +25067,26 @@
           "day_of_week": 3,
           "day_name": "Wednesday",
           "start_time": "19:30",
-          "language": "English Sign",
+          "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-pointe-claire-6-0800",
+          "id": "sch-pointe-claire-6-0900",
           "locale_id": "loc-pointe-claire",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "08:00",
-          "language": "English Sign",
+          "start_time": "09:00",
+          "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-pointe-claire-6-1100",
+          "id": "sch-pointe-claire-6-1200",
           "locale_id": "loc-pointe-claire",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "11:00",
+          "start_time": "12:00",
           "language": "English",
           "is_cws": true
         }
@@ -25349,7 +25348,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-sherbrooke-quebec-gws-3-1930",
@@ -25362,22 +25361,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-sherbrooke-quebec-gws-6-0800",
+          "id": "sch-sherbrooke-quebec-gws-6-0900",
           "locale_id": "loc-sherbrooke-quebec-gws",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "08:00",
+          "start_time": "09:00",
           "language": "English",
           "is_cws": false
         },
         {
-          "id": "sch-sherbrooke-quebec-gws-6-1100",
+          "id": "sch-sherbrooke-quebec-gws-6-1200",
           "locale_id": "loc-sherbrooke-quebec-gws",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "11:00",
+          "start_time": "12:00",
           "language": "English",
           "is_cws": true
         }
@@ -30482,14 +30481,14 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-10-20T01:54:32.033Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
-          "id": "sch-grimsby-gws-2-2000",
+          "id": "sch-grimsby-gws-3-2000",
           "locale_id": "loc-grimsby-gws",
           "service_type": "Worship",
-          "day_of_week": 2,
-          "day_name": "Tuesday",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
           "start_time": "20:00",
           "language": "English",
           "is_cws": false
@@ -31003,26 +31002,26 @@
       "district_id": "dist-canada-iv",
       "district_name": "Southern Ontario",
       "district_slug": "canada-iv",
-      "name": "Niagara Falls,Ontario",
+      "name": "Niagara Falls, Ontario",
       "slug": "niagara-region-ontario",
       "kind": "local_congregation",
       "address": "6085 Lundy's Lane, Niagara Falls, Ontario, L2G 1T1, Canada",
       "latitude": 43.0898381,
       "longitude": -79.0949104,
       "languages": [
-        "English",
-        "Tagalog"
+        "Tagalog",
+        "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
-          "id": "sch-niagara-region-ontario-3-2000",
+          "id": "sch-niagara-region-ontario-3-0800",
           "locale_id": "loc-niagara-region-ontario",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "20:00",
-          "language": "English",
+          "start_time": "08:00",
+          "language": "Tagalog",
           "is_cws": false
         },
         {
@@ -58540,7 +58539,7 @@
         "Tagalog",
         "Spanish"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-barcelona-spain-4-0600",
@@ -58563,26 +58562,6 @@
           "is_cws": false
         },
         {
-          "id": "sch-barcelona-spain-6-1030",
-          "locale_id": "loc-barcelona-spain",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "10:30",
-          "language": "Spanish",
-          "is_cws": true
-        },
-        {
-          "id": "sch-barcelona-spain-6-1030-2",
-          "locale_id": "loc-barcelona-spain",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "10:30",
-          "language": "Spanish",
-          "is_cws": true
-        },
-        {
           "id": "sch-barcelona-spain-6-1800",
           "locale_id": "loc-barcelona-spain",
           "service_type": "Worship",
@@ -58593,24 +58572,24 @@
           "is_cws": false
         },
         {
-          "id": "sch-barcelona-spain-0-0800",
+          "id": "sch-barcelona-spain-0-0900",
           "locale_id": "loc-barcelona-spain",
           "service_type": "Worship",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "08:00",
+          "start_time": "09:00",
           "language": "Tagalog",
           "is_cws": false
         },
         {
-          "id": "sch-barcelona-spain-0-1300",
+          "id": "sch-barcelona-spain-0-1130",
           "locale_id": "loc-barcelona-spain",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "13:00",
+          "start_time": "11:30",
           "language": "Spanish",
-          "is_cws": false
+          "is_cws": true
         }
       ],
       "phone": "0034-933-255-770",
@@ -73266,7 +73245,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-ha-dinizulu-4-1400",
@@ -73279,11 +73258,11 @@
           "is_cws": false
         },
         {
-          "id": "sch-ha-dinizulu-0-1400",
+          "id": "sch-ha-dinizulu-6-1400",
           "locale_id": "loc-ha-dinizulu",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "14:00",
           "language": "English",
           "is_cws": false
@@ -73306,7 +73285,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
       "schedule": [
         {
           "id": "sch-ha-fochane-lesotho-semonkong-4-1000",
@@ -73319,11 +73298,11 @@
           "is_cws": false
         },
         {
-          "id": "sch-ha-fochane-lesotho-semonkong-0-1000",
+          "id": "sch-ha-fochane-lesotho-semonkong-6-1000",
           "locale_id": "loc-ha-fochane-lesotho-semonkong",
           "service_type": "Worship",
-          "day_of_week": 0,
-          "day_name": "Sunday",
+          "day_of_week": 6,
+          "day_name": "Saturday",
           "start_time": "10:00",
           "language": "English",
           "is_cws": false
@@ -562181,6 +562160,72 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-pandan-gws",
+      "district_id": "dist-maguindanao",
+      "name": "Pandan GWS",
+      "slug": "pandan-gws",
+      "kind": "group_worship_service",
+      "address": "Pandan, South Upi, Maguindanao Del Sur, 9603, Philippines",
+      "latitude": 6.819603445710201,
+      "longitude": 124.25306350692928,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-pandan-gws-3-1715",
+          "locale_id": "loc-pandan-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "17:15",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
+    },
+    {
+      "id": "loc-sinipak-gws",
+      "district_id": "dist-maguindanao",
+      "name": "Sinipak GWS",
+      "slug": "sinipak-gws",
+      "kind": "group_worship_service",
+      "address": "Brgy. Sinipak, Datu Blah T., Sinsuat, 9623, Philippines",
+      "latitude": 6.918400103001626,
+      "longitude": 124.00233226665003,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-06T12:26:04.086Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-sinipak-gws-3-1000",
+          "locale_id": "loc-sinipak-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "10:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-sinipak-gws-6-1000",
+          "locale_id": "loc-sinipak-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "10:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562275,17 +562320,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-06T02:28:24.417Z",
+  "last_updated": "2026-11-06T12:26:04.174Z",
   "last_sync": {
-    "finished_at": "2026-11-06T02:28:24.417Z",
+    "finished_at": "2026-11-06T12:26:04.174Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,788 locales: 8 changed.",
-    "locales_total": 8788,
-    "updated": 8,
-    "added": 0,
+    "message": "Checked 8,790 locales: 12 changed.",
+    "locales_total": 8790,
+    "updated": 10,
+    "added": 2,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1802222
+    "duration_ms": 2325341
   }
 }

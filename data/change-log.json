@@ -1,6 +1,337 @@
 {
- "updated_at": "2026-11-06T02:28:24.521Z",
+ "updated_at": "2026-11-06T12:26:04.328Z",
  "entries": [
+  {
+   "id": "chg-1793967964174-barcelona-spain",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-barcelona-spain",
+   "slug": "barcelona-spain",
+   "name": "Barcelona",
+   "kind": "local_congregation",
+   "district_id": "dist-spain",
+   "district_name": "Spain",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 6:45 PM · Spanish; Sat 10:30 AM · Spanish · CWS; Sat 10:30 AM · Spanish · CWS; Sat 6:00 PM · Spanish; Sun 8:00 AM · Tagalog; Sun 1:00 PM · Spanish",
+     "new": "Thu 6:00 AM · Tagalog; Thu 6:45 PM · Spanish; Sat 6:00 PM · Spanish; Sun 9:00 AM · Tagalog; Sun 11:30 AM · Spanish · CWS",
+     "removed": [
+      "Sat 10:30 AM · Spanish · CWS",
+      "Sat 10:30 AM · Spanish · CWS",
+      "Sun 8:00 AM · Tagalog",
+      "Sun 1:00 PM · Spanish"
+     ],
+     "added": [
+      "Sun 9:00 AM · Tagalog",
+      "Sun 11:30 AM · Spanish · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-cuautitlan-gwsmexico",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cuautitlan-gwsmexico",
+   "slug": "cuautitlan-gwsmexico",
+   "name": "Cuautitlan Izcalli, Mexico GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-latin-america",
+   "district_name": "Central America",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 4:15 PM · Spanish; Wed 7:30 PM · Spanish; Sat 11:30 AM · Spanish; Sun 10:00 AM · Spanish",
+     "new": "Wed 4:15 PM · Spanish; Wed 7:30 PM · Spanish; Sat 11:30 AM · Spanish; Sat 4:00 PM · Spanish",
+     "removed": [
+      "Sun 10:00 AM · Spanish"
+     ],
+     "added": [
+      "Sat 4:00 PM · Spanish"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-grimsby-gws",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-grimsby-gws",
+   "slug": "grimsby-gws",
+   "name": "Grimsby GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 8:00 PM · English; Sat 5:30 PM · English · CWS; Sat 8:00 PM · English",
+     "new": "Wed 8:00 PM · English; Sat 5:30 PM · English · CWS; Sat 8:00 PM · English",
+     "removed": [
+      "Tue 8:00 PM · English"
+     ],
+     "added": [
+      "Wed 8:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-ha-dinizulu",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ha-dinizulu",
+   "slug": "ha-dinizulu",
+   "name": "Ha Dinizulu, Lesotho",
+   "kind": "local_congregation",
+   "district_id": "dist-africa",
+   "district_name": "Southern Africa",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 2:00 PM · English; Sun 2:00 PM · English",
+     "new": "Thu 2:00 PM · English; Sat 2:00 PM · English",
+     "removed": [
+      "Sun 2:00 PM · English"
+     ],
+     "added": [
+      "Sat 2:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-ha-fochane-lesotho-semonkong",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ha-fochane-lesotho-semonkong",
+   "slug": "ha-fochane-lesotho-semonkong",
+   "name": "Ha Fochane, Lesotho",
+   "kind": "local_congregation",
+   "district_id": "dist-africa",
+   "district_name": "Southern Africa",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 10:00 AM · English; Sun 10:00 AM · English",
+     "new": "Thu 10:00 AM · English; Sat 10:00 AM · English",
+     "removed": [
+      "Sun 10:00 AM · English"
+     ],
+     "added": [
+      "Sat 10:00 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-henderson-nevada",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-henderson-nevada",
+   "slug": "henderson-nevada",
+   "name": "Henderson, Nevada",
+   "kind": "local_congregation",
+   "district_id": "dist-mountain-states",
+   "district_name": "Mountain States",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Henderson,Nevada",
+     "new": "Henderson, Nevada"
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-niagara-region-ontario",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-niagara-region-ontario",
+   "slug": "niagara-region-ontario",
+   "name": "Niagara Falls, Ontario",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-iv",
+   "district_name": "Southern Ontario",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Niagara Falls,Ontario",
+     "new": "Niagara Falls, Ontario"
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · English; Thu 5:30 AM · English; Thu 8:00 PM · English / Tagalog; Sat 7:00 PM · English; Sun 9:00 AM · English; Sun 9:00 AM · English · CWS",
+     "new": "Wed 8:00 AM · Tagalog; Thu 5:30 AM · English; Thu 8:00 PM · English / Tagalog; Sat 7:00 PM · English; Sun 9:00 AM · English; Sun 9:00 AM · English · CWS",
+     "removed": [
+      "Wed 8:00 PM · English"
+     ],
+     "added": [
+      "Wed 8:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-pandan-gws",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-pandan-gws",
+   "slug": "pandan-gws",
+   "name": "Pandan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-maguindanao",
+   "district_name": "Maguindanao",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Pandan, South Upi, Maguindanao Del Sur, 9603, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "6.81960, 124.25306"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 5:15 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 5:15 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-pointe-claire",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pointe-claire",
+   "slug": "pointe-claire",
+   "name": "Pointe Claire, Quebec",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-vii",
+   "district_name": "Quebec and Atlantic Canada",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Pointe Claire,Quebec",
+     "new": "Pointe Claire, Quebec"
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English Sign; Sat 8:00 AM · English Sign; Sat 11:00 AM · English · CWS",
+     "new": "Wed 7:30 PM · English; Sat 9:00 AM · English; Sat 12:00 PM · English · CWS",
+     "removed": [
+      "Wed 7:30 PM · English Sign",
+      "Sat 8:00 AM · English Sign",
+      "Sat 11:00 AM · English · CWS"
+     ],
+     "added": [
+      "Wed 7:30 PM · English",
+      "Sat 9:00 AM · English",
+      "Sat 12:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-sherbrooke-quebec-gws",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sherbrooke-quebec-gws",
+   "slug": "sherbrooke-quebec-gws",
+   "name": "Sherbrooke, Quebec GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-canada-vii",
+   "district_name": "Quebec and Atlantic Canada",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Sat 8:00 AM · English; Sat 11:00 AM · English · CWS",
+     "new": "Wed 7:30 PM · English; Sat 9:00 AM · English; Sat 12:00 PM · English · CWS",
+     "removed": [
+      "Sat 8:00 AM · English",
+      "Sat 11:00 AM · English · CWS"
+     ],
+     "added": [
+      "Sat 9:00 AM · English",
+      "Sat 12:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-sinipak-gws",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-sinipak-gws",
+   "slug": "sinipak-gws",
+   "name": "Sinipak GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-maguindanao",
+   "district_name": "Maguindanao",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Brgy. Sinipak, Datu Blah T., Sinsuat, 9623, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "6.91840, 124.00233"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 10:00 AM · Tagalog; Sat 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 10:00 AM · Tagalog",
+      "Sat 10:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1793967964174-vaughan-ontario",
+   "at": "2026-11-06T12:26:04.174Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-vaughan-ontario",
+   "slug": "vaughan-ontario",
+   "name": "Vaughan",
+   "kind": "local_congregation",
+   "district_id": "dist-eastern-canada",
+   "district_name": "Greater Toronto",
+   "changes": [
+    {
+     "field": "address",
+     "old": "@ Midtown Chapel, 71 Guestville Avenue, North York, Ontario, L7B 0G3, Canada",
+     "new": "Laskay Community Hall, 2920 King Rd, King City, Ontario, L7B 1L6, Canada"
+    },
+    {
+     "field": "location",
+     "old": "43.68401, -79.48892",
+     "new": "43.92399, -79.55077",
+     "moved_km": 27.14
+    }
+   ]
+  },
   {
    "id": "chg-1793932104417-olomouc-czech-republic-gws",
    "at": "2026-11-06T02:28:24.417Z",
