@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-11-06T12:26:04.328Z",
+ "updated_at": "2026-11-06T21:45:29.261Z",
  "entries": [
+  {
+   "id": "chg-1794001529111-ilaya-1",
+   "at": "2026-11-06T21:45:29.111Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-ilaya-1",
+   "slug": "ilaya-1",
+   "name": "Ilaya-1 Ext.",
+   "kind": "extension",
+   "district_id": "dist-marinduque",
+   "district_name": "Marinduque",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Sawi, Boac, Marinduque, 4900, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "13.44395, 121.85613"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1793967964174-barcelona-spain",
    "at": "2026-11-06T12:26:04.174Z",
