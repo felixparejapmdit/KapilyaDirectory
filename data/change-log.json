@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-11-07T02:07:50.573Z",
+ "updated_at": "2026-11-07T11:22:25.958Z",
  "entries": [
+  {
+   "id": "chg-1794050545677-kilkenny-ireland",
+   "at": "2026-11-07T11:22:25.677Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-kilkenny-ireland",
+   "slug": "kilkenny-ireland",
+   "name": "Kilkenny GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-ireland",
+   "district_name": "Ireland",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · English; Sat 12:00 PM · English · CWS; Sat 2:00 PM · English",
+     "new": "Tue 7:00 PM · English; Wed 7:00 PM · English; Sat 12:00 PM · English · CWS; Sat 2:00 PM · English",
+     "removed": [],
+     "added": [
+      "Tue 7:00 PM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1794017270456-henderson-nevada",
    "at": "2026-11-07T02:07:50.456Z",
