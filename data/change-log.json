@@ -1,6 +1,29 @@
 {
- "updated_at": "2026-11-06T21:45:29.261Z",
+ "updated_at": "2026-11-07T02:07:50.573Z",
  "entries": [
+  {
+   "id": "chg-1794017270456-henderson-nevada",
+   "at": "2026-11-07T02:07:50.456Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-henderson-nevada",
+   "slug": "henderson-nevada",
+   "name": "Henderson, Nevada",
+   "kind": "local_congregation",
+   "district_id": "dist-mountain-states",
+   "district_name": "Mountain States",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 10:00 AM · English; Thu 7:30 PM · English; Sat 7:30 PM · English; Sun 8:00 AM · Tagalog; Sun 11:00 AM · English · CWS; Sun 11:00 AM · English",
+     "new": "Thu 10:00 AM · English; Thu 7:30 PM · English; Sat 7:30 PM · English; Sun 11:00 AM · English · CWS; Sun 11:00 AM · English",
+     "removed": [
+      "Sun 8:00 AM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1794001529111-ilaya-1",
    "at": "2026-11-06T21:45:29.111Z",
