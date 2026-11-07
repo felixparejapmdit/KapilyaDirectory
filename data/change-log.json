@@ -1,6 +1,41 @@
 {
- "updated_at": "2026-11-07T11:22:25.958Z",
+ "updated_at": "2026-11-07T20:22:47.415Z",
  "entries": [
+  {
+   "id": "chg-1794082967297-bulilis-gws",
+   "at": "2026-11-07T20:22:47.297Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-bulilis-gws",
+   "slug": "bulilis-gws",
+   "name": "Bulilis GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-bohol",
+   "district_name": "Bohol",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Prk 3, Brgy Bulilis, Ubay, Bohol, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "9.95865, 124.39340"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:30 PM · Tagalog; Sat 7:00 AM · Tagalog; Sat 9:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 7:00 AM · Tagalog",
+      "Sat 9:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1794050545677-kilkenny-ireland",
    "at": "2026-11-07T11:22:25.677Z",
