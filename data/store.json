@@ -562311,6 +562311,44 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-capudlosan-gws",
+      "district_id": "dist-southern-leyte",
+      "name": "Capudlosan GWS",
+      "slug": "capudlosan-gws",
+      "kind": "group_worship_service",
+      "address": "Brgy. Capudlosan, Hindang, Leyte, 6523, Philippines",
+      "latitude": 10.45078152802118,
+      "longitude": 124.79339606204597,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-08T01:58:41.044Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-capudlosan-gws-3-0600",
+          "locale_id": "loc-capudlosan-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-capudlosan-gws-6-0800",
+          "locale_id": "loc-capudlosan-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "08:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562405,17 +562443,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-07T20:22:47.297Z",
+  "last_updated": "2026-11-08T01:58:41.130Z",
   "last_sync": {
-    "finished_at": "2026-11-07T20:22:47.297Z",
+    "finished_at": "2026-11-08T01:58:41.130Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,792 locales: 1 changed.",
-    "locales_total": 8792,
+    "message": "Checked 8,793 locales: 1 changed.",
+    "locales_total": 8793,
     "updated": 0,
     "added": 1,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1886540
+    "duration_ms": 3293305
   }
 }

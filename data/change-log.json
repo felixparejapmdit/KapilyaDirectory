@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-11-07T20:22:47.415Z",
+ "updated_at": "2026-11-08T01:58:41.582Z",
  "entries": [
+  {
+   "id": "chg-1794103121130-capudlosan-gws",
+   "at": "2026-11-08T01:58:41.130Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-capudlosan-gws",
+   "slug": "capudlosan-gws",
+   "name": "Capudlosan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southern-leyte",
+   "district_name": "Southern Leyte",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Brgy. Capudlosan, Hindang, Leyte, 6523, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "10.45078, 124.79340"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:00 AM · Tagalog; Sat 8:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:00 AM · Tagalog",
+      "Sat 8:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1794082967297-bulilis-gws",
    "at": "2026-11-07T20:22:47.297Z",
