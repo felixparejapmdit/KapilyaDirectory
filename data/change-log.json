@@ -1,6 +1,148 @@
 {
- "updated_at": "2026-11-08T01:58:41.582Z",
+ "updated_at": "2026-11-09T12:59:03.971Z",
  "entries": [
+  {
+   "id": "chg-1794229143879-ipilan-1",
+   "at": "2026-11-09T12:59:03.879Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ipilan-1",
+   "slug": "ipilan-1",
+   "name": "Ipilan",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-west",
+   "district_name": "Quezon",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Tagalog; Thu 6:45 PM · Tagalog; Sat 3:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog",
+     "new": "Thu 5:45 AM · Tagalog; Thu 6:45 PM · Tagalog; Sat 3:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog",
+     "removed": [
+      "Sat 3:00 PM · Tagalog"
+     ],
+     "added": [
+      "Sat 3:00 PM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794229143879-las-pinas",
+   "at": "2026-11-09T12:59:03.879Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-las-pinas",
+   "slug": "las-pinas",
+   "name": "Las Piñas",
+   "kind": "local_congregation",
+   "district_id": "dist-makati",
+   "district_name": "Makati",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 8:00 PM · Tagalog / Tagalog Sign; Sat 8:00 AM · English · CWS; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "new": "Wed 8:00 PM · Tagalog; Thu 6:00 AM · Tagalog; Thu 8:00 PM · Tagalog / Tagalog Sign; Sat 9:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · English · CWS; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Sat 8:00 AM · English · CWS",
+      "Sat 4:00 PM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 9:00 AM · Tagalog · CWS",
+      "Sun 8:00 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794229143879-novaliches",
+   "at": "2026-11-09T12:59:03.879Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-novaliches",
+   "slug": "novaliches",
+   "name": "Novaliches",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-city",
+   "district_name": "Quezon City",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 3:45 PM · Tagalog; Wed 7:45 PM · Tagalog / Tagalog Sign; Thu 5:45 AM · English; Thu 9:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · English / English Sign; Sat 10:00 AM · Tagalog · CWS; Sat 12:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 2:00 PM · Tagalog",
+     "new": "Wed 3:45 PM · Tagalog; Wed 7:45 PM · Tagalog / Tagalog Sign; Thu 5:45 AM · English; Thu 9:45 AM · Tagalog; Thu 7:45 PM · Tagalog; Sat 6:00 AM · English / English Sign; Sat 10:00 AM · English · CWS; Sat 12:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 2:00 PM · Tagalog",
+     "removed": [
+      "Sat 10:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sat 10:00 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794229143879-pandan-gws",
+   "at": "2026-11-09T12:59:03.879Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pandan-gws",
+   "slug": "pandan-gws",
+   "name": "Pandan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-maguindanao",
+   "district_name": "Maguindanao",
+   "changes": [
+    {
+     "field": "location",
+     "old": "6.81960, 124.25306",
+     "new": "6.84657, 124.25288",
+     "moved_km": 3
+    }
+   ]
+  },
+  {
+   "id": "chg-1794229143879-shizouka",
+   "at": "2026-11-09T12:59:03.879Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-shizouka",
+   "slug": "shizouka",
+   "name": "Shizuoka",
+   "kind": "local_congregation",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:30 PM · Tagalog; Sat 8:00 PM · Tagalog; Sun 10:00 AM · Tagalog; Sun 10:00 AM · Tagalog · CWS",
+     "new": "Wed 8:30 PM · Tagalog; Sat 8:00 PM · Tagalog; Sun 10:00 AM · Tagalog; Sun 12:00 PM · Tagalog · CWS",
+     "removed": [
+      "Sun 10:00 AM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 12:00 PM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794229143879-sinipak-gws",
+   "at": "2026-11-09T12:59:03.879Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sinipak-gws",
+   "slug": "sinipak-gws",
+   "name": "Sinipak GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-maguindanao",
+   "district_name": "Maguindanao",
+   "changes": [
+    {
+     "field": "location",
+     "old": "6.91840, 124.00233",
+     "new": "6.79569, 124.03329",
+     "moved_km": 14.07
+    }
+   ]
+  },
   {
    "id": "chg-1794103121130-capudlosan-gws",
    "at": "2026-11-08T01:58:41.130Z",

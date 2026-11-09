@@ -46287,7 +46287,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-10-13T12:06:38.206Z",
+      "source_updated_at": "2026-11-09T12:59:03.822Z",
       "schedule": [
         {
           "id": "sch-shizouka-3-2030",
@@ -46320,12 +46320,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-shizouka-0-1000-2",
+          "id": "sch-shizouka-0-1200",
           "locale_id": "loc-shizouka",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "10:00",
+          "start_time": "12:00",
           "language": "Tagalog",
           "is_cws": true
         }
@@ -376419,7 +376419,7 @@
         "Tagalog Sign",
         "English"
       ],
-      "source_updated_at": "2026-11-05T02:31:00.105Z",
+      "source_updated_at": "2026-11-09T12:59:03.822Z",
       "schedule": [
         {
           "id": "sch-las-pinas-3-2000",
@@ -376453,22 +376453,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-las-pinas-6-0800",
+          "id": "sch-las-pinas-6-0900",
           "locale_id": "loc-las-pinas",
           "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
-          "start_time": "08:00",
-          "language": "English",
-          "is_cws": true
-        },
-        {
-          "id": "sch-las-pinas-6-1600",
-          "locale_id": "loc-las-pinas",
-          "service_type": "CWS",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "16:00",
+          "start_time": "09:00",
           "language": "Tagalog",
           "is_cws": true
         },
@@ -376491,6 +376481,16 @@
           "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-las-pinas-0-0800",
+          "locale_id": "loc-las-pinas",
+          "service_type": "CWS",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "08:00",
+          "language": "English",
+          "is_cws": true
         },
         {
           "id": "sch-las-pinas-0-1000",
@@ -389369,7 +389369,7 @@
         "English",
         "English Sign"
       ],
-      "source_updated_at": "2026-11-05T02:31:00.105Z",
+      "source_updated_at": "2026-11-09T12:59:03.822Z",
       "schedule": [
         {
           "id": "sch-novaliches-3-1545",
@@ -389440,7 +389440,7 @@
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "10:00",
-          "language": "Tagalog",
+          "language": "English",
           "is_cws": true
         },
         {
@@ -474978,7 +474978,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-11-05T12:19:58.575Z",
+      "source_updated_at": "2026-11-09T12:59:03.822Z",
       "schedule": [
         {
           "id": "sch-ipilan-1-4-0545",
@@ -475003,12 +475003,12 @@
         {
           "id": "sch-ipilan-1-6-1500",
           "locale_id": "loc-ipilan-1",
-          "service_type": "Worship",
+          "service_type": "CWS",
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "15:00",
           "language": "Tagalog",
-          "is_cws": false
+          "is_cws": true
         },
         {
           "id": "sch-ipilan-1-6-1800",
@@ -562167,12 +562167,12 @@
       "slug": "pandan-gws",
       "kind": "group_worship_service",
       "address": "Pandan, South Upi, Maguindanao Del Sur, 9603, Philippines",
-      "latitude": 6.819603445710201,
-      "longitude": 124.25306350692928,
+      "latitude": 6.846568,
+      "longitude": 124.25288,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-11-06T12:26:04.086Z",
+      "source_updated_at": "2026-11-09T12:59:03.822Z",
       "phone": null,
       "email": null,
       "schedule": [
@@ -562195,12 +562195,12 @@
       "slug": "sinipak-gws",
       "kind": "group_worship_service",
       "address": "Brgy. Sinipak, Datu Blah T., Sinsuat, 9623, Philippines",
-      "latitude": 6.918400103001626,
-      "longitude": 124.00233226665003,
+      "latitude": 6.795688,
+      "longitude": 124.033291,
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-11-06T12:26:04.086Z",
+      "source_updated_at": "2026-11-09T12:59:03.822Z",
       "phone": null,
       "email": null,
       "schedule": [
@@ -562443,17 +562443,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-08T01:58:41.130Z",
+  "last_updated": "2026-11-09T12:59:03.879Z",
   "last_sync": {
-    "finished_at": "2026-11-08T01:58:41.130Z",
+    "finished_at": "2026-11-09T12:59:03.879Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,793 locales: 1 changed.",
+    "message": "Checked 8,793 locales: 6 changed.",
     "locales_total": 8793,
-    "updated": 0,
-    "added": 1,
+    "updated": 6,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 3293305
+    "duration_ms": 1733638
   }
 }
