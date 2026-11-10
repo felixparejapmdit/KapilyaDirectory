@@ -1,6 +1,160 @@
 {
- "updated_at": "2026-11-09T12:59:03.971Z",
+ "updated_at": "2026-11-10T12:38:44.654Z",
  "entries": [
+  {
+   "id": "chg-1794314324499-bagacay-gws",
+   "at": "2026-11-10T12:38:44.499Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-bagacay-gws",
+   "slug": "bagacay-gws",
+   "name": "Bagacay GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-negros-del-sur",
+   "district_name": "Kabankalan City, Negros Occidental",
+   "changes": [
+    {
+     "field": "location",
+     "old": "9.99516, 122.81588",
+     "new": "9.80275, 122.87822",
+     "moved_km": 22.46
+    }
+   ]
+  },
+  {
+   "id": "chg-1794314324499-valle-hermon-panama",
+   "at": "2026-11-10T12:38:44.499Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-valle-hermon-panama",
+   "slug": "valle-hermon-panama",
+   "name": "Chorrera, Panama EXT (Ciudad de Panama)",
+   "kind": "extension",
+   "district_id": "dist-latin-america",
+   "district_name": "Central America",
+   "changes": [
+    {
+     "field": "location",
+     "old": "8.85064, -79.94048",
+     "new": "8.89192, -79.94752",
+     "moved_km": 4.65
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 PM · Spanish; Sun 12:00 PM · Spanish",
+     "new": "Thu 6:15 PM · Spanish; Sun 12:00 PM · Spanish",
+     "removed": [
+      "Thu 6:00 PM · Spanish"
+     ],
+     "added": [
+      "Thu 6:15 PM · Spanish"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794314324499-holy-friday",
+   "at": "2026-11-10T12:38:44.499Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-holy-friday",
+   "slug": "holy-friday",
+   "name": "Holy Friday",
+   "kind": "local_congregation",
+   "district_id": "dist-isabela-west",
+   "district_name": "Isabela West",
+   "changes": [
+    {
+     "field": "address",
+     "old": "(UNDER CONSTRUCTION)Temp:Tubaña Residence, Purok 2 Barangay Holy Friday, Mallig, Isabela, Philippines",
+     "new": "Purok 1 Holy Friday, Mallig, Isabela, 5JJX+75H, Philippines"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794314324499-pisa-italy",
+   "at": "2026-11-10T12:38:44.499Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pisa-italy",
+   "slug": "pisa-italy",
+   "name": "Pisa GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southern-europe",
+   "district_name": "Italy South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Sun 8:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Sun 11:00 AM · Tagalog",
+     "removed": [
+      "Sun 8:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sun 11:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794314324499-plzen-czech-republic",
+   "at": "2026-11-10T12:38:44.499Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-plzen-czech-republic",
+   "slug": "plzen-czech-republic",
+   "name": "Plzen, Czech Republic",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-europe",
+   "district_name": "Northern Europe",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "220 Jiraskova, Rokycany, Plzen, 33701, Czech Republic"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "49.74077, 13.59463"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Sat 5:00 PM · Tagalog / English; Sun 11:00 AM · Tagalog / English",
+     "removed": [],
+     "added": [
+      "Sat 5:00 PM · Tagalog / English",
+      "Sun 11:00 AM · Tagalog / English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794314324499-vaughan-ontario",
+   "at": "2026-11-10T12:38:44.499Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-vaughan-ontario",
+   "slug": "vaughan-ontario",
+   "name": "Vaughan",
+   "kind": "local_congregation",
+   "district_id": "dist-eastern-canada",
+   "district_name": "Greater Toronto",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · English; Sat 10:00 AM · English; Sat 12:00 PM · English · CWS",
+     "new": "Thu 8:00 PM · English; Sat 10:00 AM · English; Sat 12:00 PM · English · CWS",
+     "removed": [
+      "Wed 8:00 PM · English"
+     ],
+     "added": [
+      "Thu 8:00 PM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1794229143879-ipilan-1",
    "at": "2026-11-09T12:59:03.879Z",
