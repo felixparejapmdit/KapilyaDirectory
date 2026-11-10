@@ -1,6 +1,25 @@
 {
- "updated_at": "2026-11-10T12:38:44.654Z",
+ "updated_at": "2026-11-10T22:10:12.068Z",
  "entries": [
+  {
+   "id": "chg-1794348611963-sherbrooke-quebec-gws",
+   "at": "2026-11-10T22:10:11.963Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sherbrooke-quebec-gws",
+   "slug": "sherbrooke-quebec-gws",
+   "name": "Sherbrooke, Quebec GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-canada-vii",
+   "district_name": "Quebec and Atlantic Canada",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "438-963-5478",
+     "new": "819-469-8204"
+    }
+   ]
+  },
   {
    "id": "chg-1794314324499-bagacay-gws",
    "at": "2026-11-10T12:38:44.499Z",

@@ -25337,7 +25337,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-11-06T12:26:04.086Z",
+      "source_updated_at": "2026-11-10T22:10:11.899Z",
       "schedule": [
         {
           "id": "sch-sherbrooke-quebec-gws-3-1930",
@@ -25370,7 +25370,7 @@
           "is_cws": true
         }
       ],
-      "phone": "438-963-5478",
+      "phone": "819-469-8204",
       "email": null
     },
     {
@@ -562484,17 +562484,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-10T12:38:44.499Z",
+  "last_updated": "2026-11-10T22:10:11.963Z",
   "last_sync": {
-    "finished_at": "2026-11-10T12:38:44.499Z",
+    "finished_at": "2026-11-10T22:10:11.963Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,794 locales: 6 changed.",
+    "message": "Checked 8,794 locales: 1 changed.",
     "locales_total": 8794,
-    "updated": 5,
-    "added": 1,
+    "updated": 1,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2068576
+    "duration_ms": 1913483
   }
 }
