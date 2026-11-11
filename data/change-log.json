@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-11-10T22:10:12.068Z",
+ "updated_at": "2026-11-11T12:10:24.063Z",
  "entries": [
+  {
+   "id": "chg-1794399023976-crossing-palkan-gws",
+   "at": "2026-11-11T12:10:23.976Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-crossing-palkan-gws",
+   "slug": "crossing-palkan-gws",
+   "name": "Crossing Palkan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-sarangani",
+   "district_name": "Sarangani",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Crossing Palkan, Polomolok, South Cotabato, 9504, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "6.26981, 125.01205"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:30 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1794348611963-sherbrooke-quebec-gws",
    "at": "2026-11-10T22:10:11.963Z",
