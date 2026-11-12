@@ -1,6 +1,122 @@
 {
- "updated_at": "2026-11-11T12:10:24.063Z",
+ "updated_at": "2026-11-12T12:37:28.884Z",
  "entries": [
+  {
+   "id": "chg-1794487048735-christchurch-new-zealand",
+   "at": "2026-11-12T12:37:28.735Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-christchurch-new-zealand",
+   "slug": "christchurch-new-zealand",
+   "name": "Christchurch",
+   "kind": "local_congregation",
+   "district_id": "dist-new-zealand-south",
+   "district_name": "New Zealand South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "642-1290-0062",
+     "new": "+64 2231 44316"
+    },
+    {
+     "field": "email",
+     "old": "ka.nestorf@gmail.com",
+     "new": "marco.mangune@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794487048735-franz-josef-gws",
+   "at": "2026-11-12T12:37:28.735Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-franz-josef-gws",
+   "slug": "franz-josef-gws",
+   "name": "Franz Josef GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-new-zealand-south",
+   "district_name": "New Zealand South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "+64 2219 53803",
+     "new": "+64 2743 60376"
+    },
+    {
+     "field": "email",
+     "old": "markf17flores@gmail.com",
+     "new": "Glennmergas15@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794487048735-towerville",
+   "at": "2026-11-12T12:37:28.735Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-towerville",
+   "slug": "towerville",
+   "name": "Towerville",
+   "kind": "local_congregation",
+   "district_id": "dist-bulacan-east",
+   "district_name": "Bulacan East",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:45 AM · Tagalog; Wed 5:00 PM · Tagalog; Wed 7:30 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 5:00 PM · Tagalog; Thu 7:30 PM · Tagalog; Sat 2:00 AM · Tagalog; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 12:00 PM · Tagalog · CWS; Sun 2:00 PM · Tagalog",
+     "new": "Wed 5:45 AM · Tagalog; Wed 5:00 PM · Tagalog; Wed 7:30 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 5:00 PM · Tagalog; Thu 7:30 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 12:00 PM · Tagalog · CWS; Sun 2:00 PM · Tagalog",
+     "removed": [
+      "Sat 2:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 2:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794487048735-wanaka-gws",
+   "at": "2026-11-12T12:37:28.735Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-wanaka-gws",
+   "slug": "wanaka-gws",
+   "name": "Wanaka GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-new-zealand-south",
+   "district_name": "New Zealand South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": null,
+     "new": "+64 22516 2545"
+    },
+    {
+     "field": "email",
+     "old": null,
+     "new": "elbimbo2024@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794487048735-weston-manitoba-canada",
+   "at": "2026-11-12T12:37:28.735Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-weston-manitoba-canada",
+   "slug": "weston-manitoba-canada",
+   "name": "Weston",
+   "kind": "local_congregation",
+   "district_id": "dist-central-canada",
+   "district_name": "Manitoba",
+   "changes": [
+    {
+     "field": "email",
+     "old": "jason.abrias@gmail.com",
+     "new": "secretariat0018manitoba@gmail.com"
+    }
+   ]
+  },
   {
    "id": "chg-1794399023976-crossing-palkan-gws",
    "at": "2026-11-11T12:10:23.976Z",

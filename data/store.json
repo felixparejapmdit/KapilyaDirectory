@@ -16210,7 +16210,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-12T12:37:28.655Z",
       "schedule": [
         {
           "id": "sch-weston-manitoba-canada-3-1930",
@@ -16254,7 +16254,7 @@
         }
       ],
       "phone": "+1 437 779 6853",
-      "email": "jason.abrias@gmail.com"
+      "email": "secretariat0018manitoba@gmail.com"
     },
     {
       "id": "loc-winkler-manitoba-canada",
@@ -63859,7 +63859,7 @@
         "Tagalog",
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-12T12:37:28.655Z",
       "schedule": [
         {
           "id": "sch-christchurch-new-zealand-3-0500",
@@ -63912,8 +63912,8 @@
           "is_cws": true
         }
       ],
-      "phone": "642-1290-0062",
-      "email": "ka.nestorf@gmail.com"
+      "phone": "+64 2231 44316",
+      "email": "marco.mangune@gmail.com"
     },
     {
       "id": "loc-christchurch-east-nz",
@@ -64129,7 +64129,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-12T12:37:28.655Z",
       "schedule": [
         {
           "id": "sch-franz-josef-gws-4-1930",
@@ -64152,8 +64152,8 @@
           "is_cws": false
         }
       ],
-      "phone": "+64 2219 53803",
-      "email": "markf17flores@gmail.com"
+      "phone": "+64 2743 60376",
+      "email": "Glennmergas15@gmail.com"
     },
     {
       "id": "loc-gore-southland-gws",
@@ -64601,7 +64601,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-12T12:37:28.655Z",
       "schedule": [
         {
           "id": "sch-wanaka-gws-4-1930",
@@ -64624,8 +64624,8 @@
           "is_cws": false
         }
       ],
-      "phone": null,
-      "email": null
+      "phone": "+64 22516 2545",
+      "email": "elbimbo2024@gmail.com"
     },
     {
       "id": "loc-west-coast-new-zealand",
@@ -194563,7 +194563,7 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-12T12:37:28.655Z",
       "schedule": [
         {
           "id": "sch-towerville-3-0545",
@@ -194626,22 +194626,22 @@
           "is_cws": false
         },
         {
-          "id": "sch-towerville-6-0200",
-          "locale_id": "loc-towerville",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "02:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
           "id": "sch-towerville-6-0600",
           "locale_id": "loc-towerville",
           "service_type": "Worship",
           "day_of_week": 6,
           "day_name": "Saturday",
           "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-towerville-6-1400",
+          "locale_id": "loc-towerville",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "14:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562522,17 +562522,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-11T12:10:23.976Z",
+  "last_updated": "2026-11-12T12:37:28.735Z",
   "last_sync": {
-    "finished_at": "2026-11-11T12:10:23.976Z",
+    "finished_at": "2026-11-12T12:37:28.735Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 1 changed.",
+    "message": "Checked 8,795 locales: 5 changed.",
     "locales_total": 8795,
-    "updated": 0,
-    "added": 1,
+    "updated": 5,
+    "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1808542
+    "duration_ms": 1688958
   }
 }
