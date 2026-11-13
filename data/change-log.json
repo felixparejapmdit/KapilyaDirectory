@@ -1,6 +1,54 @@
 {
- "updated_at": "2026-11-12T12:37:28.884Z",
+ "updated_at": "2026-11-13T12:17:34.131Z",
  "entries": [
+  {
+   "id": "chg-1794572253998-brandon",
+   "at": "2026-11-13T12:17:33.998Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-brandon",
+   "slug": "brandon",
+   "name": "Brandon",
+   "kind": "local_congregation",
+   "district_id": "dist-central-canada",
+   "district_name": "Manitoba",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "204-901-1672",
+     "new": "+1 204 596 5819"
+    },
+    {
+     "field": "email",
+     "old": "ericsonbolo911@gmail.com",
+     "new": "elmerdlr60@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794572253998-gore-southland-gws",
+   "at": "2026-11-13T12:17:33.998Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-gore-southland-gws",
+   "slug": "gore-southland-gws",
+   "name": "Gore, Southland GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-new-zealand-south",
+   "district_name": "New Zealand South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "+64 2743 60376",
+     "new": "+64 2219 53803"
+    },
+    {
+     "field": "email",
+     "old": "glennmergas15@gmail.com",
+     "new": "floresm17mark@gmail.com"
+    }
+   ]
+  },
   {
    "id": "chg-1794487048735-christchurch-new-zealand",
    "at": "2026-11-12T12:37:28.735Z",

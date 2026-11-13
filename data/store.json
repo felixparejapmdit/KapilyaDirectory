@@ -15733,7 +15733,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-13T12:17:33.915Z",
       "schedule": [
         {
           "id": "sch-brandon-3-1900",
@@ -15756,8 +15756,8 @@
           "is_cws": false
         }
       ],
-      "phone": "204-901-1672",
-      "email": "ericsonbolo911@gmail.com"
+      "phone": "+1 204 596 5819",
+      "email": "elmerdlr60@gmail.com"
     },
     {
       "id": "loc-burrows",
@@ -64169,7 +64169,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-13T12:17:33.915Z",
       "schedule": [
         {
           "id": "sch-gore-southland-gws-2-1930",
@@ -64192,8 +64192,8 @@
           "is_cws": false
         }
       ],
-      "phone": "+64 2743 60376",
-      "email": "glennmergas15@gmail.com"
+      "phone": "+64 2219 53803",
+      "email": "floresm17mark@gmail.com"
     },
     {
       "id": "loc-halswell-ext-christchurch",
@@ -562522,17 +562522,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-12T12:37:28.735Z",
+  "last_updated": "2026-11-13T12:17:33.998Z",
   "last_sync": {
-    "finished_at": "2026-11-12T12:37:28.735Z",
+    "finished_at": "2026-11-13T12:17:33.998Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 5 changed.",
+    "message": "Checked 8,795 locales: 2 changed.",
     "locales_total": 8795,
-    "updated": 5,
+    "updated": 2,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1688958
+    "duration_ms": 1623503
   }
 }
