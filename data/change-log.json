@@ -1,6 +1,248 @@
 {
- "updated_at": "2026-11-13T12:17:34.131Z",
+ "updated_at": "2026-11-14T02:28:35.737Z",
  "entries": [
+  {
+   "id": "chg-1794623315261-camberwell-london",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-camberwell-london",
+   "slug": "camberwell-london",
+   "name": "Camberwell, London",
+   "kind": "local_congregation",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "location",
+     "old": "51.48149, -0.12517",
+     "new": "51.47920, -0.16618",
+     "moved_km": 2.85
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-canterburyengland-gws",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-canterburyengland-gws",
+   "slug": "canterburyengland-gws",
+   "name": "Canterbury,England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "0044-073-7742-5078",
+     "new": "+447838215720"
+    },
+    {
+     "field": "email",
+     "old": null,
+     "new": "adrian.pmorales2016@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-cornwall",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cornwall",
+   "slug": "cornwall",
+   "name": "Cornwall, England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "location",
+     "old": "50.25931, -5.12474",
+     "new": "50.26344, -5.11484",
+     "moved_km": 0.84
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-guilford-england",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-guilford-england",
+   "slug": "guilford-england",
+   "name": "Guildford, England",
+   "kind": "local_congregation",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 8:00 PM · English; Sat 10:00 AM · English; Sat 12:00 PM · English · CWS",
+     "new": "Tue 7:30 PM · English; Sun 10:00 AM · English; Sun 12:00 PM · English · CWS",
+     "removed": [
+      "Tue 8:00 PM · English",
+      "Sat 10:00 AM · English",
+      "Sat 12:00 PM · English · CWS"
+     ],
+     "added": [
+      "Tue 7:30 PM · English",
+      "Sun 10:00 AM · English",
+      "Sun 12:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-lantau-island-china",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-lantau-island-china",
+   "slug": "lantau-island-china",
+   "name": "Lantau Island",
+   "kind": "local_congregation",
+   "district_id": "dist-china",
+   "district_name": "Hongkong",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Discovery Bay North Plaza, LG/F unit 9, Discovery Bay, Lantau Island, 7WGR+VM, Hongkong",
+     "new": "Discovery Bay North Plaza, LG unit 2 Block 1 Office Building, Discovery Bay, Lantau Island, 7WGR+VM, Hongkong"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-romford-england",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-romford-england",
+   "slug": "romford-england",
+   "name": "Romford, England",
+   "kind": "local_congregation",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Sat 10:00 AM · English; Sat 12:00 PM · English · CWS; Sat 6:30 PM · English",
+     "new": "Tue 7:30 PM · English; Sat 10:00 AM · English; Sat 12:00 PM · English · CWS",
+     "removed": [
+      "Sat 6:30 PM · English"
+     ],
+     "added": [
+      "Tue 7:30 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-salisbury-england",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-salisbury-england",
+   "slug": "salisbury-england",
+   "name": "Salisbury, England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "0044-780-451-2324",
+     "new": "+447888272918"
+    },
+    {
+     "field": "email",
+     "old": "MSERRENO@gmail.com",
+     "new": "dfmca47@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-sutton-england",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sutton-england",
+   "slug": "sutton-england",
+   "name": "Sutton, England",
+   "kind": "local_congregation",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "0044-749-343-7680",
+     "new": "+44 74 6278 2155"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-torquay-england",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-torquay-england",
+   "slug": "torquay-england",
+   "name": "Torquay, England",
+   "kind": "local_congregation",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Torquay, England GWS",
+     "new": "Torquay, England"
+    },
+    {
+     "field": "kind",
+     "old": "Group Worship Service (GWS)",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-wanchai-hongkong",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-wanchai-hongkong",
+   "slug": "wanchai-hongkong",
+   "name": "Wanchai",
+   "kind": "local_congregation",
+   "district_id": "dist-china",
+   "district_name": "Hongkong",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "852-5685-7646",
+     "new": null
+    }
+   ]
+  },
+  {
+   "id": "chg-1794623315261-winkler-manitoba-canada",
+   "at": "2026-11-14T02:28:35.261Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-winkler-manitoba-canada",
+   "slug": "winkler-manitoba-canada",
+   "name": "Winkler",
+   "kind": "local_congregation",
+   "district_id": "dist-central-canada",
+   "district_name": "Manitoba",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "204-915-8120",
+     "new": "+1 204-901 1672"
+    }
+   ]
+  },
   {
    "id": "chg-1794572253998-brandon",
    "at": "2026-11-13T12:17:33.998Z",
