@@ -1,6 +1,54 @@
 {
- "updated_at": "2026-11-14T02:28:35.737Z",
+ "updated_at": "2026-11-14T11:42:15.831Z",
  "entries": [
+  {
+   "id": "chg-1794656535445-cromwell-gws",
+   "at": "2026-11-14T11:42:15.445Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-cromwell-gws",
+   "slug": "cromwell-gws",
+   "name": "Cromwell",
+   "kind": "local_congregation",
+   "district_id": "dist-new-zealand-south",
+   "district_name": "New Zealand South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "+6427 329 0013",
+     "new": "+64 2743 60376"
+    },
+    {
+     "field": "email",
+     "old": "twodeegonzales@gmail.com",
+     "new": "Glennmergas15@gmail.com"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794656535445-gillingham-dorset-gws",
+   "at": "2026-11-14T11:42:15.445Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-gillingham-dorset-gws",
+   "slug": "gillingham-dorset-gws",
+   "name": "Gillingham, Dorset GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": null,
+     "new": "+44 78 3052 3698"
+    },
+    {
+     "field": "email",
+     "old": null,
+     "new": "markangelnieto@gmail.com"
+    }
+   ]
+  },
   {
    "id": "chg-1794623315261-camberwell-london",
    "at": "2026-11-14T02:28:35.261Z",

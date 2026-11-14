@@ -48124,7 +48124,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-14T11:42:15.346Z",
       "schedule": [
         {
           "id": "sch-gillingham-dorset-gws-4-1815",
@@ -48147,8 +48147,8 @@
           "is_cws": false
         }
       ],
-      "phone": null,
-      "email": null
+      "phone": "+44 78 3052 3698",
+      "email": "markangelnieto@gmail.com"
     },
     {
       "id": "loc-guilford-england",
@@ -63979,7 +63979,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-14T11:42:15.346Z",
       "schedule": [
         {
           "id": "sch-cromwell-gws-4-1930",
@@ -64012,8 +64012,8 @@
           "is_cws": false
         }
       ],
-      "phone": "+6427 329 0013",
-      "email": "twodeegonzales@gmail.com"
+      "phone": "+64 2743 60376",
+      "email": "Glennmergas15@gmail.com"
     },
     {
       "id": "loc-dunedinnew-zealand",
@@ -562522,17 +562522,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-14T02:28:35.261Z",
+  "last_updated": "2026-11-14T11:42:15.445Z",
   "last_sync": {
-    "finished_at": "2026-11-14T02:28:35.261Z",
+    "finished_at": "2026-11-14T11:42:15.445Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 11 changed.",
+    "message": "Checked 8,795 locales: 2 changed.",
     "locales_total": 8795,
-    "updated": 11,
+    "updated": 2,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1860628
+    "duration_ms": 1828687
   }
 }
