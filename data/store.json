@@ -48915,7 +48915,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-15T12:12:54.021Z",
       "schedule": [
         {
           "id": "sch-royal-greenwich-2-1915",
@@ -48938,7 +48938,7 @@
           "is_cws": false
         }
       ],
-      "phone": "0044-780-451-2324",
+      "phone": "0044-737-742-5078",
       "email": null
     },
     {
@@ -49045,7 +49045,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-11-05T02:31:00.105Z",
+      "source_updated_at": "2026-11-15T12:12:54.021Z",
       "schedule": [
         {
           "id": "sch-southend-england-gws-2-1930",
@@ -49054,16 +49054,6 @@
           "day_of_week": 2,
           "day_name": "Tuesday",
           "start_time": "19:30",
-          "language": "English",
-          "is_cws": false
-        },
-        {
-          "id": "sch-southend-england-gws-6-1000",
-          "locale_id": "loc-southend-england-gws",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "10:00",
           "language": "English",
           "is_cws": false
         }
@@ -562502,17 +562492,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-15T02:03:02.272Z",
+  "last_updated": "2026-11-15T12:12:54.109Z",
   "last_sync": {
-    "finished_at": "2026-11-15T02:03:02.272Z",
+    "finished_at": "2026-11-15T12:12:54.109Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 3 changed.",
+    "message": "Checked 8,795 locales: 2 changed.",
     "locales_total": 8795,
-    "updated": 3,
+    "updated": 2,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1995540
+    "duration_ms": 1676892
   }
 }

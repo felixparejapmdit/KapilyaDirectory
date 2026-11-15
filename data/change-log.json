@@ -1,6 +1,48 @@
 {
- "updated_at": "2026-11-15T02:03:02.379Z",
+ "updated_at": "2026-11-15T12:12:54.661Z",
  "entries": [
+  {
+   "id": "chg-1794744774109-royal-greenwich",
+   "at": "2026-11-15T12:12:54.109Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-royal-greenwich",
+   "slug": "royal-greenwich",
+   "name": "Royal Greenwich, London GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "0044-780-451-2324",
+     "new": "0044-737-742-5078"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794744774109-southend-england-gws",
+   "at": "2026-11-15T12:12:54.109Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-southend-england-gws",
+   "slug": "southend-england-gws",
+   "name": "Southend, England GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 7:30 PM · English; Sat 10:00 AM · English",
+     "new": "Tue 7:30 PM · English",
+     "removed": [
+      "Sat 10:00 AM · English"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1794708182272-jersey-island-gws",
    "at": "2026-11-15T02:03:02.272Z",
