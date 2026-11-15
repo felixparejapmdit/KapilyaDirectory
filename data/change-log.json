@@ -1,6 +1,68 @@
 {
- "updated_at": "2026-11-14T11:42:15.831Z",
+ "updated_at": "2026-11-15T02:03:02.379Z",
  "entries": [
+  {
+   "id": "chg-1794708182272-jersey-island-gws",
+   "at": "2026-11-15T02:03:02.272Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-jersey-island-gws",
+   "slug": "jersey-island-gws",
+   "name": "Jersey Island GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": null,
+     "new": "+44 74 6278 2241"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794708182272-fo-tan-hongkong",
+   "at": "2026-11-15T02:03:02.272Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-fo-tan-hongkong",
+   "slug": "fo-tan-hongkong",
+   "name": "Prince Edward",
+   "kind": "local_congregation",
+   "district_id": "dist-china",
+   "district_name": "Hongkong",
+   "changes": [
+    {
+     "field": "phone",
+     "old": null,
+     "new": "+852 9 441 4621"
+    }
+   ]
+  },
+  {
+   "id": "chg-1794708182272-swindon",
+   "at": "2026-11-15T02:03:02.272Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-swindon",
+   "slug": "swindon",
+   "name": "Swindon GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Tue 8:00 PM · English; Sat 10:00 AM · English; Sat 12:00 PM · English; Sun 12:00 PM · English · CWS",
+     "new": "Tue 8:00 PM · English; Sat 10:00 AM · English",
+     "removed": [
+      "Sat 12:00 PM · English",
+      "Sun 12:00 PM · English · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1794656535445-cromwell-gws",
    "at": "2026-11-14T11:42:15.445Z",
