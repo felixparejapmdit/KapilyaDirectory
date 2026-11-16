@@ -48024,7 +48024,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-16T12:51:53.287Z",
       "schedule": [
         {
           "id": "sch-eastbourne-england-3-1815",
@@ -48057,8 +48057,8 @@
           "is_cws": false
         }
       ],
-      "phone": "0044-78-8827-3133",
-      "email": "jmverame@yahoo.co.uk"
+      "phone": "+447838215720",
+      "email": "adrian.pmorales2016@gmail.com"
     },
     {
       "id": "loc-exeter-england",
@@ -562492,17 +562492,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-15T12:12:54.109Z",
+  "last_updated": "2026-11-16T12:51:53.374Z",
   "last_sync": {
-    "finished_at": "2026-11-15T12:12:54.109Z",
+    "finished_at": "2026-11-16T12:51:53.374Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 2 changed.",
+    "message": "Checked 8,795 locales: 1 changed.",
     "locales_total": 8795,
-    "updated": 2,
+    "updated": 1,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1676892
+    "duration_ms": 1624818
   }
 }

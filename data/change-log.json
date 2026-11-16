@@ -1,6 +1,30 @@
 {
- "updated_at": "2026-11-15T12:12:54.661Z",
+ "updated_at": "2026-11-16T12:51:53.532Z",
  "entries": [
+  {
+   "id": "chg-1794833513374-eastbourne-england",
+   "at": "2026-11-16T12:51:53.374Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-eastbourne-england",
+   "slug": "eastbourne-england",
+   "name": "Eastbourne, England",
+   "kind": "local_congregation",
+   "district_id": "dist-united-kingdom",
+   "district_name": "Britain South",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "0044-78-8827-3133",
+     "new": "+447838215720"
+    },
+    {
+     "field": "email",
+     "old": "jmverame@yahoo.co.uk",
+     "new": "adrian.pmorales2016@gmail.com"
+    }
+   ]
+  },
   {
    "id": "chg-1794744774109-royal-greenwich",
    "at": "2026-11-15T12:12:54.109Z",
