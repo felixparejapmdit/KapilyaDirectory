@@ -1,6 +1,589 @@
 {
- "updated_at": "2026-11-16T12:51:53.532Z",
+ "updated_at": "2026-11-20T13:02:17.024Z",
  "entries": [
+  {
+   "id": "chg-1795179736503-alaska",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-alaska",
+   "slug": "alaska",
+   "name": "Alaska",
+   "kind": "local_congregation",
+   "district_id": "dist-cebu-south",
+   "district_name": "Cebu City, Cebu",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · Cebuano / Tagalog; Thu 5:45 AM · Cebuano; Thu 7:30 PM · Cebuano; Sat 6:00 PM · Cebuano; Sun 6:00 AM · Cebuano; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano",
+     "new": "Thu 5:45 AM · Cebuano; Thu 10:00 AM · Cebuano / Tagalog; Thu 7:30 PM · Cebuano; Sat 6:00 PM · Cebuano; Sun 6:00 AM · Cebuano; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Cebuano",
+     "removed": [
+      "Wed 7:30 PM · Cebuano / Tagalog"
+     ],
+     "added": [
+      "Thu 10:00 AM · Cebuano / Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-siena-italy",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-siena-italy",
+   "slug": "siena-italy",
+   "name": "Arezzo",
+   "kind": "local_congregation",
+   "district_id": "dist-southern-europe",
+   "district_name": "Italy South",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Siena",
+     "new": "Arezzo"
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-baco",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-baco",
+   "slug": "baco",
+   "name": "Baco",
+   "kind": "local_congregation",
+   "district_id": "dist-mindoro-oriental-north",
+   "district_name": "Mindoro Oriental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-balugo",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-balugo",
+   "slug": "balugo",
+   "name": "Balugo",
+   "kind": "local_congregation",
+   "district_id": "dist-leyte-west",
+   "district_name": "Leyte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · Cebuano; Thu 6:00 PM · Cebuano; Sat 3:30 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Cebuano",
+     "new": "Thu 5:45 AM · Cebuano; Thu 6:00 PM · Cebuano; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Cebuano; Sun 9:00 AM · Tagalog · CWS",
+     "removed": [
+      "Sat 3:30 PM · Tagalog · CWS"
+     ],
+     "added": [
+      "Sun 9:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-banna",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-banna",
+   "slug": "banna",
+   "name": "Banna",
+   "kind": "local_congregation",
+   "district_id": "dist-ilocos-norte-ii",
+   "district_name": "Batac City, Ilocos Norte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog / Tagalog Sign; Thu 5:45 AM · Tagalog / Ilocano; Thu 6:30 PM · Tagalog / Ilocano; Sat 8:00 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 6:00 AM · Tagalog / Ilocano; Sun 10:00 AM · Tagalog / Ilocano",
+     "new": "Wed 5:45 AM · Tagalog; Thu 5:45 AM · Tagalog / Ilocano; Thu 6:30 PM · Tagalog / Tagalog Sign; Sat 6:00 AM · Tagalog; Sat 9:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog / Ilocano; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Wed 6:30 PM · Tagalog / Tagalog Sign",
+      "Thu 6:30 PM · Tagalog / Ilocano",
+      "Sat 8:00 AM · Tagalog · CWS",
+      "Sat 6:00 PM · Tagalog / Tagalog Sign",
+      "Sun 10:00 AM · Tagalog / Ilocano"
+     ],
+     "added": [
+      "Wed 5:45 AM · Tagalog",
+      "Thu 6:30 PM · Tagalog / Tagalog Sign",
+      "Sat 6:00 AM · Tagalog",
+      "Sat 9:00 AM · Tagalog · CWS",
+      "Sun 10:00 AM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-crete-greece-gws",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-crete-greece-gws",
+   "slug": "crete-greece-gws",
+   "name": "Crete, Greece GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-mediterranean",
+   "district_name": "Mediterranean",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Jeffrey Ramos res_, Mafsolu 99, Nea Alikarnasso, Crete, 72053, Greece",
+     "new": "Jeffrey Ramos Res_, Kormarou Square, Heraklion, Crete, 72053, Greece"
+    },
+    {
+     "field": "location",
+     "old": "35.24229, 25.72892",
+     "new": "35.33620, 25.13286",
+     "moved_km": 55.1
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 6:30 AM · Tagalog; Sun 9:00 AM · English",
+     "new": "Wed 10:00 AM · Tagalog; Thu 6:30 AM · English; Sun 9:00 AM · English",
+     "removed": [
+      "Thu 6:30 AM · Tagalog"
+     ],
+     "added": [
+      "Wed 10:00 AM · Tagalog",
+      "Thu 6:30 AM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-isabel",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-isabel",
+   "slug": "isabel",
+   "name": "Isabel",
+   "kind": "local_congregation",
+   "district_id": "dist-leyte-west",
+   "district_name": "Leyte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:45 AM · English; Thu 7:00 PM · Cebuano; Sat 4:00 PM · Cebuano · CWS; Sun 6:00 AM · English; Sun 10:00 AM · Tagalog",
+     "new": "Thu 5:45 AM · English; Thu 7:00 PM · Cebuano; Sun 6:00 AM · English; Sun 8:00 AM · Cebuano / Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 4:00 PM · Cebuano · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Cebuano / Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-ligao-city",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-ligao-city",
+   "slug": "ligao-city",
+   "name": "Ligao City",
+   "kind": "local_congregation",
+   "district_id": "dist-albay",
+   "district_name": "Albay",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 2:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 2:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 4:45 PM · Tagalog; Thu 7:30 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 2:00 PM · Tagalog",
+      "Thu 7:00 PM · Tagalog",
+      "Sat 2:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 4:45 PM · Tagalog",
+      "Thu 7:30 PM · Tagalog",
+      "Sat 6:00 AM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-linan-ext",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-linan-ext",
+   "slug": "linan-ext",
+   "name": "Linan Ext.",
+   "kind": "extension",
+   "district_id": "dist-cotabato-southeast",
+   "district_name": "Koronadal City, South Cotabato",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Purok Santan, Brgy. Linan, Tupi, South Cotabato, 9505, Philippines",
+     "new": "Purok 3, Brgy. Linan, Tupi, South Cotabato, 9505, Philippines"
+    },
+    {
+     "field": "location",
+     "old": "6.36328, 124.99737",
+     "new": "6.37004, 124.88312",
+     "moved_km": 12.65
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-magsaysay-gws",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-magsaysay-gws",
+   "slug": "magsaysay-gws",
+   "name": "Magsaysay GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-kalinga",
+   "district_name": "Kalinga",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Brgy Magsaysay, Tabuk, Kalinga, 3800, Philippines",
+     "new": "San Vicente, Brgy Magsaysay, Tabuk, Kalinga, 3800, Philippines"
+    },
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 PM · Tagalog / Ilocano; Thu 6:30 PM · Tagalog / Ilocano; Sat 6:00 PM · Tagalog / Ilocano; Sun 6:00 AM · Tagalog / Ilocano",
+     "new": "Wed 6:30 PM · Tagalog / Ilocano; Thu 6:30 PM · Tagalog / Ilocano; Sat 6:00 PM · Tagalog / Ilocano; Sun 7:00 AM · Tagalog / Ilocano",
+     "removed": [
+      "Sun 6:00 AM · Tagalog / Ilocano"
+     ],
+     "added": [
+      "Sun 7:00 AM · Tagalog / Ilocano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-maluanluan",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-maluanluan",
+   "slug": "maluanluan",
+   "name": "Maluanluan",
+   "kind": "local_congregation",
+   "district_id": "dist-mindoro-oriental-north",
+   "district_name": "Mindoro Oriental",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Maluanluan, Pola, Oriental Mindoro, 5206, Philippines",
+     "new": "@ Temp Chapel, Maluanluan, Pola, Oriental Mindoro, 5206, Philippines"
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-mangalcal-ext",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-mangalcal-ext",
+   "slug": "mangalcal-ext",
+   "name": "Mangalcal",
+   "kind": "local_congregation",
+   "district_id": "dist-davao-del-norte",
+   "district_name": "Davao Del Norte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · Cebuano; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Cebuano",
+     "new": "Mon 5:30 AM · Tagalog; Thu 6:00 PM · Cebuano / Tagalog; Sat 6:00 PM · Cebuano / Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Wed 6:00 PM · Cebuano",
+      "Sat 4:00 PM · Tagalog · CWS",
+      "Sat 6:00 PM · Cebuano"
+     ],
+     "added": [
+      "Mon 5:30 AM · Tagalog",
+      "Thu 6:00 PM · Cebuano / Tagalog",
+      "Sat 6:00 PM · Cebuano / Tagalog",
+      "Sun 6:00 AM · Tagalog",
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-nogales-mexico-gws",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-nogales-mexico-gws",
+   "slug": "nogales-mexico-gws",
+   "name": "Nogales, Mexico GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-latin-america",
+   "district_name": "Central America",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Spanish; Sat 8:00 AM · Spanish",
+     "new": "Wed 8:00 PM · Spanish; Sat 8:00 AM · Spanish",
+     "removed": [
+      "Wed 7:00 PM · Spanish"
+     ],
+     "added": [
+      "Wed 8:00 PM · Spanish"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-pagkakaisa",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pagkakaisa",
+   "slug": "pagkakaisa",
+   "name": "Pagkakaisa",
+   "kind": "local_congregation",
+   "district_id": "dist-mindoro-oriental-north",
+   "district_name": "Mindoro Oriental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 6:00 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "new": "Thu 5:30 AM · Tagalog; Thu 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS",
+     "removed": [
+      "Thu 6:00 AM · Tagalog",
+      "Thu 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 5:30 AM · Tagalog",
+      "Thu 6:30 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-park-ridge-illinois",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-park-ridge-illinois",
+   "slug": "park-ridge-illinois",
+   "name": "Park Ridge, Illinois",
+   "kind": "local_congregation",
+   "district_id": "dist-northern-midwest",
+   "district_name": "Great Lakes",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Sat 6:00 PM · Tagalog; Sun 9:30 AM · English; Sun 11:45 AM · English · CWS",
+     "new": "Wed 7:30 PM · English; Sat 7:00 PM · English; Sun 10:00 AM · English; Sun 12:00 PM · English · CWS",
+     "removed": [
+      "Sat 6:00 PM · Tagalog",
+      "Sun 9:30 AM · English",
+      "Sun 11:45 AM · English · CWS"
+     ],
+     "added": [
+      "Sat 7:00 PM · English",
+      "Sun 10:00 AM · English",
+      "Sun 12:00 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-riverside-3",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-riverside-3",
+   "slug": "riverside-3",
+   "name": "Riverside",
+   "kind": "local_congregation",
+   "district_id": "dist-mindoro-oriental-north",
+   "district_name": "Mindoro Oriental",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "new": "Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS",
+     "removed": [
+      "Thu 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 7:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-roma-sud-prenestina-italy",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-roma-sud-prenestina-italy",
+   "slug": "roma-sud-prenestina-italy",
+   "name": "Roma Sud (South)",
+   "kind": "local_congregation",
+   "district_id": "dist-southern-europe",
+   "district_name": "Italy South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Italian; Thu 7:00 AM · Tagalog / English; Thu 8:30 PM · Tagalog; Sat 4:00 PM · Italian · CWS; Sat 7:00 PM · Italian; Sun 7:00 AM · Tagalog / English; Sun 11:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Italian; Thu 7:00 AM · Tagalog / English; Thu 8:00 PM · Tagalog; Sat 4:00 PM · Italian · CWS; Sat 7:00 PM · Italian; Sun 8:00 AM · English / Tagalog; Sun 11:00 AM · Tagalog",
+     "removed": [
+      "Thu 8:30 PM · Tagalog",
+      "Sun 7:00 AM · Tagalog / English"
+     ],
+     "added": [
+      "Thu 8:00 PM · Tagalog",
+      "Sun 8:00 AM · English / Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-salitran",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-salitran",
+   "slug": "salitran",
+   "name": "Salitran",
+   "kind": "local_congregation",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog / Tagalog Sign; Thu 5:30 AM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog / Tagalog Sign",
+     "removed": [
+      "Wed 7:00 PM · Tagalog",
+      "Sun 10:00 AM · Tagalog"
+     ],
+     "added": [
+      "Wed 7:00 PM · Tagalog / Tagalog Sign",
+      "Sun 10:00 AM · Tagalog / Tagalog Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-san-antonio-5",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-antonio-5",
+   "slug": "san-antonio-5",
+   "name": "San Antonio",
+   "kind": "local_congregation",
+   "district_id": "dist-quezon-west-1",
+   "district_name": "Quezon West",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 PM · English; Thu 5:45 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 6:00 PM · English; Thu 5:45 AM · Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · English; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Sat 6:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-sta-quiteria",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-sta-quiteria",
+   "slug": "sta-quiteria",
+   "name": "Sta. Quiteria",
+   "kind": "local_congregation",
+   "district_id": "dist-metro-manila-north",
+   "district_name": "Camanava",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · Tagalog; Thu 5:30 AM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:30 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "new": "Wed 8:00 PM · Tagalog; Thu 5:45 AM · Tagalog; Thu 3:00 PM · Tagalog; Thu 8:00 PM · Tagalog; Sat 4:00 PM · Tagalog; Sat 8:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:30 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Thu 5:30 AM · Tagalog",
+      "Thu 7:30 PM · Tagalog",
+      "Sat 6:00 AM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ],
+     "added": [
+      "Thu 5:45 AM · Tagalog",
+      "Thu 8:00 PM · Tagalog",
+      "Sat 4:00 PM · Tagalog",
+      "Sat 8:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-taguig",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-taguig",
+   "slug": "taguig",
+   "name": "Taguig",
+   "kind": "local_congregation",
+   "district_id": "dist-metro-manila-east",
+   "district_name": "Metro Manila East",
+   "changes": [
+    {
+     "field": "phone",
+     "old": "(02) 8732-8829",
+     "new": "(02) 8732-8819"
+    }
+   ]
+  },
+  {
+   "id": "chg-1795179736503-vallejo",
+   "at": "2026-11-20T13:02:16.503Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-vallejo",
+   "slug": "vallejo",
+   "name": "Vallejo",
+   "kind": "local_congregation",
+   "district_id": "dist-northeast-california",
+   "district_name": "Northeast California",
+   "changes": [
+    {
+     "field": "address",
+     "old": "600 Ryder Street, Vallejo, California, 94590, United States of America",
+     "new": "502 Virginia Street, Vallejo, California, 94590, United States of America"
+    },
+    {
+     "field": "location",
+     "old": "38.09322, -122.24832",
+     "new": "38.10235, -122.25469",
+     "moved_km": 1.16
+    }
+   ]
+  },
   {
    "id": "chg-1794833513374-eastbourne-england",
    "at": "2026-11-16T12:51:53.374Z",
