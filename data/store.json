@@ -16537,9 +16537,10 @@
       "latitude": 15.206125,
       "longitude": 145.719566,
       "languages": [
-        "English"
+        "English",
+        "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-22T12:47:32.055Z",
       "schedule": [
         {
           "id": "sch-saipan-north-3-2000",
@@ -16590,6 +16591,16 @@
           "start_time": "10:00",
           "language": "English",
           "is_cws": true
+        },
+        {
+          "id": "sch-saipan-north-0-1200",
+          "locale_id": "loc-saipan-north",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "12:00",
+          "language": "Tagalog",
+          "is_cws": false
         }
       ],
       "phone": "670-789-1168",
@@ -454505,18 +454516,8 @@
       "languages": [
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-22T12:47:32.055Z",
       "schedule": [
-        {
-          "id": "sch-parklane-ext-3-0530",
-          "locale_id": "loc-parklane-ext",
-          "service_type": "Worship",
-          "day_of_week": 3,
-          "day_name": "Wednesday",
-          "start_time": "05:30",
-          "language": "Tagalog",
-          "is_cws": false
-        },
         {
           "id": "sch-parklane-ext-3-1900",
           "locale_id": "loc-parklane-ext",
@@ -454544,16 +454545,6 @@
           "day_of_week": 4,
           "day_name": "Thursday",
           "start_time": "19:00",
-          "language": "Tagalog",
-          "is_cws": false
-        },
-        {
-          "id": "sch-parklane-ext-6-0600",
-          "locale_id": "loc-parklane-ext",
-          "service_type": "Worship",
-          "day_of_week": 6,
-          "day_name": "Saturday",
-          "start_time": "06:00",
           "language": "Tagalog",
           "is_cws": false
         },
@@ -562525,17 +562516,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-20T13:02:16.503Z",
+  "last_updated": "2026-11-22T12:47:32.141Z",
   "last_sync": {
-    "finished_at": "2026-11-20T13:02:16.503Z",
+    "finished_at": "2026-11-22T12:47:32.141Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 22 changed.",
+    "message": "Checked 8,795 locales: 2 changed.",
     "locales_total": 8795,
-    "updated": 22,
+    "updated": 2,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2003364
+    "duration_ms": 1903295
   }
 }

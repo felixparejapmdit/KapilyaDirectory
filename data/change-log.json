@@ -1,6 +1,53 @@
 {
- "updated_at": "2026-11-20T13:02:17.024Z",
+ "updated_at": "2026-11-22T12:47:32.269Z",
  "entries": [
+  {
+   "id": "chg-1795351652141-saipan-north",
+   "at": "2026-11-22T12:47:32.141Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-saipan-north",
+   "slug": "saipan-north",
+   "name": "Garapan,CNMI",
+   "kind": "local_congregation",
+   "district_id": "dist-marianas-islands",
+   "district_name": "Micronesia",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 8:00 PM · English; Thu 8:00 PM · English; Sat 8:00 PM · English; Sun 8:00 AM · English; Sun 10:00 AM · English · CWS",
+     "new": "Wed 8:00 PM · English; Thu 8:00 PM · English; Sat 8:00 PM · English; Sun 8:00 AM · English; Sun 10:00 AM · English · CWS; Sun 12:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sun 12:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795351652141-parklane-ext",
+   "at": "2026-11-22T12:47:32.141Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-parklane-ext",
+   "slug": "parklane-ext",
+   "name": "Parklane Ext. (Sabang)",
+   "kind": "extension",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:30 AM · Tagalog; Wed 7:00 PM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "removed": [
+      "Wed 5:30 AM · Tagalog",
+      "Sat 6:00 AM · Tagalog"
+     ],
+     "added": []
+    }
+   ]
+  },
   {
    "id": "chg-1795179736503-alaska",
    "at": "2026-11-20T13:02:16.503Z",
