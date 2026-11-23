@@ -1,6 +1,25 @@
 {
- "updated_at": "2026-11-22T12:47:32.269Z",
+ "updated_at": "2026-11-23T14:28:25.494Z",
  "entries": [
+  {
+   "id": "chg-1795444105350-kuala-lumpur-malaysia",
+   "at": "2026-11-23T14:28:25.350Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-kuala-lumpur-malaysia",
+   "slug": "kuala-lumpur-malaysia",
+   "name": "Kuala Lumpur",
+   "kind": "local_congregation",
+   "district_id": "dist-southeast-asia-ii",
+   "district_name": "Malaysia",
+   "changes": [
+    {
+     "field": "email",
+     "old": "johelaxlblanco09@gmail.com",
+     "new": null
+    }
+   ]
+  },
   {
    "id": "chg-1795351652141-saipan-north",
    "at": "2026-11-22T12:47:32.141Z",

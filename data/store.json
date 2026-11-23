@@ -36465,7 +36465,7 @@
         "English",
         "Tagalog"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-23T14:28:25.264Z",
       "schedule": [
         {
           "id": "sch-kuala-lumpur-malaysia-4-2000",
@@ -36519,7 +36519,7 @@
         }
       ],
       "phone": "60-18-269-6220",
-      "email": "johelaxlblanco09@gmail.com"
+      "email": null
     },
     {
       "id": "loc-kuching-sarawak-gws",
@@ -562516,17 +562516,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-22T12:47:32.141Z",
+  "last_updated": "2026-11-23T14:28:25.350Z",
   "last_sync": {
-    "finished_at": "2026-11-22T12:47:32.141Z",
+    "finished_at": "2026-11-23T14:28:25.350Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 2 changed.",
+    "message": "Checked 8,795 locales: 1 changed.",
     "locales_total": 8795,
-    "updated": 2,
+    "updated": 1,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1903295
+    "duration_ms": 1724925
   }
 }
