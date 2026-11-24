@@ -1,6 +1,100 @@
 {
- "updated_at": "2026-11-23T14:28:25.494Z",
+ "updated_at": "2026-11-24T03:17:17.897Z",
  "entries": [
+  {
+   "id": "chg-1795490237748-siena-italy",
+   "at": "2026-11-24T03:17:17.748Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-siena-italy",
+   "slug": "siena-italy",
+   "name": "Arezzo",
+   "kind": "local_congregation",
+   "district_id": "dist-southern-europe",
+   "district_name": "Italy South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:00 PM · Tagalog / Italian; Sun 11:00 AM · Tagalog / Italian",
+     "new": "Thu 5:30 PM · Tagalog / Italian; Sun 11:00 AM · Tagalog / Italian",
+     "removed": [
+      "Thu 5:00 PM · Tagalog / Italian"
+     ],
+     "added": [
+      "Thu 5:30 PM · Tagalog / Italian"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795490237748-crete-greece-gws",
+   "at": "2026-11-24T03:17:17.748Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-crete-greece-gws",
+   "slug": "crete-greece-gws",
+   "name": "Crete, Greece GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-mediterranean",
+   "district_name": "Mediterranean",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 10:00 AM · Tagalog; Thu 6:30 AM · English; Sun 9:00 AM · English",
+     "new": "Wed 10:00 AM · Tagalog; Thu 8:00 PM · English; Sun 9:00 AM · English",
+     "removed": [
+      "Thu 6:30 AM · English"
+     ],
+     "added": [
+      "Thu 8:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795490237748-evangelista",
+   "at": "2026-11-24T03:17:17.748Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-evangelista",
+   "slug": "evangelista",
+   "name": "Evangelista",
+   "kind": "local_congregation",
+   "district_id": "dist-makati",
+   "district_name": "Makati",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:00 AM · Tagalog; Wed 7:00 PM · Tagalog / Tagalog Sign; Sat 6:00 AM · Tagalog; Sat 9:45 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 9:45 AM · English · CWS; Sun 11:45 AM · Tagalog · CWS",
+     "new": "Wed 6:00 AM · Tagalog; Wed 7:00 PM · Tagalog / Tagalog Sign; Sat 6:00 AM · Tagalog; Sat 9:45 AM · Tagalog · CWS; Sat 6:00 PM · Tagalog / Tagalog Sign; Sun 8:00 AM · English · CWS; Sun 11:45 AM · Tagalog · CWS",
+     "removed": [
+      "Sun 9:45 AM · English · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795490237748-roma-sud-prenestina-italy",
+   "at": "2026-11-24T03:17:17.748Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-roma-sud-prenestina-italy",
+   "slug": "roma-sud-prenestina-italy",
+   "name": "Roma Sud (South)",
+   "kind": "local_congregation",
+   "district_id": "dist-southern-europe",
+   "district_name": "Italy South",
+   "changes": [
+    {
+     "field": "address",
+     "old": "Via Sestio Menas 98, Rome, 00178, Italy",
+     "new": "Via Sestio Menas 98, Rome, 00175, Italy"
+    }
+   ]
+  },
   {
    "id": "chg-1795444105350-kuala-lumpur-malaysia",
    "at": "2026-11-23T14:28:25.350Z",

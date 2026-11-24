@@ -54270,7 +54270,7 @@
       "name": "Roma Sud (South)",
       "slug": "roma-sud-prenestina-italy",
       "kind": "local_congregation",
-      "address": "Via Sestio Menas 98, Rome, 00178, Italy",
+      "address": "Via Sestio Menas 98, Rome, 00175, Italy",
       "latitude": 41.866925,
       "longitude": 12.550572,
       "languages": [
@@ -54278,7 +54278,7 @@
         "Tagalog",
         "English"
       ],
-      "source_updated_at": "2026-11-20T13:02:16.440Z",
+      "source_updated_at": "2026-11-24T03:17:17.662Z",
       "schedule": [
         {
           "id": "sch-roma-sud-prenestina-italy-3-1900",
@@ -54486,15 +54486,15 @@
         "Tagalog",
         "Italian"
       ],
-      "source_updated_at": "2026-11-20T13:02:16.440Z",
+      "source_updated_at": "2026-11-24T03:17:17.662Z",
       "schedule": [
         {
-          "id": "sch-siena-italy-4-1700",
+          "id": "sch-siena-italy-4-1730",
           "locale_id": "loc-siena-italy",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "17:00",
+          "start_time": "17:30",
           "language": "Tagalog",
           "language2": "Italian",
           "is_cws": false
@@ -54933,7 +54933,7 @@
         "Tagalog",
         "English"
       ],
-      "source_updated_at": "2026-11-20T13:02:16.440Z",
+      "source_updated_at": "2026-11-24T03:17:17.662Z",
       "schedule": [
         {
           "id": "sch-crete-greece-gws-3-1000",
@@ -54946,12 +54946,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-crete-greece-gws-4-0630",
+          "id": "sch-crete-greece-gws-4-2000",
           "locale_id": "loc-crete-greece-gws",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "06:30",
+          "start_time": "20:00",
           "language": "English",
           "is_cws": false
         },
@@ -376020,7 +376020,7 @@
         "Tagalog Sign",
         "English"
       ],
-      "source_updated_at": "2026-10-15T01:11:34.506Z",
+      "source_updated_at": "2026-11-24T03:17:17.662Z",
       "schedule": [
         {
           "id": "sch-evangelista-3-0600",
@@ -376075,12 +376075,12 @@
           "is_cws": false
         },
         {
-          "id": "sch-evangelista-0-0945",
+          "id": "sch-evangelista-0-0800",
           "locale_id": "loc-evangelista",
           "service_type": "CWS",
           "day_of_week": 0,
           "day_name": "Sunday",
-          "start_time": "09:45",
+          "start_time": "08:00",
           "language": "English",
           "is_cws": true
         },
@@ -562516,17 +562516,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-23T14:28:25.350Z",
+  "last_updated": "2026-11-24T03:17:17.748Z",
   "last_sync": {
-    "finished_at": "2026-11-23T14:28:25.350Z",
+    "finished_at": "2026-11-24T03:17:17.748Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,795 locales: 1 changed.",
+    "message": "Checked 8,795 locales: 4 changed.",
     "locales_total": 8795,
-    "updated": 1,
+    "updated": 4,
     "added": 0,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 1724925
+    "duration_ms": 1971697
   }
 }
