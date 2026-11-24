@@ -1,6 +1,160 @@
 {
- "updated_at": "2026-11-24T03:17:17.897Z",
+ "updated_at": "2026-11-24T15:01:34.566Z",
  "entries": [
+  {
+   "id": "chg-1795532494175-northern-virginia-virginia",
+   "at": "2026-11-24T15:01:34.175Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-northern-virginia-virginia",
+   "slug": "northern-virginia-virginia",
+   "name": "Alexandria, Virginia",
+   "kind": "local_congregation",
+   "district_id": "dist-mid-atlantic",
+   "district_name": "Washington DC",
+   "changes": [
+    {
+     "field": "address",
+     "old": "(Northern Virginia place of worship), 7001 Backlick rd., Springfield, Virginia, 22150, United States of America",
+     "new": "Temple Hills place of worship, 5225, Springfield, Virginia, 22150, United States of America"
+    },
+    {
+     "field": "location",
+     "old": "38.81771, -76.95166",
+     "new": "38.81781, -76.95163",
+     "moved_km": 0.01
+    }
+   ]
+  },
+  {
+   "id": "chg-1795532494175-callingwoodalberta",
+   "at": "2026-11-24T15:01:34.175Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-callingwoodalberta",
+   "slug": "callingwoodalberta",
+   "name": "Callingwood,Alberta",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-vi",
+   "district_name": "Edmonton",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 12:30 AM · English; Wed 7:30 PM · English; Sat 6:00 AM · English; Sat 8:30 AM · English · CWS; Sat 11:00 AM · English",
+     "new": "Wed 12:30 AM · English; Wed 7:30 PM · English; Sat 6:00 AM · English; Sat 10:30 AM · English · CWS; Sat 7:30 PM · English",
+     "removed": [
+      "Sat 8:30 AM · English · CWS",
+      "Sat 11:00 AM · English"
+     ],
+     "added": [
+      "Sat 10:30 AM · English · CWS",
+      "Sat 7:30 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795532494175-kindersley-gws",
+   "at": "2026-11-24T15:01:34.175Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-kindersley-gws",
+   "slug": "kindersley-gws",
+   "name": "Eston GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-saskatchewan",
+   "district_name": "Saskatchewan",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Kindersley GWS",
+     "new": "Eston GWS"
+    },
+    {
+     "field": "address",
+     "old": "35 West Road, Kindersley, Saskatchewan (SK), S0L1S1, Canada",
+     "new": "Eston, -, Saskatchewan (SK), Canada"
+    }
+   ]
+  },
+  {
+   "id": "chg-1795532494175-leduc-gws",
+   "at": "2026-11-24T15:01:34.175Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-leduc-gws",
+   "slug": "leduc-gws",
+   "name": "Leduc",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-vi",
+   "district_name": "Edmonton",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:30 PM · English; Sat 7:00 AM · English; Sat 9:00 AM · English · CWS",
+     "new": "Tue 7:30 PM · English; Fri 6:00 PM · English · CWS; Fri 8:00 PM · English",
+     "removed": [
+      "Wed 7:30 PM · English",
+      "Sat 7:00 AM · English",
+      "Sat 9:00 AM · English · CWS"
+     ],
+     "added": [
+      "Tue 7:30 PM · English",
+      "Fri 6:00 PM · English · CWS",
+      "Fri 8:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795532494175-san-fernando-2",
+   "at": "2026-11-24T15:01:34.175Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-san-fernando-2",
+   "slug": "san-fernando-2",
+   "name": "San Fernando City",
+   "kind": "local_congregation",
+   "district_id": "dist-la-union",
+   "district_name": "La Union",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · English Sign / English Sign; Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · English · CWS; Sun 10:00 AM · English / English Sign",
+     "new": "Thu 5:30 AM · English / English Sign; Thu 7:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · English · CWS; Sun 10:00 AM · English / English Sign",
+     "removed": [
+      "Thu 5:30 AM · English Sign / English Sign"
+     ],
+     "added": [
+      "Thu 5:30 AM · English / English Sign"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795532494175-the-colony-gws",
+   "at": "2026-11-24T15:01:34.175Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-the-colony-gws",
+   "slug": "the-colony-gws",
+   "name": "The Colony",
+   "kind": "local_congregation",
+   "district_id": "dist-south-central-states",
+   "district_name": "South Central States",
+   "changes": [
+    {
+     "field": "name",
+     "old": "The Colony GWS",
+     "new": "The Colony"
+    },
+    {
+     "field": "kind",
+     "old": "Group Worship Service (GWS)",
+     "new": "Local congregation"
+    }
+   ]
+  },
   {
    "id": "chg-1795490237748-siena-italy",
    "at": "2026-11-24T03:17:17.748Z",
