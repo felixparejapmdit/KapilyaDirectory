@@ -1,6 +1,142 @@
 {
- "updated_at": "2026-11-24T15:01:34.566Z",
+ "updated_at": "2026-11-25T01:00:40.881Z",
  "entries": [
+  {
+   "id": "chg-1795568440729-hakodate-gws",
+   "at": "2026-11-25T01:00:40.729Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-hakodate-gws",
+   "slug": "hakodate-gws",
+   "name": "Hakodate GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-japan",
+   "district_name": "Tokyo, Japan",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "28-2 Chiyogadai, Hakodate, Hokkaido, Japan"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "41.78540, 140.74558"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Thu 8:30 PM · Tagalog; Sat 8:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Thu 8:30 PM · Tagalog",
+      "Sat 8:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795568440729-nanzi-kaohsiung-city-taiwan",
+   "at": "2026-11-25T01:00:40.729Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-nanzi-kaohsiung-city-taiwan",
+   "slug": "nanzi-kaohsiung-city-taiwan",
+   "name": "Kaohsiung City",
+   "kind": "local_congregation",
+   "district_id": "dist-taiwan-south",
+   "district_name": "Taiwan South",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 9:00 PM · Tagalog; Thu 10:00 AM · Tagalog; Sat 10:00 AM · Tagalog; Sat 9:00 PM · English; Sun 8:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 12:00 PM · English · CWS",
+     "new": "Wed 10:00 AM · Tagalog; Wed 9:00 PM · English; Thu 10:00 AM · Tagalog; Sat 10:00 AM · Tagalog; Sat 9:00 PM · English; Sun 8:00 AM · Tagalog; Sun 10:00 AM · Tagalog; Sun 12:00 PM · English · CWS",
+     "removed": [
+      "Wed 9:00 PM · Tagalog"
+     ],
+     "added": [
+      "Wed 10:00 AM · Tagalog",
+      "Wed 9:00 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795568440729-malacca-gwsmalaysia",
+   "at": "2026-11-25T01:00:40.729Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-malacca-gwsmalaysia",
+   "slug": "malacca-gwsmalaysia",
+   "name": "Malacca GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-southeast-asia-ii",
+   "district_name": "Malaysia",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Sun 7:30 AM · Tagalog; Sun 9:30 AM · Tagalog; Sun 12:00 PM · English · CWS",
+     "new": "Sun 8:00 AM · Tagalog; Sun 10:30 AM · Tagalog; Sun 12:30 PM · English · CWS",
+     "removed": [
+      "Sun 7:30 AM · Tagalog",
+      "Sun 9:30 AM · Tagalog",
+      "Sun 12:00 PM · English · CWS"
+     ],
+     "added": [
+      "Sun 8:00 AM · Tagalog",
+      "Sun 10:30 AM · Tagalog",
+      "Sun 12:30 PM · English · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795568440729-malpoc-ext",
+   "at": "2026-11-25T01:00:40.729Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-malpoc-ext",
+   "slug": "malpoc-ext",
+   "name": "Malpoc",
+   "kind": "local_congregation",
+   "district_id": "dist-agusan-del-norte",
+   "district_name": "Agusan Del Norte",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Malpoc Ext",
+     "new": "Malpoc"
+    },
+    {
+     "field": "kind",
+     "old": "Extension",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1795568440729-parklane-ext",
+   "at": "2026-11-25T01:00:40.729Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-parklane-ext",
+   "slug": "parklane-ext",
+   "name": "Parklane Ext. (Sabang)",
+   "kind": "extension",
+   "district_id": "dist-cavite-south",
+   "district_name": "Dasmarinas City, Cavite",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 7:00 PM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 10:00 AM · Tagalog",
+     "new": "Wed 7:00 PM · Tagalog; Thu 3:00 PM · Tagalog; Thu 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Tagalog; Sun 8:00 AM · Tagalog · CWS; Sun 10:00 AM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sun 8:00 AM · Tagalog · CWS"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1795532494175-northern-virginia-virginia",
    "at": "2026-11-24T15:01:34.175Z",
