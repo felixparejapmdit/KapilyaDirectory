@@ -5186,16 +5186,16 @@
       "district_id": "dist-canada-v",
       "district_name": "Calgary",
       "district_slug": "canada-v",
-      "name": "Medicine Hat GWS",
+      "name": "Medicine Hat",
       "slug": "medicine-hat-alberta",
-      "kind": "group_worship_service",
+      "kind": "local_congregation",
       "address": "Chinese Alliance Hall, 870 4 St, East Medicine Hat, Alberta, T1A 0L4, Canada",
       "latitude": 50.04171526965707,
       "longitude": -110.66790115995859,
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
       "schedule": [
         {
           "id": "sch-medicine-hat-alberta-2-1930",
@@ -8201,15 +8201,15 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-11-24T15:01:34.119Z",
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
       "schedule": [
         {
-          "id": "sch-callingwoodalberta-3-0030",
+          "id": "sch-callingwoodalberta-3-1230",
           "locale_id": "loc-callingwoodalberta",
           "service_type": "Worship",
           "day_of_week": 3,
           "day_name": "Wednesday",
-          "start_time": "00:30",
+          "start_time": "12:30",
           "language": "English",
           "is_cws": false
         },
@@ -60123,9 +60123,11 @@
       "latitude": 43.738564,
       "longitude": 7.417652899999999,
       "languages": [
-        "Tagalog"
+        "Tagalog",
+        "English",
+        "French"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
       "schedule": [
         {
           "id": "sch-monaco-3-0630",
@@ -60156,6 +60158,17 @@
           "start_time": "06:30",
           "language": "Tagalog",
           "is_cws": false
+        },
+        {
+          "id": "sch-monaco-6-1830",
+          "locale_id": "loc-monaco",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:30",
+          "language": "English",
+          "language2": "French",
+          "is_cws": true
         },
         {
           "id": "sch-monaco-6-2030",
@@ -159261,15 +159274,15 @@
         "Cebuano",
         "Tagalog"
       ],
-      "source_updated_at": "2026-11-25T01:00:40.640Z",
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
       "schedule": [
         {
-          "id": "sch-malpoc-ext-4-0530",
+          "id": "sch-malpoc-ext-4-0600",
           "locale_id": "loc-malpoc-ext",
           "service_type": "Worship",
           "day_of_week": 4,
           "day_name": "Thursday",
-          "start_time": "05:30",
+          "start_time": "06:00",
           "language": "Cebuano",
           "language2": "Tagalog",
           "is_cws": false
@@ -562480,6 +562493,236 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-nazareth-gws",
+      "district_id": "dist-tarlac-central",
+      "name": "Nazareth GWS",
+      "slug": "nazareth-gws",
+      "kind": "group_worship_service",
+      "address": "Baculong, Victoria, Tarlac, 2300, Philippines",
+      "latitude": 15.52765566126639,
+      "longitude": 120.63068950987922,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-nazareth-gws-3-1900",
+          "locale_id": "loc-nazareth-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "19:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-nazareth-gws-6-1800",
+          "locale_id": "loc-nazareth-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
+    },
+    {
+      "id": "loc-libagon-ext",
+      "district_id": "dist-southern-leyte",
+      "name": "Libagon Ext",
+      "slug": "libagon-ext",
+      "kind": "extension",
+      "address": "Prk 3, Brgy. Tigbao, Libagon, Southern Leyte, 6615, Philippines",
+      "latitude": 10.31280190435285,
+      "longitude": 125.04328015235953,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-libagon-ext-3-0600",
+          "locale_id": "loc-libagon-ext",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-libagon-ext-3-1800",
+          "locale_id": "loc-libagon-ext",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-libagon-ext-6-0600",
+          "locale_id": "loc-libagon-ext",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-libagon-ext-6-1500",
+          "locale_id": "loc-libagon-ext",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "15:00",
+          "language": "Tagalog",
+          "is_cws": true
+        },
+        {
+          "id": "sch-libagon-ext-6-1800",
+          "locale_id": "loc-libagon-ext",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
+    },
+    {
+      "id": "loc-ciw-gws",
+      "district_id": "dist-davao-del-norte",
+      "name": "CIW GWS",
+      "slug": "ciw-gws",
+      "kind": "group_worship_service",
+      "address": "CIW compd., Bobongon, Davao del Norte, 8112, Philippines",
+      "latitude": 7.493562,
+      "longitude": 125.62647,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-ciw-gws-3-1400",
+          "locale_id": "loc-ciw-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "14:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-ciw-gws-6-1400",
+          "locale_id": "loc-ciw-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "14:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
+    },
+    {
+      "id": "loc-tagnanan-gws",
+      "district_id": "dist-davao-del-norte",
+      "name": "Tagnanan GWS",
+      "slug": "tagnanan-gws",
+      "kind": "group_worship_service",
+      "address": "Prk 15, Tugas, Tagnanan, Mabini, Davao de Oro, Philippines",
+      "latitude": 7.244752,
+      "longitude": 125.8485068,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-tagnanan-gws-4-0500",
+          "locale_id": "loc-tagnanan-gws",
+          "service_type": "Worship",
+          "day_of_week": 4,
+          "day_name": "Thursday",
+          "start_time": "05:00",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-tagnanan-gws-6-1600",
+          "locale_id": "loc-tagnanan-gws",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "16:00",
+          "language": "Tagalog",
+          "is_cws": true
+        },
+        {
+          "id": "sch-tagnanan-gws-6-1800",
+          "locale_id": "loc-tagnanan-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
+    },
+    {
+      "id": "loc-igsuming-gws",
+      "district_id": "dist-antique",
+      "name": "Igsuming GWS",
+      "slug": "igsuming-gws",
+      "kind": "group_worship_service",
+      "address": "Brgy Igsuming, Sibalom, Antique, 5713, Philippines",
+      "latitude": 10.801708209089805,
+      "longitude": 122.08376005389914,
+      "languages": [
+        "Tagalog"
+      ],
+      "source_updated_at": "2026-11-25T14:27:40.538Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-igsuming-gws-3-1830",
+          "locale_id": "loc-igsuming-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "18:30",
+          "language": "Tagalog",
+          "is_cws": false
+        },
+        {
+          "id": "sch-igsuming-gws-6-1800",
+          "locale_id": "loc-igsuming-gws",
+          "service_type": "Worship",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "18:00",
+          "language": "Tagalog",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562574,17 +562817,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-25T01:00:40.729Z",
+  "last_updated": "2026-11-25T14:27:40.614Z",
   "last_sync": {
-    "finished_at": "2026-11-25T01:00:40.729Z",
+    "finished_at": "2026-11-25T14:27:40.614Z",
     "trigger": "cli",
     "status": "success",
-    "message": "Checked 8,796 locales: 5 changed.",
-    "locales_total": 8796,
+    "message": "Checked 8,801 locales: 9 changed.",
+    "locales_total": 8801,
     "updated": 4,
-    "added": 1,
+    "added": 5,
     "removed": 0,
     "fetch_failures": 0,
-    "duration_ms": 2492510
+    "duration_ms": 2130386
   }
 }

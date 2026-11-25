@@ -1,6 +1,277 @@
 {
- "updated_at": "2026-11-25T01:00:40.881Z",
+ "updated_at": "2026-11-25T14:27:40.741Z",
  "entries": [
+  {
+   "id": "chg-1795616860614-callingwoodalberta",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-callingwoodalberta",
+   "slug": "callingwoodalberta",
+   "name": "Callingwood,Alberta",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-vi",
+   "district_name": "Edmonton",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 12:30 AM · English; Wed 7:30 PM · English; Sat 6:00 AM · English; Sat 10:30 AM · English · CWS; Sat 7:30 PM · English",
+     "new": "Wed 12:30 PM · English; Wed 7:30 PM · English; Sat 6:00 AM · English; Sat 10:30 AM · English · CWS; Sat 7:30 PM · English",
+     "removed": [
+      "Wed 12:30 AM · English"
+     ],
+     "added": [
+      "Wed 12:30 PM · English"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-ciw-gws",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-ciw-gws",
+   "slug": "ciw-gws",
+   "name": "CIW GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-davao-del-norte",
+   "district_name": "Davao Del Norte",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "CIW compd., Bobongon, Davao del Norte, 8112, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "7.49356, 125.62647"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 2:00 PM · Tagalog; Sat 2:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 2:00 PM · Tagalog",
+      "Sat 2:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-igsuming-gws",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-igsuming-gws",
+   "slug": "igsuming-gws",
+   "name": "Igsuming GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-antique",
+   "district_name": "Antique",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Brgy Igsuming, Sibalom, Antique, 5713, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "10.80171, 122.08376"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:30 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:30 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-libagon-ext",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-libagon-ext",
+   "slug": "libagon-ext",
+   "name": "Libagon Ext",
+   "kind": "extension",
+   "district_id": "dist-southern-leyte",
+   "district_name": "Southern Leyte",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Prk 3, Brgy. Tigbao, Libagon, Southern Leyte, 6615, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "10.31280, 125.04328"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:00 AM · Tagalog; Wed 6:00 PM · Tagalog; Sat 6:00 AM · Tagalog; Sat 3:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 6:00 AM · Tagalog",
+      "Wed 6:00 PM · Tagalog",
+      "Sat 6:00 AM · Tagalog",
+      "Sat 3:00 PM · Tagalog · CWS",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-malpoc-ext",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-malpoc-ext",
+   "slug": "malpoc-ext",
+   "name": "Malpoc",
+   "kind": "local_congregation",
+   "district_id": "dist-agusan-del-norte",
+   "district_name": "Agusan Del Norte",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · Cebuano / Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Cebuano / Tagalog; Sun 8:00 AM · Cebuano / Tagalog · CWS",
+     "new": "Thu 6:00 AM · Cebuano / Tagalog; Thu 6:00 PM · Tagalog; Sat 6:00 PM · Tagalog; Sun 6:00 AM · Cebuano / Tagalog; Sun 8:00 AM · Cebuano / Tagalog · CWS",
+     "removed": [
+      "Thu 5:30 AM · Cebuano / Tagalog"
+     ],
+     "added": [
+      "Thu 6:00 AM · Cebuano / Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-medicine-hat-alberta",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-medicine-hat-alberta",
+   "slug": "medicine-hat-alberta",
+   "name": "Medicine Hat",
+   "kind": "local_congregation",
+   "district_id": "dist-canada-v",
+   "district_name": "Calgary",
+   "changes": [
+    {
+     "field": "name",
+     "old": "Medicine Hat GWS",
+     "new": "Medicine Hat"
+    },
+    {
+     "field": "kind",
+     "old": "Group Worship Service (GWS)",
+     "new": "Local congregation"
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-monaco",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-monaco",
+   "slug": "monaco",
+   "name": "Monaco",
+   "kind": "local_congregation",
+   "district_id": "dist-western-europe",
+   "district_name": "Western Europe",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 6:30 AM · Tagalog; Wed 8:30 PM · Tagalog; Sat 6:30 AM · Tagalog; Sat 8:30 PM · Tagalog",
+     "new": "Wed 6:30 AM · Tagalog; Wed 8:30 PM · Tagalog; Sat 6:30 AM · Tagalog; Sat 6:30 PM · English / French · CWS; Sat 8:30 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sat 6:30 PM · English / French · CWS"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-nazareth-gws",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-nazareth-gws",
+   "slug": "nazareth-gws",
+   "name": "Nazareth GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-tarlac-central",
+   "district_name": "Tarlac City, Tarlac",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Baculong, Victoria, Tarlac, 2300, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "15.52766, 120.63069"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 7:00 PM · Tagalog; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Wed 7:00 PM · Tagalog",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795616860614-tagnanan-gws",
+   "at": "2026-11-25T14:27:40.614Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-tagnanan-gws",
+   "slug": "tagnanan-gws",
+   "name": "Tagnanan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-davao-del-norte",
+   "district_name": "Davao Del Norte",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Prk 15, Tugas, Tagnanan, Mabini, Davao de Oro, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "7.24475, 125.84851"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Thu 5:00 AM · Tagalog; Sat 4:00 PM · Tagalog · CWS; Sat 6:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Thu 5:00 AM · Tagalog",
+      "Sat 4:00 PM · Tagalog · CWS",
+      "Sat 6:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1795568440729-hakodate-gws",
    "at": "2026-11-25T01:00:40.729Z",
