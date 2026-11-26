@@ -1,6 +1,98 @@
 {
- "updated_at": "2026-11-25T14:27:40.741Z",
+ "updated_at": "2026-11-26T00:30:26.947Z",
  "entries": [
+  {
+   "id": "chg-1795653026730-baclog-ext",
+   "at": "2026-11-26T00:30:26.730Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-baclog-ext",
+   "slug": "baclog-ext",
+   "name": "Baclog Ext",
+   "kind": "extension",
+   "district_id": "dist-compostela-valley",
+   "district_name": "Davao De Oro",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Prk 12, Brgy Baclog Osmeña, Compostela, Davao de Oro, Philippines"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "7.66768, 126.08618"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 6:00 AM · Tagalog / Cebuano; Sat 7:00 AM · Tagalog · CWS; Sun 6:00 AM · Tagalog / Cebuano",
+     "removed": [],
+     "added": [
+      "Wed 6:00 AM · Tagalog / Cebuano",
+      "Sat 7:00 AM · Tagalog · CWS",
+      "Sun 6:00 AM · Tagalog / Cebuano"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chg-1795653026730-oakland",
+   "at": "2026-11-26T00:30:26.730Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-oakland",
+   "slug": "oakland",
+   "name": "Oakland",
+   "kind": "local_congregation",
+   "district_id": "dist-northwest-california",
+   "district_name": "Bay Area California",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Thu 5:30 AM · English; Thu 7:30 PM · English; Sat 7:00 PM · English; Sun 10:00 AM · English; Sun 12:30 PM · English · CWS",
+     "new": "Thu 5:30 AM · English; Thu 7:30 PM · English; Sat 7:00 PM · English; Sun 10:00 AM · English",
+     "removed": [
+      "Sun 12:30 PM · English · CWS"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1795653026730-port-augusta-gws",
+   "at": "2026-11-26T00:30:26.730Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-port-augusta-gws",
+   "slug": "port-augusta-gws",
+   "name": "Port Augusta GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-australia-west",
+   "district_name": "Victoria, Australia",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "18 Abernethy Ave., Port Augusta, 5700, Australia"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "-32.50652, 137.78220"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Wed 7:30 PM · English; Sun 9:30 AM · English",
+     "removed": [],
+     "added": [
+      "Wed 7:30 PM · English",
+      "Sun 9:30 AM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1795616860614-callingwoodalberta",
    "at": "2026-11-25T14:27:40.614Z",

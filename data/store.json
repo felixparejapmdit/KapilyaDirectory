@@ -2871,7 +2871,7 @@
       "languages": [
         "English"
       ],
-      "source_updated_at": "2026-09-24T21:23:56.976Z",
+      "source_updated_at": "2026-11-26T00:30:26.646Z",
       "schedule": [
         {
           "id": "sch-oakland-4-0530",
@@ -2912,16 +2912,6 @@
           "start_time": "10:00",
           "language": "English",
           "is_cws": false
-        },
-        {
-          "id": "sch-oakland-0-1230",
-          "locale_id": "loc-oakland",
-          "service_type": "CWS",
-          "day_of_week": 0,
-          "day_name": "Sunday",
-          "start_time": "12:30",
-          "language": "English",
-          "is_cws": true
         }
       ],
       "phone": "510-289-5790",
@@ -562723,6 +562713,95 @@
           "is_cws": false
         }
       ]
+    },
+    {
+      "id": "loc-port-augusta-gws",
+      "district_id": "dist-australia-west",
+      "name": "Port Augusta GWS",
+      "slug": "port-augusta-gws",
+      "kind": "group_worship_service",
+      "address": "18 Abernethy Ave., Port Augusta, 5700, Australia",
+      "latitude": -32.506520861994396,
+      "longitude": 137.78219771780738,
+      "languages": [
+        "English"
+      ],
+      "source_updated_at": "2026-11-26T00:30:26.646Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-port-augusta-gws-3-1930",
+          "locale_id": "loc-port-augusta-gws",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "19:30",
+          "language": "English",
+          "is_cws": false
+        },
+        {
+          "id": "sch-port-augusta-gws-0-0930",
+          "locale_id": "loc-port-augusta-gws",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "09:30",
+          "language": "English",
+          "is_cws": false
+        }
+      ]
+    },
+    {
+      "id": "loc-baclog-ext",
+      "district_id": "dist-compostela-valley",
+      "name": "Baclog Ext",
+      "slug": "baclog-ext",
+      "kind": "extension",
+      "address": "Prk 12, Brgy Baclog Osmeña, Compostela, Davao de Oro, Philippines",
+      "latitude": 7.667683313896363,
+      "longitude": 126.08618282436696,
+      "languages": [
+        "Tagalog",
+        "Cebuano"
+      ],
+      "source_updated_at": "2026-11-26T00:30:26.646Z",
+      "phone": null,
+      "email": null,
+      "schedule": [
+        {
+          "id": "sch-baclog-ext-3-0600",
+          "locale_id": "loc-baclog-ext",
+          "service_type": "Worship",
+          "day_of_week": 3,
+          "day_name": "Wednesday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "language2": "Cebuano",
+          "is_cws": false
+        },
+        {
+          "id": "sch-baclog-ext-6-0700",
+          "locale_id": "loc-baclog-ext",
+          "service_type": "CWS",
+          "day_of_week": 6,
+          "day_name": "Saturday",
+          "start_time": "07:00",
+          "language": "Tagalog",
+          "is_cws": true
+        },
+        {
+          "id": "sch-baclog-ext-0-0600",
+          "locale_id": "loc-baclog-ext",
+          "service_type": "Worship",
+          "day_of_week": 0,
+          "day_name": "Sunday",
+          "start_time": "06:00",
+          "language": "Tagalog",
+          "language2": "Cebuano",
+          "is_cws": false
+        }
+      ]
     }
   ],
   "snapshots": [
@@ -562817,17 +562896,17 @@
       "description": "Complete worldwide directory catalog with all 8,779 congregations, extensions, and GWS."
     }
   ],
-  "last_updated": "2026-11-25T14:27:40.614Z",
+  "last_updated": "2026-11-26T00:30:26.730Z",
   "last_sync": {
-    "finished_at": "2026-11-25T14:27:40.614Z",
+    "finished_at": "2026-11-26T00:30:26.730Z",
     "trigger": "cli",
-    "status": "success",
-    "message": "Checked 8,801 locales: 9 changed.",
-    "locales_total": 8801,
-    "updated": 4,
-    "added": 5,
+    "status": "partial",
+    "message": "Checked 8,802 locales: 3 changed; 1 pages kept their previous data.",
+    "locales_total": 8803,
+    "updated": 1,
+    "added": 2,
     "removed": 0,
-    "fetch_failures": 0,
-    "duration_ms": 2130386
+    "fetch_failures": 1,
+    "duration_ms": 1930780
   }
 }
