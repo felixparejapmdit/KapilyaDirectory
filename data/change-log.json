@@ -1,6 +1,40 @@
 {
- "updated_at": "2026-11-26T14:01:24.128Z",
+ "updated_at": "2026-11-27T00:59:04.320Z",
  "entries": [
+  {
+   "id": "chg-1795741144226-rabat-morocco-gws",
+   "at": "2026-11-27T00:59:04.226Z",
+   "source": "cli",
+   "action": "added",
+   "locale_id": "loc-rabat-morocco-gws",
+   "slug": "rabat-morocco-gws",
+   "name": "Rabat, Morocco GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-northern-africa",
+   "district_name": "Northern Africa",
+   "changes": [
+    {
+     "field": "address",
+     "old": null,
+     "new": "Al QODS 1 IMM 1 Bldg A Appartment, (470) Mers-Ai Kheir, 13150, Skhirat Temara Rabat, Morocco"
+    },
+    {
+     "field": "location",
+     "old": null,
+     "new": "33.88341, -6.90321"
+    },
+    {
+     "field": "schedule",
+     "old": null,
+     "new": "Sun 9:30 AM · English; Sun 12:00 PM · English",
+     "removed": [],
+     "added": [
+      "Sun 9:30 AM · English",
+      "Sun 12:00 PM · English"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1795701682747-bangar",
    "at": "2026-11-26T14:01:22.747Z",
