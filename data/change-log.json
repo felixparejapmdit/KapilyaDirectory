@@ -1,6 +1,58 @@
 {
- "updated_at": "2026-11-27T00:59:04.320Z",
+ "updated_at": "2026-11-27T13:58:37.631Z",
  "entries": [
+  {
+   "id": "chg-1795787917362-dutch-harbor-unalaska-gws",
+   "at": "2026-11-27T13:58:37.362Z",
+   "source": "cli",
+   "action": "removed",
+   "locale_id": "loc-dutch-harbor-unalaska-gws",
+   "slug": "dutch-harbor-unalaska-gws",
+   "name": "Dutch Harbor, Unalaska GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-alaska",
+   "district_name": "Alaska",
+   "changes": [
+    {
+     "field": "address",
+     "old": "37 5th st., Unalaska, Alaska AK, 99692, USA",
+     "new": null
+    },
+    {
+     "field": "schedule",
+     "old": "Thu 7:30 PM · English; Sat 7:00 PM · English",
+     "new": null,
+     "removed": [
+      "Thu 7:30 PM · English",
+      "Sat 7:00 PM · English"
+     ],
+     "added": []
+    }
+   ]
+  },
+  {
+   "id": "chg-1795787917362-pandan-gws",
+   "at": "2026-11-27T13:58:37.362Z",
+   "source": "cli",
+   "action": "updated",
+   "locale_id": "loc-pandan-gws",
+   "slug": "pandan-gws",
+   "name": "Pandan GWS",
+   "kind": "group_worship_service",
+   "district_id": "dist-maguindanao",
+   "district_name": "Maguindanao",
+   "changes": [
+    {
+     "field": "schedule",
+     "old": "Wed 5:15 PM · Tagalog",
+     "new": "Wed 5:15 PM · Tagalog; Sat 5:00 PM · Tagalog",
+     "removed": [],
+     "added": [
+      "Sat 5:00 PM · Tagalog"
+     ]
+    }
+   ]
+  },
   {
    "id": "chg-1795741144226-rabat-morocco-gws",
    "at": "2026-11-27T00:59:04.226Z",
